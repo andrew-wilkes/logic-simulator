@@ -63,36 +63,42 @@ __meta__ = {
 [node name="not" type="ToolButton" parent="M/Topbar/H"]
 margin_right = 59.0
 margin_bottom = 38.0
+hint_tooltip = "NOT gate"
 icon = ExtResource( 7 )
 
 [node name="and" type="ToolButton" parent="M/Topbar/H"]
 margin_left = 59.0
 margin_right = 119.0
 margin_bottom = 38.0
+hint_tooltip = "AND  gate"
 icon = ExtResource( 3 )
 
 [node name="nand" type="ToolButton" parent="M/Topbar/H"]
 margin_left = 119.0
 margin_right = 179.0
 margin_bottom = 38.0
+hint_tooltip = "NAND  gate"
 icon = ExtResource( 2 )
 
 [node name="or" type="ToolButton" parent="M/Topbar/H"]
 margin_left = 179.0
 margin_right = 239.0
 margin_bottom = 38.0
+hint_tooltip = "OR  gate"
 icon = ExtResource( 4 )
 
 [node name="nor" type="ToolButton" parent="M/Topbar/H"]
 margin_left = 239.0
 margin_right = 299.0
 margin_bottom = 38.0
+hint_tooltip = "NOR gate"
 icon = ExtResource( 6 )
 
 [node name="xor" type="ToolButton" parent="M/Topbar/H"]
 margin_left = 299.0
 margin_right = 359.0
 margin_bottom = 38.0
+hint_tooltip = "XOR  gate"
 icon = ExtResource( 5 )
 
 [node name="Control2" type="Control" parent="M/Topbar"]

@@ -11,11 +11,12 @@ func add_part(name: String):
 	$Graph.add_child(part)
 	part.offset.x = get_viewport().get_mouse_position().x
 
-"""
-func _input(event):
-	if event.is_action_pressed("delete"):
-		$Graph.
-"""
+
+func remove_connections_to_node(node):
+	for con in $Graph.get_connection_list():
+		if con.to == node.name or con.from == node.name:
+			$Graph.disconnect_node(con.from, con.from_port, con.to, con.to_port)
+
 
 func _on_not_button_down():
 	add_part("NOT")
@@ -56,6 +57,7 @@ func _on_Graph_disconnection_request(from, from_slot, to, to_slot):
 func _on_Graph_delete_nodes_request():
 	for node in selected_nodes.keys():
 		if selected_nodes[node]:
+			remove_connections_to_node(node)
 			node.queue_free()
 	selected_nodes = {}
 

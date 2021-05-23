@@ -12,7 +12,7 @@ config_version=4
 
 config/name="Logic Simulator"
 run/main_scene="res://Main.tscn"
-config/icon="res://assets/not.png"
+config/icon="res://icon.png"
 
 [autoload]
 
