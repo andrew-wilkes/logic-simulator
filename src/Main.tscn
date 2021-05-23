@@ -101,12 +101,13 @@ margin_right = 1900.0
 margin_bottom = 38.0
 size_flags_horizontal = 3
 
-[node name="GraphEdit" type="GraphEdit" parent="."]
+[node name="Graph" type="GraphEdit" parent="."]
 margin_top = 62.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+right_disconnects = true
 scroll_offset = Vector2( 0, -24 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -118,3 +119,5 @@ __meta__ = {
 [connection signal="button_down" from="M/Topbar/H/or" to="." method="_on_or_button_down"]
 [connection signal="button_down" from="M/Topbar/H/nor" to="." method="_on_nor_button_down"]
 [connection signal="button_down" from="M/Topbar/H/xor" to="." method="_on_xor_button_down"]
+[connection signal="connection_request" from="Graph" to="." method="_on_Graph_connection_request"]
+[connection signal="disconnection_request" from="Graph" to="." method="_on_Graph_disconnection_request"]
