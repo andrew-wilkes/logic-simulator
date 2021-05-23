@@ -1,0 +1,120 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://assets/nand.png" type="Texture" id=2]
+[ext_resource path="res://assets/and.png" type="Texture" id=3]
+[ext_resource path="res://assets/or.png" type="Texture" id=4]
+[ext_resource path="res://assets/xor.png" type="Texture" id=5]
+[ext_resource path="res://assets/nor.png" type="Texture" id=6]
+[ext_resource path="res://assets/not.png" type="Texture" id=7]
+
+[node name="Main" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="M" type="MarginContainer" parent="."]
+margin_right = 1920.0
+margin_bottom = 58.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="Topbar" type="HBoxContainer" parent="M"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1910.0
+margin_bottom = 48.0
+custom_constants/separation = 20
+
+[node name="File" type="LinkButton" parent="M/Topbar"]
+margin_right = 23.0
+margin_bottom = 38.0
+text = "File"
+underline = 1
+
+[node name="Help" type="LinkButton" parent="M/Topbar"]
+margin_left = 43.0
+margin_right = 73.0
+margin_bottom = 38.0
+focus_mode = 2
+text = "Help"
+underline = 1
+
+[node name="Control" type="Control" parent="M/Topbar"]
+margin_left = 93.0
+margin_right = 797.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+
+[node name="H" type="HBoxContainer" parent="M/Topbar"]
+margin_left = 817.0
+margin_right = 1176.0
+margin_bottom = 38.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="not" type="ToolButton" parent="M/Topbar/H"]
+margin_right = 59.0
+margin_bottom = 38.0
+icon = ExtResource( 7 )
+
+[node name="and" type="ToolButton" parent="M/Topbar/H"]
+margin_left = 59.0
+margin_right = 119.0
+margin_bottom = 38.0
+icon = ExtResource( 3 )
+
+[node name="nand" type="ToolButton" parent="M/Topbar/H"]
+margin_left = 119.0
+margin_right = 179.0
+margin_bottom = 38.0
+icon = ExtResource( 2 )
+
+[node name="or" type="ToolButton" parent="M/Topbar/H"]
+margin_left = 179.0
+margin_right = 239.0
+margin_bottom = 38.0
+icon = ExtResource( 4 )
+
+[node name="nor" type="ToolButton" parent="M/Topbar/H"]
+margin_left = 239.0
+margin_right = 299.0
+margin_bottom = 38.0
+icon = ExtResource( 6 )
+
+[node name="xor" type="ToolButton" parent="M/Topbar/H"]
+margin_left = 299.0
+margin_right = 359.0
+margin_bottom = 38.0
+icon = ExtResource( 5 )
+
+[node name="Control2" type="Control" parent="M/Topbar"]
+margin_left = 1196.0
+margin_right = 1900.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+
+[node name="GraphEdit" type="GraphEdit" parent="."]
+margin_top = 62.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_offset = Vector2( 0, -24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_down" from="M/Topbar/H/not" to="." method="_on_not_button_down"]
+[connection signal="button_down" from="M/Topbar/H/and" to="." method="_on_and_button_down"]
+[connection signal="button_down" from="M/Topbar/H/nand" to="." method="_on_nand_button_down"]
+[connection signal="button_down" from="M/Topbar/H/or" to="." method="_on_or_button_down"]
+[connection signal="button_down" from="M/Topbar/H/nor" to="." method="_on_nor_button_down"]
+[connection signal="button_down" from="M/Topbar/H/xor" to="." method="_on_xor_button_down"]
