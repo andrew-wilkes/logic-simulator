@@ -120,4 +120,7 @@ __meta__ = {
 [connection signal="button_down" from="M/Topbar/H/nor" to="." method="_on_nor_button_down"]
 [connection signal="button_down" from="M/Topbar/H/xor" to="." method="_on_xor_button_down"]
 [connection signal="connection_request" from="Graph" to="." method="_on_Graph_connection_request"]
+[connection signal="delete_nodes_request" from="Graph" to="." method="_on_Graph_delete_nodes_request"]
 [connection signal="disconnection_request" from="Graph" to="." method="_on_Graph_disconnection_request"]
+[connection signal="node_selected" from="Graph" to="." method="_on_Graph_node_selected"]
+[connection signal="node_unselected" from="Graph" to="." method="_on_Graph_node_unselected"]

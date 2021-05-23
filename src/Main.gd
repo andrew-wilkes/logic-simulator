@@ -1,5 +1,7 @@
 extends VBoxContainer
 
+var selected_nodes = {}
+
 func _ready():
 	Parts.hide()
 
@@ -9,6 +11,11 @@ func add_part(name: String):
 	$Graph.add_child(part)
 	part.offset.x = get_viewport().get_mouse_position().x
 
+"""
+func _input(event):
+	if event.is_action_pressed("delete"):
+		$Graph.
+"""
 
 func _on_not_button_down():
 	add_part("NOT")
@@ -44,3 +51,18 @@ func _on_Graph_connection_request(from, from_slot, to, to_slot):
 
 func _on_Graph_disconnection_request(from, from_slot, to, to_slot):
 	$Graph.disconnect_node(from, from_slot, to, to_slot)
+
+
+func _on_Graph_delete_nodes_request():
+	for node in selected_nodes.keys():
+		if selected_nodes[node]:
+			node.queue_free()
+	selected_nodes = {}
+
+
+func _on_Graph_node_selected(node):
+	selected_nodes[node] = true
+
+
+func _on_Graph_node_unselected(node):
+	selected_nodes[node] = false
