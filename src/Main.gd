@@ -18,11 +18,27 @@ func _ready():
 	fm.add_item("Save As...", SAVEAS)
 
 
-func add_part(name: String):
-	var part: Control = Parts.get_node(name).duplicate()
+func update_levels(node, port, level):
+	if node.group == "Inputs":
+		reset_race_detection()
+	for con in $Graph.get_connection_list():
+		if con.from == node.name and con.from_port == port:
+			$Graph.get_node(con.to).set_input(level, con.to_port)
+
+
+func reset_race_detection():
+	var nodes = $Graph.get_children()
+	for node in nodes:
+		if node is GraphNode:
+			node.reset()
+
+
+func add_part(type: String, group = "Gates"):
+	var part: GraphNode = Parts.get_part(type, group)
 	$Graph.add_child(part)
 	part.offset.x = get_viewport().get_mouse_position().x
 	changed = true
+	var _e = part.connect("output_changed", self, "update_levels")
 
 
 func remove_connections_to_node(node):
@@ -165,7 +181,7 @@ func save_data():
 	data["nodes"] = []
 	for node in $Graph.get_children():
 		if node is GraphNode:
-			data["nodes"].append({ "type": node.title.strip_edges(), "name": node.name, "x": node.offset.x, "y": node.offset.y })
+			data["nodes"].append({ "type": node.type, "group": node.group, "name": node.name, "x": node.offset.x, "y": node.offset.y })
 	var file = File.new()
 	file.open(file_name, File.WRITE)
 	file.store_string(to_json(data))
@@ -195,9 +211,14 @@ func load_data():
 func init_graph():
 	clear_graph()
 	for node in data["nodes"]:
-		var gnode = Parts.get_node(node.type).duplicate()
-		gnode.offset = Vector2(node.x, node.y)
-		gnode.name = node.name
-		$Graph.add_child(gnode)
+		var part: Part = Parts.get_part(node.type, node.group)
+		part.offset = Vector2(node.x, node.y)
+		part.name = node.name
+		$Graph.add_child(part)
+		var _e = part.connect("output_changed", self, "update_levels")
 	for con in data.connections:
 		var _e = $Graph.connect_node(con.from, con.from_port, con.to, con.to_port)
+
+
+func _on_Test_button_down():
+	add_part("INPUT", "Inputs")

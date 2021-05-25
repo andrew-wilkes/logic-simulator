@@ -53,13 +53,13 @@ underline = 1
 
 [node name="Control" type="Control" parent="M/Topbar"]
 margin_left = 93.0
-margin_right = 797.0
+margin_right = 777.0
 margin_bottom = 38.0
 size_flags_horizontal = 3
 
 [node name="H" type="HBoxContainer" parent="M/Topbar"]
-margin_left = 817.0
-margin_right = 1176.0
+margin_left = 797.0
+margin_right = 1195.0
 margin_bottom = 38.0
 custom_constants/separation = 0
 __meta__ = {
@@ -107,8 +107,14 @@ margin_bottom = 38.0
 hint_tooltip = "XOR  gate"
 icon = ExtResource( 5 )
 
+[node name="Test" type="Button" parent="M/Topbar/H"]
+margin_left = 359.0
+margin_right = 398.0
+margin_bottom = 38.0
+text = "Test"
+
 [node name="Control2" type="Control" parent="M/Topbar"]
-margin_left = 1196.0
+margin_left = 1215.0
 margin_right = 1900.0
 margin_bottom = 38.0
 size_flags_horizontal = 3
@@ -148,6 +154,7 @@ window_title = "Open a File"
 resizable = true
 mode = 0
 access = 2
+show_hidden_files = true
 current_dir = "/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src"
 current_path = "/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/"
 
@@ -164,6 +171,7 @@ margin_bottom = 70.0
 [connection signal="button_down" from="M/Topbar/H/or" to="." method="_on_or_button_down"]
 [connection signal="button_down" from="M/Topbar/H/nor" to="." method="_on_nor_button_down"]
 [connection signal="button_down" from="M/Topbar/H/xor" to="." method="_on_xor_button_down"]
+[connection signal="button_down" from="M/Topbar/H/Test" to="." method="_on_Test_button_down"]
 [connection signal="connection_request" from="Graph" to="." method="_on_Graph_connection_request"]
 [connection signal="delete_nodes_request" from="Graph" to="." method="_on_Graph_delete_nodes_request"]
 [connection signal="disconnection_request" from="Graph" to="." method="_on_Graph_disconnection_request"]
