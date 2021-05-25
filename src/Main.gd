@@ -35,7 +35,7 @@ func reset_race_detection():
 
 func add_part(type: String, group = "Gates"):
 	var part: GraphNode = Parts.get_part(type, group)
-	$Graph.add_child(part)
+	$Graph.add_child(part, true) # Use a legible_unique_name to ensure that node name is saved and loaded ok
 	part.offset.x = get_viewport().get_mouse_position().x
 	changed = true
 	var _e = part.connect("output_changed", self, "update_levels")
@@ -207,16 +207,18 @@ func load_data():
 		$Alert.popup_centered()
 	action = NOACTION
 
-
 func init_graph():
 	clear_graph()
 	for node in data["nodes"]:
 		var part: Part = Parts.get_part(node.type, node.group)
 		part.offset = Vector2(node.x, node.y)
+		# A non-connected part seems to have a name containing @ marks
+		# But when it is added to the scene, the @ marks are removed
 		part.name = node.name
 		$Graph.add_child(part)
 		var _e = part.connect("output_changed", self, "update_levels")
 	for con in data.connections:
+		print(con.to)
 		var _e = $Graph.connect_node(con.from, con.from_port, con.to, con.to_port)
 
 

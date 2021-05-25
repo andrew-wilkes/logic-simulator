@@ -4,6 +4,8 @@ class_name Part
 
 signal output_changed(node, slot, level)
 
+const RACE_TRIGGER_COUNT = 4
+
 var type = ""
 var group = ""
 var input_levels = {}
@@ -26,11 +28,11 @@ func set_input(level: bool, port: int):
 	update_output(level, port)
 
 
-# Use slot index rather than port index
 func set_output(level: bool, slot: int):
 	var col = Color.red if level else Color.blue
 	set("slot/%d/right_color" % slot, col)
-	emit_signal("output_changed", self, slot, level)
+	# Output the port number
+	emit_signal("output_changed", self, 0, level)
 
 
 func update_output(level: bool, idx: int):
@@ -43,7 +45,8 @@ func update_output(level: bool, idx: int):
 	# Detect race condition
 	if inputs_effected.has(idx):
 		inputs_effected[idx] += 1
-		breakpoint # Unstable
+		if inputs_effected[idx] == RACE_TRIGGER_COUNT:
+			breakpoint # Unstable
 	else:
 		inputs_effected[idx] = 1
 	# Remember the current input level
