@@ -36,7 +36,7 @@ func reset_race_detection():
 func add_part(type: String, group = "Gates"):
 	var part: GraphNode = Parts.get_part(type, group)
 	$Graph.add_child(part, true) # Use a legible_unique_name to ensure that node name is saved and loaded ok
-	part.offset.x = get_viewport().get_mouse_position().x
+	part.offset = Vector2(get_viewport().get_mouse_position().x, rand_range(20, 100))
 	changed = true
 	var _e = part.connect("output_changed", self, "update_levels")
 

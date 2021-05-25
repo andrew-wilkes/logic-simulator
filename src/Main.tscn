@@ -120,13 +120,11 @@ margin_bottom = 38.0
 size_flags_horizontal = 3
 
 [node name="Graph" type="GraphEdit" parent="."]
-margin_top = 62.0
 margin_right = 1920.0
-margin_bottom = 1080.0
+margin_bottom = 1018.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 right_disconnects = true
-scroll_offset = Vector2( 0, -134 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
