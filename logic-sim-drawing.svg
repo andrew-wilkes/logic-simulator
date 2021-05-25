@@ -24,8 +24,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8"
-     inkscape:cx="-781.60954"
-     inkscape:cy="-571.07714"
+     inkscape:cx="-893.66968"
+     inkscape:cy="-551.96015"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -58,12 +58,12 @@
      inkscape:groupmode="layer"
      id="layer1">
     <g
-       id="g1093"
+       id="g1027"
        inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/not.png"
        inkscape:export-xdpi="90.6623"
        inkscape:export-ydpi="90.6623">
       <path
-         style="fill:#fefefe;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+         style="fill:#fefefe;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          d="m -720,-695 v 30 l 25,-15 z"
          id="path831"
          sodipodi:nodetypes="cccc"
@@ -71,7 +71,7 @@
          inkscape:export-xdpi="30.702326"
          inkscape:export-ydpi="30.702326" />
       <circle
-         style="fill:#fefefe;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+         style="fill:#fefefe;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="path833"
          cx="-692"
          cy="-680"
@@ -80,7 +80,7 @@
          inkscape:export-xdpi="30.702326"
          inkscape:export-ydpi="30.702326" />
       <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
          d="m -690,-680 h 10"
          id="path835"
          sodipodi:nodetypes="cc"
@@ -88,7 +88,7 @@
          inkscape:export-xdpi="30.702326"
          inkscape:export-ydpi="30.702326" />
       <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
          d="m -730,-680 h 10"
          id="path837"
          sodipodi:nodetypes="cc"
@@ -97,12 +97,12 @@
          inkscape:export-ydpi="30.702326" />
     </g>
     <g
-       id="g1099"
+       id="g1033"
        inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/and.png"
-       inkscape:export-xdpi="92.903229"
-       inkscape:export-ydpi="92.903229">
+       inkscape:export-xdpi="99.839996"
+       inkscape:export-ydpi="99.839996">
       <path
-         style="fill:#fefefe;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+         style="fill:#fefefe;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          d="m -720,-655 v 30 c 0,0 25,0 25,-15 0,-15 -25,-15 -25,-15 z"
          id="path831-3"
          sodipodi:nodetypes="ccsc"
@@ -110,21 +110,21 @@
          inkscape:export-xdpi="30.702326"
          inkscape:export-ydpi="30.702326" />
       <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
          d="m -695,-640 h 15"
          id="path859"
          inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/symbols.png"
          inkscape:export-xdpi="30.702326"
          inkscape:export-ydpi="30.702326" />
       <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
          d="m -720,-650 h -10"
          id="path861"
          inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/symbols.png"
          inkscape:export-xdpi="30.702326"
          inkscape:export-ydpi="30.702326" />
       <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
          d="m -720,-630 h -10"
          id="path861-7"
          inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/symbols.png"
@@ -132,12 +132,12 @@
          inkscape:export-ydpi="30.702326" />
     </g>
     <g
-       id="g1106"
+       id="g1040"
        inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/nand.png"
-       inkscape:export-xdpi="92.903229"
-       inkscape:export-ydpi="92.903229">
+       inkscape:export-xdpi="99.839996"
+       inkscape:export-ydpi="99.839996">
       <path
-         style="fill:#fefefe;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+         style="fill:#fefefe;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          d="m -720,-615 v 30 c 0,0 25,0 25,-15 0,-15 -25,-15 -25,-15 z"
          id="path831-3-5"
          sodipodi:nodetypes="ccsc"
@@ -145,28 +145,28 @@
          inkscape:export-xdpi="30.702326"
          inkscape:export-ydpi="30.702326" />
       <path
-         style="fill:none;stroke:#000000;stroke-width:0.816497px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
          d="m -690,-600 h 10"
          id="path859-3"
          inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/symbols.png"
          inkscape:export-xdpi="30.702326"
          inkscape:export-ydpi="30.702326" />
       <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
          d="m -720,-610 h -10"
          id="path861-5"
          inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/symbols.png"
          inkscape:export-xdpi="30.702326"
          inkscape:export-ydpi="30.702326" />
       <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
          d="m -720,-590 h -10"
          id="path861-7-6"
          inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/symbols.png"
          inkscape:export-xdpi="30.702326"
          inkscape:export-ydpi="30.702326" />
       <circle
-         style="fill:#fefefe;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+         style="fill:#fefefe;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="path833-2"
          cx="-692"
          cy="-600"
@@ -176,12 +176,12 @@
          inkscape:export-ydpi="30.702326" />
     </g>
     <g
-       id="g1112"
+       id="g1046"
        inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/or.png"
-       inkscape:export-xdpi="92.903229"
-       inkscape:export-ydpi="92.903229">
+       inkscape:export-xdpi="99.839996"
+       inkscape:export-ydpi="99.839996">
       <path
-         style="fill:#fefefe;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+         style="fill:#fefefe;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          d="m -720,-575 c 0,0 5,9.72954 5,15 0,5.27046 -5,15 -5,15 0,0 25,0 25,-15 0,-15 -25,-15 -25,-15 z"
          id="path831-3-9"
          sodipodi:nodetypes="cscsc"
@@ -189,14 +189,14 @@
          inkscape:export-xdpi="30.702326"
          inkscape:export-ydpi="30.702326" />
       <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
          d="m -695,-560 h 15"
          id="path859-1"
          inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/symbols.png"
          inkscape:export-xdpi="30.702326"
          inkscape:export-ydpi="30.702326" />
       <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
          d="m -718,-570 h -12"
          id="path861-2"
          sodipodi:nodetypes="cc"
@@ -204,7 +204,7 @@
          inkscape:export-xdpi="30.702326"
          inkscape:export-ydpi="30.702326" />
       <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
          d="m -718,-550 h -12"
          id="path861-7-7"
          sodipodi:nodetypes="cc"
@@ -213,12 +213,12 @@
          inkscape:export-ydpi="30.702326" />
     </g>
     <g
-       id="g1119"
+       id="g1053"
        inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/nor.png"
-       inkscape:export-xdpi="92.903229"
-       inkscape:export-ydpi="92.903229">
+       inkscape:export-xdpi="99.839996"
+       inkscape:export-ydpi="99.839996">
       <path
-         style="fill:#fefefe;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+         style="fill:#fefefe;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          d="m -720,-535 c 0,0 5,9.72954 5,15 0,5.27046 -5,15 -5,15 0,0 25,0 25,-15 0,-15 -25,-15 -25,-15 z"
          id="path831-3-9-0"
          sodipodi:nodetypes="cscsc"
@@ -226,7 +226,7 @@
          inkscape:export-xdpi="30.702326"
          inkscape:export-ydpi="30.702326" />
       <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
          d="m -690,-520 h 10"
          id="path859-1-9"
          sodipodi:nodetypes="cc"
@@ -234,7 +234,7 @@
          inkscape:export-xdpi="30.702326"
          inkscape:export-ydpi="30.702326" />
       <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
          d="m -718,-530 h -12"
          id="path861-2-3"
          sodipodi:nodetypes="cc"
@@ -242,7 +242,7 @@
          inkscape:export-xdpi="30.702326"
          inkscape:export-ydpi="30.702326" />
       <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
          d="m -718,-510 h -12"
          id="path861-7-7-6"
          sodipodi:nodetypes="cc"
@@ -250,7 +250,7 @@
          inkscape:export-xdpi="30.702326"
          inkscape:export-ydpi="30.702326" />
       <circle
-         style="fill:#fefefe;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+         style="fill:#fefefe;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="path833-2-0"
          cx="-692"
          cy="-520"
@@ -260,12 +260,12 @@
          inkscape:export-ydpi="30.702326" />
     </g>
     <g
-       id="g1126"
+       id="g1060"
        inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/xor.png"
-       inkscape:export-xdpi="92.903229"
-       inkscape:export-ydpi="92.903229">
+       inkscape:export-xdpi="99.839996"
+       inkscape:export-ydpi="99.839996">
       <path
-         style="fill:#fefefe;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+         style="fill:#fefefe;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          d="m -720,-495 c 0,0 5,9.72954 5,15 0,5.27046 -5,15 -5,15 0,0 25,0 25,-15 0,-15 -25,-15 -25,-15 z"
          id="path831-3-9-6"
          sodipodi:nodetypes="cscsc"
@@ -273,14 +273,14 @@
          inkscape:export-xdpi="30.702326"
          inkscape:export-ydpi="30.702326" />
       <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
          d="m -695,-480 h 15"
          id="path859-1-2"
          inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/symbols.png"
          inkscape:export-xdpi="30.702326"
          inkscape:export-ydpi="30.702326" />
       <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
          d="m -718,-490 h -12"
          id="path861-2-6"
          sodipodi:nodetypes="cc"
@@ -288,7 +288,7 @@
          inkscape:export-xdpi="30.702326"
          inkscape:export-ydpi="30.702326" />
       <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
          d="m -718,-470 h -12"
          id="path861-7-7-1"
          sodipodi:nodetypes="cc"
@@ -321,5 +321,38 @@
        inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/icon.png"
        inkscape:export-xdpi="196.43498"
        inkscape:export-ydpi="196.43498" />
+    <g
+       id="g994"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/out.png"
+       inkscape:export-xdpi="90.6623"
+       inkscape:export-ydpi="90.6623">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+         d="m -795,-630 h -15"
+         id="path892-5" />
+      <circle
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.639999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:0.639999, 0.639999"
+         id="path938"
+         cx="-792.00122"
+         cy="-630"
+         r="8" />
+    </g>
+    <g
+       id="g990"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/in.png"
+       inkscape:export-xdpi="90.6623"
+       inkscape:export-ydpi="90.6623">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+         d="m -799.0012,-660 h 15"
+         id="path892-5-5" />
+      <circle
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.639999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:0.639999, 0.639999"
+         id="path938-6"
+         cx="802"
+         cy="-660"
+         r="8"
+         transform="scale(-1,1)" />
+    </g>
   </g>
 </svg>

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://assets/nand.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://assets/xor.png" type="Texture" id=5]
 [ext_resource path="res://assets/nor.png" type="Texture" id=6]
 [ext_resource path="res://assets/not.png" type="Texture" id=7]
+[ext_resource path="res://assets/in.png" type="Texture" id=8]
+[ext_resource path="res://assets/out.png" type="Texture" id=9]
 
 [node name="Main" type="VBoxContainer"]
 anchor_right = 1.0
@@ -18,7 +20,7 @@ __meta__ = {
 
 [node name="M" type="MarginContainer" parent="."]
 margin_right = 1920.0
-margin_bottom = 58.0
+margin_bottom = 60.0
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
@@ -28,12 +30,12 @@ custom_constants/margin_bottom = 10
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 1910.0
-margin_bottom = 48.0
+margin_bottom = 50.0
 custom_constants/separation = 20
 
 [node name="File" type="LinkButton" parent="M/Topbar"]
 margin_right = 23.0
-margin_bottom = 38.0
+margin_bottom = 40.0
 text = "File"
 underline = 1
 
@@ -46,81 +48,89 @@ margin_bottom = 125.0
 [node name="Help" type="LinkButton" parent="M/Topbar"]
 margin_left = 43.0
 margin_right = 73.0
-margin_bottom = 38.0
+margin_bottom = 40.0
 focus_mode = 2
 text = "Help"
 underline = 1
 
 [node name="Control" type="Control" parent="M/Topbar"]
 margin_left = 93.0
-margin_right = 777.0
-margin_bottom = 38.0
+margin_right = 750.0
+margin_bottom = 40.0
 size_flags_horizontal = 3
 
 [node name="H" type="HBoxContainer" parent="M/Topbar"]
-margin_left = 797.0
-margin_right = 1195.0
-margin_bottom = 38.0
+margin_left = 770.0
+margin_right = 1223.0
+margin_bottom = 40.0
 custom_constants/separation = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="in" type="ToolButton" parent="M/Topbar/H"]
+margin_right = 37.0
+margin_bottom = 40.0
+hint_tooltip = "Input"
+icon = ExtResource( 8 )
+
 [node name="not" type="ToolButton" parent="M/Topbar/H"]
-margin_right = 59.0
-margin_bottom = 38.0
+margin_left = 37.0
+margin_right = 96.0
+margin_bottom = 40.0
 hint_tooltip = "NOT gate"
 icon = ExtResource( 7 )
 
 [node name="and" type="ToolButton" parent="M/Topbar/H"]
-margin_left = 59.0
-margin_right = 119.0
-margin_bottom = 38.0
+margin_left = 96.0
+margin_right = 160.0
+margin_bottom = 40.0
 hint_tooltip = "AND  gate"
 icon = ExtResource( 3 )
 
 [node name="nand" type="ToolButton" parent="M/Topbar/H"]
-margin_left = 119.0
-margin_right = 179.0
-margin_bottom = 38.0
+margin_left = 160.0
+margin_right = 224.0
+margin_bottom = 40.0
 hint_tooltip = "NAND  gate"
 icon = ExtResource( 2 )
 
 [node name="or" type="ToolButton" parent="M/Topbar/H"]
-margin_left = 179.0
-margin_right = 239.0
-margin_bottom = 38.0
+margin_left = 224.0
+margin_right = 288.0
+margin_bottom = 40.0
 hint_tooltip = "OR  gate"
 icon = ExtResource( 4 )
 
 [node name="nor" type="ToolButton" parent="M/Topbar/H"]
-margin_left = 239.0
-margin_right = 299.0
-margin_bottom = 38.0
+margin_left = 288.0
+margin_right = 352.0
+margin_bottom = 40.0
 hint_tooltip = "NOR gate"
 icon = ExtResource( 6 )
 
 [node name="xor" type="ToolButton" parent="M/Topbar/H"]
-margin_left = 299.0
-margin_right = 359.0
-margin_bottom = 38.0
+margin_left = 352.0
+margin_right = 416.0
+margin_bottom = 40.0
 hint_tooltip = "XOR  gate"
 icon = ExtResource( 5 )
 
-[node name="Test" type="Button" parent="M/Topbar/H"]
-margin_left = 359.0
-margin_right = 398.0
-margin_bottom = 38.0
-text = "Test"
+[node name="out" type="ToolButton" parent="M/Topbar/H"]
+margin_left = 416.0
+margin_right = 453.0
+margin_bottom = 40.0
+hint_tooltip = "Output"
+icon = ExtResource( 9 )
 
 [node name="Control2" type="Control" parent="M/Topbar"]
-margin_left = 1215.0
+margin_left = 1243.0
 margin_right = 1900.0
-margin_bottom = 38.0
+margin_bottom = 40.0
 size_flags_horizontal = 3
 
 [node name="Graph" type="GraphEdit" parent="."]
-margin_top = 62.0
+margin_top = 64.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 size_flags_horizontal = 3
@@ -164,13 +174,14 @@ margin_bottom = 70.0
 [connection signal="button_down" from="M/Topbar/File" to="." method="_on_File_button_down"]
 [connection signal="id_pressed" from="M/Topbar/File/FileMenu" to="." method="_on_FileMenu_id_pressed"]
 [connection signal="button_down" from="M/Topbar/Help" to="." method="_on_Help_button_down"]
+[connection signal="button_down" from="M/Topbar/H/in" to="." method="_on_in_button_down"]
 [connection signal="button_down" from="M/Topbar/H/not" to="." method="_on_not_button_down"]
 [connection signal="button_down" from="M/Topbar/H/and" to="." method="_on_and_button_down"]
 [connection signal="button_down" from="M/Topbar/H/nand" to="." method="_on_nand_button_down"]
 [connection signal="button_down" from="M/Topbar/H/or" to="." method="_on_or_button_down"]
 [connection signal="button_down" from="M/Topbar/H/nor" to="." method="_on_nor_button_down"]
 [connection signal="button_down" from="M/Topbar/H/xor" to="." method="_on_xor_button_down"]
-[connection signal="button_down" from="M/Topbar/H/Test" to="." method="_on_Test_button_down"]
+[connection signal="button_down" from="M/Topbar/H/out" to="." method="_on_out_button_down"]
 [connection signal="connection_request" from="Graph" to="." method="_on_Graph_connection_request"]
 [connection signal="delete_nodes_request" from="Graph" to="." method="_on_Graph_delete_nodes_request"]
 [connection signal="disconnection_request" from="Graph" to="." method="_on_Graph_disconnection_request"]

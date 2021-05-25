@@ -19,7 +19,7 @@ func _ready():
 
 
 func update_levels(node, port, level):
-	if node.group == "Inputs":
+	if node.group == "IO":
 		reset_race_detection()
 	for con in $Graph.get_connection_list():
 		if con.from == node.name and con.from_port == port:
@@ -27,6 +27,7 @@ func update_levels(node, port, level):
 
 
 func reset_race_detection():
+	$Graph.set_selected(null)
 	var nodes = $Graph.get_children()
 	for node in nodes:
 		if node is GraphNode:
@@ -44,7 +45,7 @@ func delete_wire(node, port):
 func add_part(type: String, group = "Gates"):
 	var part: Part = Parts.get_part(type, group)
 	$Graph.add_child(part, true) # Use a legible_unique_name to ensure that node name is saved and loaded ok
-	part.offset = Vector2(get_viewport().get_mouse_position().x, rand_range(20, 100))
+	part.offset = Vector2(get_viewport().get_mouse_position().x, $Graph.get_snap() * (1 + randi() % 5))
 	changed = true
 	var _e = part.connect("output_changed", self, "update_levels")
 	_e = part.connect("unstable", self, "delete_wire")
@@ -54,6 +55,10 @@ func remove_connections_to_node(node):
 	for con in $Graph.get_connection_list():
 		if con.to == node.name or con.from == node.name:
 			$Graph.disconnect_node(con.from, con.from_port, con.to, con.to_port)
+
+
+func _on_in_button_down():
+	add_part("INPUT", "IO")
 
 
 func _on_not_button_down():
@@ -78,6 +83,10 @@ func _on_nor_button_down():
 
 func _on_xor_button_down():
 	add_part("XOR")
+
+
+func _on_out_button_down():
+	add_part("OUTPUT", "IO")
 
 
 func _on_Graph_connection_request(from, from_slot, to, to_slot):
@@ -229,7 +238,3 @@ func init_graph():
 	for con in data.connections:
 		print(con.to)
 		var _e = $Graph.connect_node(con.from, con.from_port, con.to, con.to_port)
-
-
-func _on_Test_button_down():
-	add_part("INPUT", "Inputs")

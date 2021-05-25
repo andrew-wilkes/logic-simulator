@@ -37,6 +37,9 @@ func set_output(level: bool, slot: int):
 
 
 func update_output(level: bool, port: int):
+	if type == "OUTPUT":
+		$Label.text = String(int(level))
+		return
 	# Cause update for first-time input
 	if not input_levels.has(port):
 		input_levels[port] = not level
