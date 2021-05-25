@@ -3,6 +3,7 @@ extends GraphNode
 class_name Part
 
 signal output_changed(node, slot, level)
+signal unstable(node, slot)
 
 const RACE_TRIGGER_COUNT = 4
 
@@ -35,22 +36,23 @@ func set_output(level: bool, slot: int):
 	emit_signal("output_changed", self, 0, level)
 
 
-func update_output(level: bool, idx: int):
+func update_output(level: bool, port: int):
 	# Cause update for first-time input
-	if not input_levels.has(idx):
-		input_levels[idx] = not level
+	if not input_levels.has(port):
+		input_levels[port] = not level
 	# Return if no change to established input
-	if input_levels[idx] == level:
+	if input_levels[port] == level:
 		return
 	# Detect race condition
-	if inputs_effected.has(idx):
-		inputs_effected[idx] += 1
-		if inputs_effected[idx] == RACE_TRIGGER_COUNT:
-			breakpoint # Unstable
+	if inputs_effected.has(port):
+		inputs_effected[port] += 1
+		if inputs_effected[port] == RACE_TRIGGER_COUNT:
+			emit_signal("unstable", self, port)
+			return
 	else:
-		inputs_effected[idx] = 1
+		inputs_effected[port] = 1
 	# Remember the current input level
-	input_levels[idx] = level
+	input_levels[port] = level
 	if type == "NOT":
 		level = !level
 		set_output(level, 0)

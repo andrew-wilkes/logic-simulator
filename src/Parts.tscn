@@ -12,6 +12,7 @@
 [node name="Parts" type="HBoxContainer"]
 margin_right = 80.0
 margin_bottom = 550.0
+custom_constants/separation = 10
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -293,8 +294,8 @@ margin_bottom = 88.0
 rect_min_size = Vector2( 0, 16 )
 
 [node name="Inputs" type="VBoxContainer" parent="."]
-margin_left = 84.0
-margin_right = 192.0
+margin_left = 90.0
+margin_right = 198.0
 margin_bottom = 550.0
 
 [node name="INPUT" type="GraphNode" parent="Inputs"]
@@ -319,8 +320,8 @@ margin_right = 92.0
 margin_bottom = 64.0
 
 [node name="Outputs" type="VBoxContainer" parent="."]
-margin_left = 196.0
-margin_right = 293.0
+margin_left = 208.0
+margin_right = 305.0
 margin_bottom = 550.0
 
 [node name="OUTPUT" type="GraphNode" parent="Outputs"]

@@ -33,12 +33,21 @@ func reset_race_detection():
 			node.reset()
 
 
+func delete_wire(node, port):
+	$Alert.dialog_text = "Unstable connection deleted."
+	$Alert.popup_centered()
+	for con in $Graph.get_connection_list():
+		if con.to == node.name and con.to_port == port:
+			$Graph.disconnect_node(con.from, con.from_port, con.to, con.to_port)
+
+
 func add_part(type: String, group = "Gates"):
-	var part: GraphNode = Parts.get_part(type, group)
+	var part: Part = Parts.get_part(type, group)
 	$Graph.add_child(part, true) # Use a legible_unique_name to ensure that node name is saved and loaded ok
 	part.offset = Vector2(get_viewport().get_mouse_position().x, rand_range(20, 100))
 	changed = true
 	var _e = part.connect("output_changed", self, "update_levels")
+	_e = part.connect("unstable", self, "delete_wire")
 
 
 func remove_connections_to_node(node):
