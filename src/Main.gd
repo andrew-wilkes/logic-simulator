@@ -216,7 +216,7 @@ func load_data():
 		file.open(file_name, File.READ)
 		var data_in = parse_json(file.get_as_text())
 		file.close()
-		if typeof(data) == TYPE_DICTIONARY:
+		if typeof(data_in) == TYPE_DICTIONARY:
 			data = data_in
 			changed = false
 			init_graph()
@@ -228,17 +228,18 @@ func load_data():
 
 func init_graph():
 	clear_graph()
-	for node in data["nodes"]:
-		var part: Part = Parts.get_part(node.type, node.group)
-		part.offset = Vector2(node.x, node.y)
-		# A non-connected part seems to have a name containing @ marks
-		# But when it is added to the scene, the @ marks are removed
-		part.name = node.name
-		$Graph.add_child(part)
-		var _e = part.connect("output_changed", self, "update_levels")
-	for con in data.connections:
-		print(con.to)
-		var _e = $Graph.connect_node(con.from, con.from_port, con.to, con.to_port)
+	if data.has("nodes"):
+		for node in data.nodes:
+			var part: Part = Parts.get_part(node.type, node.group)
+			part.offset = Vector2(node.x, node.y)
+			# A non-connected part seems to have a name containing @ marks
+			# But when it is added to the scene, the @ marks are removed
+			part.name = node.name
+			$Graph.add_child(part)
+			var _e = part.connect("output_changed", self, "update_levels")
+		if data.has("connections"):
+			for con in data.connections:
+				var _e = $Graph.connect_node(con.from, con.from_port, con.to, con.to_port)
 
 
 func _on_FileMenu_mouse_exited():
