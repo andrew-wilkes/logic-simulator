@@ -90,10 +90,11 @@ func _on_out_button_down():
 
 
 func _on_Graph_connection_request(from, from_slot, to, to_slot):
-	# Don't connect to input that is already connected
-	for con in $Graph.get_connection_list():
-		if con.to == to and con.to_port == to_slot:
-			return
+	# Don't connect to input that is already connected unless it's a bus
+	if not $Graph.get_node(to) is BUS:
+		for con in $Graph.get_connection_list():
+			if con.to == to and con.to_port == to_slot:
+				return
 	$Graph.connect_node(from, from_slot, to, to_slot)
 	changed = true
 
@@ -238,3 +239,7 @@ func init_graph():
 	for con in data.connections:
 		print(con.to)
 		var _e = $Graph.connect_node(con.from, con.from_port, con.to, con.to_port)
+
+
+func _on_FileMenu_mouse_exited():
+	$M/Topbar/File/FileMenu.hide()

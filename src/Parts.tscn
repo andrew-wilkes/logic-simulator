@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/nand.png" type="Texture" id=1]
 [ext_resource path="res://assets/and.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/nor.png" type="Texture" id=6]
 [ext_resource path="res://assets/not.png" type="Texture" id=7]
 [ext_resource path="res://Parts.gd" type="Script" id=8]
+[ext_resource path="res://Bus.gd" type="Script" id=9]
 
 [node name="Parts" type="HBoxContainer"]
 margin_right = 80.0
@@ -295,11 +296,11 @@ rect_min_size = Vector2( 0, 16 )
 
 [node name="IO" type="VBoxContainer" parent="."]
 margin_left = 94.0
-margin_right = 202.0
+margin_right = 219.0
 margin_bottom = 560.0
 
 [node name="INPUT" type="GraphNode" parent="IO"]
-margin_right = 108.0
+margin_right = 125.0
 margin_bottom = 70.0
 title = "     INPUT"
 slot/0/left_enabled = false
@@ -316,12 +317,12 @@ __meta__ = {
 [node name="CheckButton" type="CheckButton" parent="IO/INPUT"]
 margin_left = 16.0
 margin_top = 24.0
-margin_right = 92.0
+margin_right = 109.0
 margin_bottom = 64.0
 
 [node name="OUTPUT" type="GraphNode" parent="IO"]
 margin_top = 74.0
-margin_right = 108.0
+margin_right = 125.0
 margin_bottom = 144.0
 title = "   OUTPUT"
 slot/0/left_enabled = true
@@ -338,7 +339,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="IO/OUTPUT"]
 margin_left = 16.0
 margin_top = 24.0
-margin_right = 92.0
+margin_right = 109.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 0, 40 )
 align = 1
@@ -346,3 +347,74 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="BUS" type="GraphNode" parent="IO"]
+margin_top = 148.0
+margin_right = 125.0
+margin_bottom = 239.0
+title = "        BUS"
+slot/0/left_enabled = true
+slot/0/left_type = 1
+slot/0/left_color = Color( 1, 1, 0, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 1
+slot/0/right_color = Color( 1, 1, 0, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="IO/BUS"]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 109.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 40 )
+text = "0xFF"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox" type="HBoxContainer" parent="IO/BUS"]
+margin_left = 16.0
+margin_top = 65.0
+margin_right = 109.0
+margin_bottom = 85.0
+
+[node name="Bits" type="Button" parent="IO/BUS/HBox"]
+margin_right = 37.0
+margin_bottom = 20.0
+text = "Bits"
+
+[node name="Spacer" type="Control" parent="IO/BUS/HBox"]
+margin_left = 41.0
+margin_right = 41.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="Mode" type="Button" parent="IO/BUS/HBox"]
+margin_left = 45.0
+margin_right = 93.0
+margin_bottom = 20.0
+text = "Mode"
+
+[node name="Gizmos" type="VBoxContainer" parent="."]
+margin_left = 229.0
+margin_right = 229.0
+margin_bottom = 560.0
+
+[node name="Combinational" type="VBoxContainer" parent="."]
+margin_left = 239.0
+margin_right = 239.0
+margin_bottom = 560.0
+
+[connection signal="button_down" from="IO/BUS/HBox/Bits" to="IO/BUS" method="_on_Bits_button_down"]
+[connection signal="button_down" from="IO/BUS/HBox/Mode" to="IO/BUS" method="_on_Mode_button_down"]
