@@ -406,6 +406,149 @@ margin_right = 93.0
 margin_bottom = 20.0
 text = "Mode"
 
+[node name="INBUS" type="GraphNode" parent="IO"]
+margin_top = 243.0
+margin_right = 125.0
+margin_bottom = 343.0
+title = "      INBUS"
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 1
+slot/0/left_color = Color( 1, 1, 0, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 1
+slot/0/right_color = Color( 1, 1, 0, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="IO/INBUS"]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 109.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 40 )
+text = "0xFF"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox" type="HBoxContainer" parent="IO/INBUS"]
+margin_left = 16.0
+margin_top = 65.0
+margin_right = 109.0
+margin_bottom = 85.0
+
+[node name="Bits" type="Button" parent="IO/INBUS/HBox"]
+margin_right = 37.0
+margin_bottom = 20.0
+text = "Bits"
+
+[node name="Spacer" type="Control" parent="IO/INBUS/HBox"]
+margin_left = 41.0
+margin_right = 41.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="Mode" type="Button" parent="IO/INBUS/HBox"]
+margin_left = 45.0
+margin_right = 93.0
+margin_bottom = 20.0
+text = "Mode"
+
+[node name="Control" type="Control" parent="IO/INBUS"]
+margin_left = 16.0
+margin_top = 86.0
+margin_right = 109.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 0, 8 )
+
+[node name="OUTBUS" type="GraphNode" parent="IO"]
+margin_top = 347.0
+margin_right = 125.0
+margin_bottom = 447.0
+title = "     OUTBUS"
+slot/0/left_enabled = true
+slot/0/left_type = 1
+slot/0/left_color = Color( 1, 1, 0, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 1
+slot/0/right_color = Color( 1, 1, 0, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="IO/OUTBUS"]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 109.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 40 )
+text = "0xFF"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox" type="HBoxContainer" parent="IO/OUTBUS"]
+margin_left = 16.0
+margin_top = 65.0
+margin_right = 109.0
+margin_bottom = 85.0
+
+[node name="Bits" type="Button" parent="IO/OUTBUS/HBox"]
+margin_right = 37.0
+margin_bottom = 20.0
+text = "Bits"
+
+[node name="Spacer" type="Control" parent="IO/OUTBUS/HBox"]
+margin_left = 41.0
+margin_right = 41.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="Mode" type="Button" parent="IO/OUTBUS/HBox"]
+margin_left = 45.0
+margin_right = 93.0
+margin_bottom = 20.0
+text = "Mode"
+
+[node name="Control" type="Control" parent="IO/OUTBUS"]
+margin_left = 16.0
+margin_top = 86.0
+margin_right = 109.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 0, 8 )
+
 [node name="Gizmos" type="VBoxContainer" parent="."]
 margin_left = 229.0
 margin_right = 229.0
@@ -418,3 +561,7 @@ margin_bottom = 560.0
 
 [connection signal="button_down" from="IO/BUS/HBox/Bits" to="IO/BUS" method="_on_Bits_button_down"]
 [connection signal="button_down" from="IO/BUS/HBox/Mode" to="IO/BUS" method="_on_Mode_button_down"]
+[connection signal="button_down" from="IO/INBUS/HBox/Bits" to="IO/INBUS" method="_on_Bits_button_down"]
+[connection signal="button_down" from="IO/INBUS/HBox/Mode" to="IO/INBUS" method="_on_Mode_button_down"]
+[connection signal="button_down" from="IO/OUTBUS/HBox/Bits" to="IO/OUTBUS" method="_on_Bits_button_down"]
+[connection signal="button_down" from="IO/OUTBUS/HBox/Mode" to="IO/OUTBUS" method="_on_Mode_button_down"]

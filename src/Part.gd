@@ -56,23 +56,29 @@ func update_output(level: bool, port: int):
 		inputs_effected[port] = 1
 	# Remember the current input level
 	input_levels[port] = level
-	if type == "NOT":
-		level = !level
-		set_output(level, 0)
-	else:
-		if not input_levels.has(0):
-			input_levels[0] = false
-		if not input_levels.has(1):
-			input_levels[1] = false
-		match type:
-			"OR":
-				level = input_levels[0] or input_levels[1]
-			"NOR":
-				level = not (input_levels[0] or input_levels[1])
-			"AND":
-				level = input_levels[0] and input_levels[1]
-			"NAND":
-				level = not (input_levels[0] and input_levels[1])
-			"XOR":
-				level = (not input_levels[0] and input_levels[1]) or (input_levels[0] and not input_levels[1])
-		set_output(level, 1)
+	match type:
+		"NOT":
+			level = !level
+			set_output(level, 0)
+		"BUS", "INBUS", "OUTBUS":
+			set_value()
+		_:
+			if not input_levels.has(0):
+				input_levels[0] = false
+			if not input_levels.has(1):
+				input_levels[1] = false
+			match type:
+				"OR":
+					level = input_levels[0] or input_levels[1]
+				"NOR":
+					level = not (input_levels[0] or input_levels[1])
+				"AND":
+					level = input_levels[0] and input_levels[1]
+				"NAND":
+					level = not (input_levels[0] and input_levels[1])
+				"XOR":
+					level = (not input_levels[0] and input_levels[1]) or (input_levels[0] and not input_levels[1])
+			set_output(level, 1)
+
+func set_value():
+	pass
