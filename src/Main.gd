@@ -2,12 +2,16 @@ extends VBoxContainer
 
 enum { NOACTION, NEW, OPEN, SAVE, SAVEAS }
 
+var part_menu_scene = preload("res://PartMenu.tscn")
+
 var selected_nodes = {}
 var file_name = ""
 var changed = false
 var action = NOACTION
 var fm
 var data = {}
+var part_group = 0
+var pm
 
 func _ready():
 	Parts.hide()
@@ -16,10 +20,19 @@ func _ready():
 	fm.add_item("Open", OPEN)
 	fm.add_item("Save", SAVE)
 	fm.add_item("Save As...", SAVEAS)
+	pm = part_menu_scene.instance()
+	$M/Topbar.add_child_below_node($M/Topbar/Left, pm)
+	pm.connect("part_selected", self, "add_part")
+
+
+func update_bus(node, value):
+	for con in $Graph.get_connection_list():
+		if con.from == node.name:
+			$Graph.get_node(con.to).set_value(value)
 
 
 func update_levels(node, port, level):
-	if node.group == "IO":
+	if node.type == "INPUT":
 		reset_race_detection()
 	for con in $Graph.get_connection_list():
 		if con.from == node.name and con.from_port == port:
@@ -42,51 +55,26 @@ func delete_wire(node, port):
 			$Graph.disconnect_node(con.from, con.from_port, con.to, con.to_port)
 
 
-func add_part(type: String, group = "Gates"):
-	var part: Part = Parts.get_part(type, group)
+func add_part(idx: int, pg: int):
+	part_group = pg
+	var part: Part = Parts.get_part(idx, pg)
 	$Graph.add_child(part, true) # Use a legible_unique_name to ensure that node name is saved and loaded ok
 	part.offset = Vector2(get_viewport().get_mouse_position().x, $Graph.get_snap() * (1 + randi() % 5))
 	changed = true
+	connect_part(part)
+
+
+func connect_part(part):
 	var _e = part.connect("output_changed", self, "update_levels")
 	_e = part.connect("unstable", self, "delete_wire")
+	if part is BUS:
+		_e = part.connect("bus_changed", self, "update_bus")
 
 
 func remove_connections_to_node(node):
 	for con in $Graph.get_connection_list():
 		if con.to == node.name or con.from == node.name:
 			$Graph.disconnect_node(con.from, con.from_port, con.to, con.to_port)
-
-
-func _on_in_button_down():
-	add_part("INPUT", "IO")
-
-
-func _on_not_button_down():
-	add_part("NOT")
-
-
-func _on_and_button_down():
-	add_part("AND")
-
-
-func _on_nand_button_down():
-	add_part("NAND")
-
-
-func _on_or_button_down():
-	add_part("OR")
-
-
-func _on_nor_button_down():
-	add_part("NOR")
-
-
-func _on_xor_button_down():
-	add_part("XOR")
-
-
-func _on_out_button_down():
-	add_part("OUTPUT", "IO")
 
 
 func _on_Graph_connection_request(from, from_slot, to, to_slot):
@@ -200,7 +188,7 @@ func save_data():
 	data["nodes"] = []
 	for node in $Graph.get_children():
 		if node is GraphNode:
-			data["nodes"].append({ "type": node.type, "group": node.group, "name": node.name, "x": node.offset.x, "y": node.offset.y })
+			data["nodes"].append({ "type": node.type, "index": node.index, "group": node.group, "name": node.name, "x": node.offset.x, "y": node.offset.y })
 	var file = File.new()
 	file.open(file_name, File.WRITE)
 	file.store_string(to_json(data))
@@ -230,13 +218,13 @@ func init_graph():
 	clear_graph()
 	if data.has("nodes"):
 		for node in data.nodes:
-			var part: Part = Parts.get_part(node.type, node.group)
+			var part: Part = Parts.get_part(node.index, node.group)
 			part.offset = Vector2(node.x, node.y)
 			# A non-connected part seems to have a name containing @ marks
 			# But when it is added to the scene, the @ marks are removed
 			part.name = node.name
 			$Graph.add_child(part)
-			var _e = part.connect("output_changed", self, "update_levels")
+			connect_part(part)
 		if data.has("connections"):
 			for con in data.connections:
 				var _e = $Graph.connect_node(con.from, con.from_port, con.to, con.to_port)
@@ -244,3 +232,11 @@ func init_graph():
 
 func _on_FileMenu_mouse_exited():
 	$M/Topbar/File/FileMenu.hide()
+
+
+func _on_Up_button_down():
+	pm.select_menu(1)
+
+
+func _on_Down_button_down():
+	pm.select_menu(-1)

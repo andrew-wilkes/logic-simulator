@@ -23,9 +23,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8"
-     inkscape:cx="-893.66968"
-     inkscape:cy="-551.96015"
+     inkscape:zoom="15.839192"
+     inkscape:cx="-788.95989"
+     inkscape:cy="-661.43466"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -354,5 +354,105 @@
          r="8"
          transform="scale(-1,1)" />
     </g>
+    <g
+       id="g932"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/busin.png"
+       inkscape:export-xdpi="87.652176"
+       inkscape:export-ydpi="87.652176">
+      <path
+         style="fill:none;stroke:#ffffff;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m -775,-659.33972 h 20"
+         id="path880"
+         sodipodi:nodetypes="cc" />
+      <path
+         sodipodi:type="star"
+         style="fill:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:bevel"
+         id="path878"
+         sodipodi:sides="3"
+         sodipodi:cx="-773"
+         sodipodi:cy="-659.33972"
+         sodipodi:r1="10"
+         sodipodi:r2="5"
+         sodipodi:arg1="0"
+         sodipodi:arg2="1.0471976"
+         inkscape:flatsided="true"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         inkscape:transform-center-x="-2.5"
+         d="m -763,-659.33972 -15,8.66025 v -17.32051 z" />
+    </g>
+    <g
+       id="g938"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/busout.png"
+       inkscape:export-xdpi="87.652176"
+       inkscape:export-ydpi="87.652176">
+      <path
+         style="fill:none;stroke:#ffffff;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m -764,-630 h -14"
+         id="path880-6"
+         sodipodi:nodetypes="cc" />
+      <path
+         sodipodi:type="star"
+         style="fill:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:bevel"
+         id="path878-7"
+         sodipodi:sides="3"
+         sodipodi:cx="-765"
+         sodipodi:cy="-630"
+         sodipodi:r1="10"
+         sodipodi:r2="5"
+         sodipodi:arg1="0"
+         sodipodi:arg2="1.0471976"
+         inkscape:flatsided="true"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         inkscape:transform-center-x="2.5"
+         d="m -755,-630 -15,8.66025 v -17.3205 z" />
+    </g>
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m -778,-675 h 23"
+       id="path914"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/bus.png"
+       inkscape:export-xdpi="84"
+       inkscape:export-ydpi="84" />
+    <path
+       sodipodi:type="star"
+       style="fill:#ffffff;stroke:#ffffff;stroke-width:8;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path944"
+       sodipodi:sides="3"
+       sodipodi:cx="-893.72983"
+       sodipodi:cy="-587.36068"
+       sodipodi:r1="44.721359"
+       sodipodi:r2="22.36068"
+       sodipodi:arg1="0.52359878"
+       sodipodi:arg2="1.5707963"
+       inkscape:flatsided="true"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m -855.00003,-564.99998 -77.45966,0 38.72983,-67.08204 z"
+       inkscape:transform-center-y="-11.18034"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/up.png"
+       inkscape:export-xdpi="20.476889"
+       inkscape:export-ydpi="20.476889" />
+    <path
+       sodipodi:type="star"
+       style="fill:#ffffff;stroke:#ffffff;stroke-width:8;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path944-5"
+       sodipodi:sides="3"
+       sodipodi:cx="-893.72986"
+       sodipodi:cy="487.72134"
+       sodipodi:r1="44.721359"
+       sodipodi:r2="22.36068"
+       sodipodi:arg1="0.52359878"
+       sodipodi:arg2="1.5707963"
+       inkscape:flatsided="true"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       inkscape:transform-center-y="11.180332"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/down.png"
+       inkscape:export-xdpi="20.476889"
+       inkscape:export-ydpi="20.476889"
+       d="m -855.00002,510.08202 -77.45967,0 38.72984,-67.08204 z"
+       transform="scale(1,-1)" />
   </g>
 </svg>

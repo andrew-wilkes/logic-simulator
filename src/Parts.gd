@@ -1,7 +1,9 @@
 extends HBoxContainer
 
-func get_part(type, group):
-	var node: Part = get_node(group).get_node(type).duplicate()
+func get_part(idx: int, group: int):
+	var node: Part = get_child(group).get_child(idx).duplicate()
 	node.type = node.name
 	node.group = group
+	node.index = idx
+	node.setup()
 	return node

@@ -8,15 +8,30 @@ signal unstable(node, slot)
 const RACE_TRIGGER_COUNT = 4
 
 var type = ""
-var group = ""
+var group := 0
+var index := 0
 var input_levels = {}
 var inputs_effected = {}
+var in_port_map = []
+var out_port_map = []
 
-func _ready():
+func setup():
 	var child = get_child(0)
 	if child is CheckButton:
 		set_output(child.pressed, 0)
 		child.connect("toggled", self, "set_output", [0])
+	set_port_maps()
+
+
+func set_port_maps():
+	var idx = 0
+	for node in get_children():
+		if node is Control:
+			if is_slot_enabled_left(idx):
+				in_port_map.append(idx)
+			if is_slot_enabled_right(idx):
+				out_port_map.append(idx)
+			idx += 1
 
 
 func reset():
@@ -25,7 +40,7 @@ func reset():
 
 func set_input(level: bool, port: int):
 	var col = Color.red if level else Color.blue
-	set("slot/%d/left_color" % [0,2][port], col)
+	set("slot/%d/left_color" % in_port_map[port], col)
 	update_output(level, port)
 
 

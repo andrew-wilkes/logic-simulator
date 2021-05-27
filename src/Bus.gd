@@ -2,7 +2,7 @@ extends Part
 
 class_name BUS
 
-signal bus_changed(node, slot, value)
+signal bus_changed(node, value)
 
 enum { HEX, DEC, BIN }
 
@@ -13,13 +13,13 @@ var format = ""
 var output_levels = {}
 var value := 0
 
-func _ready():
+func setup():
 	if name == "INBUS":
 		set("slot/0/left_enabled", false)
-		add_slots()
 	if name == "OUTBUS":
-		add_slots()
 		set("slot/0/right_enabled", false)
+	set_port_maps()
+	add_slots()
 	set_format()
 	set_value()
 
@@ -27,8 +27,8 @@ func _ready():
 func add_slots():
 	if name != "INBUS" and name != "OUTBUS":
 		return
-	var n = get_child_count()
-	if n > 16:
+	var slot = get_child_count() - 1 # num slots
+	if slot > 16:
 		return
 	var c = Label.new()
 	c.rect_min_size.y = 24
@@ -38,35 +38,41 @@ func add_slots():
 		c.align = Label.ALIGN_RIGHT
 	var num = 4 if bits < 2 else 8
 	for _i in num:
-		c.text = String(n - 3)
-		output_levels[n - 3] = false
+		var idx = slot - 3
+		c.text = String(idx)
+		output_levels[idx] = false
 		add_child(c.duplicate())
-		set_slot(n, left, 0, Color.white, not left, 0, Color.white)
-		n += 1
+		set_slot(slot, left, 0, Color.white, not left, 0, Color.white)
+		if left:
+			in_port_map.append(slot)
+		else:
+			out_port_map.append(slot)
+		slot += 1
 
 
-func set_value():
-	# Get the value
-	value = 0
-	for n in bit_lengths[bits]:
-		value *= 2
-		if input_levels.has(n):
-			value += int(input_levels[n])
+func set_value(v: int = 0):
+	if type == "INBUS":
+		# Get the value from inputs
+		for n in range(bit_lengths[bits] - 1, -1, -1):
+			v *= 2
+			if input_levels.has(n):
+				v += int(input_levels[n])
+	value = v
 	update_display_value()
-	emit_signal("bus_changed", self, 0, value)
+	emit_signal("bus_changed", self, value)
 	if type == "OUTBUS":
 		for n in bit_lengths[bits]:
-			var level = value % 2
+			var level = bool(v % 2)
+			v /= 2
 			if output_levels[n] != level:
 				output_levels[n] = level
-				set_output(level, n + 3)
+				set_output(level, n)
 
 
-func set_output(level: bool, slot: int):
+func set_output(level: bool, port: int):
 	var col = Color.red if level else Color.blue
-	set("slot/%d/right_color" % slot, col)
-	# Output the port number
-	emit_signal("output_changed", self, 0, level)
+	set("slot/%d/right_color" % out_port_map[port], col)
+	emit_signal("output_changed", self, port, level)
 
 
 func update_display_value():
