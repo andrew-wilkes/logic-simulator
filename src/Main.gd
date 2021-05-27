@@ -78,6 +78,11 @@ func remove_connections_to_node(node):
 
 
 func _on_Graph_connection_request(from, from_slot, to, to_slot):
+	# Don't connect between OUTBUS and INBUS or BUS to BUS
+	if $Graph.get_node(to).type == "INBUS" and $Graph.get_node(from).type == "OUTBUS":
+		return
+	if $Graph.get_node(to).type == "BUS" and $Graph.get_node(from).type == "BUS":
+		return
 	# Don't connect to input that is already connected unless it's a bus
 	if not $Graph.get_node(to) is BUS:
 		for con in $Graph.get_connection_list():

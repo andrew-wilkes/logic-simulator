@@ -1,14 +1,6 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
-[ext_resource path="res://assets/nand.png" type="Texture" id=2]
-[ext_resource path="res://assets/and.png" type="Texture" id=3]
-[ext_resource path="res://assets/or.png" type="Texture" id=4]
-[ext_resource path="res://assets/xor.png" type="Texture" id=5]
-[ext_resource path="res://assets/nor.png" type="Texture" id=6]
-[ext_resource path="res://assets/not.png" type="Texture" id=7]
-[ext_resource path="res://assets/in.png" type="Texture" id=8]
-[ext_resource path="res://assets/out.png" type="Texture" id=9]
 [ext_resource path="res://assets/down.png" type="Texture" id=10]
 [ext_resource path="res://assets/up.png" type="Texture" id=11]
 
@@ -22,7 +14,7 @@ __meta__ = {
 
 [node name="M" type="MarginContainer" parent="."]
 margin_right = 1920.0
-margin_bottom = 34.0
+margin_bottom = 44.0
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
@@ -32,12 +24,12 @@ custom_constants/margin_bottom = 10
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 1910.0
-margin_bottom = 24.0
+margin_bottom = 34.0
 custom_constants/separation = 20
 
 [node name="File" type="LinkButton" parent="M/Topbar"]
 margin_right = 23.0
-margin_bottom = 14.0
+margin_bottom = 24.0
 text = "File"
 underline = 1
 
@@ -53,7 +45,7 @@ __meta__ = {
 [node name="Help" type="LinkButton" parent="M/Topbar"]
 margin_left = 43.0
 margin_right = 73.0
-margin_bottom = 14.0
+margin_bottom = 24.0
 focus_mode = 2
 text = "Help"
 underline = 1
@@ -61,7 +53,7 @@ underline = 1
 [node name="Left" type="Control" parent="M/Topbar"]
 margin_left = 93.0
 margin_right = 946.0
-margin_bottom = 14.0
+margin_bottom = 24.0
 size_flags_horizontal = 3
 
 [node name="H" type="HBoxContainer" parent="M/Topbar"]
@@ -84,11 +76,11 @@ icon = ExtResource( 10 )
 [node name="Right" type="Control" parent="M/Topbar"]
 margin_left = 1046.0
 margin_right = 1900.0
-margin_bottom = 14.0
+margin_bottom = 24.0
 size_flags_horizontal = 3
 
 [node name="Graph" type="GraphEdit" parent="."]
-margin_top = 38.0
+margin_top = 48.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 size_flags_horizontal = 3
@@ -129,71 +121,6 @@ current_path = "/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/"
 margin_right = 200.0
 margin_bottom = 70.0
 
-[node name="H" type="HBoxContainer" parent="Confirm"]
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 461.0
-margin_bottom = 48.0
-custom_constants/separation = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="in" type="ToolButton" parent="Confirm/H"]
-margin_right = 37.0
-margin_bottom = 40.0
-hint_tooltip = "Input"
-icon = ExtResource( 8 )
-
-[node name="not" type="ToolButton" parent="Confirm/H"]
-margin_left = 37.0
-margin_right = 96.0
-margin_bottom = 40.0
-hint_tooltip = "NOT gate"
-icon = ExtResource( 7 )
-
-[node name="and" type="ToolButton" parent="Confirm/H"]
-margin_left = 96.0
-margin_right = 160.0
-margin_bottom = 40.0
-hint_tooltip = "AND  gate"
-icon = ExtResource( 3 )
-
-[node name="nand" type="ToolButton" parent="Confirm/H"]
-margin_left = 160.0
-margin_right = 224.0
-margin_bottom = 40.0
-hint_tooltip = "NAND  gate"
-icon = ExtResource( 2 )
-
-[node name="or" type="ToolButton" parent="Confirm/H"]
-margin_left = 224.0
-margin_right = 288.0
-margin_bottom = 40.0
-hint_tooltip = "OR  gate"
-icon = ExtResource( 4 )
-
-[node name="nor" type="ToolButton" parent="Confirm/H"]
-margin_left = 288.0
-margin_right = 352.0
-margin_bottom = 40.0
-hint_tooltip = "NOR gate"
-icon = ExtResource( 6 )
-
-[node name="xor" type="ToolButton" parent="Confirm/H"]
-margin_left = 352.0
-margin_right = 416.0
-margin_bottom = 40.0
-hint_tooltip = "XOR  gate"
-icon = ExtResource( 5 )
-
-[node name="out" type="ToolButton" parent="Confirm/H"]
-margin_left = 416.0
-margin_right = 453.0
-margin_bottom = 40.0
-hint_tooltip = "Output"
-icon = ExtResource( 9 )
-
 [connection signal="button_down" from="M/Topbar/File" to="." method="_on_File_button_down"]
 [connection signal="id_pressed" from="M/Topbar/File/FileMenu" to="." method="_on_FileMenu_id_pressed"]
 [connection signal="mouse_exited" from="M/Topbar/File/FileMenu" to="." method="_on_FileMenu_mouse_exited"]
@@ -207,11 +134,3 @@ icon = ExtResource( 9 )
 [connection signal="node_unselected" from="Graph" to="." method="_on_Graph_node_unselected"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
 [connection signal="confirmed" from="Confirm" to="." method="_on_Confirm_confirmed"]
-[connection signal="button_down" from="Confirm/H/in" to="." method="_on_in_button_down"]
-[connection signal="button_down" from="Confirm/H/not" to="." method="_on_not_button_down"]
-[connection signal="button_down" from="Confirm/H/and" to="." method="_on_and_button_down"]
-[connection signal="button_down" from="Confirm/H/nand" to="." method="_on_nand_button_down"]
-[connection signal="button_down" from="Confirm/H/or" to="." method="_on_or_button_down"]
-[connection signal="button_down" from="Confirm/H/nor" to="." method="_on_nor_button_down"]
-[connection signal="button_down" from="Confirm/H/xor" to="." method="_on_xor_button_down"]
-[connection signal="button_down" from="Confirm/H/out" to="." method="_on_out_button_down"]

@@ -57,6 +57,10 @@ func set_value(v: int = 0):
 			v *= 2
 			if input_levels.has(n):
 				v += int(input_levels[n])
+	# If the value is unchanged ignore it
+	# This also guards against a feedback loop
+	if value == v:
+		return
 	value = v
 	update_display_value()
 	emit_signal("bus_changed", self, value)
