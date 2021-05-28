@@ -15,7 +15,7 @@ var pm
 
 func _ready():
 	Parts.hide()
-	fm = $M/Topbar/File/FileMenu
+	fm = $M/Topbar/V/H/File/FileMenu
 	fm.add_item("New", NEW)
 	fm.add_item("Open", OPEN)
 	fm.add_item("Save", SAVE)
@@ -60,7 +60,7 @@ func add_part(idx: int, pg: int):
 	var part: Part = Parts.get_part(idx, pg)
 	$Graph.add_child(part, true) # Use a legible_unique_name to ensure that node name is saved and loaded ok
 	part.offset = Vector2(get_viewport().get_mouse_position().x, $Graph.get_snap() * (1 + randi() % 5))
-	changed = true
+	set_changed()
 	connect_part(part)
 
 
@@ -70,10 +70,6 @@ func connect_part(part):
 	_e = part.connect("offset_changed", self, "set_changed")
 	if part is BUS:
 		_e = part.connect("bus_changed", self, "update_bus")
-
-
-func set_changed():
-	changed = true
 
 
 func remove_connections_to_node(node):
@@ -94,12 +90,12 @@ func _on_Graph_connection_request(from, from_slot, to, to_slot):
 			if con.to == to and con.to_port == to_slot:
 				return
 	$Graph.connect_node(from, from_slot, to, to_slot)
-	changed = true
+	set_changed()
 
 
 func _on_Graph_disconnection_request(from, from_slot, to, to_slot):
 	$Graph.disconnect_node(from, from_slot, to, to_slot)
-	changed = true
+	set_changed()
 
 
 func _on_Graph_delete_nodes_request():
@@ -107,7 +103,7 @@ func _on_Graph_delete_nodes_request():
 		if selected_nodes[node]:
 			remove_connections_to_node(node)
 			node.queue_free()
-			changed = true
+			set_changed()
 	selected_nodes = {}
 
 
@@ -157,7 +153,7 @@ func _on_Confirm_confirmed():
 func do_action():
 	match action:
 		NEW:
-			changed = false
+			set_changed(false)
 			file_name = ""
 			clear_graph()
 		OPEN:
@@ -193,6 +189,16 @@ func _on_FileDialog_file_selected(path: String):
 		load_data()
 
 
+func set_filename(fn = ""):
+	file_name = fn
+	$M/Topbar/V/CurrentFile.text = fn.get_file()
+
+
+func set_changed(status = true):
+	changed = status
+	$M/Topbar/V/CurrentFile.modulate = Color.orangered if status else Color.greenyellow
+
+
 func save_data():
 	data["connections"] = $Graph.get_connection_list()
 	data["nodes"] = []
@@ -203,7 +209,7 @@ func save_data():
 	file.open(file_name, File.WRITE)
 	file.store_string(to_json(data))
 	file.close()
-	changed = false
+	set_changed(false)
 	action = NOACTION
 
 
@@ -216,8 +222,9 @@ func load_data():
 		file.close()
 		if typeof(data_in) == TYPE_DICTIONARY:
 			data = data_in
-			changed = false
 			init_graph()
+			set_filename(file_name)
+			set_changed(false)
 		else:
 			$Alert.popup_centered()
 	else:
@@ -241,7 +248,7 @@ func init_graph():
 
 
 func _on_FileMenu_mouse_exited():
-	$M/Topbar/File/FileMenu.hide()
+	$M/Topbar/V/H/File/FileMenu.hide()
 
 
 func _on_Up_button_down():

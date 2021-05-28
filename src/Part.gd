@@ -74,7 +74,7 @@ func update_output(level: bool, port: int):
 		"NOT":
 			level = !level
 			set_output(level, 0)
-		"BUS", "INBUS", "OUTBUS", "DECODER":
+		"BUS", "INBUS", "OUTBUS", "DECODER", "SEG7":
 			set_value()
 		_:
 			if not input_levels.has(0):
