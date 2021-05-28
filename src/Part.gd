@@ -16,11 +16,11 @@ var in_port_map = []
 var out_port_map = []
 
 func setup():
+	set_port_maps()
 	var child = get_child(0)
 	if child is CheckButton:
 		set_output(child.pressed, 0)
 		child.connect("toggled", self, "set_output", [0])
-	set_port_maps()
 
 
 func set_port_maps():
@@ -44,11 +44,10 @@ func set_input(level: bool, port: int):
 	update_output(level, port)
 
 
-func set_output(level: bool, slot: int):
+func set_output(level: bool, port: int):
 	var col = Color.red if level else Color.blue
-	set("slot/%d/right_color" % slot, col)
-	# Output the port number
-	emit_signal("output_changed", self, 0, level)
+	set("slot/%d/right_color" % out_port_map[port], col)
+	emit_signal("output_changed", self, port, level)
 
 
 func update_output(level: bool, port: int):
@@ -75,7 +74,7 @@ func update_output(level: bool, port: int):
 		"NOT":
 			level = !level
 			set_output(level, 0)
-		"BUS", "INBUS", "OUTBUS":
+		"BUS", "INBUS", "OUTBUS", "DECODER":
 			set_value()
 		_:
 			if not input_levels.has(0):
@@ -93,7 +92,9 @@ func update_output(level: bool, port: int):
 					level = not (input_levels[0] and input_levels[1])
 				"XOR":
 					level = (not input_levels[0] and input_levels[1]) or (input_levels[0] and not input_levels[1])
-			set_output(level, 1)
+			set_output(level, 0)
 
-func set_value():
+
+# This function is overwritten in busses
+func set_value(_v = 0):
 	pass

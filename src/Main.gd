@@ -67,8 +67,13 @@ func add_part(idx: int, pg: int):
 func connect_part(part):
 	var _e = part.connect("output_changed", self, "update_levels")
 	_e = part.connect("unstable", self, "delete_wire")
+	_e = part.connect("offset_changed", self, "set_changed")
 	if part is BUS:
 		_e = part.connect("bus_changed", self, "update_bus")
+
+
+func set_changed():
+	changed = true
 
 
 func remove_connections_to_node(node):
@@ -227,9 +232,9 @@ func init_graph():
 			part.offset = Vector2(node.x, node.y)
 			# A non-connected part seems to have a name containing @ marks
 			# But when it is added to the scene, the @ marks are removed
-			part.name = node.name
-			$Graph.add_child(part)
+			$Graph.add_child(part, true)
 			connect_part(part)
+			part.name = node.name
 		if data.has("connections"):
 			for con in data.connections:
 				var _e = $Graph.connect_node(con.from, con.from_port, con.to, con.to_port)

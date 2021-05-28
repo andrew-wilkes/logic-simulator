@@ -24,8 +24,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="15.839192"
-     inkscape:cx="-788.95989"
-     inkscape:cy="-661.43466"
+     inkscape:cx="-588.21464"
+     inkscape:cy="-754.84289"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -454,5 +454,153 @@
        inkscape:export-ydpi="20.476889"
        d="m -855.00002,510.08202 -77.45967,0 38.72984,-67.08204 z"
        transform="scale(1,-1)" />
+    <path
+       style="fill:#ffffff;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+       d="m -720,-715 15,10 h 15 v -30 h -15 l -15,10 z"
+       id="path889"
+       sodipodi:nodetypes="ccccccc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/dec.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-size:10.66666667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;"
+       x="-716.07458"
+       y="-716.11719"
+       id="text893"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/dec.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan891"
+         x="-716.07458"
+         y="-716.11719">DEC</tspan></text>
+    <path
+       style="fill:#ffffff;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+       d="m -650,-716 -15,10 h -15 v -30 h 15 l 15,10 z"
+       id="path889-3"
+       sodipodi:nodetypes="ccccccc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/enc.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-677.03528"
+       y="-717.11719"
+       id="text893-6"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/enc.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan891-7"
+         x="-677.03528"
+         y="-717.11719">ENC</tspan></text>
+    <path
+       style="fill:#ffffff;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+       d="m -720,-755 15,10 h 15 v -30 h -15 l -15,10 z"
+       id="path889-5"
+       sodipodi:nodetypes="ccccccc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/7seg.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;line-height:1.25;font-family:'Roboto Mono';-inkscape-font-specification:'Roboto Mono';letter-spacing:0px;word-spacing:0px"
+       x="-709.47296"
+       y="-752.41669"
+       id="text953"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/7seg.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan951"
+         x="-709.47296"
+         y="-752.41669">8</tspan></text>
+    <circle
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path979"
+       cx="-696.79718"
+       cy="-753.72003"
+       r="1"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/7seg.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#343434;fill-opacity:1;stroke:none;stroke-width:1.89367;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1319-6"
+       width="25.975407"
+       height="43.499908"
+       x="-618.9754"
+       y="-768"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/7-seg.png"
+       inkscape:export-xdpi="140.44055"
+       inkscape:export-ydpi="140.44055" />
+    <path
+       sodipodi:nodetypes="ccccccc"
+       id="path1219-61"
+       d="m -606.57447,-754.25542 -1.57446,-1.57446 v -14.1702 l 1.57446,-1.57447 1.57447,1.57447 v 14.1702 z"
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.704123px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/7-seg.png"
+       inkscape:export-xdpi="140.44055"
+       inkscape:export-ydpi="140.44055" />
+    <path
+       sodipodi:nodetypes="ccccccc"
+       style="display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.704123px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -606.57447,-736.54266 -1.57446,-1.57447 v -13.77659 l 1.57446,-1.57446 1.57447,1.57446 v 13.77659 z"
+       id="path1219-9-8"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/7-seg.png"
+       inkscape:export-xdpi="140.44055"
+       inkscape:export-ydpi="140.44055" />
+    <path
+       style="display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.704123px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -588.86172,-753.8618 -1.57446,1.57447 h -14.1702 l -1.57447,-1.57447 1.57447,-1.57447 h 14.1702 z"
+       id="path1219-2-79"
+       sodipodi:nodetypes="ccccccc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/7-seg.png"
+       inkscape:export-xdpi="140.44055"
+       inkscape:export-ydpi="140.44055" />
+    <path
+       sodipodi:nodetypes="ccccccc"
+       id="path1219-2-7-2"
+       d="m -588.86172,-773.96817 -1.57446,1.57447 h -14.1702 l -1.57447,-1.57447 1.57447,-1.57446 h 14.1702 z"
+       style="display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.704123px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/ledseg.png"
+       inkscape:export-xdpi="487.7854"
+       inkscape:export-ydpi="487.7854" />
+    <path
+       sodipodi:nodetypes="ccccccc"
+       id="path1219-2-0-0"
+       d="m -588.86172,-736.14905 -1.57446,1.57447 h -14.1702 l -1.57447,-1.57447 1.57447,-1.57446 h 14.1702 z"
+       style="display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.704123px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/7-seg.png"
+       inkscape:export-xdpi="140.44055"
+       inkscape:export-ydpi="140.44055" />
+    <path
+       style="display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.704123px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -588.46809,-754.25542 -1.57447,-1.57446 v -14.1702 l 1.57447,-1.57447 1.57447,1.57447 v 14.1702 z"
+       id="path1219-93-2"
+       sodipodi:nodetypes="ccccccc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/7-seg.png"
+       inkscape:export-xdpi="140.44055"
+       inkscape:export-ydpi="140.44055" />
+    <path
+       style="display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.696076px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -588.46809,-736.54266 -1.57447,-1.53865 v -13.84815 l 1.57447,-1.53872 1.57447,1.53872 v 13.84815 z"
+       id="path1219-6-3"
+       sodipodi:nodetypes="ccccccc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/7-seg.png"
+       inkscape:export-xdpi="140.44055"
+       inkscape:export-ydpi="140.44055" />
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.16181;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:0.16181, 0.16181"
+       id="path938-6-8"
+       cx="582.81775"
+       cy="-734.53455"
+       r="2.0226243"
+       transform="scale(-1,1)"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/led-dot.png"
+       inkscape:export-xdpi="142.38788"
+       inkscape:export-ydpi="142.38788" />
   </g>
 </svg>

@@ -73,12 +73,6 @@ func set_value(v: int = 0):
 				set_output(level, n)
 
 
-func set_output(level: bool, port: int):
-	var col = Color.red if level else Color.blue
-	set("slot/%d/right_color" % out_port_map[port], col)
-	emit_signal("output_changed", self, port, level)
-
-
 func update_display_value():
 	match mode:
 		HEX:
