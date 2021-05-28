@@ -25,6 +25,9 @@
 margin_right = 80.0
 margin_bottom = 550.0
 script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Gates" type="Control" parent="."]
 margin_bottom = 708.0
@@ -49,6 +52,7 @@ margin_left = 16.0
 margin_top = 24.0
 margin_right = 92.0
 margin_bottom = 64.0
+focus_mode = 0
 
 [node name="Sprite" type="Sprite" parent="Gates/INPUT"]
 visible = false
@@ -441,7 +445,7 @@ texture = ExtResource( 13 )
 [node name="BUS" type="GraphNode" parent="MISC"]
 margin_top = 104.0
 margin_right = 125.0
-margin_bottom = 195.0
+margin_bottom = 204.0
 title = "        BUS"
 slot/0/left_enabled = true
 slot/0/left_type = 1
@@ -514,9 +518,9 @@ margin_bottom = 94.0
 rect_min_size = Vector2( 0, 8 )
 
 [node name="OUTBUS" type="GraphNode" parent="MISC"]
-margin_top = 199.0
+margin_top = 208.0
 margin_right = 125.0
-margin_bottom = 299.0
+margin_bottom = 308.0
 title = "     OUTBUS"
 slot/0/left_enabled = true
 slot/0/left_type = 1

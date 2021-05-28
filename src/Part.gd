@@ -19,6 +19,7 @@ func setup():
 	set_port_maps()
 	var child = get_child(0)
 	if child is CheckButton:
+		child.focus_mode = Control.FOCUS_NONE
 		set_output(child.pressed, 0)
 		child.connect("toggled", self, "set_output", [0])
 
