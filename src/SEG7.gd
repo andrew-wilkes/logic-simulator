@@ -29,7 +29,7 @@ var map = [
 	[10,11,12,13,14,15]
 ]
 
-func set_value(v: int = -1):
+func set_value(v: int, _r: bool, _from_pin: bool):
 	if v < 0:
 		# Get the value from inputs (port 1, 2 ...
 		v = 0

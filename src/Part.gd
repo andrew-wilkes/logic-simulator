@@ -2,18 +2,27 @@ extends GraphNode
 
 class_name Part
 
-signal output_changed(node, slot, level)
+signal output_changed(node, slot, level, reverse)
 signal unstable(node, slot)
+signal short_circuit(node, port, reverse)
 
 const RACE_TRIGGER_COUNT = 4
+
+enum PIN_MODE { HIGH, OUTPUT, INPUT, BI }
 
 var type = ""
 var group := 0
 var index := 0
-var input_levels = {}
-var inputs_effected = {}
+var input_levels = [{}, {}] # standard, reverse (for bi-directional)
+var inputs_effected = [{}, {}]
 var in_port_map = []
+var in_port_mode = []
 var out_port_map = []
+var out_port_mode = []
+var depth = 0
+
+func set_title(_v):
+	title = title.strip_edges()
 
 func setup():
 	set_port_maps()
@@ -21,7 +30,7 @@ func setup():
 	if child is CheckButton:
 		child.focus_mode = Control.FOCUS_NONE
 		set_output(child.pressed, 0)
-		child.connect("toggled", self, "set_output", [0])
+		child.connect("toggled", self, "set_io", [0, 0])
 
 
 func set_port_maps():
@@ -30,8 +39,20 @@ func set_port_maps():
 		if node is Control:
 			if is_slot_enabled_left(idx):
 				in_port_map.append(idx)
+				match type:
+					"INBUS", "BUS":
+						in_port_mode.append(PIN_MODE.BI)
+					_:
+						in_port_mode.append(PIN_MODE.INPUT)
 			if is_slot_enabled_right(idx):
 				out_port_map.append(idx)
+				match type:
+					"INBUS", "BUS":
+						out_port_mode.append(PIN_MODE.BI)
+					"OUTPUT":
+						out_port_mode.append(PIN_MODE.INPUT)
+					_:
+						out_port_mode.append(PIN_MODE.OUTPUT)
 			idx += 1
 
 
@@ -39,27 +60,53 @@ func reset():
 	inputs_effected = {}
 
 
-func set_input(level: bool, port: int):
+# Input pin and output pin used as outputs
+func set_io(level, in_port, out_port):
+	set_output(level, out_port)
+	set_output(level, in_port, true)
+
+
+func set_input(level: bool, port: int, reverse = false):
 	var col = Color.red if level else Color.blue
-	set("slot/%d/left_color" % in_port_map[port], col)
-	update_output(level, port)
+	if reverse:
+		if out_port_mode[port] == PIN_MODE.HIGH:
+			return
+		if out_port_mode[port] != PIN_MODE.OUTPUT:
+			set("slot/%d/right_color" % out_port_map[port], col)
+		else:
+			emit_signal("short_circuit", [self, port, reverse])
+			return
+	else:
+		if in_port_mode[port] == PIN_MODE.HIGH:
+			return
+		if in_port_mode[port] != PIN_MODE.OUTPUT:
+			set("slot/%d/left_color" % in_port_map[port], col)
+		else:
+			emit_signal("short_circuit", [self, port, reverse])
+			return
+	update_output(level, port, reverse)
 
 
-func set_output(level: bool, port: int):
+func set_output(level: bool, port: int, reverse := false):
 	var col = Color.red if level else Color.blue
-	set("slot/%d/right_color" % out_port_map[port], col)
-	emit_signal("output_changed", self, port, level)
+	if reverse:
+		set("slot/%d/left_color" % in_port_map[port], col)
+	else:
+		set("slot/%d/right_color" % out_port_map[port], col)
+	emit_signal("output_changed", self, port, level, reverse)
 
 
-func update_output(level: bool, port: int):
+# Gets passed the port that has an input level
+func update_output(level: bool, port: int, reverse: bool):
+	var idx = int(reverse)
 	if type == "OUTPUT":
 		$Label.text = String(int(level))
 		return
 	# Cause update for first-time input
-	if not input_levels.has(port):
-		input_levels[port] = not level
+	if not input_levels[idx].keys().has(port):
+		input_levels[idx][port] = not level
 	# Return if no change to established input
-	if input_levels[port] == level:
+	if input_levels[idx][port] == level:
 		return
 	# Detect race condition
 	if inputs_effected.has(port):
@@ -70,32 +117,32 @@ func update_output(level: bool, port: int):
 	else:
 		inputs_effected[port] = 1
 	# Remember the current input level
-	input_levels[port] = level
+	input_levels[idx][port] = level
 	match type:
 		"NOT":
 			level = !level
 			set_output(level, 0)
 		"BUS", "INBUS", "OUTBUS", "DECODER", "SEG7":
-			set_value()
+			set_value(0, reverse, true)
 		_:
-			if not input_levels.has(0):
-				input_levels[0] = false
-			if not input_levels.has(1):
-				input_levels[1] = false
+			if not input_levels[idx].has(0):
+				input_levels[idx][0] = false
+			if not input_levels[idx].has(1):
+				input_levels[idx][1] = false
 			match type:
 				"OR":
-					level = input_levels[0] or input_levels[1]
+					level = input_levels[idx][0] or input_levels[idx][1]
 				"NOR":
-					level = not (input_levels[0] or input_levels[1])
+					level = not (input_levels[idx][0] or input_levels[idx][1])
 				"AND":
-					level = input_levels[0] and input_levels[1]
+					level = input_levels[idx][0] and input_levels[idx][1]
 				"NAND":
-					level = not (input_levels[0] and input_levels[1])
+					level = not (input_levels[idx][0] and input_levels[idx][1])
 				"XOR":
-					level = (not input_levels[0] and input_levels[1]) or (input_levels[0] and not input_levels[1])
+					level = (not input_levels[idx][0] and input_levels[idx][1]) or (input_levels[idx][0] and not input_levels[idx][1])
 			set_output(level, 0)
 
 
 # This function is overwritten in busses
-func set_value(_v = 0):
+func set_value(_v: int, _reverse: bool, _from_pin: bool):
 	pass

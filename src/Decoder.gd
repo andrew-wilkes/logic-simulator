@@ -19,13 +19,15 @@ func add_slots():
 		add_child(node)
 		set_slot(slot, false, 0, Color.white, true, 0, Color.white)
 		out_port_map.append(slot)
+		out_port_mode.append(PIN_MODE.OUTPUT)
 		slot += 1
 	get_child(bits + 3).get_child(0).text = "A" + String(bits + 1)
 	set_slot(bits + 2, true, 0, Color.white, true, 0, Color.white)
 	in_port_map.append(bits + 2)
+	in_port_mode.append(PIN_MODE.INPUT)
 
 
-func set_value(v: int = -1):
+func set_value(v: int, _r: bool,_from_pin: bool):
 	if v < 0:
 		# Get the value from inputs (port 1, 2 ...
 		v = 0
@@ -46,5 +48,6 @@ func _on_Bits_button_down():
 	if bits < 2:
 		bits += 1
 		add_slots()
+		depth = bits
 	else:
-		$Bits.disabled = true
+		$Bits.hide()

@@ -25,18 +25,28 @@ func _ready():
 	pm.connect("part_selected", self, "add_part")
 
 
-func update_bus(node, value):
+# A bus output node value has changed
+func update_bus(node, value, reverse = false):
 	for con in $Graph.get_connection_list():
-		if con.from == node.name:
-			$Graph.get_node(con.to).set_value(value)
+		if reverse:
+			if con.to == node.name:
+				$Graph.get_node(con.from).set_value(value, reverse, false)
+		else:
+			if con.from == node.name:
+				$Graph.get_node(con.to).set_value(value, reverse, false)
 
 
-func update_levels(node, port, level):
+# A part output level has changed
+func update_levels(node, port, level, reverse = false):
 	if node.type == "INPUT":
 		reset_race_detection()
 	for con in $Graph.get_connection_list():
-		if con.from == node.name and con.from_port == port:
-			$Graph.get_node(con.to).set_input(level, con.to_port)
+		if reverse:
+			if con.to == node.name and con.to_port == port:
+				$Graph.get_node(con.from).set_input(level, con.from_port, reverse)
+		else:
+			if con.from == node.name and con.from_port == port:
+				$Graph.get_node(con.to).set_input(level, con.to_port)
 
 
 func reset_race_detection():
@@ -82,10 +92,9 @@ func _on_Graph_connection_request(from, from_slot, to, to_slot):
 	# Don't connect between OUTBUS and INBUS or BUS to BUS
 	if $Graph.get_node(to).type == "INBUS" and $Graph.get_node(from).type == "OUTBUS":
 		return
-	if $Graph.get_node(to).type == "BUS" and $Graph.get_node(from).type == "BUS":
-		return
-	# Don't connect to input that is already connected unless it's a bus
-	if not $Graph.get_node(to) is BUS:
+	# Don't connect to input that is already connected unless it's a BUS or INPUT
+	var node = $Graph.get_node(to)
+	if not node is BUS and node.type != "INPUT":
 		for con in $Graph.get_connection_list():
 			if con.to == to and con.to_port == to_slot:
 				return
@@ -182,9 +191,9 @@ func _on_FileDialog_file_selected(path: String):
 		$Alert.dialog_text = "No filename was specified"
 		$Alert.popup_centered()
 		return
-	file_name = path
 	if action == SAVE:
 		save_data()
+		set_filename(path)
 	else:
 		load_data()
 
@@ -204,7 +213,7 @@ func save_data():
 	data["nodes"] = []
 	for node in $Graph.get_children():
 		if node is GraphNode:
-			data["nodes"].append({ "type": node.type, "index": node.index, "group": node.group, "name": node.name, "x": node.offset.x, "y": node.offset.y })
+			data["nodes"].append({ "type": node.type, "index": node.index, "group": node.group, "name": node.name, "x": node.offset.x, "y": node.offset.y, "depth": node.depth })
 	var file = File.new()
 	file.open(file_name, File.WRITE)
 	file.store_string(to_json(data))
@@ -242,6 +251,9 @@ func init_graph():
 			$Graph.add_child(part, true)
 			connect_part(part)
 			part.name = node.name
+			if node.depth > 0:
+				for n in node.depth:
+					part.add_slots()
 		if data.has("connections"):
 			for con in data.connections:
 				var _e = $Graph.connect_node(con.from, con.from_port, con.to, con.to_port)
