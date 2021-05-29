@@ -12,9 +12,6 @@ func _ready():
 			s.scale = Vector2(n, n)
 		i += 2
 
-var output_levels = {}
-var value := 0
-
 func setup():
 	set_port_maps()
 
@@ -29,18 +26,14 @@ var map = [
 	[10,11,12,13,14,15]
 ]
 
-func set_value(v: int, _r: bool, _from_pin: bool):
-	if v < 0:
-		# Get the value from inputs (port 1, 2 ...
-		v = 0
-		for n in range(4, 0, -1):
-			v *= 2
-			if input_levels.has(n):
-				v += int(input_levels[n])
+func set_value(v: int, reverse: bool, _from_pin: bool):
+	var idx = int(reverse)
+	if _from_pin:
+		v = get_value_from_inputs(idx)
 	if value == v:
 		return
 	value = v
-	var idx = 0
+	idx = 0
 	for led in $LED.get_children():
 		led.visible = map[idx].has(v)
 		idx += 1

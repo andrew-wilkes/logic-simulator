@@ -50,7 +50,7 @@ func update_levels(node, port, level, reverse = false):
 
 
 func reset_race_detection():
-	$Graph.set_selected(null)
+	unselect_all()
 	var nodes = $Graph.get_children()
 	for node in nodes:
 		if node is GraphNode:
@@ -78,6 +78,7 @@ func connect_part(part):
 	var _e = part.connect("output_changed", self, "update_levels")
 	_e = part.connect("unstable", self, "delete_wire")
 	_e = part.connect("offset_changed", self, "set_changed")
+	_e = part.connect("mouse_entered", self, "unselect_all")
 	if part is BUS:
 		_e = part.connect("bus_changed", self, "update_bus")
 
@@ -113,7 +114,13 @@ func _on_Graph_delete_nodes_request():
 			remove_connections_to_node(node)
 			node.queue_free()
 			set_changed()
+
+
+func unselect_all():
+	if Input.is_key_pressed(KEY_CONTROL) or Input.is_key_pressed(KEY_SHIFT):
+		return
 	selected_nodes = {}
+	$Graph.set_selected(null)
 
 
 func _on_Graph_node_selected(node):

@@ -7,11 +7,7 @@ signal bus_changed(node, value, reverse)
 enum { HEX, DEC, BIN }
 
 var mode = HEX
-var bits = 0
-var bit_lengths = [4, 8, 16]
 var format = ""
-var output_levels = {}
-var value := 1
 
 func setup():
 	if type == "INBUS":
@@ -55,12 +51,7 @@ func add_slots():
 func set_value(v: int, reverse: bool, from_pin: bool):
 	var idx = int(reverse)
 	if from_pin:
-		# Get the value from inputs
-		v = 0
-		for n in range(bit_lengths[bits] - 1, -1, -1):
-			v *= 2
-			if input_levels[idx].keys().has(n):
-				v += int(input_levels[idx][n])
+		v = get_value_from_inputs(idx)
 	# If the value is unchanged ignore it
 	# This also guards against a feedback loop
 	if value == v:

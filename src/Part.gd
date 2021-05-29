@@ -20,6 +20,10 @@ var in_port_mode = []
 var out_port_map = []
 var out_port_mode = []
 var depth = 0
+var bits = 0
+var bit_lengths = [4, 8, 16]
+var output_levels = {}
+var value := -1
 
 func set_title(_v):
 	title = title.strip_edges()
@@ -58,6 +62,15 @@ func set_port_maps():
 
 func reset():
 	inputs_effected = {}
+
+
+func get_value_from_inputs(idx: int):
+	var v = 0
+	for n in range(bit_lengths[bits], 0, -1):
+		v *= 2
+		if input_levels[idx].keys().has(n):
+			v += int(input_levels[idx][n])
+	return v
 
 
 # Input pin and output pin used as outputs

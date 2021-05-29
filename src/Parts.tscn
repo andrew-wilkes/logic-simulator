@@ -52,7 +52,7 @@ margin_left = 16.0
 margin_top = 24.0
 margin_right = 92.0
 margin_bottom = 64.0
-focus_mode = 0
+enabled_focus_mode = 0
 
 [node name="Sprite" type="Sprite" parent="Gates/INPUT"]
 visible = false

@@ -14,7 +14,7 @@ __meta__ = {
 
 [node name="M" type="MarginContainer" parent="."]
 margin_right = 1920.0
-margin_bottom = 44.0
+margin_bottom = 63.0
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
@@ -24,7 +24,7 @@ custom_constants/margin_bottom = 10
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 1910.0
-margin_bottom = 34.0
+margin_bottom = 53.0
 
 [node name="V" type="VBoxContainer" parent="M/Topbar"]
 margin_right = 73.0
@@ -68,36 +68,36 @@ custom_colors/font_color = Color( 0.698039, 0.698039, 0.698039, 1 )
 [node name="Left" type="Control" parent="M/Topbar"]
 margin_left = 77.0
 margin_right = 954.0
-margin_bottom = 24.0
+margin_bottom = 43.0
 size_flags_horizontal = 3
 
 [node name="H" type="HBoxContainer" parent="M/Topbar"]
 margin_left = 958.0
 margin_right = 1018.0
-margin_bottom = 24.0
+margin_bottom = 43.0
 custom_constants/separation = 0
 
 [node name="Up" type="ToolButton" parent="M/Topbar/H"]
 margin_right = 30.0
-margin_bottom = 24.0
+margin_bottom = 43.0
 focus_mode = 0
 icon = ExtResource( 11 )
 
 [node name="Down" type="ToolButton" parent="M/Topbar/H"]
 margin_left = 30.0
 margin_right = 60.0
-margin_bottom = 24.0
+margin_bottom = 43.0
 focus_mode = 0
 icon = ExtResource( 10 )
 
 [node name="Right" type="Control" parent="M/Topbar"]
 margin_left = 1022.0
 margin_right = 1900.0
-margin_bottom = 24.0
+margin_bottom = 43.0
 size_flags_horizontal = 3
 
 [node name="Graph" type="GraphEdit" parent="."]
-margin_top = 48.0
+margin_top = 67.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 size_flags_horizontal = 3

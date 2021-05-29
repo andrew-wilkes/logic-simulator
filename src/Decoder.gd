@@ -1,10 +1,5 @@
 extends Part
 
-var bits = 0
-var bit_lengths = [4, 8, 16]
-var output_levels = {}
-var value := 0
-
 func setup():
 	set_port_maps()
 
@@ -27,14 +22,10 @@ func add_slots():
 	in_port_mode.append(PIN_MODE.INPUT)
 
 
-func set_value(v: int, _r: bool,_from_pin: bool):
-	if v < 0:
-		# Get the value from inputs (port 1, 2 ...
-		v = 0
-		for n in range(bit_lengths[bits], 0, -1):
-			v *= 2
-			if input_levels.has(n):
-				v += int(input_levels[n])
+func set_value(v: int, reverse: bool, _from_pin: bool):
+	var idx = int(reverse)
+	if _from_pin:
+		v = get_value_from_inputs(idx)
 	if value == v:
 		return
 	value = v
