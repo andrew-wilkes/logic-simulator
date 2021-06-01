@@ -6,6 +6,9 @@ signal output_changed(node, slot, level, reverse)
 signal unstable(node, slot)
 signal short_circuit(node, port, reverse)
 
+export var id = ""
+export var has_tt = false
+
 const RACE_TRIGGER_COUNT = 4
 
 enum PIN_MODE { HIGH, OUTPUT, INPUT, BI }

@@ -23,7 +23,6 @@ func _ready():
 	pm = part_menu_scene.instance()
 	$M/Topbar.add_child_below_node($M/Topbar/Left, pm)
 	pm.connect("part_selected", self, "add_part")
-	$TruthTable.popup_centered()
 
 
 # A bus output node value has changed
@@ -73,6 +72,8 @@ func add_part(idx: int, pg: int):
 	part.offset = Vector2(get_viewport().get_mouse_position().x, $Graph.get_snap() * (1 + randi() % 5))
 	set_changed()
 	connect_part(part)
+	if part.has_tt:
+		$TruthTable.open(part.id)
 
 
 func connect_part(part):
@@ -277,3 +278,7 @@ func _on_Up_button_down():
 
 func _on_Down_button_down():
 	pm.select_menu(-1)
+
+
+func _on_Button_pressed():
+	$TruthTable.popup_centered()

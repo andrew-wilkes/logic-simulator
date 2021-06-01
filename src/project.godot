@@ -33,6 +33,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Parts="*res://Parts.tscn"
+Data="*res://data.gd"
 
 [display]
 

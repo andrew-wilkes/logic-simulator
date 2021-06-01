@@ -141,7 +141,6 @@ margin_right = 200.0
 margin_bottom = 70.0
 
 [node name="TruthTable" parent="." instance=ExtResource( 2 )]
-visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 1016.0

@@ -74,6 +74,8 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+id = "not"
+has_tt = true
 
 [node name="Icon" type="TextureRect" parent="Gates/NOT"]
 margin_left = 16.0
@@ -110,6 +112,8 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+id = "and"
+has_tt = true
 
 [node name="Control" type="Control" parent="Gates/AND"]
 margin_left = 16.0
@@ -159,6 +163,8 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+id = "nand"
+has_tt = true
 
 [node name="Control" type="Control" parent="Gates/NAND"]
 margin_left = 16.0
@@ -208,6 +214,8 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+id = "or"
+has_tt = true
 
 [node name="Control" type="Control" parent="Gates/OR"]
 margin_left = 16.0
@@ -257,6 +265,8 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+id = "nor"
+has_tt = true
 
 [node name="Control" type="Control" parent="Gates/NOR"]
 margin_left = 16.0
@@ -306,6 +316,8 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+id = "xor"
+has_tt = true
 
 [node name="Control" type="Control" parent="Gates/XOR"]
 margin_left = 16.0

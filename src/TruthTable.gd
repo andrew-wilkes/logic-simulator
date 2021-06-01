@@ -1,21 +1,23 @@
-extends Control
+extends AcceptDialog
 
 func _ready():
-	var data = {
-		"inputs": ["clock", "D", "S", "R"],
-		"outputs": ["Q"],
-		"tt": [
-			[0,"X",0,0,"L"],
-			[1,"X",0,0,"L"],
-			["+",0,0,0,0],
-			["+",1,0,0,1],
-			["X","X",1,0,1],
-			["X","X",0,1,0],
-			["X","X",1,1,1]
-		]
-	}
+	$Header1.hide()
+	$Header2.hide()
+	$Cell1.hide()
+	$Cell2.hide()
+	if get_parent().name == "root":
+		open("etdff")
+
+
+func open(id):
+	for node in $Grid.get_children():
+		node.hide()
+		node.queue_free()
+	rect_size = Vector2(10,10) # Makes it resize starting from a small size
+	var data = Data.parts[id]
 	var grid: GridContainer = $Grid
 	grid.columns = data.inputs.size() + data.outputs.size()
+	window_title = data.title + " Truth Table"
 	for txt in data.inputs:
 		grid.add_child(get_header_label(txt, false))
 	for txt in data.outputs:
@@ -26,17 +28,14 @@ func _ready():
 			grid.add_child(get_item_label(String(txt), idx > data.inputs.size()))
 			idx += 1
 		idx = 1
-	$Header1.hide()
-	$Header2.hide()
-	$Cell1.hide()
-	$Cell2.hide()
-	if get_parent().name == "root":
-		show()
+	set_position(Vector2(100, 200))
+	show()
 
 
 func get_header_label(txt, is_output: bool):
 	var l = $Header2.duplicate() if is_output else $Header1.duplicate()
 	l.text = txt
+	l.show()
 	return l
 
 
@@ -50,4 +49,11 @@ func get_item_label(txt, is_output: bool):
 			txt = "Last value"
 	var l = $Cell2.duplicate() if is_output else $Cell1.duplicate()
 	l.text = txt
+	l.show()
 	return l
+
+
+func _on_TruthTable_mouse_exited():
+	# Hide if dragged outside of screen
+	if !get_viewport_rect().encloses(Rect2(rect_position, rect_size)):
+		hide()

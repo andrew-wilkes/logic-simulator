@@ -15,15 +15,20 @@ bg_color = Color( 0.552941, 0.6, 0.619608, 1 )
 bg_color = Color( 0.376471, 0.545098, 0.607843, 1 )
 
 [node name="TruthTable" type="AcceptDialog"]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = -1801.0
+margin_bottom = -1016.0
+focus_mode = 1
+popup_exclusive = true
 window_title = "Truth Table"
 script = ExtResource( 1 )
 
 [node name="Header1" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 111.0
+margin_bottom = 28.0
 rect_min_size = Vector2( 80, 20 )
 custom_styles/normal = SubResource( 2 )
 custom_colors/font_color = Color( 0.839216, 0.839216, 0.839216, 1 )
@@ -35,8 +40,10 @@ __meta__ = {
 }
 
 [node name="Header2" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 111.0
+margin_bottom = 28.0
 rect_min_size = Vector2( 80, 20 )
 custom_styles/normal = SubResource( 5 )
 custom_colors/font_color = Color( 0.839216, 0.839216, 0.839216, 1 )
@@ -48,8 +55,10 @@ __meta__ = {
 }
 
 [node name="Cell1" type="Label" parent="."]
-margin_right = 98.0
-margin_bottom = 14.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 111.0
+margin_bottom = 28.0
 rect_min_size = Vector2( 0, 20 )
 custom_styles/normal = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -60,8 +69,10 @@ __meta__ = {
 }
 
 [node name="Cell2" type="Label" parent="."]
-margin_right = 98.0
-margin_bottom = 14.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 111.0
+margin_bottom = 28.0
 rect_min_size = Vector2( 0, 20 )
 custom_styles/normal = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -72,8 +83,12 @@ __meta__ = {
 }
 
 [node name="Grid" type="GridContainer" parent="."]
-margin_right = 546.0
-margin_bottom = 416.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 111.0
+margin_bottom = 28.0
 custom_constants/vseparation = 2
 custom_constants/hseparation = 2
 columns = 3
+
+[connection signal="mouse_exited" from="." to="." method="_on_TruthTable_mouse_exited"]
