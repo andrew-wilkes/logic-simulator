@@ -23,6 +23,7 @@ func _ready():
 	pm = part_menu_scene.instance()
 	$M/Topbar.add_child_below_node($M/Topbar/Left, pm)
 	pm.connect("part_selected", self, "add_part")
+	$TruthTable.popup_centered()
 
 
 # A bus output node value has changed

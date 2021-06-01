@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://TruthTable.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/down.png" type="Texture" id=10]
 [ext_resource path="res://assets/up.png" type="Texture" id=11]
 
@@ -103,6 +104,7 @@ margin_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 right_disconnects = true
+scroll_offset = Vector2( 0, -68 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -137,6 +139,14 @@ current_path = "/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/"
 [node name="Confirm" type="ConfirmationDialog" parent="."]
 margin_right = 200.0
 margin_bottom = 70.0
+
+[node name="TruthTable" parent="." instance=ExtResource( 2 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 1016.0
+margin_right = 100.0
+margin_bottom = 1080.0
 
 [connection signal="button_down" from="M/Topbar/V/H/File" to="." method="_on_File_button_down"]
 [connection signal="id_pressed" from="M/Topbar/V/H/File/FileMenu" to="." method="_on_FileMenu_id_pressed"]
