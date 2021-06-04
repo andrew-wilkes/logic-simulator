@@ -12,6 +12,7 @@ func _ready():
 		toolbar.set("custom_constants/separation", 0)
 		for p in parts.get_children():
 			var b = ToolButton.new()
+			b.focus_mode = Control.FOCUS_NONE
 			b.hint_tooltip = p.name
 			for child in p.get_children():
 				if child is Sprite or child is TextureRect:
@@ -23,6 +24,7 @@ func _ready():
 		group += 1
 		add_child(toolbar)
 	set_visibility()
+	emit_signal("part_selected") # To avoid an warning message about not being emitted
 
 
 func select_menu(n):

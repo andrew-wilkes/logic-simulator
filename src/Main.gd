@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-enum { NOACTION, NEW, OPEN, SAVE, SAVEAS }
+enum { NOACTION, NEW, OPEN, SAVE, SAVEAS, SETTINGS }
 
 var part_menu_scene = preload("res://PartMenu.tscn")
 
@@ -18,6 +18,7 @@ func _ready():
 	fm = $M/Topbar/V/H/File/FileMenu
 	fm.add_item("New", NEW)
 	fm.add_item("Open", OPEN)
+	fm.add_separator()
 	fm.add_item("Save", SAVE)
 	fm.add_item("Save As...", SAVEAS)
 	pm = part_menu_scene.instance()
@@ -72,15 +73,16 @@ func add_part(idx: int, pg: int):
 	part.offset = Vector2(get_viewport().get_mouse_position().x, $Graph.get_snap() * (1 + randi() % 5))
 	set_changed()
 	connect_part(part)
-	if part.has_tt:
+	if part.has_tt and $M/Topbar/EnablePopups.pressed:
 		$TruthTable.open(part.id)
+	else:
+		$TruthTable.hide()
 
 
 func connect_part(part):
 	var _e = part.connect("output_changed", self, "update_levels")
 	_e = part.connect("unstable", self, "delete_wire")
 	_e = part.connect("offset_changed", self, "set_changed")
-	_e = part.connect("mouse_entered", self, "unselect_all")
 	if part is BUS:
 		_e = part.connect("bus_changed", self, "update_bus")
 
@@ -116,6 +118,7 @@ func _on_Graph_delete_nodes_request():
 			remove_connections_to_node(node)
 			node.queue_free()
 			set_changed()
+	selected_nodes = {}
 
 
 func unselect_all():
@@ -126,6 +129,8 @@ func unselect_all():
 
 
 func _on_Graph_node_selected(node):
+	if node == null:
+		breakpoint
 	selected_nodes[node] = true
 
 
@@ -185,6 +190,8 @@ func do_action():
 				$FileDialog.popup_centered()
 			else:
 				save_data()
+		SETTINGS:
+			$Settings.open()
 
 
 func clear_graph():

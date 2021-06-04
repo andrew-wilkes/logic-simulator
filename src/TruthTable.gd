@@ -5,6 +5,7 @@ func _ready():
 	$Header2.hide()
 	$Cell1.hide()
 	$Cell2.hide()
+	get_close_button().hide()
 	if get_parent().name == "root":
 		open("etdff")
 
@@ -13,19 +14,18 @@ func open(id):
 	for node in $Grid.get_children():
 		node.hide()
 		node.queue_free()
-	rect_size = Vector2(10,10) # Makes it resize starting from a small size
+	set_size(Vector2.ZERO) # Makes it resize starting from a small size
 	var data = Data.parts[id]
-	var grid: GridContainer = $Grid
-	grid.columns = data.inputs.size() + data.outputs.size()
+	$Grid.columns = data.inputs.size() + data.outputs.size()
 	window_title = data.title + " Truth Table"
 	for txt in data.inputs:
-		grid.add_child(get_header_label(txt, false))
+		$Grid.add_child(get_header_label(txt, false))
 	for txt in data.outputs:
-		grid.add_child(get_header_label(txt, true))
+		$Grid.add_child(get_header_label(txt, true))
 	var idx = 1
 	for row in data.tt:
 		for txt in row:
-			grid.add_child(get_item_label(String(txt), idx > data.inputs.size()))
+			$Grid.add_child(get_item_label(String(txt), idx > data.inputs.size()))
 			idx += 1
 		idx = 1
 	set_position(Vector2(100, 200))

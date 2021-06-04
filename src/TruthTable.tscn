@@ -2,10 +2,10 @@
 
 [ext_resource path="res://TruthTable.gd" type="Script" id=1]
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.1586, 0.489627, 0.61, 1 )
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.061, 0.4636, 0.61, 1 )
 
 [sub_resource type="StyleBoxFlat" id=3]
@@ -30,7 +30,7 @@ margin_top = 8.0
 margin_right = 111.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 80, 20 )
-custom_styles/normal = SubResource( 2 )
+custom_styles/normal = SubResource( 1 )
 custom_colors/font_color = Color( 0.839216, 0.839216, 0.839216, 1 )
 text = "sdfsdf"
 align = 1
@@ -45,7 +45,7 @@ margin_top = 8.0
 margin_right = 111.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 80, 20 )
-custom_styles/normal = SubResource( 5 )
+custom_styles/normal = SubResource( 2 )
 custom_colors/font_color = Color( 0.839216, 0.839216, 0.839216, 1 )
 text = "sdfsdf"
 align = 1

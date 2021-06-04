@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://TruthTable.tscn" type="PackedScene" id=2]
@@ -56,7 +56,6 @@ __meta__ = {
 margin_left = 43.0
 margin_right = 73.0
 margin_bottom = 14.0
-enabled_focus_mode = 0
 text = "Help"
 underline = 1
 
@@ -68,13 +67,13 @@ custom_colors/font_color = Color( 0.698039, 0.698039, 0.698039, 1 )
 
 [node name="Left" type="Control" parent="M/Topbar"]
 margin_left = 77.0
-margin_right = 954.0
+margin_right = 896.0
 margin_bottom = 43.0
 size_flags_horizontal = 3
 
 [node name="H" type="HBoxContainer" parent="M/Topbar"]
-margin_left = 958.0
-margin_right = 1018.0
+margin_left = 900.0
+margin_right = 960.0
 margin_bottom = 43.0
 custom_constants/separation = 0
 
@@ -92,10 +91,18 @@ focus_mode = 0
 icon = ExtResource( 10 )
 
 [node name="Right" type="Control" parent="M/Topbar"]
-margin_left = 1022.0
-margin_right = 1900.0
+margin_left = 964.0
+margin_right = 1784.0
 margin_bottom = 43.0
 size_flags_horizontal = 3
+
+[node name="EnablePopups" type="CheckBox" parent="M/Topbar"]
+margin_left = 1788.0
+margin_right = 1900.0
+margin_bottom = 43.0
+focus_mode = 0
+pressed = true
+text = "Show Popups"
 
 [node name="Graph" type="GraphEdit" parent="."]
 margin_top = 67.0
