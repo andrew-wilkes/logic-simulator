@@ -1,6 +1,9 @@
 extends AcceptDialog
 
+signal test_pressed
+
 func _ready():
+	insert_test_button()
 	$Header1.hide()
 	$Header2.hide()
 	$Cell1.hide()
@@ -57,3 +60,17 @@ func _on_TruthTable_mouse_exited():
 	# Hide if dragged outside of screen
 	if !get_viewport_rect().encloses(Rect2(rect_position, rect_size)):
 		hide()
+
+
+func insert_test_button():
+	var hbox = get_child(2)
+	var tb = Button.new()
+	tb.text = "Test"
+	hbox.get_child(1).text = "Close"
+	hbox.add_child_below_node(hbox.get_child(0), tb)
+	hbox.add_child_below_node(tb, hbox.get_child(0).duplicate())
+	tb.connect("pressed", self, "run_test")
+
+
+func run_test():
+	emit_signal("test_pressed")
