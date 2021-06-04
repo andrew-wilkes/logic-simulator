@@ -24,7 +24,7 @@ func _ready():
 		group += 1
 		add_child(toolbar)
 	set_visibility()
-	emit_signal("part_selected") # To avoid an warning message about not being emitted
+	emit_signal("part_selected") # To avoid a warning message about not being emitted
 
 
 func select_menu(n):

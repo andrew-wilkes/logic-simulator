@@ -2,6 +2,8 @@ extends AcceptDialog
 
 signal test_pressed
 
+var data
+
 func _ready():
 	insert_test_button()
 	$Header1.hide()
@@ -18,7 +20,7 @@ func open(id):
 		node.hide()
 		node.queue_free()
 	set_size(Vector2.ZERO) # Makes it resize starting from a small size
-	var data = Data.parts[id]
+	data = Data.parts[id]
 	$Grid.columns = data.inputs.size() + data.outputs.size()
 	window_title = data.title + " Truth Table"
 	for txt in data.inputs:
@@ -27,8 +29,8 @@ func open(id):
 		$Grid.add_child(get_header_label(txt, true))
 	var idx = 1
 	for row in data.tt:
-		for txt in row:
-			$Grid.add_child(get_item_label(String(txt), idx > data.inputs.size()))
+		for v in row:
+			$Grid.add_child(get_item_label(String(v), idx > data.inputs.size()))
 			idx += 1
 		idx = 1
 	set_position(Vector2(100, 200))
@@ -71,6 +73,42 @@ func insert_test_button():
 	hbox.add_child_below_node(tb, hbox.get_child(0).duplicate())
 	tb.connect("pressed", self, "run_test")
 
+var step = 1
+var state
+
+enum { RUNNING, PASSED, FAILED }
 
 func run_test():
 	emit_signal("test_pressed")
+	state = RUNNING
+	do_test()
+
+
+func do_test():
+	$Timer.start()
+	var levels = data.tt[step - 1]
+	highlight_row(step, [0,0])
+	step += 1
+
+
+func _on_Timer_timeout():
+	do_test()
+
+
+func highlight_row(row: int, result: Array):
+	var offset = data.tt[0].size() * row
+	for _v in data.inputs:
+		$Grid.get_child(offset).modulate = Color.green
+		offset += 1
+	for idx in result.size():
+		if data.ouputs == result[idx]:
+			$Grid.get_child(offset).modulate = Color.green
+		else:
+			$Grid.get_child(offset).modulate = Color.red
+		offset += 1
+
+
+func unhighlight_row(row: int):
+	var offset = data.tt[0].size() * row
+	for idx in data.tt[0].size():
+		$Grid.get_child(offset + idx).modulate = Color.white
