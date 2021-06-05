@@ -7,6 +7,9 @@ func _ready():
 		for node in get_children():
 			if node is Control:
 				node.connect("gui_input", self, "_on_gui_input", [node])
+			for child in node.get_children():
+				if child is Button:
+					child.focus_mode = Control.FOCUS_NONE
 
 
 func _on_gui_input(event, node):
@@ -16,4 +19,3 @@ func _on_gui_input(event, node):
 		remove_child(node)
 		emit_signal("part_variant_selected", node, offset)
 		queue_free()
-		

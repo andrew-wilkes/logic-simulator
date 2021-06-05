@@ -68,6 +68,7 @@ func insert_test_button():
 	var hbox = get_child(2)
 	var tb = Button.new()
 	tb.text = "Test"
+	tb.focus_mode = Control.FOCUS_NONE
 	hbox.get_child(1).text = "Close"
 	hbox.add_child_below_node(hbox.get_child(0), tb)
 	hbox.add_child_below_node(tb, hbox.get_child(0).duplicate())
