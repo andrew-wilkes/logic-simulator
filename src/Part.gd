@@ -141,12 +141,10 @@ func update_output(level: bool, port: int, reverse: bool):
 	# Remember the current input level
 	input_levels[idx][port] = level
 	match type:
-		"NOT":
+		"NOT", "OUTPUT1":
 			level = !level
 			set_output(level, 0)
-		"BUS", "INBUS", "OUTBUS", "DECODER", "SEG7", "OUTPUT1", "OUTPUT4", "OUTPUT8":
-			set_value(0, reverse, true)
-		_:
+		"OR", "NOR", "AND", "NAND", "XOR":
 			if not input_levels[idx].has(0):
 				input_levels[idx][0] = false
 			if not input_levels[idx].has(1):
@@ -163,6 +161,8 @@ func update_output(level: bool, port: int, reverse: bool):
 				"XOR":
 					level = (not input_levels[idx][0] and input_levels[idx][1]) or (input_levels[idx][0] and not input_levels[idx][1])
 			set_output(level, 0)
+		_:
+			set_value(0, reverse, true)
 
 
 # This function is overwritten in busses
