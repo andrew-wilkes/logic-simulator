@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/nand.png" type="Texture" id=1]
 [ext_resource path="res://assets/and.png" type="Texture" id=2]
@@ -20,48 +20,427 @@
 [ext_resource path="res://assets/7seg.png" type="Texture" id=18]
 [ext_resource path="res://assets/ledseg.png" type="Texture" id=19]
 [ext_resource path="res://assets/led-dot.png" type="Texture" id=20]
+[ext_resource path="res://Input.gd" type="Script" id=21]
 
 [node name="Parts" type="Control"]
-margin_right = 80.0
-margin_bottom = 550.0
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Gates" type="Control" parent="."]
-margin_bottom = 708.0
 
 [node name="INPUT" type="GraphNode" parent="Gates"]
-margin_right = 108.0
-margin_bottom = 70.0
-title = "INPUT"
+margin_right = 140.0
+margin_bottom = 535.0
+title = "Choose Type"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Gates/INPUT"]
+visible = false
+texture = ExtResource( 10 )
+
+[node name="INPUTSW" type="GraphNode" parent="Gates/INPUT"]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 124.0
+margin_bottom = 94.0
+title = "INPUTSW"
 slot/0/left_enabled = true
 slot/0/left_type = 0
 slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 0
 slot/0/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 3 )
+script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CheckButton" type="CheckButton" parent="Gates/INPUT"]
+[node name="Switch" type="CheckButton" parent="Gates/INPUT/INPUTSW"]
 margin_left = 16.0
 margin_top = 24.0
 margin_right = 92.0
 margin_bottom = 64.0
 focus_mode = 0
 
-[node name="Sprite" type="Sprite" parent="Gates/INPUT"]
-visible = false
-texture = ExtResource( 10 )
+[node name="INPUTPUSH" type="GraphNode" parent="Gates/INPUT"]
+margin_left = 16.0
+margin_top = 95.0
+margin_right = 124.0
+margin_bottom = 155.0
+title = "INPUTPUSH"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Push" type="Button" parent="Gates/INPUT/INPUTPUSH"]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 92.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 0, 30 )
+focus_mode = 0
+text = "Push"
+
+[node name="INPUT4" type="GraphNode" parent="Gates/INPUT"]
+margin_left = 16.0
+margin_top = 156.0
+margin_right = 124.0
+margin_bottom = 254.0
+custom_constants/separation = 4
+title = "INPUT4"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = true
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = true
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="D0" type="Label" parent="Gates/INPUT/INPUT4"]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 92.0
+margin_bottom = 38.0
+text = "D0"
+align = 2
+valign = 1
+
+[node name="D1" type="Label" parent="Gates/INPUT/INPUT4"]
+margin_left = 16.0
+margin_top = 42.0
+margin_right = 92.0
+margin_bottom = 56.0
+text = "D1"
+align = 2
+valign = 1
+
+[node name="D2" type="Label" parent="Gates/INPUT/INPUT4"]
+margin_left = 16.0
+margin_top = 60.0
+margin_right = 92.0
+margin_bottom = 74.0
+text = "D2"
+align = 2
+valign = 1
+
+[node name="D3" type="Label" parent="Gates/INPUT/INPUT4"]
+margin_left = 16.0
+margin_top = 78.0
+margin_right = 92.0
+margin_bottom = 92.0
+text = "D3"
+align = 2
+valign = 1
+
+[node name="INPUT8" type="GraphNode" parent="Gates/INPUT"]
+margin_left = 16.0
+margin_top = 255.0
+margin_right = 124.0
+margin_bottom = 425.0
+custom_constants/separation = 4
+title = "INPUT8"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = true
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = true
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = true
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = true
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+slot/6/left_enabled = false
+slot/6/left_type = 0
+slot/6/left_color = Color( 1, 1, 1, 1 )
+slot/6/right_enabled = true
+slot/6/right_type = 0
+slot/6/right_color = Color( 1, 1, 1, 1 )
+slot/7/left_enabled = false
+slot/7/left_type = 0
+slot/7/left_color = Color( 1, 1, 1, 1 )
+slot/7/right_enabled = true
+slot/7/right_type = 0
+slot/7/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="D0" type="Label" parent="Gates/INPUT/INPUT8"]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 92.0
+margin_bottom = 38.0
+text = "D0"
+align = 2
+valign = 1
+
+[node name="D1" type="Label" parent="Gates/INPUT/INPUT8"]
+margin_left = 16.0
+margin_top = 42.0
+margin_right = 92.0
+margin_bottom = 56.0
+text = "D1"
+align = 2
+valign = 1
+
+[node name="D2" type="Label" parent="Gates/INPUT/INPUT8"]
+margin_left = 16.0
+margin_top = 60.0
+margin_right = 92.0
+margin_bottom = 74.0
+text = "D2"
+align = 2
+valign = 1
+
+[node name="D3" type="Label" parent="Gates/INPUT/INPUT8"]
+margin_left = 16.0
+margin_top = 78.0
+margin_right = 92.0
+margin_bottom = 92.0
+text = "D3"
+align = 2
+valign = 1
+
+[node name="D4" type="Label" parent="Gates/INPUT/INPUT8"]
+margin_left = 16.0
+margin_top = 96.0
+margin_right = 92.0
+margin_bottom = 110.0
+text = "D4"
+align = 2
+valign = 1
+
+[node name="D5" type="Label" parent="Gates/INPUT/INPUT8"]
+margin_left = 16.0
+margin_top = 114.0
+margin_right = 92.0
+margin_bottom = 128.0
+text = "D5"
+align = 2
+valign = 1
+
+[node name="D6" type="Label" parent="Gates/INPUT/INPUT8"]
+margin_left = 16.0
+margin_top = 132.0
+margin_right = 92.0
+margin_bottom = 146.0
+text = "D6"
+align = 2
+valign = 1
+
+[node name="D7" type="Label" parent="Gates/INPUT/INPUT8"]
+margin_left = 16.0
+margin_top = 150.0
+margin_right = 92.0
+margin_bottom = 164.0
+text = "D7"
+align = 2
+valign = 1
+
+[node name="INPUTCLK" type="GraphNode" parent="Gates/INPUT"]
+margin_left = 16.0
+margin_top = 426.0
+margin_right = 124.0
+margin_bottom = 612.0
+custom_constants/separation = 8
+title = "INPUTCLK"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = true
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+slot/6/left_enabled = false
+slot/6/left_type = 0
+slot/6/left_color = Color( 1, 1, 1, 1 )
+slot/6/right_enabled = true
+slot/6/right_type = 0
+slot/6/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="Gates/INPUT/INPUTCLK"]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 92.0
+margin_bottom = 24.0
+
+[node name="Start" type="Button" parent="Gates/INPUT/INPUTCLK"]
+margin_left = 16.0
+margin_top = 32.0
+margin_right = 92.0
+margin_bottom = 52.0
+focus_mode = 0
+text = "Start"
+
+[node name="Stop" type="Button" parent="Gates/INPUT/INPUTCLK"]
+margin_left = 16.0
+margin_top = 60.0
+margin_right = 92.0
+margin_bottom = 80.0
+focus_mode = 0
+text = "Stop"
+
+[node name="Reset" type="Button" parent="Gates/INPUT/INPUTCLK"]
+margin_left = 16.0
+margin_top = 88.0
+margin_right = 92.0
+margin_bottom = 108.0
+focus_mode = 0
+text = "Reset"
+
+[node name="Rate" type="Button" parent="Gates/INPUT/INPUTCLK"]
+margin_left = 16.0
+margin_top = 116.0
+margin_right = 92.0
+margin_bottom = 136.0
+focus_mode = 0
+text = "Rate"
+
+[node name="Clk" type="Label" parent="Gates/INPUT/INPUTCLK"]
+margin_left = 16.0
+margin_top = 144.0
+margin_right = 92.0
+margin_bottom = 158.0
+text = "Clk"
+align = 2
+valign = 1
+
+[node name="R" type="Label" parent="Gates/INPUT/INPUTCLK"]
+margin_left = 16.0
+margin_top = 166.0
+margin_right = 92.0
+margin_bottom = 180.0
+text = "Reset"
+align = 2
+valign = 1
 
 [node name="NOT" type="GraphNode" parent="Gates"]
-margin_top = 74.0
+margin_top = 610.0
 margin_right = 79.0
-margin_bottom = 134.0
+margin_bottom = 670.0
 title = "NOT"
 slot/0/left_enabled = true
 slot/0/left_type = 0
@@ -84,9 +463,9 @@ margin_bottom = 54.0
 texture = ExtResource( 7 )
 
 [node name="AND" type="GraphNode" parent="Gates"]
-margin_top = 138.0
+margin_top = 674.0
 margin_right = 84.0
-margin_bottom = 234.0
+margin_bottom = 770.0
 title = "AND"
 resizable = true
 slot/0/left_enabled = true
@@ -136,9 +515,9 @@ margin_bottom = 90.0
 rect_min_size = Vector2( 0, 16 )
 
 [node name="NAND" type="GraphNode" parent="Gates"]
-margin_top = 238.0
+margin_top = 774.0
 margin_right = 85.0
-margin_bottom = 334.0
+margin_bottom = 870.0
 title = "NAND"
 slot/0/left_enabled = true
 slot/0/left_type = 0
@@ -187,9 +566,9 @@ margin_bottom = 90.0
 rect_min_size = Vector2( 0, 16 )
 
 [node name="OR" type="GraphNode" parent="Gates"]
-margin_top = 338.0
+margin_top = 874.0
 margin_right = 84.0
-margin_bottom = 434.0
+margin_bottom = 970.0
 title = "OR"
 slot/0/left_enabled = true
 slot/0/left_type = 0
@@ -238,9 +617,9 @@ margin_bottom = 90.0
 rect_min_size = Vector2( 0, 16 )
 
 [node name="NOR" type="GraphNode" parent="Gates"]
-margin_top = 438.0
+margin_top = 974.0
 margin_right = 84.0
-margin_bottom = 534.0
+margin_bottom = 1070.0
 title = "NOR"
 slot/0/left_enabled = true
 slot/0/left_type = 0
@@ -289,9 +668,9 @@ margin_bottom = 90.0
 rect_min_size = Vector2( 0, 16 )
 
 [node name="XOR" type="GraphNode" parent="Gates"]
-margin_top = 538.0
+margin_top = 1074.0
 margin_right = 84.0
-margin_bottom = 634.0
+margin_bottom = 1170.0
 title = "XOR"
 slot/0/left_enabled = true
 slot/0/left_type = 0
@@ -340,9 +719,9 @@ margin_bottom = 90.0
 rect_min_size = Vector2( 0, 16 )
 
 [node name="OUTPUT" type="GraphNode" parent="Gates"]
-margin_top = 638.0
+margin_top = 1174.0
 margin_right = 97.0
-margin_bottom = 708.0
+margin_bottom = 1244.0
 title = "OUTPUT"
 slot/0/left_enabled = true
 slot/0/left_type = 0
@@ -428,6 +807,7 @@ margin_bottom = 85.0
 [node name="Mode" type="Button" parent="MISC/INBUS/HBox"]
 margin_right = 48.0
 margin_bottom = 20.0
+focus_mode = 0
 text = "Mode"
 
 [node name="Spacer" type="Control" parent="MISC/INBUS/HBox"]
@@ -440,6 +820,7 @@ size_flags_horizontal = 3
 margin_left = 56.0
 margin_right = 93.0
 margin_bottom = 20.0
+focus_mode = 0
 text = "Bits"
 
 [node name="Control" type="Control" parent="MISC/INBUS"]
@@ -506,6 +887,7 @@ margin_bottom = 85.0
 [node name="Mode" type="Button" parent="MISC/BUS/HBox"]
 margin_right = 48.0
 margin_bottom = 20.0
+focus_mode = 0
 text = "Mode"
 
 [node name="Spacer" type="Control" parent="MISC/BUS/HBox"]
@@ -518,6 +900,7 @@ size_flags_horizontal = 3
 margin_left = 56.0
 margin_right = 93.0
 margin_bottom = 20.0
+focus_mode = 0
 text = "Bits"
 
 [node name="Control" type="Control" parent="MISC/BUS"]
@@ -576,6 +959,7 @@ margin_bottom = 85.0
 [node name="Mode" type="Button" parent="MISC/OUTBUS/HBox"]
 margin_right = 48.0
 margin_bottom = 20.0
+focus_mode = 0
 text = "Mode"
 
 [node name="Spacer" type="Control" parent="MISC/OUTBUS/HBox"]
@@ -588,6 +972,7 @@ size_flags_horizontal = 3
 margin_left = 56.0
 margin_right = 93.0
 margin_bottom = 20.0
+focus_mode = 0
 text = "Bits"
 
 [node name="Control" type="Control" parent="MISC/OUTBUS"]
@@ -602,10 +987,10 @@ visible = false
 texture = ExtResource( 14 )
 
 [node name="Combinational" type="Control" parent="."]
-margin_left = 289.848
-margin_top = 2.24746
-margin_right = 407.848
-margin_bottom = 710.247
+margin_left = 284.236
+margin_top = 3.36993
+margin_right = 402.236
+margin_bottom = 711.37
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -659,6 +1044,7 @@ margin_left = 16.0
 margin_top = 24.0
 margin_right = 116.0
 margin_bottom = 44.0
+focus_mode = 0
 text = "Bits"
 
 [node name="HBox" type="HBoxContainer" parent="Combinational/DECODER"]

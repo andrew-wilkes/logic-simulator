@@ -39,7 +39,7 @@ func update_bus(node, value, reverse = false):
 
 # A part output level has changed
 func update_levels(node, port, level, reverse = false):
-	if node.type == "INPUT":
+	if is_input_type(node.type):
 		reset_race_detection()
 	for con in $Graph.get_connection_list():
 		if reverse:
@@ -69,8 +69,13 @@ func delete_wire(node, port):
 func add_part(idx: int, pg: int):
 	part_group = pg
 	var part: Part = Parts.get_part(idx, pg)
+	add_part_to_graph(part, Vector2(get_viewport().get_mouse_position().x, $Graph.get_snap() * (1 + randi() % 5)))
+
+
+func add_part_to_graph(part: Part, pos: Vector2):
 	$Graph.add_child(part, true) # Use a legible_unique_name to ensure that node name is saved and loaded ok
-	part.offset = Vector2(get_viewport().get_mouse_position().x, $Graph.get_snap() * (1 + randi() % 5))
+	part.offset = pos
+	call_deferred("unselect_all")
 	set_changed()
 	connect_part(part)
 	if part.has_tt and $M/Topbar/EnablePopups.pressed:
@@ -85,6 +90,8 @@ func connect_part(part):
 	_e = part.connect("offset_changed", self, "set_changed")
 	if part is BUS:
 		_e = part.connect("bus_changed", self, "update_bus")
+	if part.type == "INPUT":
+		_e = part.connect("part_variant_selected", self, "add_part_to_graph")
 
 
 func remove_connections_to_node(node):
@@ -99,12 +106,16 @@ func _on_Graph_connection_request(from, from_slot, to, to_slot):
 		return
 	# Don't connect to input that is already connected unless it's a BUS or INPUT
 	var node = $Graph.get_node(to)
-	if not node is BUS and node.type != "INPUT":
+	if not node is BUS and !is_input_type(node.type):
 		for con in $Graph.get_connection_list():
 			if con.to == to and con.to_port == to_slot:
 				return
 	$Graph.connect_node(from, from_slot, to, to_slot)
 	set_changed()
+
+
+func is_input_type(type: String):
+	return type.begins_with("INPUT")
 
 
 func _on_Graph_disconnection_request(from, from_slot, to, to_slot):

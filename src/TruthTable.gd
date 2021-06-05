@@ -86,7 +86,7 @@ func run_test():
 
 func do_test():
 	$Timer.start()
-	var levels = data.tt[step - 1]
+	var _levels = data.tt[step - 1]
 	highlight_row(step, [0,0])
 	step += 1
 
