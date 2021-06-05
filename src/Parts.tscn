@@ -127,15 +127,15 @@ text = "Push"
 margin_left = 16.0
 margin_top = 156.0
 margin_right = 124.0
-margin_bottom = 254.0
-custom_constants/separation = 4
+margin_bottom = 290.0
+custom_constants/separation = 6
 title = "INPUT4"
 slot/0/left_enabled = false
 slot/0/left_type = 0
 slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = true
-slot/0/right_type = 0
-slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/0/right_type = 1
+slot/0/right_color = Color( 1, 1, 0, 1 )
 slot/1/left_enabled = false
 slot/1/left_type = 0
 slot/1/left_color = Color( 1, 1, 1, 1 )
@@ -154,60 +154,76 @@ slot/3/left_color = Color( 1, 1, 1, 1 )
 slot/3/right_enabled = true
 slot/3/right_type = 0
 slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = true
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="D0" type="Label" parent="Gates/INPUT/INPUT4"]
+[node name="V" type="Label" parent="Gates/INPUT/INPUT4"]
 margin_left = 16.0
 margin_top = 24.0
 margin_right = 92.0
-margin_bottom = 38.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 0, 24 )
+text = "0XFF"
+align = 2
+valign = 1
+
+[node name="D0" type="Label" parent="Gates/INPUT/INPUT4"]
+margin_left = 16.0
+margin_top = 54.0
+margin_right = 92.0
+margin_bottom = 68.0
 text = "D0"
 align = 2
 valign = 1
 
 [node name="D1" type="Label" parent="Gates/INPUT/INPUT4"]
 margin_left = 16.0
-margin_top = 42.0
+margin_top = 74.0
 margin_right = 92.0
-margin_bottom = 56.0
+margin_bottom = 88.0
 text = "D1"
 align = 2
 valign = 1
 
 [node name="D2" type="Label" parent="Gates/INPUT/INPUT4"]
 margin_left = 16.0
-margin_top = 60.0
+margin_top = 94.0
 margin_right = 92.0
-margin_bottom = 74.0
+margin_bottom = 108.0
 text = "D2"
 align = 2
 valign = 1
 
 [node name="D3" type="Label" parent="Gates/INPUT/INPUT4"]
 margin_left = 16.0
-margin_top = 78.0
+margin_top = 114.0
 margin_right = 92.0
-margin_bottom = 92.0
+margin_bottom = 128.0
 text = "D3"
 align = 2
 valign = 1
 
 [node name="INPUT8" type="GraphNode" parent="Gates/INPUT"]
 margin_left = 16.0
-margin_top = 255.0
+margin_top = 291.0
 margin_right = 124.0
-margin_bottom = 425.0
-custom_constants/separation = 4
+margin_bottom = 505.0
+custom_constants/separation = 6
 title = "INPUT8"
 slot/0/left_enabled = false
 slot/0/left_type = 0
 slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 0
-slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/0/right_color = Color( 1, 1, 0, 1 )
 slot/1/left_enabled = false
 slot/1/left_type = 0
 slot/1/left_color = Color( 1, 1, 1, 1 )
@@ -250,95 +266,111 @@ slot/7/left_color = Color( 1, 1, 1, 1 )
 slot/7/right_enabled = true
 slot/7/right_type = 0
 slot/7/right_color = Color( 1, 1, 1, 1 )
+slot/8/left_enabled = false
+slot/8/left_type = 0
+slot/8/left_color = Color( 1, 1, 1, 1 )
+slot/8/right_enabled = true
+slot/8/right_type = 0
+slot/8/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="D0" type="Label" parent="Gates/INPUT/INPUT8"]
+[node name="V" type="Label" parent="Gates/INPUT/INPUT8"]
 margin_left = 16.0
 margin_top = 24.0
 margin_right = 92.0
-margin_bottom = 38.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 0, 24 )
+text = "0XFF"
+align = 2
+valign = 1
+
+[node name="D0" type="Label" parent="Gates/INPUT/INPUT8"]
+margin_left = 16.0
+margin_top = 54.0
+margin_right = 92.0
+margin_bottom = 68.0
 text = "D0"
 align = 2
 valign = 1
 
 [node name="D1" type="Label" parent="Gates/INPUT/INPUT8"]
 margin_left = 16.0
-margin_top = 42.0
+margin_top = 74.0
 margin_right = 92.0
-margin_bottom = 56.0
+margin_bottom = 88.0
 text = "D1"
 align = 2
 valign = 1
 
 [node name="D2" type="Label" parent="Gates/INPUT/INPUT8"]
 margin_left = 16.0
-margin_top = 60.0
+margin_top = 94.0
 margin_right = 92.0
-margin_bottom = 74.0
+margin_bottom = 108.0
 text = "D2"
 align = 2
 valign = 1
 
 [node name="D3" type="Label" parent="Gates/INPUT/INPUT8"]
 margin_left = 16.0
-margin_top = 78.0
+margin_top = 114.0
 margin_right = 92.0
-margin_bottom = 92.0
+margin_bottom = 128.0
 text = "D3"
 align = 2
 valign = 1
 
 [node name="D4" type="Label" parent="Gates/INPUT/INPUT8"]
 margin_left = 16.0
-margin_top = 96.0
+margin_top = 134.0
 margin_right = 92.0
-margin_bottom = 110.0
+margin_bottom = 148.0
 text = "D4"
 align = 2
 valign = 1
 
 [node name="D5" type="Label" parent="Gates/INPUT/INPUT8"]
 margin_left = 16.0
-margin_top = 114.0
+margin_top = 154.0
 margin_right = 92.0
-margin_bottom = 128.0
+margin_bottom = 168.0
 text = "D5"
 align = 2
 valign = 1
 
 [node name="D6" type="Label" parent="Gates/INPUT/INPUT8"]
 margin_left = 16.0
-margin_top = 132.0
+margin_top = 174.0
 margin_right = 92.0
-margin_bottom = 146.0
+margin_bottom = 188.0
 text = "D6"
 align = 2
 valign = 1
 
 [node name="D7" type="Label" parent="Gates/INPUT/INPUT8"]
 margin_left = 16.0
-margin_top = 150.0
+margin_top = 194.0
 margin_right = 92.0
-margin_bottom = 164.0
+margin_bottom = 208.0
 text = "D7"
 align = 2
 valign = 1
 
 [node name="INPUTCLK" type="GraphNode" parent="Gates/INPUT"]
 margin_left = 16.0
-margin_top = 426.0
+margin_top = 506.0
 margin_right = 124.0
-margin_bottom = 612.0
+margin_bottom = 692.0
 custom_constants/separation = 8
 title = "INPUTCLK"
 slot/0/left_enabled = false
 slot/0/left_type = 0
 slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = false
-slot/0/right_type = 0
+slot/0/right_type = 1
 slot/0/right_color = Color( 1, 1, 1, 1 )
 slot/1/left_enabled = false
 slot/1/left_type = 0
@@ -438,9 +470,9 @@ align = 2
 valign = 1
 
 [node name="NOT" type="GraphNode" parent="Gates"]
-margin_top = 610.0
+margin_top = 724.0
 margin_right = 79.0
-margin_bottom = 670.0
+margin_bottom = 784.0
 title = "NOT"
 slot/0/left_enabled = true
 slot/0/left_type = 0
@@ -463,9 +495,9 @@ margin_bottom = 54.0
 texture = ExtResource( 7 )
 
 [node name="AND" type="GraphNode" parent="Gates"]
-margin_top = 674.0
+margin_top = 788.0
 margin_right = 84.0
-margin_bottom = 770.0
+margin_bottom = 884.0
 title = "AND"
 resizable = true
 slot/0/left_enabled = true
@@ -515,9 +547,9 @@ margin_bottom = 90.0
 rect_min_size = Vector2( 0, 16 )
 
 [node name="NAND" type="GraphNode" parent="Gates"]
-margin_top = 774.0
+margin_top = 888.0
 margin_right = 85.0
-margin_bottom = 870.0
+margin_bottom = 984.0
 title = "NAND"
 slot/0/left_enabled = true
 slot/0/left_type = 0
@@ -566,9 +598,9 @@ margin_bottom = 90.0
 rect_min_size = Vector2( 0, 16 )
 
 [node name="OR" type="GraphNode" parent="Gates"]
-margin_top = 874.0
+margin_top = 988.0
 margin_right = 84.0
-margin_bottom = 970.0
+margin_bottom = 1084.0
 title = "OR"
 slot/0/left_enabled = true
 slot/0/left_type = 0
@@ -617,9 +649,9 @@ margin_bottom = 90.0
 rect_min_size = Vector2( 0, 16 )
 
 [node name="NOR" type="GraphNode" parent="Gates"]
-margin_top = 974.0
+margin_top = 1088.0
 margin_right = 84.0
-margin_bottom = 1070.0
+margin_bottom = 1184.0
 title = "NOR"
 slot/0/left_enabled = true
 slot/0/left_type = 0
@@ -668,9 +700,9 @@ margin_bottom = 90.0
 rect_min_size = Vector2( 0, 16 )
 
 [node name="XOR" type="GraphNode" parent="Gates"]
-margin_top = 1074.0
+margin_top = 1188.0
 margin_right = 84.0
-margin_bottom = 1170.0
+margin_bottom = 1284.0
 title = "XOR"
 slot/0/left_enabled = true
 slot/0/left_type = 0
@@ -719,9 +751,9 @@ margin_bottom = 90.0
 rect_min_size = Vector2( 0, 16 )
 
 [node name="OUTPUT" type="GraphNode" parent="Gates"]
-margin_top = 1174.0
+margin_top = 1288.0
 margin_right = 97.0
-margin_bottom = 1244.0
+margin_bottom = 1358.0
 title = "OUTPUT"
 slot/0/left_enabled = true
 slot/0/left_type = 0

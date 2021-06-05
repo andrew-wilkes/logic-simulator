@@ -5,6 +5,7 @@ class_name Part
 signal output_changed(node, slot, level, reverse)
 signal unstable(node, slot)
 signal short_circuit(node, port, reverse)
+signal bus_changed(node, value, reverse)
 
 export var id = ""
 export var has_tt = false
@@ -34,10 +35,15 @@ func set_title(_v):
 func setup():
 	set_port_maps()
 	var child = get_child(0)
-	if child is CheckButton:
+	if child is Button:
 		child.focus_mode = Control.FOCUS_NONE
 		set_output(child.pressed, 0)
-		child.connect("toggled", self, "set_io", [0, 0])
+		set_output(child.pressed, 0, true)
+		if child.toggle_mode:
+			child.connect("toggled", self, "set_io", [0, 0])
+		else:
+			child.connect("button_down", self, "set_io", [true, 0, 0])
+			child.connect("button_up", self, "set_io", [false, 0, 0])
 
 
 func set_port_maps():
@@ -161,4 +167,4 @@ func update_output(level: bool, port: int, reverse: bool):
 
 # This function is overwritten in busses
 func set_value(_v: int, _reverse: bool, _from_pin: bool):
-	pass
+	emit_signal("bus_changed", self, _v, _reverse)

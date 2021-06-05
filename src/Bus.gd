@@ -2,8 +2,6 @@ extends Part
 
 class_name BUS
 
-signal bus_changed(node, value, reverse)
-
 enum { HEX, DEC, BIN }
 
 var mode = HEX
