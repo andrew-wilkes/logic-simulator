@@ -90,7 +90,7 @@ func connect_part(part):
 	_e = part.connect("offset_changed", self, "set_changed")
 	if part is BUS:
 		_e = part.connect("bus_changed", self, "update_bus")
-	if part.type == "INPUT":
+	if part.type == "INPUT" or part.type == "OUTPUT":
 		_e = part.connect("part_variant_selected", self, "add_part_to_graph")
 
 

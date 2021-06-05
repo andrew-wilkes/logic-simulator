@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/nand.png" type="Texture" id=1]
 [ext_resource path="res://assets/and.png" type="Texture" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://assets/ledseg.png" type="Texture" id=19]
 [ext_resource path="res://assets/led-dot.png" type="Texture" id=20]
 [ext_resource path="res://Input.gd" type="Script" id=21]
+[ext_resource path="res://Output.gd" type="Script" id=22]
 
 [node name="Parts" type="Control"]
 script = ExtResource( 8 )
@@ -751,25 +752,60 @@ margin_bottom = 90.0
 rect_min_size = Vector2( 0, 16 )
 
 [node name="OUTPUT" type="GraphNode" parent="Gates"]
-margin_top = 1288.0
-margin_right = 97.0
-margin_bottom = 1358.0
-title = "OUTPUT"
+margin_left = 16.0
+margin_top = 1353.0
+margin_right = 81.0
+margin_bottom = 1383.0
+title = "Choose Type"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Gates/OUTPUT"]
+visible = false
+position = Vector2( 16, 24 )
+texture = ExtResource( 11 )
+
+[node name="OUTPUT1" type="GraphNode" parent="Gates/OUTPUT"]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 109.0
+margin_bottom = 94.0
+title = "OUTPUT1"
 slot/0/left_enabled = true
 slot/0/left_type = 0
 slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 0
 slot/0/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 3 )
+script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Gates/OUTPUT"]
+[node name="Label" type="Label" parent="Gates/OUTPUT/OUTPUT1"]
 margin_left = 16.0
 margin_top = 24.0
-margin_right = 81.0
+margin_right = 77.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 0, 40 )
 align = 1
@@ -778,9 +814,227 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="Gates/OUTPUT"]
-visible = false
-texture = ExtResource( 11 )
+[node name="OUTPUT4" type="GraphNode" parent="Gates/OUTPUT"]
+margin_left = 16.0
+margin_top = 95.0
+margin_right = 109.0
+margin_bottom = 229.0
+custom_constants/separation = 6
+title = "OUTPUT4"
+slot/0/left_enabled = true
+slot/0/left_type = 1
+slot/0/left_color = Color( 1, 1, 0, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 1
+slot/0/right_color = Color( 1, 1, 0, 1 )
+slot/1/left_enabled = true
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = true
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = true
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = true
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="V" type="Label" parent="Gates/OUTPUT/OUTPUT4"]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 77.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 0, 24 )
+text = "0XFF"
+valign = 1
+
+[node name="D0" type="Label" parent="Gates/OUTPUT/OUTPUT4"]
+margin_left = 16.0
+margin_top = 54.0
+margin_right = 77.0
+margin_bottom = 68.0
+text = "D0"
+valign = 1
+
+[node name="D1" type="Label" parent="Gates/OUTPUT/OUTPUT4"]
+margin_left = 16.0
+margin_top = 74.0
+margin_right = 77.0
+margin_bottom = 88.0
+text = "D1"
+valign = 1
+
+[node name="D2" type="Label" parent="Gates/OUTPUT/OUTPUT4"]
+margin_left = 16.0
+margin_top = 94.0
+margin_right = 77.0
+margin_bottom = 108.0
+text = "D2"
+valign = 1
+
+[node name="D3" type="Label" parent="Gates/OUTPUT/OUTPUT4"]
+margin_left = 16.0
+margin_top = 114.0
+margin_right = 77.0
+margin_bottom = 128.0
+text = "D3"
+valign = 1
+
+[node name="OUTPUT8" type="GraphNode" parent="Gates/OUTPUT"]
+margin_left = 16.0
+margin_top = 230.0
+margin_right = 109.0
+margin_bottom = 444.0
+custom_constants/separation = 6
+title = "OUTPUT8"
+slot/0/left_enabled = true
+slot/0/left_type = 1
+slot/0/left_color = Color( 1, 1, 0, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 1
+slot/0/right_color = Color( 1, 1, 0, 1 )
+slot/1/left_enabled = true
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = true
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = true
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = true
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = true
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+slot/6/left_enabled = true
+slot/6/left_type = 0
+slot/6/left_color = Color( 1, 1, 1, 1 )
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color( 1, 1, 1, 1 )
+slot/7/left_enabled = true
+slot/7/left_type = 0
+slot/7/left_color = Color( 1, 1, 1, 1 )
+slot/7/right_enabled = false
+slot/7/right_type = 0
+slot/7/right_color = Color( 1, 1, 1, 1 )
+slot/8/left_enabled = true
+slot/8/left_type = 0
+slot/8/left_color = Color( 1, 1, 1, 1 )
+slot/8/right_enabled = false
+slot/8/right_type = 0
+slot/8/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="V" type="Label" parent="Gates/OUTPUT/OUTPUT8"]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 77.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 0, 24 )
+text = "0XFF"
+valign = 1
+
+[node name="D0" type="Label" parent="Gates/OUTPUT/OUTPUT8"]
+margin_left = 16.0
+margin_top = 54.0
+margin_right = 77.0
+margin_bottom = 68.0
+text = "D0"
+valign = 1
+
+[node name="D1" type="Label" parent="Gates/OUTPUT/OUTPUT8"]
+margin_left = 16.0
+margin_top = 74.0
+margin_right = 77.0
+margin_bottom = 88.0
+text = "D1"
+valign = 1
+
+[node name="D2" type="Label" parent="Gates/OUTPUT/OUTPUT8"]
+margin_left = 16.0
+margin_top = 94.0
+margin_right = 77.0
+margin_bottom = 108.0
+text = "D2"
+valign = 1
+
+[node name="D3" type="Label" parent="Gates/OUTPUT/OUTPUT8"]
+margin_left = 16.0
+margin_top = 114.0
+margin_right = 77.0
+margin_bottom = 128.0
+text = "D3"
+valign = 1
+
+[node name="D4" type="Label" parent="Gates/OUTPUT/OUTPUT8"]
+margin_left = 16.0
+margin_top = 134.0
+margin_right = 77.0
+margin_bottom = 148.0
+text = "D4"
+valign = 1
+
+[node name="D5" type="Label" parent="Gates/OUTPUT/OUTPUT8"]
+margin_left = 16.0
+margin_top = 154.0
+margin_right = 77.0
+margin_bottom = 168.0
+text = "D5"
+valign = 1
+
+[node name="D6" type="Label" parent="Gates/OUTPUT/OUTPUT8"]
+margin_left = 16.0
+margin_top = 174.0
+margin_right = 77.0
+margin_bottom = 188.0
+text = "D6"
+valign = 1
+
+[node name="D7" type="Label" parent="Gates/OUTPUT/OUTPUT8"]
+margin_left = 16.0
+margin_top = 194.0
+margin_right = 77.0
+margin_bottom = 208.0
+text = "D7"
+valign = 1
 
 [node name="MISC" type="VBoxContainer" parent="."]
 margin_left = 143.643
