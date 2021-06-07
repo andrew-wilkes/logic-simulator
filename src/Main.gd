@@ -309,11 +309,3 @@ func _on_Up_button_down():
 
 func _on_Down_button_down():
 	pm.select_menu(-1)
-
-
-func _on_Button_pressed():
-	$TruthTable.popup_centered()
-
-
-func _on_Challenges_button_down():
-	pass # Replace with function body.

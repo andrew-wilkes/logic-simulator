@@ -1,11 +1,16 @@
-#tool
+tool
+# Manually add enums to match the part name
+# Reload this file and ensure that the enum indexes match with the part type property value
 extends Control
 
-#func _ready():
-#	get_enums()
+func _ready():
+	# Stop autoloaded scene showing up in Tool script mode
+	if Engine.is_editor_hint():
+		hide()
+		get_enums()
 
 
-enum { INPUT, INPUTSW, INPUTPUSH, INPUT4, INPUT8, INPUTCLK, NOT, AND, NAND, OR, NOR, XOR, OUTPUT, OUTPUT1, OUTPUT4, OUTPUT8, INBUS, BUS1, OUTBUS, DECODER, SEG7 }
+enum { INPUT, INPUTPIN, INPUTSW, INPUTPUSH, INPUT4, INPUT8, INPUTCLK, NOT, AND, NAND, OR, NOR, XOR, OUTPUT, OUTPUTPIN, OUTPUT1, OUTPUT4, OUTPUT8, INBUS, BUS1, OUTBUS, DECODER, SEG7 }
 
 func get_part(idx: int, group: int, subidx = 0):
 	var node: Part

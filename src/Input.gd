@@ -32,3 +32,7 @@ func set_value(value: int, reverse = false, _from_pin = false):
 		var level = bool(value % 2)
 		value /= 2
 		set_output(level, n + 1, reverse)
+
+
+func has_pin_name(pn: String):
+	return type == Parts.INPUTPIN and pn == get_node("Pin").text
