@@ -17,6 +17,7 @@ enum PIN_MODE { HIGH, OUTPUT, INPUT, BI }
 var type = ""
 var group := 0
 var index := 0
+var subidx := 0
 var input_levels = [{}, {}] # standard, reverse (for bi-directional)
 var inputs_effected = [{}, {}]
 var in_port_map = []

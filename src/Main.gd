@@ -218,9 +218,9 @@ func _on_FileDialog_file_selected(path: String):
 		$Alert.dialog_text = "No filename was specified"
 		$Alert.popup_centered()
 		return
+	set_filename(path)
 	if action == SAVE:
 		save_data()
-		set_filename(path)
 	else:
 		load_data()
 
@@ -240,12 +240,19 @@ func save_data():
 	data["nodes"] = []
 	for node in $Graph.get_children():
 		if node is GraphNode:
-			data["nodes"].append({ "type": node.type, "index": node.index, "group": node.group, "name": node.name, "x": node.offset.x, "y": node.offset.y, "depth": node.depth })
+			data["nodes"].append({ "type": node.type, "index": node.index, "group": node.group, "subidx": node.subidx, "name": node.name, "x": node.offset.x, "y": node.offset.y, "depth": node.depth })
 	var file = File.new()
 	file.open(file_name, File.WRITE)
-	file.store_string(to_json(data))
-	file.close()
-	set_changed(false)
+	"""
+	var time_before = OS.get_ticks_usec()
+	yield(get_tree(), "idle_frame")
+	var time_taken = OS.get_ticks_usec() - time_before
+	print("Took ", time_taken, " microseconds")
+	"""
+	if file.is_open():
+		file.store_string(to_json(data))
+		file.close()
+		set_changed(false)
 	action = NOACTION
 
 
@@ -271,7 +278,7 @@ func init_graph():
 	clear_graph()
 	if data.has("nodes"):
 		for node in data.nodes:
-			var part: Part = Parts.get_part(node.index, node.group)
+			var part: Part = Parts.get_part(node.index, node.group, node.subidx)
 			part.offset = Vector2(node.x, node.y)
 			# A non-connected part seems to have a name containing @ marks
 			# But when it is added to the scene, the @ marks are removed

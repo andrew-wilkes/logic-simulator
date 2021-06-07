@@ -15,6 +15,8 @@ func _ready():
 func _on_gui_input(event, node):
 	if event is InputEventMouseButton:
 		node.type = node.name
+		node.index = node.get_parent().index
+		node.subidx = node.get_index()
 		node.setup()
 		if node.get_child(0).name == "V":
 			node.set_value(0)
