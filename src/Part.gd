@@ -19,6 +19,7 @@ export var type := 0 setget set_type
 var group := 0
 var index := 0
 var subidx := 0
+var locked = true
 var input_levels = {}
 var inputs_effected = {}
 var in_port_map = []

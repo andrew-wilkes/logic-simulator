@@ -17,6 +17,8 @@ func _ready():
 			for child in p.get_children():
 				if child is Sprite or child is TextureRect:
 					b.icon = child.texture
+					if p.locked:
+						b.modulate = Color.red
 					break
 			b.connect("button_down", self, "emit_signal", ["part_selected", idx, group])
 			toolbar.add_child(b)

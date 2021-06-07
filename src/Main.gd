@@ -59,8 +59,7 @@ func reset_race_detection():
 
 
 func delete_wire(node, port):
-	$Alert.dialog_text = "Unstable connection deleted."
-	$Alert.popup_centered()
+	alert("Unstable connection deleted.")
 	for con in $Graph.get_connection_list():
 		if con.to == node.name and con.to_port == port:
 			$Graph.disconnect_node(con.from, con.from_port, con.to, con.to_port)
@@ -73,15 +72,18 @@ func add_part(idx: int, pg: int):
 
 
 func add_part_to_graph(part: Part, pos: Vector2):
-	$Graph.add_child(part, true) # Use a legible_unique_name to ensure that node name is saved and loaded ok
-	part.offset = pos
-	call_deferred("unselect_all")
-	set_changed()
-	connect_part(part)
-	if part.has_tt and $M/Topbar/EnablePopups.pressed:
+	if part.has_tt and $M/Topbar/EnablePopups.pressed or part.locked:
 		$TruthTable.open(part.id)
 	else:
 		$TruthTable.hide()
+	if part.locked:
+		alert("Create the circuit and succesfully test it to unlock the part.")
+	else:
+		$Graph.add_child(part, true) # Use a legible_unique_name to ensure that node name is saved and loaded ok
+		part.offset = pos
+		call_deferred("unselect_all")
+		set_changed()
+		connect_part(part)
 
 
 func connect_part(part):
@@ -211,8 +213,7 @@ func clear_graph():
 
 func _on_FileDialog_file_selected(path: String):
 	if path.rstrip("/") == path.get_base_dir():
-		$Alert.dialog_text = "No filename was specified"
-		$Alert.popup_centered()
+		alert("No filename was specified")
 		return
 	set_filename(path)
 	if action == SAVE:
@@ -265,9 +266,9 @@ func load_data():
 			set_filename(file_name)
 			set_changed(false)
 		else:
-			$Alert.popup_centered()
+			alert()
 	else:
-		$Alert.popup_centered()
+		alert()
 	action = NOACTION
 
 func init_graph():
@@ -292,6 +293,12 @@ func init_graph():
 				var _e = $Graph.connect_node(con.from, con.from_port, con.to, con.to_port)
 
 
+func alert(txt = ""):
+	if txt != "":
+		$Alert.dialog_text = txt
+	$Alert.popup_centered()
+
+
 func _on_FileMenu_mouse_exited():
 	$M/Topbar/V/H/File/FileMenu.hide()
 
@@ -306,3 +313,7 @@ func _on_Down_button_down():
 
 func _on_Button_pressed():
 	$TruthTable.popup_centered()
+
+
+func _on_Challenges_button_down():
+	pass # Replace with function body.
