@@ -27,7 +27,7 @@ func _on_gui_input(event, node):
 func set_value(v: int, reverse = false, from_pin = false):
 	if from_pin:
 		bits = int(type == Parts.OUTPUT8)
-		v = get_value_from_inputs(0)
+		v = get_value_from_inputs(reverse)
 	if value == v:
 		return
 	value = v

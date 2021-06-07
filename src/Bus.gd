@@ -19,7 +19,7 @@ func setup():
 
 
 func add_slots():
-	if name != Parts.INBUS and name != Parts.OUTBUS:
+	if type != Parts.INBUS and type != Parts.OUTBUS:
 		return
 	var slot = get_child_count() - 1 # num slots
 	if slot > 16:
@@ -27,7 +27,7 @@ func add_slots():
 	var c = Label.new()
 	c.rect_min_size.y = 24
 	c.valign = Label.VALIGN_CENTER
-	var left = name == Parts.INBUS
+	var left = type == Parts.INBUS
 	if not left:
 		c.align = Label.ALIGN_RIGHT
 	var num = 4 if bits < 2 else 8
@@ -47,9 +47,8 @@ func add_slots():
 
 
 func set_value(v: int, reverse: bool, from_pin: bool):
-	var idx = int(reverse)
 	if from_pin:
-		v = get_value_from_inputs(idx)
+		v = get_value_from_inputs(reverse)
 	# If the value is unchanged ignore it
 	# This also guards against a feedback loop
 	if value == v:

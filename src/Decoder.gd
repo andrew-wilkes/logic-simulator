@@ -23,9 +23,8 @@ func add_slots():
 
 
 func set_value(v: int, reverse: bool, _from_pin: bool):
-	var idx = int(reverse)
 	if _from_pin:
-		v = get_value_from_inputs(idx)
+		v = get_value_from_inputs(reverse)
 	if value == v:
 		return
 	value = v

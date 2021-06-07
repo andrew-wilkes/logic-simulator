@@ -19,8 +19,8 @@ export var type := 0 setget set_type
 var group := 0
 var index := 0
 var subidx := 0
-var input_levels = [{}, {}] # standard, reverse (for bi-directional)
-var inputs_effected = [{}, {}]
+var input_levels = {}
+var inputs_effected = {}
 var in_port_map = []
 var in_port_mode = []
 var out_port_map = []
@@ -80,12 +80,17 @@ func reset():
 	inputs_effected = {}
 
 
-func get_value_from_inputs(idx: int):
+func get_value_from_inputs(reverse):
 	var v = 0
-	for n in range(bit_lengths[bits] - 1, -1, -1):
+	var port = in_port_map.size()
+	if reverse:
+		port = out_port_map.size()
+	
+	for n in bit_lengths[bits]:
+		port -= 1
 		v *= 2
-		if input_levels[idx].keys().has(n):
-			v += int(input_levels[idx][n])
+		if input_levels.keys().has(port):
+			v += int(input_levels[port])
 	return v
 
 
@@ -127,14 +132,13 @@ func set_output(level: bool, port: int, reverse := false):
 
 # Gets passed the port that has an input level
 func update_output(level: bool, port: int, reverse: bool):
-	var idx = int(reverse)
 	if type == Parts.OUTPUT1:
 		$Label.text = String(int(level))
 	# Cause update for first-time input
-	if not input_levels[idx].keys().has(port):
-		input_levels[idx][port] = not level
+	if not input_levels.keys().has(port):
+		input_levels[port] = not level
 	# Return if no change to established input
-	if input_levels[idx][port] == level:
+	if input_levels[port] == level:
 		return
 	# Detect race condition
 	if inputs_effected.has(port):
@@ -145,7 +149,7 @@ func update_output(level: bool, port: int, reverse: bool):
 	else:
 		inputs_effected[port] = 1
 	# Remember the current input level
-	input_levels[idx][port] = level
+	input_levels[port] = level
 	match type:
 		Parts.NOT:
 			level = !level
@@ -153,21 +157,21 @@ func update_output(level: bool, port: int, reverse: bool):
 		Parts.OUTPUT1:
 			set_output(level, port, reverse)
 		Parts.OR, Parts.NOR, Parts.AND, Parts.NAND, Parts.XOR:
-			if not input_levels[idx].has(0):
-				input_levels[idx][0] = false
-			if not input_levels[idx].has(1):
-				input_levels[idx][1] = false
+			if not input_levels.has(0):
+				input_levels[0] = false
+			if not input_levels.has(1):
+				input_levels[1] = false
 			match type:
 				Parts.OR:
-					level = input_levels[idx][0] or input_levels[idx][1]
+					level = input_levels[0] or input_levels[1]
 				Parts.NOR:
-					level = not (input_levels[idx][0] or input_levels[idx][1])
+					level = not (input_levels[0] or input_levels[1])
 				Parts.AND:
-					level = input_levels[idx][0] and input_levels[idx][1]
+					level = input_levels[0] and input_levels[1]
 				Parts.NAND:
-					level = not (input_levels[idx][0] and input_levels[idx][1])
+					level = not (input_levels[0] and input_levels[1])
 				Parts.XOR:
-					level = (not input_levels[idx][0] and input_levels[idx][1]) or (input_levels[idx][0] and not input_levels[idx][1])
+					level = (not input_levels[0] and input_levels[1]) or (input_levels[0] and not input_levels[1])
 			set_output(level, 0)
 		_:
 			set_value(level, reverse, true)
