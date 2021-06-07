@@ -76,7 +76,7 @@ func reset():
 
 func get_value_from_inputs(idx: int):
 	var v = 0
-	for n in range(bit_lengths[bits], 0, -1):
+	for n in range(bit_lengths[bits] - 1, -1, -1):
 		v *= 2
 		if input_levels[idx].keys().has(n):
 			v += int(input_levels[idx][n])
@@ -164,7 +164,7 @@ func update_output(level: bool, port: int, reverse: bool):
 					level = (not input_levels[idx][0] and input_levels[idx][1]) or (input_levels[idx][0] and not input_levels[idx][1])
 			set_output(level, 0)
 		_:
-			set_value(0, reverse, true)
+			set_value(level, reverse, true)
 
 
 # This function is overwritten in busses
