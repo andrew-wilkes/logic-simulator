@@ -3,7 +3,7 @@ extends Part
 signal part_variant_selected(part, pos)
 
 func _ready():
-	if name == "INPUT":
+	if type == Parts.INPUT:
 		for node in get_children():
 			if node is Control:
 				node.connect("gui_input", self, "_on_gui_input", [node])
@@ -14,7 +14,6 @@ func _ready():
 
 func _on_gui_input(event, node):
 	if event is InputEventMouseButton:
-		node.type = node.name
 		node.index = node.get_parent().index
 		node.subidx = node.get_index()
 		node.setup()
@@ -28,7 +27,7 @@ func _on_gui_input(event, node):
 func set_value(value: int, reverse = false, _from_pin = false):
 	get_child(0).text = "0x%02X" % value
 	emit_signal("bus_changed", self, value, reverse)
-	var num_bits = 4 if type == "INPUT4" else 8
+	var num_bits = 4 if type == Parts.INPUT4 else 8
 	for n in num_bits:
 		var level = bool(value % 2)
 		value /= 2

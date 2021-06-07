@@ -39,7 +39,7 @@ func update_bus(node, value, reverse = false):
 
 # A part output level has changed
 func update_levels(node, port, level, reverse = false):
-	if is_input_type(node.type):
+	if node.group == Parts.INPUT:
 		reset_race_detection()
 	for con in $Graph.get_connection_list():
 		if reverse:
@@ -90,7 +90,7 @@ func connect_part(part):
 	_e = part.connect("offset_changed", self, "set_changed")
 	if part is BUS:
 		_e = part.connect("bus_changed", self, "update_bus")
-	if part.type == "INPUT" or part.type == "OUTPUT":
+	if part.type == Parts.INPUT or part.type == Parts.OUTPUT:
 		_e = part.connect("part_variant_selected", self, "add_part_to_graph")
 
 
@@ -102,20 +102,16 @@ func remove_connections_to_node(node):
 
 func _on_Graph_connection_request(from, from_slot, to, to_slot):
 	# Don't connect between OUTBUS and INBUS or BUS to BUS
-	if $Graph.get_node(to).type == "INBUS" and $Graph.get_node(from).type == "OUTBUS":
+	if $Graph.get_node(to).type == Parts.INBUS and $Graph.get_node(from).type == Parts.OUTBUS:
 		return
 	# Don't connect to input that is already connected unless it's a BUS or INPUT
 	var node = $Graph.get_node(to)
-	if not node is BUS and !is_input_type(node.type):
+	if node.type != Parts.BUS1 and node.group != Parts.INPUT:
 		for con in $Graph.get_connection_list():
 			if con.to == to and con.to_port == to_slot:
 				return
 	$Graph.connect_node(from, from_slot, to, to_slot)
 	set_changed()
-
-
-func is_input_type(type: String):
-	return type.begins_with("INPUT")
 
 
 func _on_Graph_disconnection_request(from, from_slot, to, to_slot):

@@ -90,6 +90,7 @@ script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 1
 
 [node name="Switch" type="CheckButton" parent="Gates/INPUT/INPUTSW"]
 margin_left = 16.0
@@ -114,6 +115,7 @@ script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 2
 
 [node name="Push" type="Button" parent="Gates/INPUT/INPUTPUSH"]
 margin_left = 16.0
@@ -165,6 +167,7 @@ script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 3
 
 [node name="V" type="Label" parent="Gates/INPUT/INPUT4"]
 margin_left = 16.0
@@ -277,6 +280,7 @@ script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 4
 
 [node name="V" type="Label" parent="Gates/INPUT/INPUT8"]
 margin_left = 16.0
@@ -413,6 +417,7 @@ script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 5
 
 [node name="Control" type="Control" parent="Gates/INPUT/INPUTCLK"]
 margin_left = 16.0
@@ -487,6 +492,7 @@ __meta__ = {
 }
 id = "not"
 has_tt = true
+type = 6
 
 [node name="Icon" type="TextureRect" parent="Gates/NOT"]
 margin_left = 16.0
@@ -525,6 +531,7 @@ __meta__ = {
 }
 id = "and"
 has_tt = true
+type = 7
 
 [node name="Control" type="Control" parent="Gates/AND"]
 margin_left = 16.0
@@ -576,6 +583,7 @@ __meta__ = {
 }
 id = "nand"
 has_tt = true
+type = 8
 
 [node name="Control" type="Control" parent="Gates/NAND"]
 margin_left = 16.0
@@ -627,6 +635,7 @@ __meta__ = {
 }
 id = "or"
 has_tt = true
+type = 9
 
 [node name="Control" type="Control" parent="Gates/OR"]
 margin_left = 16.0
@@ -678,6 +687,7 @@ __meta__ = {
 }
 id = "nor"
 has_tt = true
+type = 10
 
 [node name="Control" type="Control" parent="Gates/NOR"]
 margin_left = 16.0
@@ -729,6 +739,7 @@ __meta__ = {
 }
 id = "xor"
 has_tt = true
+type = 11
 
 [node name="Control" type="Control" parent="Gates/XOR"]
 margin_left = 16.0
@@ -779,6 +790,7 @@ script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 12
 
 [node name="Sprite" type="Sprite" parent="Gates/OUTPUT"]
 visible = false
@@ -801,6 +813,7 @@ script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 13
 
 [node name="Label" type="Label" parent="Gates/OUTPUT/OUTPUT1"]
 margin_left = 16.0
@@ -855,6 +868,7 @@ script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 14
 
 [node name="V" type="Label" parent="Gates/OUTPUT/OUTPUT4"]
 margin_left = 16.0
@@ -962,6 +976,7 @@ script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 15
 
 [node name="V" type="Label" parent="Gates/OUTPUT/OUTPUT8"]
 margin_left = 16.0
@@ -1071,6 +1086,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 16
 
 [node name="Label" type="Label" parent="MISC/INBUS"]
 margin_left = 16.0
@@ -1147,6 +1163,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 17
 
 [node name="Sprite" type="Sprite" parent="MISC/BUS"]
 visible = false
@@ -1223,6 +1240,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 18
 
 [node name="Label" type="Label" parent="MISC/OUTBUS"]
 margin_left = 16.0
@@ -1319,6 +1337,7 @@ script = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 19
 
 [node name="Sprite" type="Sprite" parent="Combinational/DECODER"]
 visible = false
@@ -1464,6 +1483,7 @@ script = ExtResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 20
 
 [node name="Sprite" type="Sprite" parent="Combinational/SEG7"]
 visible = false

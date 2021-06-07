@@ -14,7 +14,8 @@ const RACE_TRIGGER_COUNT = 4
 
 enum PIN_MODE { HIGH, OUTPUT, INPUT, BI }
 
-var type = ""
+export var type := 0 setget set_type
+
 var group := 0
 var index := 0
 var subidx := 0
@@ -32,6 +33,11 @@ var value := -1
 
 func set_title(_v):
 	title = title.strip_edges()
+
+
+func set_type(_t):
+	type = _t
+
 
 func setup():
 	set_port_maps()
@@ -54,16 +60,16 @@ func set_port_maps():
 			if is_slot_enabled_left(idx):
 				in_port_map.append(idx)
 				match type:
-					"INBUS", "BUS":
+					Parts.INBUS, Parts.BUS1:
 						in_port_mode.append(PIN_MODE.BI)
 					_:
 						in_port_mode.append(PIN_MODE.INPUT)
 			if is_slot_enabled_right(idx):
 				out_port_map.append(idx)
 				match type:
-					"INBUS", "BUS":
+					Parts.INBUS, Parts.BUS1:
 						out_port_mode.append(PIN_MODE.BI)
-					"OUTPUT1":
+					Parts.OUTPUT1:
 						out_port_mode.append(PIN_MODE.INPUT)
 					_:
 						out_port_mode.append(PIN_MODE.OUTPUT)
@@ -122,7 +128,7 @@ func set_output(level: bool, port: int, reverse := false):
 # Gets passed the port that has an input level
 func update_output(level: bool, port: int, reverse: bool):
 	var idx = int(reverse)
-	if type == "OUTPUT1":
+	if type == Parts.OUTPUT1:
 		$Label.text = String(int(level))
 	# Cause update for first-time input
 	if not input_levels[idx].keys().has(port):
@@ -141,26 +147,26 @@ func update_output(level: bool, port: int, reverse: bool):
 	# Remember the current input level
 	input_levels[idx][port] = level
 	match type:
-		"NOT":
+		Parts.NOT:
 			level = !level
 			set_output(level, 0)
-		"OUTPUT1":
+		Parts.OUTPUT1:
 			set_output(level, port, reverse)
-		"OR", "NOR", "AND", "NAND", "XOR":
+		Parts.OR, Parts.NOR, Parts.AND, Parts.NAND, Parts.XOR:
 			if not input_levels[idx].has(0):
 				input_levels[idx][0] = false
 			if not input_levels[idx].has(1):
 				input_levels[idx][1] = false
 			match type:
-				"OR":
+				Parts.OR:
 					level = input_levels[idx][0] or input_levels[idx][1]
-				"NOR":
+				Parts.NOR:
 					level = not (input_levels[idx][0] or input_levels[idx][1])
-				"AND":
+				Parts.AND:
 					level = input_levels[idx][0] and input_levels[idx][1]
-				"NAND":
+				Parts.NAND:
 					level = not (input_levels[idx][0] and input_levels[idx][1])
-				"XOR":
+				Parts.XOR:
 					level = (not input_levels[idx][0] and input_levels[idx][1]) or (input_levels[idx][0] and not input_levels[idx][1])
 			set_output(level, 0)
 		_:

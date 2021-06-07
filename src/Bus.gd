@@ -8,9 +8,9 @@ var mode = HEX
 var format = ""
 
 func setup():
-	if type == "INBUS":
+	if type == Parts.INBUS:
 		set("slot/0/left_enabled", false)
-	if type == "OUTBUS":
+	if type == Parts.OUTBUS:
 		set("slot/0/right_enabled", false)
 	set_port_maps()
 	add_slots()
@@ -19,7 +19,7 @@ func setup():
 
 
 func add_slots():
-	if name != "INBUS" and name != "OUTBUS":
+	if name != Parts.INBUS and name != Parts.OUTBUS:
 		return
 	var slot = get_child_count() - 1 # num slots
 	if slot > 16:
@@ -27,7 +27,7 @@ func add_slots():
 	var c = Label.new()
 	c.rect_min_size.y = 24
 	c.valign = Label.VALIGN_CENTER
-	var left = name == "INBUS"
+	var left = name == Parts.INBUS
 	if not left:
 		c.align = Label.ALIGN_RIGHT
 	var num = 4 if bits < 2 else 8
@@ -57,7 +57,7 @@ func set_value(v: int, reverse: bool, from_pin: bool):
 	value = v
 	update_display_value()
 	emit_signal("bus_changed", self, value, reverse)
-	if type == "OUTBUS" and !reverse or type == "INBUS" and reverse:
+	if type == Parts.OUTBUS and !reverse or type == Parts.INBUS and reverse:
 		for n in bit_lengths[bits]:
 			var level = bool(v % 2)
 			v /= 2

@@ -3,7 +3,7 @@ extends Part
 signal part_variant_selected(part, pos)
 
 func _ready():
-	if name == "OUTPUT":
+	if type == Parts.OUTPUT:
 		for node in get_children():
 			if node is Control:
 				node.connect("gui_input", self, "_on_gui_input", [node])
@@ -14,7 +14,6 @@ func _ready():
 
 func _on_gui_input(event, node):
 	if event is InputEventMouseButton:
-		node.type = node.name
 		node.index = node.get_parent().index
 		node.subidx = node.get_index()
 		node.setup()
@@ -27,7 +26,7 @@ func _on_gui_input(event, node):
 
 func set_value(v: int, reverse = false, from_pin = false):
 	if from_pin:
-		bits = int(type == "OUTPUT8")
+		bits = int(type == Parts.OUTPUT8)
 		v = get_value_from_inputs(0)
 	if value == v:
 		return
