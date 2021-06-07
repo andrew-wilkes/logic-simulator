@@ -62,7 +62,7 @@ func set_port_maps():
 				match type:
 					"INBUS", "BUS":
 						out_port_mode.append(PIN_MODE.BI)
-					"OUTPUT":
+					"OUTPUT1":
 						out_port_mode.append(PIN_MODE.INPUT)
 					_:
 						out_port_mode.append(PIN_MODE.OUTPUT)
@@ -121,9 +121,8 @@ func set_output(level: bool, port: int, reverse := false):
 # Gets passed the port that has an input level
 func update_output(level: bool, port: int, reverse: bool):
 	var idx = int(reverse)
-	if type == "OUTPUT":
+	if type == "OUTPUT1":
 		$Label.text = String(int(level))
-		return
 	# Cause update for first-time input
 	if not input_levels[idx].keys().has(port):
 		input_levels[idx][port] = not level
@@ -141,9 +140,11 @@ func update_output(level: bool, port: int, reverse: bool):
 	# Remember the current input level
 	input_levels[idx][port] = level
 	match type:
-		"NOT", "OUTPUT1":
+		"NOT":
 			level = !level
 			set_output(level, 0)
+		"OUTPUT1":
+			set_output(level, port, reverse)
 		"OR", "NOR", "AND", "NAND", "XOR":
 			if not input_levels[idx].has(0):
 				input_levels[idx][0] = false
