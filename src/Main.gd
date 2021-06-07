@@ -188,7 +188,7 @@ func do_action():
 	match action:
 		NEW:
 			set_changed(false)
-			file_name = ""
+			set_filename()
 			clear_graph()
 		OPEN:
 			$FileDialog.current_file = file_name
@@ -278,6 +278,9 @@ func init_graph():
 	clear_graph()
 	if data.has("nodes"):
 		for node in data.nodes:
+			for prop in ["index", "group", "subidx", "depth"]:
+				if not node.keys().has(prop):
+					node[prop] = 0
 			var part: Part = Parts.get_part(node.index, node.group, node.subidx)
 			part.offset = Vector2(node.x, node.y)
 			# A non-connected part seems to have a name containing @ marks
