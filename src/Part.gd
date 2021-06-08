@@ -31,6 +31,7 @@ var bits = 0
 var bit_lengths = [4, 8, 16]
 var output_levels = {}
 var value := -1
+var data = {}
 
 func set_title(_v):
 	title = title.strip_edges()
@@ -185,3 +186,8 @@ func set_value(_v: int, _reverse: bool, _from_pin: bool):
 
 func get_pin_name():
 	return get_node("Pin").text
+
+
+func set_pin_name(txt):
+	if txt is String:
+		get_node("Pin").text = txt

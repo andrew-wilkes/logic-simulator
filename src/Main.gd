@@ -272,7 +272,9 @@ func save_data():
 	data["nodes"] = []
 	for node in $Graph.get_children():
 		if node is GraphNode:
-			data["nodes"].append({ "type": node.type, "index": node.index, "group": node.group, "subidx": node.subidx, "name": node.name, "x": node.offset.x, "y": node.offset.y, "depth": node.depth })
+			if node.type == Parts.INPUTPIN or node.type == Parts.OUTPUTPIN:
+				node.data = node.get_pin_name()
+			data["nodes"].append({ "type": node.type, "index": node.index, "group": node.group, "subidx": node.subidx, "name": node.name, "x": node.offset.x, "y": node.offset.y, "depth": node.depth, "data": node.data })
 	var file = File.new()
 	file.open(file_name, File.WRITE)
 	"""
@@ -310,11 +312,13 @@ func init_graph():
 	clear_graph()
 	if data.has("nodes"):
 		for node in data.nodes:
-			for prop in ["index", "group", "subidx", "depth"]:
+			for prop in ["index", "group", "subidx", "depth", "data"]:
 				if not node.keys().has(prop):
 					node[prop] = 0
 			var part: Part = Parts.get_part(node.index, node.group, node.subidx)
 			part.offset = Vector2(node.x, node.y)
+			if part.type == Parts.INPUTPIN or part.type == Parts.OUTPUTPIN:
+				part.set_pin_name(node.data)
 			# A non-connected part seems to have a name containing @ marks
 			# But when it is added to the scene, the @ marks are removed
 			$Graph.add_child(part, true)

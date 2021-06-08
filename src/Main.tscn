@@ -28,12 +28,12 @@ margin_right = 1910.0
 margin_bottom = 59.0
 
 [node name="V" type="VBoxContainer" parent="M/Topbar"]
-margin_right = 85.0
+margin_right = 97.0
 margin_bottom = 49.0
 custom_constants/separation = 15
 
 [node name="H" type="HBoxContainer" parent="M/Topbar/V"]
-margin_right = 85.0
+margin_right = 97.0
 margin_bottom = 20.0
 custom_constants/separation = 20
 
@@ -42,28 +42,27 @@ margin_right = 35.0
 margin_bottom = 20.0
 text = "File"
 
-[node name="Help" type="LinkButton" parent="M/Topbar/V/H"]
+[node name="Help" type="MenuButton" parent="M/Topbar/V/H"]
 margin_left = 55.0
-margin_right = 85.0
+margin_right = 97.0
 margin_bottom = 20.0
 text = "Help"
-underline = 1
 
 [node name="CurrentFile" type="Label" parent="M/Topbar/V"]
 margin_top = 35.0
-margin_right = 85.0
+margin_right = 97.0
 margin_bottom = 49.0
 custom_colors/font_color = Color( 0.698039, 0.698039, 0.698039, 1 )
 
 [node name="Left" type="Control" parent="M/Topbar"]
-margin_left = 89.0
-margin_right = 902.0
+margin_left = 101.0
+margin_right = 908.0
 margin_bottom = 49.0
 size_flags_horizontal = 3
 
 [node name="H" type="HBoxContainer" parent="M/Topbar"]
-margin_left = 906.0
-margin_right = 966.0
+margin_left = 912.0
+margin_right = 972.0
 margin_bottom = 49.0
 custom_constants/separation = 0
 
@@ -81,7 +80,7 @@ focus_mode = 0
 icon = ExtResource( 10 )
 
 [node name="Right" type="Control" parent="M/Topbar"]
-margin_left = 970.0
+margin_left = 976.0
 margin_right = 1784.0
 margin_bottom = 49.0
 size_flags_horizontal = 3
