@@ -95,4 +95,5 @@ wait_time = 0.5
 one_shot = true
 
 [connection signal="mouse_exited" from="." to="." method="_on_TruthTable_mouse_exited"]
+[connection signal="popup_hide" from="." to="." method="_on_TruthTable_popup_hide"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

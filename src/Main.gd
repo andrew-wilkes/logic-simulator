@@ -26,6 +26,36 @@ func _ready():
 	pm.connect("part_selected", self, "add_part")
 
 
+func run_test(_data):
+	var input_pins = {}
+	var output_pins = {}
+	# Find input pins
+	for node in $Graph.get_children():
+		if node is Part and node.type == Parts.INPUTPIN:
+			var pin = node.get_pin_name()
+			if _data.inputs.has(pin):
+				input_pins[pin] = node
+	$TruthTable.highlight_inputs(input_pins.keys(), _data.inputs)
+	if input_pins.size() != _data.inputs.size():
+		alert("Missing input pins")
+		yield($Alert, "popup_hide")
+		$TruthTable.unhighlight_row(0)
+		return
+	# Find output pins
+	for node in $Graph.get_children():
+		if node is Part and node.type == Parts.OUTPUTPIN:
+			var pin = node.get_pin_name()
+			if _data.outputs.has(pin):
+				output_pins[pin] = node
+	$TruthTable.highlight_outputs(output_pins.keys(), _data.inputs, _data.outputs)
+	if output_pins.size() != _data.outputs.size():
+		alert("Missing output pins")
+		yield($Alert, "popup_hide")
+		$TruthTable.unhighlight_row(0)
+		return
+
+
+
 # A bus output node value has changed
 func update_bus(node, value, reverse = false):
 	for con in $Graph.get_connection_list():
@@ -75,7 +105,7 @@ func add_part_to_graph(part: Part, pos: Vector2):
 	if part.has_tt and $M/Topbar/EnablePopups.pressed or part.locked:
 		$TruthTable.open(part.id)
 	else:
-		$TruthTable.hide()
+		$TruthTable.try_hide()
 	if part.locked:
 		alert("Create the circuit and succesfully test it to unlock the part.")
 	else:

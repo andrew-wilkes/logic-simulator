@@ -1,8 +1,9 @@
 extends AcceptDialog
 
-signal test_pressed
+signal test_pressed(data)
 
 var data
+var lock: CheckBox
 
 func _ready():
 	insert_test_button()
@@ -16,6 +17,8 @@ func _ready():
 
 
 func open(id):
+	if lock.pressed:
+		return
 	for node in $Grid.get_children():
 		node.hide()
 		node.queue_free()
@@ -69,9 +72,14 @@ func insert_test_button():
 	var tb = Button.new()
 	tb.text = "Test"
 	tb.focus_mode = Control.FOCUS_NONE
+	lock = CheckBox.new()
+	lock.focus_mode = Control.FOCUS_NONE
+	lock.text = "Lock"
 	hbox.get_child(1).text = "Close"
 	hbox.add_child_below_node(hbox.get_child(0), tb)
 	hbox.add_child_below_node(tb, hbox.get_child(0).duplicate())
+	hbox.add_child_below_node(hbox.get_child(0), hbox.get_child(0).duplicate())
+	hbox.add_child_below_node(hbox.get_child(0), lock)
 	tb.connect("pressed", self, "run_test")
 
 var step = 1
@@ -80,9 +88,10 @@ var state
 enum { RUNNING, PASSED, FAILED }
 
 func run_test():
-	emit_signal("test_pressed")
+	lock.pressed = true
+	emit_signal("test_pressed", data)
 	state = RUNNING
-	do_test()
+	#do_test()
 
 
 func do_test():
@@ -94,6 +103,26 @@ func do_test():
 
 func _on_Timer_timeout():
 	do_test()
+
+
+func highlight_inputs(input_pins, inputs):
+	var offset = 0
+	for ip in inputs:
+		if input_pins.has(ip):
+			$Grid.get_child(offset).modulate = Color.green
+		else:
+			$Grid.get_child(offset).modulate = Color.red
+		offset += 1
+
+
+func highlight_outputs(output_pins, inputs, outputs):
+	var offset = inputs.size()
+	for ip in outputs:
+		if output_pins.has(ip):
+			$Grid.get_child(offset).modulate = Color.green
+		else:
+			$Grid.get_child(offset).modulate = Color.red
+		offset += 1
 
 
 func highlight_row(row: int, result: Array):
@@ -113,3 +142,12 @@ func unhighlight_row(row: int):
 	var offset = data.tt[0].size() * row
 	for idx in data.tt[0].size():
 		$Grid.get_child(offset + idx).modulate = Color.white
+
+
+func try_hide():
+	if lock.pressed == false:
+		hide()
+
+
+func _on_TruthTable_popup_hide():
+	lock.pressed = false

@@ -167,3 +167,5 @@ margin_bottom = 1080.0
 [connection signal="node_unselected" from="Graph" to="." method="_on_Graph_node_unselected"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
 [connection signal="confirmed" from="Confirm" to="." method="_on_Confirm_confirmed"]
+[connection signal="confirmed" from="TruthTable" to="TruthTable" method="_on_TruthTable_popup_hide"]
+[connection signal="test_pressed" from="TruthTable" to="." method="run_test"]

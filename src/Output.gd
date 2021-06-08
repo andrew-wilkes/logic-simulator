@@ -37,3 +37,7 @@ func set_value(v: int, reverse = false, from_pin = false):
 
 func has_pin_name(pn: String):
 	return type == Parts.OUTPUTPIN and pn == get_node("Pin").text
+
+
+func _on_Pin_text_changed(_new_text):
+	emit_signal("offset_changed")

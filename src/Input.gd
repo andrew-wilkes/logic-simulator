@@ -34,5 +34,5 @@ func set_value(value: int, reverse = false, _from_pin = false):
 		set_output(level, n + 1, reverse)
 
 
-func has_pin_name(pn: String):
-	return type == Parts.INPUTPIN and pn == get_node("Pin").text
+func _on_Pin_text_changed(_new_text):
+	emit_signal("offset_changed")

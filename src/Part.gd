@@ -181,3 +181,7 @@ func update_output(level: bool, port: int, reverse: bool):
 # This function is overwritten in busses
 func set_value(_v: int, _reverse: bool, _from_pin: bool):
 	emit_signal("bus_changed", self, _v, _reverse)
+
+
+func get_pin_name():
+	return get_node("Pin").text

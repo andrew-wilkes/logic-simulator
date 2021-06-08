@@ -1666,6 +1666,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="text_changed" from="Gates/INPUT/INPUTPIN/Pin" to="Gates/INPUT/INPUTPIN" method="_on_Pin_text_changed"]
+[connection signal="text_changed" from="Gates/OUTPUT/OUTPUTPIN/Pin" to="Gates/OUTPUT/OUTPUTPIN" method="_on_Pin_text_changed"]
 [connection signal="button_down" from="MISC/INBUS/HBox/Mode" to="MISC/INBUS" method="_on_Mode_button_down"]
 [connection signal="button_down" from="MISC/INBUS/HBox/Bits" to="MISC/INBUS" method="_on_Bits_button_down"]
 [connection signal="button_down" from="MISC/BUS/HBox/Mode" to="MISC/BUS" method="_on_Mode_button_down"]
