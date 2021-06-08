@@ -15,7 +15,7 @@ __meta__ = {
 
 [node name="M" type="MarginContainer" parent="."]
 margin_right = 1920.0
-margin_bottom = 63.0
+margin_bottom = 69.0
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
@@ -25,87 +25,77 @@ custom_constants/margin_bottom = 10
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 1910.0
-margin_bottom = 53.0
+margin_bottom = 59.0
 
 [node name="V" type="VBoxContainer" parent="M/Topbar"]
-margin_right = 73.0
-margin_bottom = 43.0
+margin_right = 85.0
+margin_bottom = 49.0
 custom_constants/separation = 15
 
 [node name="H" type="HBoxContainer" parent="M/Topbar/V"]
-margin_right = 73.0
-margin_bottom = 14.0
+margin_right = 85.0
+margin_bottom = 20.0
 custom_constants/separation = 20
 
-[node name="File" type="LinkButton" parent="M/Topbar/V/H"]
-margin_right = 23.0
-margin_bottom = 14.0
+[node name="File" type="MenuButton" parent="M/Topbar/V/H"]
+margin_right = 35.0
+margin_bottom = 20.0
 text = "File"
-underline = 1
-
-[node name="FileMenu" type="PopupMenu" parent="M/Topbar/V/H/File"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 158.0
-margin_bottom = 125.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Help" type="LinkButton" parent="M/Topbar/V/H"]
-margin_left = 43.0
-margin_right = 73.0
-margin_bottom = 14.0
+margin_left = 55.0
+margin_right = 85.0
+margin_bottom = 20.0
 text = "Help"
 underline = 1
 
 [node name="CurrentFile" type="Label" parent="M/Topbar/V"]
-margin_top = 29.0
-margin_right = 73.0
-margin_bottom = 43.0
+margin_top = 35.0
+margin_right = 85.0
+margin_bottom = 49.0
 custom_colors/font_color = Color( 0.698039, 0.698039, 0.698039, 1 )
 
 [node name="Left" type="Control" parent="M/Topbar"]
-margin_left = 77.0
-margin_right = 896.0
-margin_bottom = 43.0
+margin_left = 89.0
+margin_right = 902.0
+margin_bottom = 49.0
 size_flags_horizontal = 3
 
 [node name="H" type="HBoxContainer" parent="M/Topbar"]
-margin_left = 900.0
-margin_right = 960.0
-margin_bottom = 43.0
+margin_left = 906.0
+margin_right = 966.0
+margin_bottom = 49.0
 custom_constants/separation = 0
 
 [node name="Up" type="ToolButton" parent="M/Topbar/H"]
 margin_right = 30.0
-margin_bottom = 43.0
+margin_bottom = 49.0
 focus_mode = 0
 icon = ExtResource( 11 )
 
 [node name="Down" type="ToolButton" parent="M/Topbar/H"]
 margin_left = 30.0
 margin_right = 60.0
-margin_bottom = 43.0
+margin_bottom = 49.0
 focus_mode = 0
 icon = ExtResource( 10 )
 
 [node name="Right" type="Control" parent="M/Topbar"]
-margin_left = 964.0
+margin_left = 970.0
 margin_right = 1784.0
-margin_bottom = 43.0
+margin_bottom = 49.0
 size_flags_horizontal = 3
 
 [node name="EnablePopups" type="CheckBox" parent="M/Topbar"]
 margin_left = 1788.0
 margin_right = 1900.0
-margin_bottom = 43.0
+margin_bottom = 49.0
 focus_mode = 0
 pressed = true
 text = "Show Popups"
 
 [node name="Graph" type="GraphEdit" parent="."]
-margin_top = 67.0
+margin_top = 73.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 size_flags_horizontal = 3
@@ -154,9 +144,7 @@ margin_top = 1016.0
 margin_right = 100.0
 margin_bottom = 1080.0
 
-[connection signal="button_down" from="M/Topbar/V/H/File" to="." method="_on_File_button_down"]
-[connection signal="id_pressed" from="M/Topbar/V/H/File/FileMenu" to="." method="_on_FileMenu_id_pressed"]
-[connection signal="mouse_exited" from="M/Topbar/V/H/File/FileMenu" to="." method="_on_FileMenu_mouse_exited"]
+[connection signal="mouse_exited" from="M/Topbar/V/H/File" to="." method="_on_FileMenu_mouse_exited"]
 [connection signal="button_down" from="M/Topbar/V/H/Help" to="." method="_on_Help_button_down"]
 [connection signal="button_down" from="M/Topbar/H/Up" to="." method="_on_Up_button_down"]
 [connection signal="button_down" from="M/Topbar/H/Down" to="." method="_on_Down_button_down"]

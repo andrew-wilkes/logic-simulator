@@ -15,15 +15,20 @@ var pm
 
 func _ready():
 	Parts.hide()
-	fm = $M/Topbar/V/H/File/FileMenu
-	fm.add_item("New", NEW)
-	fm.add_item("Open", OPEN)
+	fm = $M/Topbar/V/H/File.get_popup()
+	fm.add_item("New", NEW, KEY_MASK_CTRL | KEY_N)
+	fm.add_item("Open", OPEN, KEY_MASK_CTRL | KEY_O)
 	fm.add_separator()
-	fm.add_item("Save", SAVE)
-	fm.add_item("Save As...", SAVEAS)
+	fm.add_item("Save", SAVE, KEY_MASK_CTRL | KEY_S)
+	fm.add_item("Save As...", SAVEAS, KEY_MASK_CTRL | KEY_MASK_SHIFT | KEY_S)
+	fm.connect("id_pressed", self, "_on_FileMenu_id_pressed")
 	pm = part_menu_scene.instance()
 	$M/Topbar.add_child_below_node($M/Topbar/Left, pm)
 	pm.connect("part_selected", self, "add_part")
+	var i = InputEventKey.new()
+	i.alt = true
+	i.scancode = KEY_F
+	$M/Topbar/V/H/File.shortcut = i
 
 
 func run_test(_data):
@@ -195,7 +200,7 @@ func _on_FileMenu_id_pressed(id):
 		SAVE:
 			do_action()
 		SAVEAS:
-			file_name = ""
+			set_filename()
 			action = SAVE
 			do_action()
 
@@ -330,7 +335,7 @@ func alert(txt = ""):
 
 
 func _on_FileMenu_mouse_exited():
-	$M/Topbar/V/H/File/FileMenu.hide()
+	pass #$M/Topbar/V/H/File.hide()
 
 
 func _on_Up_button_down():
