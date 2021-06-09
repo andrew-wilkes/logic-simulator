@@ -1,3 +1,4 @@
+tool
 extends GraphNode
 
 class_name Part

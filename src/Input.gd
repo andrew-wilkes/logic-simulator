@@ -1,3 +1,4 @@
+tool
 extends Part
 
 func set_value(value: int, reverse = false, _from_pin = false):

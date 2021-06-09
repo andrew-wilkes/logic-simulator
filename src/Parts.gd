@@ -1,16 +1,17 @@
-#tool
+tool
 # Manually add enums to match the part name
 # Reload this file and ensure that the enum indexes match with the part type property value
 extends Control
 
 func _ready():
-	#tool_stuff()
+	tool_stuff()
 	pass
 
 
 func tool_stuff():
 	# Stop autoloaded scene showing up in Tool script mode
 	if Engine.is_editor_hint():
+		print("Running parts tool script")
 		hide()
 		get_enums()
 
@@ -34,18 +35,18 @@ func get_enums():
 	var e = "enum { "
 	var n = 1
 	for a in get_children():
-		if a is GraphNode:
+		if a is Part:
 			a.type = n
 			e += a.name + ", "
 			n += 1
 		for b in a.get_children():
-			if b is GraphNode:
+			if b is Part:
 				print(b.name)
 				b.type = n
 				e += b.name + ", "
 				n += 1
 			for c in b.get_children():
-				if c is GraphNode:
+				if c is Part:
 					c.type = n
 					e += c.name + ", "
 					n += 1
