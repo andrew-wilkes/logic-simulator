@@ -13,7 +13,8 @@ func tool_stuff():
 	if Engine.is_editor_hint():
 		print("Running parts tool script")
 		hide()
-		get_enums()
+		print(get_parent().name)
+		#get_enums()
 
 
 # part type equates to the enum value
