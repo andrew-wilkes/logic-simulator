@@ -171,7 +171,10 @@ func add_part(idx: int, pg: int, _button):
 		$TruthTable.open(part)
 		alert("Create the circuit and succesfully test it to unlock the part.")
 	else:
-		add_part_to_graph(part, Vector2(get_viewport().get_mouse_position().x, $Graph.get_snap() * (1 + randi() % 5)))
+		var rand_y = 0
+		if part.type != Parts.INPUT and part.type != Parts.OUTPUT:
+			rand_y += $Graph.get_snap() * (randi() % 5)
+		add_part_to_graph(part, Vector2(get_viewport().get_mouse_position().x, rand_y))
 
 
 func add_part_to_graph(part: Part, pos: Vector2):

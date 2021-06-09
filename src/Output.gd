@@ -12,7 +12,3 @@ func set_value(v: int, reverse = false, from_pin = false):
 	value = v
 	get_child(0).text = "0x%02X" % value
 	emit_signal("bus_changed", self, value, reverse)
-
-
-func has_pin_name(pn: String):
-	return type == Parts.OUTPUTPIN and pn == get_node("Pin").text
