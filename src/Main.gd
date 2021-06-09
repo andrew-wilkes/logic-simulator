@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-enum { NOACTION, NEW, OPEN, SAVE, SAVEAS, SETTINGS }
+enum { NOACTION, NEW, OPEN, SAVE, SAVEAS, SETTINGS, QUIT }
 
 const USER_DATA = "user://score.json"
 
@@ -26,6 +26,8 @@ func _ready():
 	fm.add_separator()
 	fm.add_item("Save", SAVE, KEY_MASK_CTRL | KEY_S)
 	fm.add_item("Save As...", SAVEAS, KEY_MASK_CTRL | KEY_MASK_SHIFT | KEY_S)
+	fm.add_separator()
+	fm.add_item("Quit", QUIT, KEY_MASK_CTRL | KEY_Q)
 	fm.connect("id_pressed", self, "_on_FileMenu_id_pressed")
 	pm = part_menu_scene.instance()
 	$M/Topbar.add_child_below_node($M/Topbar/Left, pm)
@@ -262,6 +264,9 @@ func _on_FileMenu_id_pressed(id):
 			set_filename()
 			action = SAVE
 			do_action()
+		QUIT:
+			_on_Main_tree_exiting()
+			get_tree().quit()
 
 
 func confirm_loss():
@@ -293,8 +298,6 @@ func do_action():
 				$FileDialog.popup_centered()
 			else:
 				save_data()
-		SETTINGS:
-			$Settings.open()
 
 
 func clear_graph():
