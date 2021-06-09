@@ -143,6 +143,9 @@ margin_top = 1016.0
 margin_right = 100.0
 margin_bottom = 1080.0
 
+[node name="TestTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="mouse_exited" from="M/Topbar/V/H/File" to="." method="_on_FileMenu_mouse_exited"]
 [connection signal="button_down" from="M/Topbar/V/H/Help" to="." method="_on_Help_button_down"]
 [connection signal="button_down" from="M/Topbar/H/Up" to="." method="_on_Up_button_down"]
@@ -155,4 +158,5 @@ margin_bottom = 1080.0
 [connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
 [connection signal="confirmed" from="Confirm" to="." method="_on_Confirm_confirmed"]
 [connection signal="confirmed" from="TruthTable" to="TruthTable" method="_on_TruthTable_popup_hide"]
-[connection signal="test_pressed" from="TruthTable" to="." method="run_test"]
+[connection signal="test_pressed" from="TruthTable" to="." method="start_tests"]
+[connection signal="timeout" from="TestTimer" to="." method="_on_TestTimer_timeout"]

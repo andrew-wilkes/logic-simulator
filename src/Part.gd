@@ -6,6 +6,7 @@ signal output_changed(node, slot, level, reverse)
 signal unstable(node, slot)
 signal short_circuit(node, port, reverse)
 signal bus_changed(node, value, reverse)
+signal part_variant_selected(part, pos)
 
 export var id = ""
 export var has_tt = false
@@ -37,6 +38,29 @@ var frame_style = preload("res://assets/GraphNodeFrameStyle.tres")
 
 func _ready():
 	set("custom_styles/frame", frame_style)
+	if type == Parts.INPUT or type == Parts.OUTPUT:
+		for node in get_children():
+			if node is Control:
+				node.connect("gui_input", self, "_on_gui_input", [node])
+			for child in node.get_children():
+				if child is Button:
+					child.focus_mode = Control.FOCUS_NONE
+
+
+func _on_gui_input(event, node):
+	if event is InputEventMouseButton:
+		node.index = node.get_parent().index
+		node.subidx = node.get_index()
+		node.setup()
+		if node.get_child(0).name == "V":
+			node.set_value(0)
+		remove_child(node)
+		emit_signal("part_variant_selected", node, offset)
+		queue_free()
+
+
+func _on_Pin_text_changed(_new_text):
+	emit_signal("offset_changed")
 
 
 func set_title(_v):
@@ -126,7 +150,7 @@ func set_input(level: bool, port: int, reverse = false):
 		else:
 			emit_signal("short_circuit", [self, port, reverse])
 			return
-	update_output(level, port, reverse)
+		update_output(level, port, reverse)
 
 
 func set_output(level: bool, port: int, reverse := false):

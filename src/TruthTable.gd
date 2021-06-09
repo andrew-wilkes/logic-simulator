@@ -82,66 +82,38 @@ func insert_test_button():
 	hbox.add_child_below_node(hbox.get_child(0), lock)
 	tb.connect("pressed", self, "run_test")
 
-var step = 1
-var state
-
 enum { RUNNING, PASSED, FAILED }
 
 func run_test():
 	lock.pressed = true
 	emit_signal("test_pressed", data)
-	state = RUNNING
-	#do_test()
-
-
-func do_test():
-	$Timer.start()
-	var _levels = data.tt[step - 1]
-	highlight_row(step, [0,0])
-	step += 1
-
-
-func _on_Timer_timeout():
-	do_test()
 
 
 func highlight_inputs(input_pins, inputs):
 	var offset = 0
 	for ip in inputs:
-		if input_pins.has(ip):
-			$Grid.get_child(offset).modulate = Color.green
-		else:
-			$Grid.get_child(offset).modulate = Color.red
+		highlight_value(0, offset, input_pins.has(ip))
 		offset += 1
 
 
 func highlight_outputs(output_pins, inputs, outputs):
 	var offset = inputs.size()
 	for ip in outputs:
-		if output_pins.has(ip):
-			$Grid.get_child(offset).modulate = Color.green
-		else:
-			$Grid.get_child(offset).modulate = Color.red
+		highlight_value(0, offset, output_pins.has(ip))
 		offset += 1
 
 
-func highlight_row(row: int, result: Array):
-	var offset = data.tt[0].size() * row
-	for _v in data.inputs:
-		$Grid.get_child(offset).modulate = Color.green
-		offset += 1
-	for idx in result.size():
-		if data.ouputs == result[idx]:
-			$Grid.get_child(offset).modulate = Color.green
-		else:
-			$Grid.get_child(offset).modulate = Color.red
-		offset += 1
+func highlight_value(row: int, idx: int, v: bool):
+	idx += data.tt[0].size() * row
+	if v:
+		$Grid.get_child(idx).modulate = Color.green
+	else:
+		$Grid.get_child(idx).modulate = Color.red
 
 
-func unhighlight_row(row: int):
-	var offset = data.tt[0].size() * row
-	for idx in data.tt[0].size():
-		$Grid.get_child(offset + idx).modulate = Color.white
+func unhighlight_all():
+	for node in $Grid.get_children():
+		node.modulate = Color.white
 
 
 func try_hide():

@@ -11,6 +11,7 @@ var action = NOACTION
 var fm
 var data = {}
 var part_group = 0
+var part_data
 var pm
 
 func _ready():
@@ -30,10 +31,16 @@ func _ready():
 	i.scancode = KEY_F
 	$M/Topbar/V/H/File.shortcut = i
 
+var test_count = 0
+var passed_tests = true
+var input_pins = {}
+var output_pins = {}
+var new_test = true
 
-func run_test(_data):
-	var input_pins = {}
-	var output_pins = {}
+func start_tests(_data):
+	part_data = _data
+	input_pins = {}
+	output_pins = {}
 	# Find input pins
 	for node in $Graph.get_children():
 		if node is Part and node.type == Parts.INPUTPIN:
@@ -58,6 +65,47 @@ func run_test(_data):
 		yield($Alert, "popup_hide")
 		$TruthTable.unhighlight_row(0)
 		return
+	test_count = 0
+	passed_tests = true
+	new_test = true
+	reset_race_detection()
+	$TestTimer.start()
+
+
+func run_test():
+	if show_test_result(not passed_tests, "Failed Tests"):
+		return
+	if show_test_result(test_count == part_data.tt.size(), "Passed Tests"):
+		return
+	if new_test:
+		# Apply input values
+		for idx in part_data.inputs.size():
+			input_pins[part_data.inputs[idx]].set_output(bool(part_data.tt[test_count][idx]), 0)
+			$TruthTable.highlight_value(test_count + 1, idx, true)
+		new_test = false
+	else:
+		# Check result
+		var offset = part_data.inputs.size()
+		for idx in part_data.outputs.size():
+			var wanted = part_data.tt[test_count][idx + offset]
+			var got = output_pins[part_data.outputs[idx]].value
+			var result = wanted == got
+			$TruthTable.highlight_value(test_count + 1, idx + offset, result)
+			if not result:
+				passed_tests = result
+		new_test = true
+		test_count += 1
+	$TestTimer.start()
+
+
+func show_test_result(ok: bool, txt: String) -> bool:
+	if ok:
+		alert(txt)
+		yield($Alert, "popup_hide")
+		$TruthTable.unhighlight_all()
+	else:
+		ok = false
+	return ok
 
 
 
@@ -322,6 +370,7 @@ func init_graph():
 			# A non-connected part seems to have a name containing @ marks
 			# But when it is added to the scene, the @ marks are removed
 			$Graph.add_child(part, true)
+			part.setup()
 			connect_part(part)
 			part.name = node.name
 			if node.depth > 0:
@@ -348,3 +397,7 @@ func _on_Up_button_down():
 
 func _on_Down_button_down():
 	pm.select_menu(-1)
+
+
+func _on_TestTimer_timeout():
+	run_test()

@@ -1,4 +1,4 @@
-tool
+#tool
 # Manually add enums to match the part name
 # Reload this file and ensure that the enum indexes match with the part type property value
 extends Control
@@ -10,7 +10,8 @@ func _ready():
 		get_enums()
 
 
-enum { INPUT, INPUTPIN, INPUTSW, INPUTPUSH, INPUT4, INPUT8, INPUTCLK, NOT, AND, NAND, OR, NOR, XOR, OUTPUT, OUTPUTPIN, OUTPUT1, OUTPUT4, OUTPUT8, INBUS, BUS1, OUTBUS, DECODER, SEG7 }
+# part type equates to the enum value
+enum { INPUT = 1, INPUTPIN, INPUTSW, INPUTPUSH, INPUT4, INPUT8, INPUTCLK, NOT, AND, NAND, OR, NOR, XOR, OUTPUT, OUTPUTPIN, OUTPUT1, OUTPUT4, OUTPUT8, INBUS, BUS1, OUTBUS, DECODER, SEG7 }
 
 func get_part(idx: int, group: int, subidx = 0):
 	var node: Part
@@ -26,7 +27,7 @@ func get_part(idx: int, group: int, subidx = 0):
 
 func get_enums():
 	var e = "enum { "
-	var n = 0
+	var n = 1
 	for a in get_children():
 		if a is GraphNode:
 			a.type = n
@@ -34,6 +35,7 @@ func get_enums():
 			n += 1
 		for b in a.get_children():
 			if b is GraphNode:
+				print(b.name)
 				b.type = n
 				e += b.name + ", "
 				n += 1
