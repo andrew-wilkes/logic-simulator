@@ -90,7 +90,7 @@ margin_left = 1758.0
 margin_right = 1900.0
 margin_bottom = 49.0
 focus_mode = 0
-text = "Select Truth Table"
+text = "Select truth table"
 
 [node name="Graph" type="GraphEdit" parent="."]
 margin_top = 73.0

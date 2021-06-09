@@ -74,6 +74,8 @@ func insert_test_button():
 	hbox.get_child(1).text = "Close"
 	hbox.add_child_below_node(hbox.get_child(0), tb)
 	hbox.add_child_below_node(tb, hbox.get_child(0).duplicate())
+	hbox.get_child(4).queue_free()
+	hbox.get_child(0).queue_free()
 	tb.connect("pressed", self, "run_test")
 
 enum { RUNNING, PASSED, FAILED }
