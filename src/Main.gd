@@ -265,7 +265,6 @@ func _on_FileMenu_id_pressed(id):
 			action = SAVE
 			do_action()
 		QUIT:
-			_on_Main_tree_exiting()
 			get_tree().quit()
 
 
@@ -346,12 +345,6 @@ func save_data():
 			data["nodes"].append({ "type": node.type, "index": node.index, "group": node.group, "subidx": node.subidx, "name": node.name, "x": node.offset.x, "y": node.offset.y, "depth": node.depth, "data": node.data })
 	var file = File.new()
 	file.open(file_name, File.WRITE)
-	"""
-	var time_before = OS.get_ticks_usec()
-	yield(get_tree(), "idle_frame")
-	var time_taken = OS.get_ticks_usec() - time_before
-	print("Took ", time_taken, " microseconds")
-	"""
 	if file.is_open():
 		file.store_string(to_json(data))
 		file.close()
@@ -436,3 +429,14 @@ func _on_TestTimer_timeout():
 
 func _on_Main_tree_exiting():
 	save_user_data()
+
+
+# Timing
+var time_before
+
+func start_timing():
+	time_before = OS.get_ticks_usec()
+
+func end_timing():
+	var time_taken = OS.get_ticks_usec() - time_before
+	print("Took ", time_taken, " microseconds")
