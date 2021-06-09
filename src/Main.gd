@@ -51,7 +51,7 @@ func start_tests(_data):
 	if input_pins.size() != _data.inputs.size():
 		alert("Missing input pins")
 		yield($Alert, "popup_hide")
-		$TruthTable.unhighlight_row(0)
+		$TruthTable.unhighlight_all()
 		return
 	# Find output pins
 	for node in $Graph.get_children():
@@ -63,12 +63,11 @@ func start_tests(_data):
 	if output_pins.size() != _data.outputs.size():
 		alert("Missing output pins")
 		yield($Alert, "popup_hide")
-		$TruthTable.unhighlight_row(0)
+		$TruthTable.unhighlight_all()
 		return
 	test_count = 0
 	passed_tests = true
 	new_test = true
-	reset_race_detection()
 	$TestTimer.start()
 
 
@@ -78,6 +77,7 @@ func run_test():
 	if show_test_result(test_count == part_data.tt.size(), "Passed Tests"):
 		return
 	if new_test:
+		reset_race_detection()
 		# Apply input values
 		for idx in part_data.inputs.size():
 			input_pins[part_data.inputs[idx]].set_output(bool(part_data.tt[test_count][idx]), 0)
@@ -151,22 +151,23 @@ func delete_wire(node, port):
 func add_part(idx: int, pg: int):
 	part_group = pg
 	var part: Part = Parts.get_part(idx, pg)
-	add_part_to_graph(part, Vector2(get_viewport().get_mouse_position().x, $Graph.get_snap() * (1 + randi() % 5)))
+	if part.has_tt and $M/Topbar/TTSelect.pressed:
+		$M/Topbar/TTSelect.pressed = false
+		$TruthTable.open(part.id)
+		return
+	if part.locked and part.has_tt:
+		$TruthTable.open(part.id)
+		alert("Create the circuit and succesfully test it to unlock the part.")
+	else:
+		add_part_to_graph(part, Vector2(get_viewport().get_mouse_position().x, $Graph.get_snap() * (1 + randi() % 5)))
 
 
 func add_part_to_graph(part: Part, pos: Vector2):
-	if part.has_tt and $M/Topbar/EnablePopups.pressed or part.locked:
-		$TruthTable.open(part.id)
-	else:
-		$TruthTable.try_hide()
-	if part.locked:
-		alert("Create the circuit and succesfully test it to unlock the part.")
-	else:
-		$Graph.add_child(part, true) # Use a legible_unique_name to ensure that node name is saved and loaded ok
-		part.offset = pos
-		call_deferred("unselect_all")
-		set_changed()
-		connect_part(part)
+	$Graph.add_child(part, true) # Use a legible_unique_name to ensure that node name is saved and loaded ok
+	part.offset = pos
+	call_deferred("unselect_all")
+	set_changed()
+	connect_part(part)
 
 
 func connect_part(part):

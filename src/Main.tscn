@@ -56,13 +56,13 @@ custom_colors/font_color = Color( 0.698039, 0.698039, 0.698039, 1 )
 
 [node name="Left" type="Control" parent="M/Topbar"]
 margin_left = 101.0
-margin_right = 908.0
+margin_right = 893.0
 margin_bottom = 49.0
 size_flags_horizontal = 3
 
 [node name="H" type="HBoxContainer" parent="M/Topbar"]
-margin_left = 912.0
-margin_right = 972.0
+margin_left = 897.0
+margin_right = 957.0
 margin_bottom = 49.0
 custom_constants/separation = 0
 
@@ -80,18 +80,17 @@ focus_mode = 0
 icon = ExtResource( 10 )
 
 [node name="Right" type="Control" parent="M/Topbar"]
-margin_left = 976.0
-margin_right = 1784.0
+margin_left = 961.0
+margin_right = 1754.0
 margin_bottom = 49.0
 size_flags_horizontal = 3
 
-[node name="EnablePopups" type="CheckBox" parent="M/Topbar"]
-margin_left = 1788.0
+[node name="TTSelect" type="CheckBox" parent="M/Topbar"]
+margin_left = 1758.0
 margin_right = 1900.0
 margin_bottom = 49.0
 focus_mode = 0
-pressed = true
-text = "Show Popups"
+text = "Select Truth Table"
 
 [node name="Graph" type="GraphEdit" parent="."]
 margin_top = 73.0
@@ -144,6 +143,7 @@ margin_right = 100.0
 margin_bottom = 1080.0
 
 [node name="TestTimer" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
 
 [connection signal="mouse_exited" from="M/Topbar/V/H/File" to="." method="_on_FileMenu_mouse_exited"]
