@@ -7,7 +7,7 @@ func _ready():
 	# Stop autoloaded scene showing up in Tool script mode
 	if Engine.is_editor_hint():
 		hide()
-		get_enums()
+		#get_enums()
 
 
 # part type equates to the enum value

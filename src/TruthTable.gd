@@ -3,7 +3,6 @@ extends AcceptDialog
 signal test_pressed(data)
 
 var data
-var lock: CheckBox
 
 func _ready():
 	insert_test_button()
@@ -17,8 +16,6 @@ func _ready():
 
 
 func open(id):
-	if lock.pressed:
-		return
 	for node in $Grid.get_children():
 		node.hide()
 		node.queue_free()
@@ -72,20 +69,14 @@ func insert_test_button():
 	var tb = Button.new()
 	tb.text = "Test"
 	tb.focus_mode = Control.FOCUS_NONE
-	lock = CheckBox.new()
-	lock.focus_mode = Control.FOCUS_NONE
-	lock.text = "Lock"
 	hbox.get_child(1).text = "Close"
 	hbox.add_child_below_node(hbox.get_child(0), tb)
 	hbox.add_child_below_node(tb, hbox.get_child(0).duplicate())
-	hbox.add_child_below_node(hbox.get_child(0), hbox.get_child(0).duplicate())
-	hbox.add_child_below_node(hbox.get_child(0), lock)
 	tb.connect("pressed", self, "run_test")
 
 enum { RUNNING, PASSED, FAILED }
 
 func run_test():
-	lock.pressed = true
 	emit_signal("test_pressed", data)
 
 
@@ -114,12 +105,3 @@ func highlight_value(row: int, idx: int, v: bool):
 func unhighlight_all():
 	for node in $Grid.get_children():
 		node.modulate = Color.white
-
-
-func try_hide():
-	if lock.pressed == false:
-		hide()
-
-
-func _on_TruthTable_popup_hide():
-	lock.pressed = false

@@ -91,4 +91,3 @@ custom_constants/hseparation = 2
 columns = 3
 
 [connection signal="mouse_exited" from="." to="." method="_on_TruthTable_mouse_exited"]
-[connection signal="popup_hide" from="." to="." method="_on_TruthTable_popup_hide"]

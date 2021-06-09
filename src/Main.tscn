@@ -157,6 +157,5 @@ one_shot = true
 [connection signal="node_unselected" from="Graph" to="." method="_on_Graph_node_unselected"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
 [connection signal="confirmed" from="Confirm" to="." method="_on_Confirm_confirmed"]
-[connection signal="confirmed" from="TruthTable" to="TruthTable" method="_on_TruthTable_popup_hide"]
 [connection signal="test_pressed" from="TruthTable" to="." method="start_tests"]
 [connection signal="timeout" from="TestTimer" to="." method="_on_TestTimer_timeout"]

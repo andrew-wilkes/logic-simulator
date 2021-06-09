@@ -38,6 +38,7 @@ var frame_style = preload("res://assets/GraphNodeFrameStyle.tres")
 
 func _ready():
 	set("custom_styles/frame", frame_style)
+	# The following code stops the graph nodes from inheriting from Part when tool mode in Parts is active
 	if type == Parts.INPUT or type == Parts.OUTPUT:
 		for node in get_children():
 			if node is Control:

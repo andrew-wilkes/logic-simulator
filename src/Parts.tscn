@@ -893,7 +893,7 @@ margin_top = 27.0
 margin_right = 92.0
 margin_bottom = 51.0
 mouse_filter = 1
-text = "Y"
+text = "Q"
 
 [node name="OUTPUT1" type="GraphNode" parent="Gates/OUTPUT"]
 margin_left = 16.0
