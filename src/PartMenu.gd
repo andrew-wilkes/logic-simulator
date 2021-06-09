@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-signal part_selected(idx, group)
+signal part_selected(idx, group, button)
 
 var selected_item = 0
 
@@ -17,10 +17,10 @@ func _ready():
 			for child in p.get_children():
 				if child is Sprite or child is TextureRect:
 					b.icon = child.texture
-					if p.locked:
+					if p.locked and not User.data.unlocked.has(p.id):
 						b.modulate = Color.red
 					break
-			b.connect("button_down", self, "emit_signal", ["part_selected", idx, group])
+			b.connect("button_down", self, "emit_signal", ["part_selected", idx, group, b])
 			toolbar.add_child(b)
 			idx += 1
 		group += 1

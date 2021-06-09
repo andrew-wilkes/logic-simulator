@@ -34,6 +34,7 @@ config/icon="res://icon.png"
 
 Parts="*res://Parts.tscn"
 Data="*res://data.gd"
+User="*res://user.gd"
 
 [display]
 

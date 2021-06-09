@@ -146,6 +146,7 @@ margin_bottom = 1080.0
 wait_time = 0.5
 one_shot = true
 
+[connection signal="tree_exiting" from="." to="." method="_on_Main_tree_exiting"]
 [connection signal="mouse_exited" from="M/Topbar/V/H/File" to="." method="_on_FileMenu_mouse_exited"]
 [connection signal="button_down" from="M/Topbar/V/H/Help" to="." method="_on_Help_button_down"]
 [connection signal="button_down" from="M/Topbar/H/Up" to="." method="_on_Up_button_down"]

@@ -10,6 +10,7 @@ signal part_variant_selected(part, pos)
 
 export var id = ""
 export var has_tt = false
+export var locked = false
 
 const RACE_TRIGGER_COUNT = 4
 
@@ -20,7 +21,6 @@ export var type := 0 setget set_type
 var group := 0
 var index := 0
 var subidx := 0
-var locked = false
 var input_levels = {}
 var inputs_effected = {}
 var in_port_map = []

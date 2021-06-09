@@ -2,6 +2,8 @@ extends VBoxContainer
 
 enum { NOACTION, NEW, OPEN, SAVE, SAVEAS, SETTINGS }
 
+const USER_DATA = "user://score.json"
+
 var part_menu_scene = preload("res://PartMenu.tscn")
 
 var selected_nodes = {}
@@ -13,9 +15,11 @@ var data = {}
 var part_group = 0
 var part_data
 var pm
+var part_button
 
 func _ready():
 	Parts.hide()
+	load_user_data()
 	fm = $M/Topbar/V/H/File.get_popup()
 	fm.add_item("New", NEW, KEY_MASK_CTRL | KEY_N)
 	fm.add_item("Open", OPEN, KEY_MASK_CTRL | KEY_O)
@@ -75,6 +79,11 @@ func run_test():
 	if show_test_result(not passed_tests, "Failed Tests"):
 		return
 	if show_test_result(test_count == part_data.tt.size(), "Passed Tests"):
+		if part_data.locked:
+			part_button.modulate = Color.white
+			if not User.data.unlocked.has(part_data.id):
+				User.data.unlocked.append(part_data.id)
+				save_user_data()
 		return
 	if new_test:
 		reset_race_detection()
@@ -148,15 +157,16 @@ func delete_wire(node, port):
 			$Graph.disconnect_node(con.from, con.from_port, con.to, con.to_port)
 
 
-func add_part(idx: int, pg: int):
+func add_part(idx: int, pg: int, _button):
+	part_button = _button
 	part_group = pg
 	var part: Part = Parts.get_part(idx, pg)
 	if part.has_tt and $M/Topbar/TTSelect.pressed:
 		$M/Topbar/TTSelect.pressed = false
-		$TruthTable.open(part.id)
+		$TruthTable.open(part)
 		return
-	if part.locked and part.has_tt:
-		$TruthTable.open(part.id)
+	if part.locked and part.has_tt and not User.data.unlocked.has(part.id):
+		$TruthTable.open(part)
 		alert("Create the circuit and succesfully test it to unlock the part.")
 	else:
 		add_part_to_graph(part, Vector2(get_viewport().get_mouse_position().x, $Graph.get_snap() * (1 + randi() % 5)))
@@ -316,6 +326,13 @@ func set_changed(status = true):
 	$M/Topbar/V/CurrentFile.modulate = Color.orangered if status else Color.greenyellow
 
 
+func save_user_data():
+	var file = File.new()
+	file.open(USER_DATA, File.WRITE)
+	file.store_string(to_json(User.data))
+	file.close()
+
+
 func save_data():
 	data["connections"] = $Graph.get_connection_list()
 	data["nodes"] = []
@@ -337,6 +354,16 @@ func save_data():
 		file.close()
 		set_changed(false)
 	action = NOACTION
+
+
+func load_user_data():
+	var file = File.new()
+	if file.file_exists(USER_DATA):
+		file.open(USER_DATA, File.READ)
+		var data_in = parse_json(file.get_as_text())
+		file.close()
+		if typeof(data_in) == TYPE_DICTIONARY:
+			User.data = data_in
 
 
 func load_data():
@@ -402,3 +429,7 @@ func _on_Down_button_down():
 
 func _on_TestTimer_timeout():
 	run_test()
+
+
+func _on_Main_tree_exiting():
+	save_user_data()

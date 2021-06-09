@@ -11,16 +11,18 @@ func _ready():
 	$Cell1.hide()
 	$Cell2.hide()
 	get_close_button().hide()
-	if get_parent().name == "root":
-		open("etdff")
+	#if get_parent().name == "root":
+	#	open("etdff")
 
 
-func open(id):
+func open(part: Part):
 	for node in $Grid.get_children():
 		node.hide()
 		node.queue_free()
 	set_size(Vector2.ZERO) # Makes it resize starting from a small size
-	data = Data.parts[id]
+	data = Data.parts[part.id]
+	data["locked"] = part.locked
+	data["id"] = part.id
 	$Grid.columns = data.inputs.size() + data.outputs.size()
 	window_title = data.title + " Truth Table"
 	for txt in data.inputs:
