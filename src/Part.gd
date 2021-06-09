@@ -33,6 +33,12 @@ var output_levels = {}
 var value := -1
 var data = {}
 
+var frame_style = preload("res://assets/GraphNodeFrameStyle.tres")
+
+func _ready():
+	set("custom_styles/frame", frame_style)
+
+
 func set_title(_v):
 	title = title.strip_edges()
 
