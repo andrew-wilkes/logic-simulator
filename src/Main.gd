@@ -396,6 +396,7 @@ func init_graph():
 			# A non-connected part seems to have a name containing @ marks
 			# But when it is added to the scene, the @ marks are removed
 			$Graph.add_child(part, true)
+			call_deferred("check_for_at_marks")
 			part.setup()
 			connect_part(part)
 			part.name = node.name
@@ -434,3 +435,10 @@ func start_timing():
 func end_timing():
 	var time_taken = OS.get_ticks_usec() - time_before
 	print("Took ", time_taken, " microseconds")
+
+
+func check_for_at_marks():
+	for node in $Graph.get_children():
+		if node is Part:
+			if "@" in node.name:
+				alert("@ found in: " + node.name)
