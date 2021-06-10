@@ -8,6 +8,7 @@ signal unstable(node, slot)
 signal short_circuit(node, port, reverse)
 signal bus_changed(node, value, reverse)
 signal part_variant_selected(part, pos)
+signal part_clicked(part)
 
 export var id = ""
 export var has_tt = false
@@ -41,6 +42,12 @@ func _ready():
 	set("custom_styles/frame", frame_style)
 	# The following code stops the graph nodes from inheriting from Part when Engine.is_editor_hint() in Parts is run, sometimes. So their type number is zero
 	connect_inner_io_nodes()
+	var _e = connect("gui_input", self, "check_if_clicked")
+
+
+func check_if_clicked(event):
+	if event is InputEventMouseButton and has_tt:
+		emit_signal("part_clicked", self)
 
 
 func connect_inner_io_nodes():

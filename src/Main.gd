@@ -162,15 +162,22 @@ func add_part(idx: int, pg: int, _button):
 	part_button = _button
 	part_group = pg
 	var part: Part = Parts.get_part(idx, pg)
-	if part.has_tt and $M/Topbar/TTSelect.pressed:
-		$M/Topbar/TTSelect.pressed = false
-		$TruthTable.open(part)
+	if tt_show_request(part):
 		return
 	if part.locked and part.has_tt and not User.data.unlocked.has(part.id):
 		$TruthTable.open(part)
 		alert("Create the circuit and succesfully test it to unlock the part.")
 	else:
 		add_part_to_graph(part, Vector2(get_viewport().get_mouse_position().x, 0))
+
+
+func tt_show_request(part):
+	var shown = false
+	if part.has_tt and $M/Topbar/TTSelect.pressed:
+		$M/Topbar/TTSelect.pressed = false
+		$TruthTable.open(part)
+		shown = true
+	return shown
 
 
 func add_part_to_graph(part: Part, pos: Vector2):
@@ -185,6 +192,7 @@ func connect_part(part):
 	var _e = part.connect("output_changed", self, "update_levels")
 	_e = part.connect("unstable", self, "delete_wire")
 	_e = part.connect("offset_changed", self, "set_changed")
+	_e = part.connect("part_clicked", self, "tt_show_request")
 	if part is BUS:
 		_e = part.connect("bus_changed", self, "update_bus")
 	if part.type == Parts.INPUT or part.type == Parts.OUTPUT:
