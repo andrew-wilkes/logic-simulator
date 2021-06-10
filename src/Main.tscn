@@ -56,13 +56,13 @@ custom_colors/font_color = Color( 0.698039, 0.698039, 0.698039, 1 )
 
 [node name="Left" type="Control" parent="M/Topbar"]
 margin_left = 101.0
-margin_right = 893.0
+margin_right = 895.0
 margin_bottom = 49.0
 size_flags_horizontal = 3
 
 [node name="H" type="HBoxContainer" parent="M/Topbar"]
-margin_left = 897.0
-margin_right = 957.0
+margin_left = 899.0
+margin_right = 959.0
 margin_bottom = 49.0
 custom_constants/separation = 0
 
@@ -80,13 +80,13 @@ focus_mode = 0
 icon = ExtResource( 10 )
 
 [node name="Right" type="Control" parent="M/Topbar"]
-margin_left = 961.0
-margin_right = 1754.0
+margin_left = 963.0
+margin_right = 1758.0
 margin_bottom = 49.0
 size_flags_horizontal = 3
 
 [node name="TTSelect" type="CheckBox" parent="M/Topbar"]
-margin_left = 1758.0
+margin_left = 1762.0
 margin_right = 1900.0
 margin_bottom = 49.0
 focus_mode = 0
@@ -147,7 +147,6 @@ wait_time = 0.5
 one_shot = true
 
 [connection signal="tree_exiting" from="." to="." method="_on_Main_tree_exiting"]
-[connection signal="mouse_exited" from="M/Topbar/V/H/File" to="." method="_on_FileMenu_mouse_exited"]
 [connection signal="button_down" from="M/Topbar/V/H/Help" to="." method="_on_Help_button_down"]
 [connection signal="button_down" from="M/Topbar/H/Up" to="." method="_on_Up_button_down"]
 [connection signal="button_down" from="M/Topbar/H/Down" to="." method="_on_Down_button_down"]

@@ -11,7 +11,7 @@ var file_name = ""
 var changed = false
 var action = NOACTION
 var fm
-var data = {}
+var circuit = {}
 var part_group = 0
 var part_data
 var pm
@@ -77,7 +77,7 @@ func start_tests(_data):
 	$TestTimer.start()
 
 
-func run_test():
+func _on_TestTimer_timeout():
 	if show_test_result(not passed_tests, "Failed Tests"):
 		return
 	if show_test_result(test_count == part_data.tt.size(), "Passed Tests"):
@@ -117,7 +117,6 @@ func show_test_result(ok: bool, txt: String) -> bool:
 	else:
 		ok = false
 	return ok
-
 
 
 # A bus output node value has changed
@@ -339,17 +338,17 @@ func save_user_data():
 
 
 func save_data():
-	data["connections"] = $Graph.get_connection_list()
-	data["nodes"] = []
+	circuit["connections"] = $Graph.get_connection_list()
+	circuit["nodes"] = []
 	for node in $Graph.get_children():
 		if node is GraphNode:
 			if node.type == Parts.INPUTPIN or node.type == Parts.OUTPUTPIN:
 				node.data = node.get_pin_name()
-			data["nodes"].append({ "type": node.type, "index": node.index, "group": node.group, "subidx": node.subidx, "name": node.name, "x": node.offset.x, "y": node.offset.y, "depth": node.depth, "data": node.data })
+			circuit["nodes"].append({ "type": node.type, "index": node.index, "group": node.group, "subidx": node.subidx, "name": node.name, "x": node.offset.x, "y": node.offset.y, "depth": node.depth, "data": node.data })
 	var file = File.new()
 	file.open(file_name, File.WRITE)
 	if file.is_open():
-		file.store_string(to_json(data))
+		file.store_string(to_json(circuit))
 		file.close()
 		set_changed(false)
 	action = NOACTION
@@ -367,13 +366,13 @@ func load_user_data():
 
 func load_data():
 	var file = File.new()
-	$Alert.dialog_text = "Error loading data"
+	$Alert.dialog_text = "Error loading circuit"
 	if file.file_exists(file_name):
 		file.open(file_name, File.READ)
 		var data_in = parse_json(file.get_as_text())
 		file.close()
 		if typeof(data_in) == TYPE_DICTIONARY:
-			data = data_in
+			circuit = data_in
 			init_graph()
 			set_filename(file_name)
 			set_changed(false)
@@ -385,8 +384,8 @@ func load_data():
 
 func init_graph():
 	clear_graph()
-	if data.has("nodes"):
-		for node in data.nodes:
+	if circuit.has("nodes"):
+		for node in circuit.nodes:
 			for prop in ["index", "group", "subidx", "depth", "data"]:
 				if not node.keys().has(prop):
 					node[prop] = 0
@@ -403,8 +402,8 @@ func init_graph():
 			if node.depth > 0:
 				for n in node.depth:
 					part.add_slots()
-		if data.has("connections"):
-			for con in data.connections:
+		if circuit.has("connections"):
+			for con in circuit.connections:
 				var _e = $Graph.connect_node(con.from, con.from_port, con.to, con.to_port)
 
 
@@ -414,20 +413,12 @@ func alert(txt = ""):
 	$Alert.popup_centered()
 
 
-func _on_FileMenu_mouse_exited():
-	pass #$M/Topbar/V/H/File.hide()
-
-
 func _on_Up_button_down():
 	pm.select_menu(1)
 
 
 func _on_Down_button_down():
 	pm.select_menu(-1)
-
-
-func _on_TestTimer_timeout():
-	run_test()
 
 
 func _on_Main_tree_exiting():
