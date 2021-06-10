@@ -11,8 +11,6 @@ func _ready():
 	$Cell1.hide()
 	$Cell2.hide()
 	get_close_button().hide()
-	#if get_parent().name == "root":
-	#	open("etdff")
 
 
 func open(part: Part):
@@ -78,7 +76,6 @@ func insert_test_button():
 	hbox.get_child(0).queue_free()
 	tb.connect("pressed", self, "run_test")
 
-enum { RUNNING, PASSED, FAILED }
 
 func run_test():
 	emit_signal("test_pressed", data)
