@@ -16,6 +16,7 @@ var part_group = 0
 var part_data
 var pm
 var part_button
+var part_placement_offsets = {}
 
 func _ready():
 	Parts.hide()
@@ -168,7 +169,15 @@ func add_part(idx: int, pg: int, _button):
 		$TruthTable.open(part)
 		alert("Create the circuit and succesfully test it to unlock the part.")
 	else:
-		add_part_to_graph(part, Vector2(get_viewport().get_mouse_position().x, 0))
+		add_part_to_graph(part, Vector2(get_viewport().get_mouse_position().x, get_part_placement_offset(part.id)))
+
+
+func get_part_placement_offset(id):
+	if part_placement_offsets.has(id):
+		part_placement_offsets[id] = wrapi(part_placement_offsets[id] + $Graph.snap_distance, 0, 100)
+	else:
+		part_placement_offsets[id] = 0
+	return part_placement_offsets[id]
 
 
 func tt_show_request(part):
