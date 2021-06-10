@@ -132,7 +132,7 @@ func update_bus(node, value, reverse = false):
 
 # A part output level has changed
 func update_levels(node, port, level, reverse = false):
-	if node.group == Parts.INPUT:
+	if node.group == 0:
 		reset_race_detection()
 	for con in $Graph.get_connection_list():
 		if reverse:
