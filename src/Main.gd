@@ -112,10 +112,11 @@ func _on_TestTimer_timeout():
 			var last_value = output_pins[part_data.outputs[idx]].last_value
 			var got = output_pins[part_data.outputs[idx]].get_value()
 			if wanted is String:
-				if wanted == "X":
-					wanted = got
-				if wanted == "L":
-					wanted = last_value
+				match wanted:
+					"X":
+						wanted = got
+					"L":
+						wanted = last_value
 			var result = wanted == got
 			$TruthTable.highlight_value(test_count + 1, idx + offset, result)
 			if not result:
