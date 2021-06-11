@@ -1,6 +1,8 @@
 tool
 extends Part
 
+var last_value = 0
+
 func set_value(v: int, reverse = false, from_pin = false):
 	if type == Parts.OUTPUTPIN:
 		value = v
@@ -13,3 +15,10 @@ func set_value(v: int, reverse = false, from_pin = false):
 	value = v
 	get_child(0).text = "0x%02X" % value
 	emit_signal("bus_changed", self, value, reverse)
+
+
+func get_value():
+	if value < 0:
+		value = 0
+	last_value = value
+	return value

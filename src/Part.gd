@@ -202,10 +202,7 @@ func update_output(level: bool, port: int, reverse: bool):
 		Parts.OUTPUT1:
 			set_output(level, port, reverse)
 		Parts.OR, Parts.NOR, Parts.AND, Parts.NAND, Parts.XOR:
-			if not input_levels.has(0):
-				input_levels[0] = false
-			if not input_levels.has(1):
-				input_levels[1] = false
+			set_default_input_levels()
 			match type:
 				Parts.OR:
 					level = input_levels[0] or input_levels[1]
@@ -218,8 +215,45 @@ func update_output(level: bool, port: int, reverse: bool):
 				Parts.XOR:
 					level = (not input_levels[0] and input_levels[1]) or (input_levels[0] and not input_levels[1])
 			set_output(level, 0)
+		Parts.MULT:
+			set_default_input_levels()
+			if input_levels[0]: # Select
+				set_output(input_levels[2], 0) # A
+			else:
+				set_output(input_levels[1], 0) # B
+		Parts.SRLIPFLOP:
+			set_default_input_levels()
+			# Init outputs
+			if output_levels.size() == 0:
+				output_levels = { 0: false, 1: true }
+				set_output(false, 0)
+				set_output(true, 1)
+			if input_levels[0]: # Set
+				set_output(not input_levels[1], 0)
+				set_output(false, 1)
+			if input_levels[1]: # Reset
+				set_output(false, 0)
+				set_output(not input_levels[0], 1)
+		Parts.DLATCH:
+			set_default_input_levels()
+			# Init outputs
+			if output_levels.size() == 0:
+				output_levels = { 0: false, 1: true }
+				set_output(false, 0)
+				set_output(true, 1)
+			if input_levels[0]: # Enable
+				set_output(input_levels[1], 0)
+				set_output(not input_levels[1], 1)
+		Parts.DFLIPFLOP:
+			pass
 		_:
 			set_value(level, reverse, true)
+
+
+func set_default_input_levels():
+	for idx in get_connection_input_count():
+		if not input_levels.has(idx):
+			input_levels[idx] = false
 
 
 # This function is overwritten in busses

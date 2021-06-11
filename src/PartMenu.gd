@@ -13,7 +13,7 @@ func _ready():
 		for p in parts.get_children():
 			var b = ToolButton.new()
 			b.focus_mode = Control.FOCUS_NONE
-			b.hint_tooltip = p.name
+			b.hint_tooltip = p.title
 			for child in p.get_children():
 				if child is Sprite or child is TextureRect:
 					b.icon = child.texture

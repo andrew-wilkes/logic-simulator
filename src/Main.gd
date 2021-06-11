@@ -92,7 +92,16 @@ func _on_TestTimer_timeout():
 		reset_race_detection()
 		# Apply input values
 		for idx in part_data.inputs.size():
-			input_pins[part_data.inputs[idx]].set_output(bool(part_data.tt[test_count][idx]), 0)
+			var x = part_data.tt[test_count][idx]
+			if x is String:
+				match x:
+					"X":
+						x = randi() % 2
+					"+":
+						x = 1
+					"-":
+						x = 0
+			input_pins[part_data.inputs[idx]].set_output(bool(x), 0)
 			$TruthTable.highlight_value(test_count + 1, idx, true)
 		new_test = false
 	else:
@@ -100,7 +109,13 @@ func _on_TestTimer_timeout():
 		var offset = part_data.inputs.size()
 		for idx in part_data.outputs.size():
 			var wanted = part_data.tt[test_count][idx + offset]
-			var got = output_pins[part_data.outputs[idx]].value
+			var last_value = output_pins[part_data.outputs[idx]].last_value
+			var got = output_pins[part_data.outputs[idx]].get_value()
+			if wanted is String:
+				if wanted == "X":
+					wanted = got
+				if wanted == "L":
+					wanted = last_value
 			var result = wanted == got
 			$TruthTable.highlight_value(test_count + 1, idx + offset, result)
 			if not result:

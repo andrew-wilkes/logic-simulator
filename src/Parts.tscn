@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/nand.png" type="Texture" id=1]
 [ext_resource path="res://assets/and.png" type="Texture" id=2]
@@ -23,9 +23,15 @@
 [ext_resource path="res://Input.gd" type="Script" id=21]
 [ext_resource path="res://Output.gd" type="Script" id=22]
 [ext_resource path="res://assets/GraphNodeFrameStyle.tres" type="StyleBox" id=23]
+[ext_resource path="res://assets/mult.png" type="Texture" id=24]
+[ext_resource path="res://assets/adder.png" type="Texture" id=25]
+[ext_resource path="res://assets/srff.png" type="Texture" id=26]
+[ext_resource path="res://assets/jk.png" type="Texture" id=27]
+[ext_resource path="res://assets/reg.png" type="Texture" id=28]
+[ext_resource path="res://assets/dff.png" type="Texture" id=29]
+[ext_resource path="res://assets/dlatch.png" type="Texture" id=30]
 
 [node name="Parts" type="Control"]
-visible = false
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1416,9 +1422,609 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="MULT" type="GraphNode" parent="Combinational"]
+margin_right = 118.0
+margin_bottom = 103.0
+custom_styles/frame = ExtResource( 23 )
+title = "MULTIPLEXER"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = true
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = true
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+id = "mult"
+has_tt = true
+type = 22
+
+[node name="Sprite" type="Sprite" parent="Combinational/MULT"]
+visible = false
+texture = ExtResource( 24 )
+
+[node name="Label" type="Label" parent="Combinational/MULT"]
+margin_left = 16.0
+margin_top = 23.0
+margin_right = 102.0
+margin_bottom = 47.0
+rect_min_size = Vector2( 0, 24 )
+text = "Select"
+valign = 1
+
+[node name="HBox" type="HBoxContainer" parent="Combinational/MULT"]
+margin_left = 16.0
+margin_top = 48.0
+margin_right = 102.0
+margin_bottom = 72.0
+
+[node name="Label2" type="Label" parent="Combinational/MULT/HBox"]
+margin_right = 9.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+text = "A"
+valign = 1
+
+[node name="Label3" type="Label" parent="Combinational/MULT/HBox"]
+margin_left = 13.0
+margin_right = 86.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+text = "Y"
+align = 2
+valign = 1
+
+[node name="Label3" type="Label" parent="Combinational/MULT"]
+margin_left = 16.0
+margin_top = 73.0
+margin_right = 102.0
+margin_bottom = 97.0
+rect_min_size = Vector2( 0, 24 )
+text = "B"
+valign = 1
+
+[node name="SRFLIPFLOP" type="GraphNode" parent="Combinational"]
+margin_left = 141.0
+margin_top = 7.0
+margin_right = 257.0
+margin_bottom = 85.0
+custom_styles/frame = ExtResource( 23 )
+title = "SR FLIP-FLOP"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = true
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+id = "srff"
+has_tt = true
+type = 23
+
+[node name="Sprite" type="Sprite" parent="Combinational/SRFLIPFLOP"]
+visible = false
+texture = ExtResource( 26 )
+
+[node name="HBox" type="HBoxContainer" parent="Combinational/SRFLIPFLOP"]
+margin_left = 16.0
+margin_top = 23.0
+margin_right = 100.0
+margin_bottom = 47.0
+
+[node name="Label" type="Label" parent="Combinational/SRFLIPFLOP/HBox"]
+margin_right = 7.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+text = "S"
+valign = 1
+
+[node name="Label2" type="Label" parent="Combinational/SRFLIPFLOP/HBox"]
+margin_left = 11.0
+margin_right = 84.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+text = "Q"
+align = 2
+valign = 1
+
+[node name="HBox2" type="HBoxContainer" parent="Combinational/SRFLIPFLOP"]
+margin_left = 16.0
+margin_top = 48.0
+margin_right = 100.0
+margin_bottom = 72.0
+
+[node name="Label" type="Label" parent="Combinational/SRFLIPFLOP/HBox2"]
+margin_right = 8.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+text = "R"
+valign = 1
+
+[node name="Label2" type="Label" parent="Combinational/SRFLIPFLOP/HBox2"]
+margin_left = 12.0
+margin_right = 84.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+text = "/Q"
+align = 2
+valign = 1
+
+[node name="DLATCH" type="GraphNode" parent="Combinational"]
+margin_left = 3.0
+margin_top = 117.0
+margin_right = 119.0
+margin_bottom = 195.0
+custom_styles/frame = ExtResource( 23 )
+title = "D LATCH"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = true
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+id = "dlatch"
+has_tt = true
+type = 24
+
+[node name="Sprite" type="Sprite" parent="Combinational/DLATCH"]
+visible = false
+texture = ExtResource( 30 )
+
+[node name="HBox" type="HBoxContainer" parent="Combinational/DLATCH"]
+margin_left = 16.0
+margin_top = 23.0
+margin_right = 100.0
+margin_bottom = 47.0
+
+[node name="Label" type="Label" parent="Combinational/DLATCH/HBox"]
+margin_right = 7.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+text = "E"
+valign = 1
+
+[node name="Label2" type="Label" parent="Combinational/DLATCH/HBox"]
+margin_left = 11.0
+margin_right = 84.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+text = "Q"
+align = 2
+valign = 1
+
+[node name="HBox2" type="HBoxContainer" parent="Combinational/DLATCH"]
+margin_left = 16.0
+margin_top = 48.0
+margin_right = 100.0
+margin_bottom = 72.0
+
+[node name="Label" type="Label" parent="Combinational/DLATCH/HBox2"]
+margin_right = 10.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+text = "D"
+valign = 1
+
+[node name="Label2" type="Label" parent="Combinational/DLATCH/HBox2"]
+margin_left = 14.0
+margin_right = 84.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+text = "/Q"
+align = 2
+valign = 1
+
+[node name="DFLIPFLOP" type="GraphNode" parent="Combinational"]
+margin_left = 11.4142
+margin_top = 218.617
+margin_right = 122.414
+margin_bottom = 346.617
+custom_styles/frame = ExtResource( 23 )
+title = "D FLIP-FLOP"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = true
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = true
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = true
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+id = "dff"
+has_tt = true
+type = 25
+
+[node name="Sprite" type="Sprite" parent="Combinational/DFLIPFLOP"]
+visible = false
+texture = ExtResource( 29 )
+
+[node name="HBox3" type="HBoxContainer" parent="Combinational/DFLIPFLOP"]
+margin_left = 16.0
+margin_top = 23.0
+margin_right = 95.0
+margin_bottom = 47.0
+
+[node name="Label" type="Label" parent="Combinational/DFLIPFLOP/HBox3"]
+margin_right = 7.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+text = "S"
+valign = 1
+
+[node name="Label2" type="Label" parent="Combinational/DFLIPFLOP/HBox3"]
+margin_left = 11.0
+margin_right = 79.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+text = "Q"
+align = 2
+valign = 1
+
+[node name="L" type="Label" parent="Combinational/DFLIPFLOP"]
+margin_left = 16.0
+margin_top = 48.0
+margin_right = 95.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 0, 24 )
+text = "D"
+valign = 1
+
+[node name="L2" type="Label" parent="Combinational/DFLIPFLOP"]
+margin_left = 16.0
+margin_top = 73.0
+margin_right = 95.0
+margin_bottom = 97.0
+rect_min_size = Vector2( 0, 24 )
+text = "CK"
+valign = 1
+
+[node name="Label" type="Label" parent="Combinational/DFLIPFLOP"]
+margin_left = 16.0
+margin_top = 98.0
+margin_right = 95.0
+margin_bottom = 122.0
+rect_min_size = Vector2( 0, 24 )
+text = "R"
+valign = 1
+
+[node name="REG" type="GraphNode" parent="Combinational"]
+margin_left = 182.635
+margin_top = 285.067
+margin_right = 273.635
+margin_bottom = 413.067
+custom_styles/frame = ExtResource( 23 )
+title = "REGISTER"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = true
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = true
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = true
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+id = "reg"
+type = 26
+
+[node name="Sprite" type="Sprite" parent="Combinational/REG"]
+visible = false
+texture = ExtResource( 28 )
+
+[node name="HBox4" type="HBoxContainer" parent="Combinational/REG"]
+margin_left = 16.0
+margin_top = 23.0
+margin_right = 75.0
+margin_bottom = 47.0
+
+[node name="Label" type="Label" parent="Combinational/REG/HBox4"]
+margin_right = 10.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+text = "D"
+valign = 1
+
+[node name="Label2" type="Label" parent="Combinational/REG/HBox4"]
+margin_left = 14.0
+margin_right = 59.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+text = "Q"
+align = 2
+valign = 1
+
+[node name="L3" type="Label" parent="Combinational/REG"]
+margin_left = 16.0
+margin_top = 48.0
+margin_right = 75.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 0, 24 )
+text = "LD"
+valign = 1
+
+[node name="L4" type="Label" parent="Combinational/REG"]
+margin_left = 16.0
+margin_top = 73.0
+margin_right = 75.0
+margin_bottom = 97.0
+rect_min_size = Vector2( 0, 24 )
+text = "CK"
+valign = 1
+
+[node name="Label2" type="Label" parent="Combinational/REG"]
+margin_left = 16.0
+margin_top = 98.0
+margin_right = 75.0
+margin_bottom = 122.0
+rect_min_size = Vector2( 0, 24 )
+text = "R"
+valign = 1
+
+[node name="JKFLIPFLOP" type="GraphNode" parent="Combinational"]
+margin_left = 307.0
+margin_top = 99.0
+margin_right = 419.0
+margin_bottom = 202.0
+custom_styles/frame = ExtResource( 23 )
+title = "JK FLIP-FLOP"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = true
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = true
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = true
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+id = "jkff"
+type = 27
+
+[node name="Sprite" type="Sprite" parent="Combinational/JKFLIPFLOP"]
+visible = false
+texture = ExtResource( 27 )
+
+[node name="HBox" type="HBoxContainer" parent="Combinational/JKFLIPFLOP"]
+margin_left = 16.0
+margin_top = 23.0
+margin_right = 96.0
+margin_bottom = 47.0
+
+[node name="Label" type="Label" parent="Combinational/JKFLIPFLOP/HBox"]
+margin_right = 3.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+text = "J"
+valign = 1
+
+[node name="Label2" type="Label" parent="Combinational/JKFLIPFLOP/HBox"]
+margin_left = 7.0
+margin_right = 80.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+text = "Q"
+align = 2
+valign = 1
+
+[node name="Label3" type="Label" parent="Combinational/JKFLIPFLOP"]
+margin_left = 16.0
+margin_top = 48.0
+margin_right = 96.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 0, 24 )
+text = "CK"
+valign = 1
+
+[node name="HBox2" type="HBoxContainer" parent="Combinational/JKFLIPFLOP"]
+margin_left = 16.0
+margin_top = 73.0
+margin_right = 96.0
+margin_bottom = 97.0
+
+[node name="Label" type="Label" parent="Combinational/JKFLIPFLOP/HBox2"]
+margin_right = 8.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+text = "K"
+valign = 1
+
+[node name="Label2" type="Label" parent="Combinational/JKFLIPFLOP/HBox2"]
+margin_left = 12.0
+margin_right = 80.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+text = "/Q"
+align = 2
+valign = 1
+
+[node name="ADDER" type="GraphNode" parent="Combinational"]
+margin_left = 142.828
+margin_top = 114.534
+margin_right = 253.828
+margin_bottom = 143.534
+custom_styles/frame = ExtResource( 23 )
+title = "FULL ADDER"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = true
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = true
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = true
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+id = "adder"
+has_tt = true
+type = 28
+
+[node name="Sprite" type="Sprite" parent="Combinational/ADDER"]
+visible = false
+texture = ExtResource( 25 )
+
+[node name="HBox3" type="HBoxContainer" parent="Combinational/ADDER"]
+margin_left = 16.0
+margin_top = 23.0
+margin_right = 95.0
+margin_bottom = 47.0
+
+[node name="Label" type="Label" parent="Combinational/ADDER/HBox3"]
+margin_right = 9.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+text = "A"
+valign = 1
+
+[node name="Label2" type="Label" parent="Combinational/ADDER/HBox3"]
+margin_left = 13.0
+margin_right = 79.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+text = "Sum"
+align = 2
+valign = 1
+
+[node name="Label4" type="Label" parent="Combinational/ADDER"]
+margin_left = 16.0
+margin_top = 48.0
+margin_right = 95.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 0, 24 )
+text = "B"
+valign = 1
+
+[node name="HBox4" type="HBoxContainer" parent="Combinational/ADDER"]
+margin_left = 16.0
+margin_top = 73.0
+margin_right = 95.0
+margin_bottom = 97.0
+
+[node name="Label" type="Label" parent="Combinational/ADDER/HBox4"]
+margin_right = 20.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+text = "Cin"
+valign = 1
+
+[node name="Label2" type="Label" parent="Combinational/ADDER/HBox4"]
+margin_left = 24.0
+margin_right = 79.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+text = "Cout"
+align = 2
+valign = 1
+
 [node name="DECODER" type="GraphNode" parent="Combinational"]
-margin_right = 132.0
-margin_bottom = 150.0
+margin_left = -19.799
+margin_top = 569.159
+margin_right = 112.201
+margin_bottom = 719.159
 title = "DECODER"
 slot/0/left_enabled = true
 slot/0/left_type = 1
@@ -1454,7 +2060,7 @@ script = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-type = 22
+type = 29
 
 [node name="Sprite" type="Sprite" parent="Combinational/DECODER"]
 visible = false
@@ -1562,9 +2168,10 @@ align = 2
 valign = 1
 
 [node name="SEG7" type="GraphNode" parent="Combinational"]
-margin_top = 154.0
-margin_right = 85.0
-margin_bottom = 278.0
+margin_left = 5.65686
+margin_top = 408.558
+margin_right = 109.657
+margin_bottom = 562.558
 title = "DISPLAY"
 slot/0/left_enabled = true
 slot/0/left_type = 1
@@ -1600,7 +2207,7 @@ script = ExtResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-type = 23
+type = 30
 
 [node name="Sprite" type="Sprite" parent="Combinational/SEG7"]
 visible = false

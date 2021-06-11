@@ -83,21 +83,92 @@ var parts = {
 		"long_title": "",
 		"desc": "An exclusive OR gate outputs a 1 if its inputs differ."
 	},
-	"etdff":
+	"mult":
 	{
-		"inputs": ["Clock", "D", "S", "R"],
+		"inputs": ["Select","A","B"],
+		"outputs": ["Y"],
+		"tt": [
+			[0,0,0,0],
+			[0,0,1,0],
+			[0,1,0,1],
+			[0,1,1,1],
+			[1,0,0,0],
+			[1,0,1,1],
+			[1,1,0,0],
+			[1,1,1,1]
+		],
+		"title": "Multiplexer",
+		"long_title": "",
+		"desc": "A multiplexer selects one of several inputs."
+	},
+	"adder":
+	{
+		"inputs": ["A","B","Cin"],
+		"outputs": ["Sum", "Cout"],
+		"tt": [
+			[0,0,0,0,0],
+			[0,0,1,1,0],
+			[0,1,0,1,0],
+			[0,1,1,0,1],
+			[1,0,0,1,0],
+			[1,0,1,0,1],
+			[1,1,0,0,1],
+			[1,1,1,1,1]
+		],
+		"title": "Full Adder",
+		"long_title": "",
+		"desc": "A full adder adds together A, B, and carry inputs to give a sum and carry output."
+	},
+	"srff":
+	{
+		"inputs": ["S","R"],
+		"outputs": ["Q", "/Q"],
+		"tt": [
+			[0,0,"X","X"],
+			[1,0,1,0],
+			[0,0,1,0],
+			[0,1,0,1],
+			[0,0,0,1],
+			[1,1,0,0]
+		],
+		"title": "SR Flip-flop",
+		"long_title": "",
+		"desc": "The SR Flip-flop has Set and Reset inputs. Pulsing S high, sets Q high. Pulsing R high, resets Q. Both S and R being high is not a useful state."
+	},
+	"dlatch":
+	{
+		"inputs": ["E","D"],
+		"outputs": ["Q", "/Q"],
+		"tt": [
+			[0,0,"X","X"],
+			[1,0,0,1],
+			[0,0,0,1],
+			[0,1,0,1],
+			[1,1,1,0],
+			[0,1,1,0],
+			[0,0,1,0]
+		],
+		"title": "D Latch",
+		"long_title": "",
+		"desc": "The D Latch loads the data input value when E is high and stores it when E is low."
+	},
+	"dff":
+	{
+		"inputs": ["S", "D", "CK", "R"],
 		"outputs": ["Q"],
 		"tt": [
 			[0,"X",0,0,"L"],
-			[1,"X",0,0,"L"],
-			["+",0,0,0,0],
-			["+",1,0,0,1],
-			["X","X",1,0,1],
-			["X","X",0,1,0],
-			["X","X",1,1,1]
+			[1,"X",0,0,1],
+			[0,0,0,0,1,"!"], # don't display this row
+			[0,0,"+",0,0], # The rising edge
+			[0,1,0,0,0,"!"], # D changed to 1
+			[0,1,"+",0,1],
+			[0,"X","X",1,0], # Reset
+			[1,"X","X",0,1], # Set
+			[1,"X","X",1,1]
 		],
 		"title": "D Flip-Flop",
 		"long_title": "Edge-triggered D Flip-Flop with set and reset",
-		"desc": "A flip-flop can have extra inputs to set and reset it, just like the SR flip-flop in figu are used for setting the flip-flop to a desired state without giving it a clock pulse."
+		"desc": "An Edge-triggered D Flip-Flop loads the input data on the rising edge of the clock input. Also, the SR inputs are used for setting the flip-flop to a desired state without giving it a clock pulse."
 	}
 }

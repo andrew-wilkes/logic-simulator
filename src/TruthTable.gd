@@ -29,8 +29,10 @@ func open(part: Part):
 		$Grid.add_child(get_header_label(txt, true))
 	var idx = 1
 	for row in data.tt:
+		if row.size() > $Grid.columns:
+			continue # Skip row
 		for v in row:
-			$Grid.add_child(get_item_label(String(v), idx > data.inputs.size()))
+			add_item_label(String(v), idx > data.inputs.size())
 			idx += 1
 		idx = 1
 	set_position(Vector2(100, 200))
@@ -44,7 +46,7 @@ func get_header_label(txt, is_output: bool):
 	return l
 
 
-func get_item_label(txt, is_output: bool):
+func add_item_label(txt, is_output: bool):
 	match txt:
 		"+":
 			txt = "Rising edge"
@@ -55,7 +57,7 @@ func get_item_label(txt, is_output: bool):
 	var l = $Cell2.duplicate() if is_output else $Cell1.duplicate()
 	l.text = txt
 	l.show()
-	return l
+	$Grid.add_child(l)
 
 
 func _on_TruthTable_mouse_exited():
