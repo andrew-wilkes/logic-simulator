@@ -2,6 +2,8 @@ extends VBoxContainer
 
 enum { NOACTION, NEW, OPEN, SAVE, SAVEAS, SETTINGS, QUIT }
 
+signal test_completed(passed)
+
 const USER_DATA = "user://score.json"
 
 var part_menu_scene = preload("res://PartMenu.tscn")
@@ -79,9 +81,11 @@ func start_tests(_data):
 
 
 func _on_TestTimer_timeout():
-	if show_test_result(not passed_tests, "Failed Tests"):
+	if not passed_tests:
+		show_test_result(passed_tests, "Failed Tests")
 		return
-	if show_test_result(test_count == part_data.tt.size(), "Passed Tests"):
+	if test_count == part_data.tt.size():
+		show_test_result(true, "Passed Tests")
 		if part_data.locked:
 			part_button.modulate = Color.white
 			if not User.data.unlocked.has(part_data.id):
@@ -126,14 +130,11 @@ func _on_TestTimer_timeout():
 	$TestTimer.start()
 
 
-func show_test_result(ok: bool, txt: String) -> bool:
-	if ok:
-		alert(txt)
-		yield($Alert, "popup_hide")
-		$TruthTable.unhighlight_all()
-	else:
-		ok = false
-	return ok
+func show_test_result(passed: bool, txt: String):
+	emit_signal("test_completed", passed)
+	alert(txt)
+	yield($Alert, "popup_hide")
+	$TruthTable.unhighlight_all()
 
 
 # A bus output node value has changed
@@ -442,6 +443,10 @@ func alert(txt = ""):
 	if txt != "":
 		$Alert.dialog_text = txt
 	$Alert.popup_centered()
+
+
+func hide_alert():
+	$Alert.hide()
 
 
 func _on_Up_button_down():
