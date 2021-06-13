@@ -24,6 +24,7 @@ var group := 0
 var index := 0
 var subidx := 0
 var input_levels = {}
+var last_input_levels = {}
 var inputs_effected = {}
 var in_port_map = []
 var in_port_mode = []
@@ -194,6 +195,7 @@ func update_output(level: bool, port: int, reverse: bool):
 	else:
 		inputs_effected[port] = 1
 	# Remember the current input level
+	last_input_levels[port] = input_levels.get(port, false)
 	input_levels[port] = level
 	match type:
 		Parts.NOT:
@@ -231,9 +233,10 @@ func update_output(level: bool, port: int, reverse: bool):
 			if input_levels[0]: # Set
 				set_output(not input_levels[1], 0)
 				set_output(false, 1)
-			if input_levels[1]: # Reset
-				set_output(false, 0)
-				set_output(not input_levels[0], 1)
+			else:
+				if input_levels[1]: # Reset
+					set_output(false, 0)
+					set_output(not input_levels[0], 1)
 		Parts.DLATCH:
 			set_default_input_levels()
 			# Init outputs
@@ -245,7 +248,31 @@ func update_output(level: bool, port: int, reverse: bool):
 				set_output(input_levels[1], 0)
 				set_output(not input_levels[1], 1)
 		Parts.DFLIPFLOP:
-			pass
+			set_default_input_levels()
+			# Init outputs
+			if output_levels.size() == 0:
+				output_levels = { 0: false }
+				set_output(false, 0)
+			if input_levels[0]: # Set
+				set_output(true, 0)
+			else:
+				if input_levels[3]: # Reset
+					set_output(false, 0)
+				else:
+					# Detect rising edge of CK
+					if input_levels[2] and not last_input_levels[2]:
+						set_output(input_levels[1], 0)
+					last_input_levels[2] = input_levels[2]
+		Parts.ADDER:
+			set_default_input_levels()
+			# Init outputs
+			if output_levels.size() == 0:
+				output_levels = { 0: false, 1: false }
+				set_output(false, 0)
+				set_output(false, 1)
+			var sum: int = int(input_levels[0]) + int(input_levels[1]) + int(input_levels[2])
+			set_output(bool(sum % 2), 0) # Sum
+			set_output(bool(sum / 2), 1) # Cout
 		_:
 			set_value(level, reverse, true)
 

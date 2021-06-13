@@ -41,6 +41,8 @@ func _ready():
 	$M/Topbar/V/H/File.shortcut = i
 
 var test_count = 0
+var display_row = 1
+var show_row = true
 var passed_tests = true
 var input_pins = {}
 var output_pins = {}
@@ -75,6 +77,7 @@ func start_tests(_data):
 		$TruthTable.unhighlight_all()
 		return
 	test_count = 0
+	display_row = 1
 	passed_tests = true
 	new_test = true
 	$TestTimer.start()
@@ -93,8 +96,11 @@ func _on_TestTimer_timeout():
 				save_user_data()
 		return
 	if new_test:
+		show_row = $TruthTable/Grid.columns == part_data.tt[test_count].size()
 		reset_race_detection()
 		# Apply input values
+		#if part_data.id == "dff":
+		#	breakpoint
 		for idx in part_data.inputs.size():
 			var x = part_data.tt[test_count][idx]
 			if x is String:
@@ -106,7 +112,8 @@ func _on_TestTimer_timeout():
 					"-":
 						x = 0
 			input_pins[part_data.inputs[idx]].set_output(bool(x), 0)
-			$TruthTable.highlight_value(test_count + 1, idx, true)
+			if show_row:
+				$TruthTable.highlight_value(display_row, idx, true)
 		new_test = false
 	else:
 		# Check result
@@ -122,11 +129,14 @@ func _on_TestTimer_timeout():
 					"L":
 						wanted = last_value
 			var result = wanted == got
-			$TruthTable.highlight_value(test_count + 1, idx + offset, result)
+			if show_row:
+				$TruthTable.highlight_value(display_row, idx + offset, result)
 			if not result:
 				passed_tests = result
 		new_test = true
 		test_count += 1
+		if show_row:
+			display_row += 1
 	$TestTimer.start()
 
 

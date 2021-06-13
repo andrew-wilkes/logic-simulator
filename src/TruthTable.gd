@@ -98,7 +98,7 @@ func highlight_outputs(output_pins, inputs, outputs):
 
 
 func highlight_value(row: int, idx: int, v: bool):
-	idx += data.tt[0].size() * row
+	idx += $Grid.columns * row
 	if v:
 		$Grid.get_child(idx).modulate = Color.green
 	else:

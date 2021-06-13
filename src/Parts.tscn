@@ -85,9 +85,6 @@ script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = ""
-has_tt = false
-locked = false
 type = 1
 
 [node name="Sprite" type="Sprite" parent="Gates/INPUT"]
@@ -117,9 +114,6 @@ script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = ""
-has_tt = false
-locked = false
 type = 2
 
 [node name="Control" type="Control" parent="Gates/INPUT/INPUTPIN"]
@@ -153,9 +147,6 @@ script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = ""
-has_tt = false
-locked = false
 type = 3
 
 [node name="Switch" type="CheckButton" parent="Gates/INPUT/INPUTSW"]
@@ -182,9 +173,6 @@ script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = ""
-has_tt = false
-locked = false
 type = 4
 
 [node name="Push" type="Button" parent="Gates/INPUT/INPUTPUSH"]
@@ -238,9 +226,6 @@ script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = ""
-has_tt = false
-locked = false
 type = 5
 
 [node name="V" type="Label" parent="Gates/INPUT/INPUT4"]
@@ -355,9 +340,6 @@ script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = ""
-has_tt = false
-locked = false
 type = 6
 
 [node name="V" type="Label" parent="Gates/INPUT/INPUT8"]
@@ -496,9 +478,6 @@ script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = ""
-has_tt = false
-locked = false
 type = 7
 
 [node name="Control" type="Control" parent="Gates/INPUT/INPUTCLK"]
@@ -576,7 +555,6 @@ __meta__ = {
 }
 id = "not"
 has_tt = true
-locked = false
 type = 8
 
 [node name="Icon" type="TextureRect" parent="Gates/NOT"]
@@ -618,7 +596,6 @@ __meta__ = {
 }
 id = "and"
 has_tt = true
-locked = false
 type = 9
 
 [node name="Control" type="Control" parent="Gates/AND"]
@@ -673,7 +650,6 @@ __meta__ = {
 }
 id = "nand"
 has_tt = true
-locked = false
 type = 10
 
 [node name="Control" type="Control" parent="Gates/NAND"]
@@ -728,7 +704,6 @@ __meta__ = {
 }
 id = "or"
 has_tt = true
-locked = false
 type = 11
 
 [node name="Control" type="Control" parent="Gates/OR"]
@@ -783,7 +758,6 @@ __meta__ = {
 }
 id = "nor"
 has_tt = true
-locked = false
 type = 12
 
 [node name="Control" type="Control" parent="Gates/NOR"]
@@ -838,7 +812,6 @@ __meta__ = {
 }
 id = "xor"
 has_tt = true
-locked = false
 type = 13
 
 [node name="Control" type="Control" parent="Gates/XOR"]
@@ -896,9 +869,6 @@ script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = ""
-has_tt = false
-locked = false
 type = 14
 
 [node name="Sprite" type="Sprite" parent="Gates/OUTPUT"]
@@ -930,9 +900,6 @@ script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = ""
-has_tt = false
-locked = false
 type = 15
 
 [node name="Control" type="Control" parent="Gates/OUTPUT/OUTPUTPIN"]
@@ -968,9 +935,6 @@ script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = ""
-has_tt = false
-locked = false
 type = 16
 
 [node name="Label" type="Label" parent="Gates/OUTPUT/OUTPUT1"]
@@ -1027,9 +991,6 @@ script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = ""
-has_tt = false
-locked = false
 type = 17
 
 [node name="V" type="Label" parent="Gates/OUTPUT/OUTPUT4"]
@@ -1139,9 +1100,6 @@ script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = ""
-has_tt = false
-locked = false
 type = 18
 
 [node name="V" type="Label" parent="Gates/OUTPUT/OUTPUT8"]
@@ -1491,7 +1449,6 @@ __meta__ = {
 }
 id = "mult"
 has_tt = true
-locked = false
 type = 22
 
 [node name="Sprite" type="Sprite" parent="Combinational/MULT"]
@@ -1564,7 +1521,6 @@ __meta__ = {
 }
 id = "srff"
 has_tt = true
-locked = false
 type = 23
 
 [node name="Sprite" type="Sprite" parent="Combinational/SRFLIPFLOP"]
@@ -1642,7 +1598,6 @@ __meta__ = {
 }
 id = "dlatch"
 has_tt = true
-locked = false
 type = 24
 
 [node name="Sprite" type="Sprite" parent="Combinational/DLATCH"]
@@ -1732,7 +1687,6 @@ __meta__ = {
 }
 id = "dff"
 has_tt = true
-locked = false
 type = 25
 
 [node name="Sprite" type="Sprite" parent="Combinational/DFLIPFLOP"]
@@ -1825,8 +1779,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 id = "reg"
-has_tt = false
-locked = false
 type = 26
 
 [node name="Sprite" type="Sprite" parent="Combinational/REG"]
@@ -1913,8 +1865,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 id = "jkff"
-has_tt = false
-locked = false
 type = 27
 
 [node name="Sprite" type="Sprite" parent="Combinational/JKFLIPFLOP"]
@@ -2007,7 +1957,6 @@ __meta__ = {
 }
 id = "adder"
 has_tt = true
-locked = false
 type = 28
 
 [node name="Sprite" type="Sprite" parent="Combinational/ADDER"]
