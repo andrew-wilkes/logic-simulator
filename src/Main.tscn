@@ -110,15 +110,26 @@ one_shot = true
 [node name="c" type="CanvasLayer" parent="."]
 
 [node name="About" type="AcceptDialog" parent="c"]
+visible = true
+margin_left = 686.0
+margin_top = 382.0
+margin_right = 940.0
+margin_bottom = 457.0
+window_title = "About"
+dialog_text = "Created by Andrew Wilkes 2021
+"
+dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Licences" type="AcceptDialog" parent="c"]
 margin_left = 685.758
 margin_top = 381.926
 margin_right = 1701.76
 margin_bottom = 1018.93
 window_title = "About"
-dialog_text = "Created by Andrew Wilkes 2021
-
--------
-** Licence Information **
+dialog_text = "Licence Information
 
 This game uses Godot Engine, available under the following license:
 
@@ -199,7 +210,6 @@ margin_right = 119.0
 margin_bottom = 1080.0
 
 [connection signal="tree_exiting" from="." to="." method="_on_Main_tree_exiting"]
-[connection signal="button_down" from="M/Topbar/V/H/Help" to="." method="_on_Help_button_down"]
 [connection signal="button_down" from="M/Topbar/H/Up" to="." method="_on_Up_button_down"]
 [connection signal="button_down" from="M/Topbar/H/Down" to="." method="_on_Down_button_down"]
 [connection signal="connection_request" from="Graph" to="." method="_on_Graph_connection_request"]

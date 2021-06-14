@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-enum { NOACTION, NEW, OPEN, SAVE, SAVEAS, SETTINGS, QUIT }
+enum { NOACTION, NEW, OPEN, SAVE, SAVEAS, SETTINGS, QUIT, ABOUT, LICENCES }
 
 signal test_completed(passed)
 
@@ -13,6 +13,7 @@ var file_name = ""
 var changed = false
 var action = NOACTION
 var fm
+var hm
 var circuit = {}
 var part_group = 0
 var part_data
@@ -38,7 +39,17 @@ func _ready():
 	var i = InputEventKey.new()
 	i.alt = true
 	i.scancode = KEY_F
-	$M/Topbar/V/H/File.shortcut = i
+	$M/Topbar/V/H/File.shortcut = i # shortcut doesn't work
+	hm = $M/Topbar/V/H/Help.get_popup()
+	hm.add_item("About", ABOUT, KEY_MASK_CTRL | KEY_A)
+	hm.add_separator()
+	hm.add_item("Licences", LICENCES)
+	hm.connect("id_pressed", self, "_on_HelpMenu_id_pressed")
+	var h = InputEventKey.new()
+	h.alt = true
+	h.scancode = KEY_H
+	$M/Topbar/V/H/Help.shortcut = h
+	
 
 var test_count = 0
 var display_row = 1
@@ -290,10 +301,6 @@ func _on_File_button_down():
 	fm.show()
 
 
-func _on_Help_button_down():
-	$c/About.popup_centered()
-
-
 func _on_FileMenu_id_pressed(id):
 	action = id
 	match id:
@@ -309,6 +316,14 @@ func _on_FileMenu_id_pressed(id):
 			do_action()
 		QUIT:
 			get_tree().quit()
+
+
+func _on_HelpMenu_id_pressed(id):
+	match id:
+		ABOUT:
+			$c/About.popup_centered()
+		LICENCES:
+			$c/Licences.popup_centered()
 
 
 func confirm_loss():
