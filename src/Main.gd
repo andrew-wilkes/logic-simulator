@@ -58,11 +58,11 @@ func start_tests(_data):
 			var pin = node.get_pin_name()
 			if _data.inputs.has(pin):
 				input_pins[pin] = node
-	$TruthTable.highlight_inputs(input_pins.keys(), _data.inputs)
+	$c/TruthTable.highlight_inputs(input_pins.keys(), _data.inputs)
 	if input_pins.size() != _data.inputs.size():
 		alert("Missing input pins")
-		yield($Alert, "popup_hide")
-		$TruthTable.unhighlight_all()
+		yield($c/Alert, "popup_hide")
+		$c/TruthTable.unhighlight_all()
 		return
 	# Find output pins
 	for node in $Graph.get_children():
@@ -70,11 +70,11 @@ func start_tests(_data):
 			var pin = node.get_pin_name()
 			if _data.outputs.has(pin):
 				output_pins[pin] = node
-	$TruthTable.highlight_outputs(output_pins.keys(), _data.inputs, _data.outputs)
+	$c/TruthTable.highlight_outputs(output_pins.keys(), _data.inputs, _data.outputs)
 	if output_pins.size() != _data.outputs.size():
 		alert("Missing output pins")
-		yield($Alert, "popup_hide")
-		$TruthTable.unhighlight_all()
+		yield($c/Alert, "popup_hide")
+		$c/TruthTable.unhighlight_all()
 		return
 	test_count = 0
 	display_row = 1
@@ -96,7 +96,7 @@ func _on_TestTimer_timeout():
 				save_user_data()
 		return
 	if new_test:
-		show_row = $TruthTable/Grid.columns == part_data.tt[test_count].size()
+		show_row = $c/TruthTable/Grid.columns == part_data.tt[test_count].size()
 		reset_race_detection()
 		# Apply input values
 		#if part_data.id == "dff":
@@ -113,7 +113,7 @@ func _on_TestTimer_timeout():
 						x = 0
 			input_pins[part_data.inputs[idx]].set_output(bool(x), 0)
 			if show_row:
-				$TruthTable.highlight_value(display_row, idx, true)
+				$c/TruthTable.highlight_value(display_row, idx, true)
 		new_test = false
 	else:
 		# Check result
@@ -130,7 +130,7 @@ func _on_TestTimer_timeout():
 						wanted = last_value
 			var result = wanted == got
 			if show_row:
-				$TruthTable.highlight_value(display_row, idx + offset, result)
+				$c/TruthTable.highlight_value(display_row, idx + offset, result)
 			if not result:
 				passed_tests = result
 		new_test = true
@@ -143,8 +143,8 @@ func _on_TestTimer_timeout():
 func show_test_result(passed: bool, txt: String):
 	emit_signal("test_completed", passed)
 	alert(txt)
-	yield($Alert, "popup_hide")
-	$TruthTable.unhighlight_all()
+	yield($c/Alert, "popup_hide")
+	$c/TruthTable.unhighlight_all()
 
 
 # A bus output node value has changed
@@ -193,7 +193,7 @@ func add_part(idx: int, pg: int, _button):
 	if tt_show_request(part):
 		return
 	if part.locked and part.has_tt and not User.data.unlocked.has(part.id):
-		$TruthTable.open(part)
+		$c/TruthTable.open(part)
 		alert("Create the circuit and succesfully test it to unlock the part.")
 	else:
 		add_part_to_graph(part, Vector2(get_viewport().get_mouse_position().x, get_part_placement_offset(part.id)))
@@ -211,7 +211,7 @@ func tt_show_request(part):
 	var shown = false
 	if part.has_tt and $M/Topbar/TTSelect.pressed:
 		$M/Topbar/TTSelect.pressed = false
-		$TruthTable.open(part)
+		$c/TruthTable.open(part)
 		shown = true
 	return shown
 
@@ -291,7 +291,7 @@ func _on_File_button_down():
 
 
 func _on_Help_button_down():
-	$About.popup_centered()
+	$c/About.popup_centered()
 
 
 func _on_FileMenu_id_pressed(id):
@@ -313,8 +313,8 @@ func _on_FileMenu_id_pressed(id):
 
 func confirm_loss():
 	if changed:
-		$Confirm.dialog_text = "Changes will be lost!"
-		$Confirm.popup_centered()
+		$c/Confirm.dialog_text = "Changes will be lost!"
+		$c/Confirm.popup_centered()
 	else:
 		do_action()
 
@@ -330,14 +330,14 @@ func do_action():
 			set_filename()
 			clear_graph()
 		OPEN:
-			$FileDialog.current_file = file_name
-			$FileDialog.mode = FileDialog.MODE_OPEN_FILE
-			$FileDialog.popup_centered()
+			$c/FileDialog.current_file = file_name
+			$c/FileDialog.mode = FileDialog.MODE_OPEN_FILE
+			$c/FileDialog.popup_centered()
 		SAVE:
 			if file_name == "":
-				$FileDialog.current_file = file_name
-				$FileDialog.mode = FileDialog.MODE_SAVE_FILE
-				$FileDialog.popup_centered()
+				$c/FileDialog.current_file = file_name
+				$c/FileDialog.mode = FileDialog.MODE_SAVE_FILE
+				$c/FileDialog.popup_centered()
 			else:
 				save_data()
 
@@ -407,7 +407,7 @@ func load_user_data():
 
 func load_data():
 	var file = File.new()
-	$Alert.dialog_text = "Error loading circuit"
+	$c/Alert.dialog_text = "Error loading circuit"
 	if file.file_exists(file_name):
 		file.open(file_name, File.READ)
 		var data_in = parse_json(file.get_as_text())
@@ -451,12 +451,12 @@ func init_graph():
 
 func alert(txt = ""):
 	if txt != "":
-		$Alert.dialog_text = txt
-	$Alert.popup_centered()
+		$c/Alert.dialog_text = txt
+	$c/Alert.popup_centered()
 
 
 func hide_alert():
-	$Alert.hide()
+	$c/Alert.hide()
 
 
 func _on_Up_button_down():

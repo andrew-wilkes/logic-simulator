@@ -4,7 +4,6 @@ var main_scene = preload("res://Main.tscn")
 var main
 
 func _ready():
-	rand_seed(2)
 	Parts.hide()
 	main = main_scene.instance()
 	add_child(main)
@@ -47,7 +46,7 @@ func test_part(idx: int, group: int, subidx = 0):
 	print("Test: ", part.name)
 	var pos = Vector2(200 + randf() * 1500, randf() * 600)
 	main.add_part_to_graph(part, pos)
-	main.get_node("TruthTable").open(part)
+	main.get_node("c/TruthTable").open(part)
 	var part_data = Data.parts[part.id]
 	# Add input pins
 	for i in part.get_connection_input_count():
@@ -63,4 +62,4 @@ func test_part(idx: int, group: int, subidx = 0):
 		assert(output_pin.name == "OUTPUTPIN")
 		main.add_part_to_graph(output_pin, Vector2(pos.x + 200, pos.y - rand_range(-100, 100)))
 		main.get_node("Graph").connect_node(part.name, i, output_pin.name, 0)
-	main.get_node("TruthTable").run_test()
+	main.get_node("c/TruthTable").run_test()
