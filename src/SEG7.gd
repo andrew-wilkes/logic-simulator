@@ -1,5 +1,7 @@
 extends Part
 
+export(Color) var seg_color
+
 func _ready():
 	var off = [36,28, 14,14, 0,28, -14,14, -14,-14, 0,-28, 14,14, 22,29]
 	var i = 0
@@ -11,6 +13,8 @@ func _ready():
 		if s.name != "s7":
 			s.scale = Vector2(n, n)
 		i += 2
+	$LED.modulate = seg_color
+
 
 func setup():
 	set_port_maps()

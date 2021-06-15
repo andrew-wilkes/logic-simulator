@@ -110,7 +110,6 @@ one_shot = true
 [node name="c" type="CanvasLayer" parent="."]
 
 [node name="About" type="AcceptDialog" parent="c"]
-visible = true
 margin_left = 686.0
 margin_top = 382.0
 margin_right = 940.0
