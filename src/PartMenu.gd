@@ -5,6 +5,8 @@ signal part_selected(idx, group, button)
 var selected_item = 0
 
 func _ready():
+	var vspacer = Control.new()
+	vspacer.size_flags_vertical = SIZE_EXPAND_FILL
 	var group = 0
 	for parts in Parts.get_children():
 		var idx = 0
@@ -24,7 +26,13 @@ func _ready():
 			toolbar.add_child(b)
 			idx += 1
 		group += 1
-		add_child(toolbar)
+		var vb = VBoxContainer.new()
+		vb.add_child(vspacer.duplicate())
+		vb.add_child(toolbar)
+		vb.add_child(vspacer.duplicate())
+		vb.size_flags_vertical = SIZE_EXPAND_FILL
+		vb.size_flags_horizontal = SIZE_EXPAND_FILL
+		add_child(vb)
 	set_visibility()
 	emit_signal("part_selected") # To avoid a warning message about not being emitted
 
