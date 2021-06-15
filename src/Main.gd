@@ -233,6 +233,7 @@ func add_part_to_graph(part: Part, pos: Vector2):
 	call_deferred("unselect_all")
 	set_changed()
 	connect_part(part)
+	part.dropped()
 
 
 func connect_part(part):

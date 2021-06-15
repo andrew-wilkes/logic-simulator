@@ -272,6 +272,7 @@ func update_output(level: bool, port: int, reverse: bool):
 				set_output(false, 1)
 			var sum: int = int(input_levels[0]) + int(input_levels[1]) + int(input_levels[2])
 			set_output(bool(sum % 2), 0) # Sum
+# warning-ignore:integer_division
 			set_output(bool(sum / 2), 1) # Cout
 		_:
 			set_value(level, reverse, true)
@@ -295,3 +296,8 @@ func get_pin_name():
 func set_pin_name(txt):
 	if txt is String:
 		get_node("Pin").text = txt
+
+
+# Run code when part is added to graph
+func dropped():
+	pass

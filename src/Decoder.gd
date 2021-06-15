@@ -36,8 +36,17 @@ func set_value(v: int, reverse: bool, _from_pin: bool):
 
 func _on_Bits_button_down():
 	if bits < 2:
+		$Timer.start()
 		bits += 1
 		add_slots()
 		depth = bits
-	else:
-		$Bits.hide()
+		if bits == 2:
+			$Bits.hide()
+
+
+func _on_Timer_timeout():
+	$Bits.hide()
+
+
+func dropped():
+	$Timer.start()
