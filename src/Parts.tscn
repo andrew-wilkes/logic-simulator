@@ -1194,22 +1194,11 @@ slot/0/left_color = Color( 1, 1, 0, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 1
 slot/0/right_color = Color( 1, 1, 0, 1 )
-slot/1/left_enabled = false
-slot/1/left_type = 0
-slot/1/left_color = Color( 1, 1, 1, 1 )
-slot/1/right_enabled = false
-slot/1/right_type = 0
-slot/1/right_color = Color( 1, 1, 1, 1 )
-slot/2/left_enabled = false
-slot/2/left_type = 0
-slot/2/left_color = Color( 1, 1, 1, 1 )
-slot/2/right_enabled = false
-slot/2/right_type = 0
-slot/2/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 19
 
 [node name="Label" type="Label" parent="MISC/INBUS"]
 margin_left = 16.0
@@ -1223,41 +1212,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBox" type="HBoxContainer" parent="MISC/INBUS"]
-margin_left = 16.0
-margin_top = 65.0
-margin_right = 109.0
-margin_bottom = 85.0
-
-[node name="Mode" type="Button" parent="MISC/INBUS/HBox"]
-margin_right = 48.0
-margin_bottom = 20.0
-focus_mode = 0
-text = "Mode"
-
-[node name="Spacer" type="Control" parent="MISC/INBUS/HBox"]
-margin_left = 52.0
-margin_right = 52.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-
-[node name="Bits" type="Button" parent="MISC/INBUS/HBox"]
-margin_left = 56.0
-margin_right = 93.0
-margin_bottom = 20.0
-focus_mode = 0
-text = "Bits"
-
-[node name="Control" type="Control" parent="MISC/INBUS"]
-margin_left = 16.0
-margin_top = 86.0
-margin_right = 109.0
-margin_bottom = 94.0
-rect_min_size = Vector2( 0, 8 )
-
 [node name="Sprite" type="Sprite" parent="MISC/INBUS"]
 visible = false
 texture = ExtResource( 13 )
+
+[node name="Timer" type="Timer" parent="MISC/INBUS"]
+wait_time = 2.0
+one_shot = true
 
 [node name="BUS" type="GraphNode" parent="MISC"]
 margin_top = 104.0
@@ -1270,22 +1231,11 @@ slot/0/left_color = Color( 1, 1, 0, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 1
 slot/0/right_color = Color( 1, 1, 0, 1 )
-slot/1/left_enabled = false
-slot/1/left_type = 0
-slot/1/left_color = Color( 1, 1, 1, 1 )
-slot/1/right_enabled = false
-slot/1/right_type = 0
-slot/1/right_color = Color( 1, 1, 1, 1 )
-slot/2/left_enabled = false
-slot/2/left_type = 0
-slot/2/left_color = Color( 1, 1, 1, 1 )
-slot/2/right_enabled = false
-slot/2/right_type = 0
-slot/2/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 20
 
 [node name="Sprite" type="Sprite" parent="MISC/BUS"]
 visible = false
@@ -1303,37 +1253,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBox" type="HBoxContainer" parent="MISC/BUS"]
-margin_left = 16.0
-margin_top = 65.0
-margin_right = 109.0
-margin_bottom = 85.0
-
-[node name="Mode" type="Button" parent="MISC/BUS/HBox"]
-margin_right = 48.0
-margin_bottom = 20.0
-focus_mode = 0
-text = "Mode"
-
-[node name="Spacer" type="Control" parent="MISC/BUS/HBox"]
-margin_left = 52.0
-margin_right = 52.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-
-[node name="Bits" type="Button" parent="MISC/BUS/HBox"]
-margin_left = 56.0
-margin_right = 93.0
-margin_bottom = 20.0
-focus_mode = 0
-text = "Bits"
-
-[node name="Control" type="Control" parent="MISC/BUS"]
-margin_left = 16.0
-margin_top = 86.0
-margin_right = 109.0
-margin_bottom = 94.0
-rect_min_size = Vector2( 0, 8 )
+[node name="Timer" type="Timer" parent="MISC/BUS"]
+wait_time = 2.0
+one_shot = true
 
 [node name="OUTBUS" type="GraphNode" parent="MISC"]
 margin_top = 208.0
@@ -1346,22 +1268,11 @@ slot/0/left_color = Color( 1, 1, 0, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 1
 slot/0/right_color = Color( 1, 1, 0, 1 )
-slot/1/left_enabled = false
-slot/1/left_type = 0
-slot/1/left_color = Color( 1, 1, 1, 1 )
-slot/1/right_enabled = false
-slot/1/right_type = 0
-slot/1/right_color = Color( 1, 1, 1, 1 )
-slot/2/left_enabled = false
-slot/2/left_type = 0
-slot/2/left_color = Color( 1, 1, 1, 1 )
-slot/2/right_enabled = false
-slot/2/right_type = 0
-slot/2/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 21
 
 [node name="Label" type="Label" parent="MISC/OUTBUS"]
 margin_left = 16.0
@@ -1375,41 +1286,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBox" type="HBoxContainer" parent="MISC/OUTBUS"]
-margin_left = 16.0
-margin_top = 65.0
-margin_right = 109.0
-margin_bottom = 85.0
-
-[node name="Mode" type="Button" parent="MISC/OUTBUS/HBox"]
-margin_right = 48.0
-margin_bottom = 20.0
-focus_mode = 0
-text = "Mode"
-
-[node name="Spacer" type="Control" parent="MISC/OUTBUS/HBox"]
-margin_left = 52.0
-margin_right = 52.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-
-[node name="Bits" type="Button" parent="MISC/OUTBUS/HBox"]
-margin_left = 56.0
-margin_right = 93.0
-margin_bottom = 20.0
-focus_mode = 0
-text = "Bits"
-
-[node name="Control" type="Control" parent="MISC/OUTBUS"]
-margin_left = 16.0
-margin_top = 86.0
-margin_right = 109.0
-margin_bottom = 94.0
-rect_min_size = Vector2( 0, 8 )
-
 [node name="Sprite" type="Sprite" parent="MISC/OUTBUS"]
 visible = false
 texture = ExtResource( 14 )
+
+[node name="Timer" type="Timer" parent="MISC/OUTBUS"]
+wait_time = 2.0
+one_shot = true
 
 [node name="Combinational" type="Control" parent="."]
 margin_left = 284.236
@@ -2058,6 +1941,7 @@ script = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 29
 
 [node name="Sprite" type="Sprite" parent="Combinational/DECODER"]
 visible = false
@@ -2208,6 +2092,7 @@ script = ExtResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 30
 seg_color = Color( 0.227451, 0.858824, 0, 1 )
 
 [node name="Sprite" type="Sprite" parent="Combinational/SEG7"]
@@ -2296,11 +2181,8 @@ __meta__ = {
 
 [connection signal="text_changed" from="Gates/INPUT/INPUTPIN/Pin" to="Gates/INPUT/INPUTPIN" method="_on_Pin_text_changed"]
 [connection signal="text_changed" from="Gates/OUTPUT/OUTPUTPIN/Pin" to="Gates/OUTPUT/OUTPUTPIN" method="_on_Pin_text_changed"]
-[connection signal="button_down" from="MISC/INBUS/HBox/Mode" to="MISC/INBUS" method="_on_Mode_button_down"]
-[connection signal="button_down" from="MISC/INBUS/HBox/Bits" to="MISC/INBUS" method="_on_Bits_button_down"]
-[connection signal="button_down" from="MISC/BUS/HBox/Mode" to="MISC/BUS" method="_on_Mode_button_down"]
-[connection signal="button_down" from="MISC/BUS/HBox/Bits" to="MISC/BUS" method="_on_Bits_button_down"]
-[connection signal="button_down" from="MISC/OUTBUS/HBox/Mode" to="MISC/OUTBUS" method="_on_Mode_button_down"]
-[connection signal="button_down" from="MISC/OUTBUS/HBox/Bits" to="MISC/OUTBUS" method="_on_Bits_button_down"]
+[connection signal="timeout" from="MISC/INBUS/Timer" to="MISC/INBUS" method="_on_Timer_timeout"]
+[connection signal="timeout" from="MISC/BUS/Timer" to="MISC/BUS" method="_on_Timer_timeout"]
+[connection signal="timeout" from="MISC/OUTBUS/Timer" to="MISC/OUTBUS" method="_on_Timer_timeout"]
 [connection signal="button_down" from="Combinational/DECODER/Bits" to="Combinational/DECODER" method="_on_Bits_button_down"]
 [connection signal="timeout" from="Combinational/DECODER/Timer" to="Combinational/DECODER" method="_on_Timer_timeout"]

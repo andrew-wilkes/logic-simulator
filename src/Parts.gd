@@ -14,7 +14,7 @@ func tool_stuff():
 		print("Running parts tool script")
 		hide()
 		print(get_parent().name)
-		#get_enums()
+		get_enums()
 
 
 # part type equates to the enum value

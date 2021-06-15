@@ -2,10 +2,12 @@ extends Part
 
 class_name BUS
 
-enum { HEX, DEC, BIN }
+enum { HEX, DEC, BIN, BITS, MODE }
 
 var mode = HEX
 var format = ""
+var button: Button
+var button_mode = BITS
 
 func setup():
 	if type == Parts.INBUS:
@@ -19,12 +21,15 @@ func setup():
 
 
 func add_slots():
+	var slot = get_child_count() - 2 # num slots
 	if type != Parts.INBUS and type != Parts.OUTBUS:
+		if slot == 1:
+			add_button(Label.new(), false)
 		return
-	var slot = get_child_count() - 1 # num slots
 	if slot > 16:
 		return
 	var c = Label.new()
+	c.size_flags_horizontal = SIZE_EXPAND_FILL
 	c.rect_min_size.y = 24
 	c.valign = Label.VALIGN_CENTER
 	var left = type == Parts.INBUS
@@ -32,10 +37,14 @@ func add_slots():
 		c.align = Label.ALIGN_RIGHT
 	var num = 4 if bits < 2 else 8
 	for _i in num:
-		var idx = slot - 3
-		c.text = String(idx)
+		var l = c.duplicate()
+		var idx = slot - 1
+		l.text = String(idx)
 		output_levels[idx] = false
-		add_child(c.duplicate())
+		if idx == 0:
+			add_button(l, left)
+		else:
+			add_child(l)
 		set_slot(slot, left, 0, Color.white, not left, 0, Color.white)
 		if left:
 			in_port_map.append(slot)
@@ -44,6 +53,20 @@ func add_slots():
 			out_port_map.append(slot)
 			out_port_mode.append(PIN_MODE.BI)
 		slot += 1
+
+
+func add_button(l: Label, left: bool):
+	var h = HBoxContainer.new()
+	button = Button.new()
+	button.text = "Bits"
+	button.connect("pressed", self, "_on_button_down")
+	if left:
+		h.add_child(l)
+		h.add_child(button)
+	else:
+		h.add_child(button)
+		h.add_child(l)
+	add_child(h)
 
 
 func set_value(v: int, reverse: bool, from_pin: bool):
@@ -98,6 +121,8 @@ func _on_Bits_button_down():
 		add_slots()
 		if bits == 2:
 			$HBox/Bits.hide()
+		else:
+			$Timer.start()
 		depth = bits
 
 
@@ -107,3 +132,34 @@ func _on_Mode_button_down():
 	$HBox/Bits.disabled = mode == DEC
 	set_format()
 	update_display_value()
+
+func _on_button_down():
+	if button_mode == BITS:
+		if bits < 2:
+			bits += 1
+			set_format()
+			update_display_value()
+			add_slots()
+			if bits == 2:
+				button_to_mode()
+			else:
+				$Timer.start()
+			depth = bits
+	else:
+		mode += 1
+		mode %= 3
+		set_format()
+		update_display_value()
+
+
+func dropped():
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	button_to_mode()
+
+
+func button_to_mode():
+	button_mode = MODE
+	button.text = "Mode"
