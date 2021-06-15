@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://assets/nand.png" type="Texture" id=1]
 [ext_resource path="res://assets/and.png" type="Texture" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://assets/reg.png" type="Texture" id=28]
 [ext_resource path="res://assets/dff.png" type="Texture" id=29]
 [ext_resource path="res://assets/dlatch.png" type="Texture" id=30]
+[ext_resource path="res://InputClk.gd" type="Script" id=31]
 
 [node name="Parts" type="Control"]
 visible = false
@@ -85,9 +86,6 @@ script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = ""
-has_tt = false
-locked = false
 type = 1
 
 [node name="Sprite" type="Sprite" parent="Gates/INPUT"]
@@ -117,9 +115,6 @@ script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = ""
-has_tt = false
-locked = false
 type = 2
 
 [node name="Control" type="Control" parent="Gates/INPUT/INPUTPIN"]
@@ -153,9 +148,6 @@ script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = ""
-has_tt = false
-locked = false
 type = 3
 
 [node name="Switch" type="CheckButton" parent="Gates/INPUT/INPUTSW"]
@@ -182,9 +174,6 @@ script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = ""
-has_tt = false
-locked = false
 type = 4
 
 [node name="Push" type="Button" parent="Gates/INPUT/INPUTPUSH"]
@@ -238,9 +227,6 @@ script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = ""
-has_tt = false
-locked = false
 type = 5
 
 [node name="V" type="Label" parent="Gates/INPUT/INPUT4"]
@@ -355,9 +341,6 @@ script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = ""
-has_tt = false
-locked = false
 type = 6
 
 [node name="V" type="Label" parent="Gates/INPUT/INPUT8"]
@@ -492,14 +475,10 @@ slot/6/left_color = Color( 1, 1, 1, 1 )
 slot/6/right_enabled = true
 slot/6/right_type = 0
 slot/6/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 21 )
+script = ExtResource( 31 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = ""
-has_tt = false
-locked = false
-type = 7
 
 [node name="Control" type="Control" parent="Gates/INPUT/INPUTCLK"]
 margin_left = 16.0
@@ -557,6 +536,9 @@ text = "Reset"
 align = 2
 valign = 1
 
+[node name="Timer" type="Timer" parent="Gates/INPUT/INPUTCLK"]
+wait_time = 0.5
+
 [node name="NOT" type="GraphNode" parent="Gates"]
 margin_left = 32.0
 margin_top = 784.0
@@ -576,7 +558,6 @@ __meta__ = {
 }
 id = "not"
 has_tt = true
-locked = false
 type = 8
 
 [node name="Icon" type="TextureRect" parent="Gates/NOT"]
@@ -618,7 +599,6 @@ __meta__ = {
 }
 id = "and"
 has_tt = true
-locked = false
 type = 9
 
 [node name="Control" type="Control" parent="Gates/AND"]
@@ -673,7 +653,6 @@ __meta__ = {
 }
 id = "nand"
 has_tt = true
-locked = false
 type = 10
 
 [node name="Control" type="Control" parent="Gates/NAND"]
@@ -728,7 +707,6 @@ __meta__ = {
 }
 id = "or"
 has_tt = true
-locked = false
 type = 11
 
 [node name="Control" type="Control" parent="Gates/OR"]
@@ -783,7 +761,6 @@ __meta__ = {
 }
 id = "nor"
 has_tt = true
-locked = false
 type = 12
 
 [node name="Control" type="Control" parent="Gates/NOR"]
@@ -838,7 +815,6 @@ __meta__ = {
 }
 id = "xor"
 has_tt = true
-locked = false
 type = 13
 
 [node name="Control" type="Control" parent="Gates/XOR"]
@@ -896,9 +872,6 @@ script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = ""
-has_tt = false
-locked = false
 type = 14
 
 [node name="Sprite" type="Sprite" parent="Gates/OUTPUT"]
@@ -930,9 +903,6 @@ script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = ""
-has_tt = false
-locked = false
 type = 15
 
 [node name="Control" type="Control" parent="Gates/OUTPUT/OUTPUTPIN"]
@@ -968,9 +938,6 @@ script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = ""
-has_tt = false
-locked = false
 type = 16
 
 [node name="Label" type="Label" parent="Gates/OUTPUT/OUTPUT1"]
@@ -1027,9 +994,6 @@ script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = ""
-has_tt = false
-locked = false
 type = 17
 
 [node name="V" type="Label" parent="Gates/OUTPUT/OUTPUT4"]
@@ -1139,9 +1103,6 @@ script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = ""
-has_tt = false
-locked = false
 type = 18
 
 [node name="V" type="Label" parent="Gates/OUTPUT/OUTPUT8"]
@@ -1240,6 +1201,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 19
 
 [node name="Label" type="Label" parent="MISC/INBUS"]
 margin_left = 16.0
@@ -1276,6 +1238,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 20
 
 [node name="Sprite" type="Sprite" parent="MISC/BUS"]
 visible = false
@@ -1312,6 +1275,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 21
 
 [node name="Label" type="Label" parent="MISC/OUTBUS"]
 margin_left = 16.0
@@ -1371,7 +1335,6 @@ __meta__ = {
 }
 id = "mult"
 has_tt = true
-locked = false
 type = 22
 
 [node name="Sprite" type="Sprite" parent="Combinational/MULT"]
@@ -1444,7 +1407,6 @@ __meta__ = {
 }
 id = "srff"
 has_tt = true
-locked = false
 type = 23
 
 [node name="Sprite" type="Sprite" parent="Combinational/SRFLIPFLOP"]
@@ -1522,7 +1484,6 @@ __meta__ = {
 }
 id = "dlatch"
 has_tt = true
-locked = false
 type = 24
 
 [node name="Sprite" type="Sprite" parent="Combinational/DLATCH"]
@@ -1612,7 +1573,6 @@ __meta__ = {
 }
 id = "dff"
 has_tt = true
-locked = false
 type = 25
 
 [node name="Sprite" type="Sprite" parent="Combinational/DFLIPFLOP"]
@@ -1705,8 +1665,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 id = "reg"
-has_tt = false
-locked = false
 type = 26
 
 [node name="Sprite" type="Sprite" parent="Combinational/REG"]
@@ -1793,8 +1751,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 id = "jkff"
-has_tt = false
-locked = false
 type = 27
 
 [node name="Sprite" type="Sprite" parent="Combinational/JKFLIPFLOP"]
@@ -1887,7 +1843,6 @@ __meta__ = {
 }
 id = "adder"
 has_tt = true
-locked = false
 type = 28
 
 [node name="Sprite" type="Sprite" parent="Combinational/ADDER"]
@@ -1989,6 +1944,7 @@ script = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 29
 
 [node name="Sprite" type="Sprite" parent="Combinational/DECODER"]
 visible = false
@@ -2139,6 +2095,7 @@ script = ExtResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 30
 seg_color = Color( 0.227451, 0.858824, 0, 1 )
 
 [node name="Sprite" type="Sprite" parent="Combinational/SEG7"]
@@ -2226,6 +2183,12 @@ __meta__ = {
 }
 
 [connection signal="text_changed" from="Gates/INPUT/INPUTPIN/Pin" to="Gates/INPUT/INPUTPIN" method="_on_Pin_text_changed"]
+[connection signal="pressed" from="Gates/INPUT/INPUTCLK/Start" to="Gates/INPUT/INPUTCLK" method="_on_Start_pressed"]
+[connection signal="pressed" from="Gates/INPUT/INPUTCLK/Stop" to="Gates/INPUT/INPUTCLK" method="_on_Stop_pressed"]
+[connection signal="button_down" from="Gates/INPUT/INPUTCLK/Reset" to="Gates/INPUT/INPUTCLK" method="_on_Reset_button_down"]
+[connection signal="button_up" from="Gates/INPUT/INPUTCLK/Reset" to="Gates/INPUT/INPUTCLK" method="_on_Reset_button_up"]
+[connection signal="pressed" from="Gates/INPUT/INPUTCLK/Rate" to="Gates/INPUT/INPUTCLK" method="_on_Rate_pressed"]
+[connection signal="timeout" from="Gates/INPUT/INPUTCLK/Timer" to="Gates/INPUT/INPUTCLK" method="_on_Timer_timeout"]
 [connection signal="text_changed" from="Gates/OUTPUT/OUTPUTPIN/Pin" to="Gates/OUTPUT/OUTPUTPIN" method="_on_Pin_text_changed"]
 [connection signal="timeout" from="MISC/INBUS/Timer" to="MISC/INBUS" method="_on_Timer_timeout"]
 [connection signal="timeout" from="MISC/BUS/Timer" to="MISC/BUS" method="_on_Timer_timeout"]

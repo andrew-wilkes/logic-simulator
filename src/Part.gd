@@ -42,7 +42,9 @@ var frame_style = preload("res://assets/GraphNodeFrameStyle.tres")
 func _ready():
 	set("custom_styles/frame", frame_style)
 	# The following code stops the graph nodes from inheriting from Part when Engine.is_editor_hint() in Parts is run, sometimes. So their type number is zero
-	if not Engine.is_editor_hint():
+	if Engine.is_editor_hint():
+		print("Running tool script for: ", name)
+	else:
 		connect_inner_io_nodes()
 		var _e = connect("gui_input", self, "check_if_clicked")
 

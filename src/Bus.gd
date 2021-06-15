@@ -59,7 +59,7 @@ func add_button(l: Label, left: bool):
 	var h = HBoxContainer.new()
 	button = Button.new()
 	button.text = "Bits"
-	button.connect("pressed", self, "_on_button_down")
+	var _e = button.connect("pressed", self, "_on_button_down")
 	if left:
 		h.add_child(l)
 		h.add_child(button)
