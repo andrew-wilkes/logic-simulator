@@ -4,7 +4,7 @@ enum { NOACTION, NEW, OPEN, SAVE, SAVEAS, SETTINGS, QUIT, ABOUT, LICENCES }
 
 signal test_completed(passed)
 
-const USER_DATA = "user://score.json"
+const USER_DATA = "user://user-data.dat"
 
 var part_menu_scene = preload("res://PartMenu.tscn")
 
@@ -20,6 +20,7 @@ var part_data
 var pm
 var part_button
 var part_placement_offsets = {}
+var user: User
 
 func _ready():
 	Parts.hide()
@@ -390,7 +391,7 @@ func set_changed(status = true):
 func save_user_data():
 	var file = File.new()
 	file.open(USER_DATA, File.WRITE)
-	file.store_string(to_json(User.data))
+	file.store_var(user, true)
 	file.close()
 
 
@@ -413,10 +414,10 @@ func load_user_data():
 	var file = File.new()
 	if file.file_exists(USER_DATA):
 		file.open(USER_DATA, File.READ)
-		var data_in = parse_json(file.get_as_text())
+		user = file.get_var(true)
 		file.close()
-		if typeof(data_in) == TYPE_DICTIONARY:
-			User.data = data_in
+	else:
+		user = User.new()
 
 
 func load_data():

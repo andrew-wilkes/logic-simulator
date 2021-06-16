@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Part",
 "language": "GDScript",
 "path": "res://Part.gd"
+}, {
+"base": "Node",
+"class": "User",
+"language": "GDScript",
+"path": "res://user.gd"
 } ]
 _global_script_class_icons={
 "BUS": "",
-"Part": ""
+"Part": "",
+"User": ""
 }
 
 [application]
@@ -34,7 +40,6 @@ config/icon="res://icon.png"
 
 Parts="*res://Parts.tscn"
 Data="*res://data.gd"
-User="*res://user.gd"
 
 [display]
 
