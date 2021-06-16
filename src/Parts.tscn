@@ -1201,7 +1201,6 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-type = 19
 
 [node name="Label" type="Label" parent="MISC/INBUS"]
 margin_left = 16.0
@@ -1238,7 +1237,6 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-type = 20
 
 [node name="Sprite" type="Sprite" parent="MISC/BUS"]
 visible = false
@@ -1275,7 +1273,6 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-type = 21
 
 [node name="Label" type="Label" parent="MISC/OUTBUS"]
 margin_left = 16.0
@@ -1944,7 +1941,6 @@ script = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-type = 29
 
 [node name="Sprite" type="Sprite" parent="Combinational/DECODER"]
 visible = false
@@ -2095,7 +2091,6 @@ script = ExtResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-type = 30
 seg_color = Color( 0.227451, 0.858824, 0, 1 )
 
 [node name="Sprite" type="Sprite" parent="Combinational/SEG7"]

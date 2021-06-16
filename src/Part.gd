@@ -35,7 +35,7 @@ var bits = 0
 var bit_lengths = [4, 8, 16]
 var output_levels = {}
 var value := -1
-var data = {}
+var data = {} setget set_data, get_data
 
 var frame_style = preload("res://assets/GraphNodeFrameStyle.tres")
 
@@ -290,6 +290,20 @@ func set_default_input_levels():
 # This function is overwritten in busses
 func set_value(_v: int, _reverse: bool, _from_pin: bool):
 	emit_signal("bus_changed", self, _v, _reverse)
+
+
+func set_data(d):
+	match type:
+		Parts.INPUTPIN, Parts.OUTPUTPIN:
+			set_pin_name(d)
+
+
+func get_data():
+	var v = null
+	match type:
+		Parts.INPUTPIN, Parts.OUTPUTPIN:
+			v= get_pin_name()
+	return v
 
 
 func get_pin_name():
