@@ -135,6 +135,25 @@ var parts = {
 		"long_title": "",
 		"desc": "The SR Flip-flop has Set and Reset inputs. Pulsing S high, sets Q high. Pulsing R high, resets Q. Both S and R being high is not a useful state."
 	},
+	"jkff":
+	{
+		"inputs": ["J","CK", "R"],
+		"outputs": ["Q", "/Q"],
+		"tt": [
+			[0,"X",0,"X","X"],
+			[0,0,1,"L","L"],
+			[0,"+",1,0,1],
+			[1,0,0,0,1],
+			[1,"+",0,1,0],
+			[1,0,1,1,0],
+			[1,"+",1,0,1],
+			[1,0,1,0,1],
+			[1,"+",1,1,0]
+		],
+		"title": "JK Flip-flop",
+		"long_title": "",
+		"desc": "The JK Flip-flop is like a clocked SR Flip-flop. Changes take place on the rising edge of the clock. If J is high, the output is Set. If K is high, the output is Reset. If both J and K are high, the output is Toggled."
+	},
 	"dlatch":
 	{
 		"inputs": ["E","D"],

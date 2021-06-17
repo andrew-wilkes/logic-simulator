@@ -171,6 +171,7 @@ func set_input(level: bool, port: int, reverse = false):
 
 
 func set_output(level: bool, port: int, reverse := false):
+	output_levels[port] = level
 	var col = Color.red if level else Color.blue
 	if reverse:
 		set("slot/%d/left_color" % in_port_map[port], col)
@@ -277,6 +278,27 @@ func update_output(level: bool, port: int, reverse: bool):
 			set_output(bool(sum % 2), 0) # Sum
 # warning-ignore:integer_division
 			set_output(bool(sum / 2), 1) # Cout
+		Parts.JKFLIPFLOP:
+			set_default_input_levels()
+			# Init outputs
+			if output_levels.size() == 0:
+				output_levels = { 0: false, 1: true }
+				set_output(false, 0)
+				set_output(true, 1)
+			# Detect not rising edge of CK
+			if not input_levels[1] or last_input_levels[1]:
+				return
+			last_input_levels[1] = input_levels[1]
+			if input_levels[0] and input_levels[2]: # Toggle
+				set_output(not output_levels[0], 0)
+				set_output(not output_levels[1], 1)
+			else:
+				if input_levels[0]: # Set
+					set_output(true, 0)
+					set_output(false, 1)
+				if input_levels[2]: # Reset
+					set_output(true, 1)
+					set_output(false, 0)
 		_:
 			set_value(level, reverse, true)
 
