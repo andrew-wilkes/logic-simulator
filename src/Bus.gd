@@ -159,7 +159,7 @@ func _on_button_down():
 
 
 func dropped():
-	if type in [Parts.REG, Parts.COUNTER]:
+	if type in [Parts.REG, Parts.COUNTER, Parts.SEG7]:
 		return
 	$Timer.start()
 

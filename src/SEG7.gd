@@ -1,4 +1,4 @@
-extends Part
+extends BUS
 
 export(Color) var seg_color
 
@@ -39,5 +39,7 @@ func set_value(v: int, reverse: bool, _from_pin: bool):
 	value = v
 	idx = 0
 	for led in $LED.get_children():
-		led.visible = map[idx].has(v)
+		led.visible = map[idx].has(v % 16) # Use mod of v to stop overflow
 		idx += 1
+	# Emit divided down signal
+	emit_signal("bus_changed", self, value / 16, reverse)
