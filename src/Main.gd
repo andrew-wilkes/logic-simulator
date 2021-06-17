@@ -202,6 +202,7 @@ func add_part(idx: int, pg: int, _button):
 	part_button = _button
 	part_group = pg
 	var part: Part = Parts.get_part(idx, pg)
+	assert(part.type > 0)
 	if tt_show_request(part):
 		return
 	if part.locked and part.has_tt and not User.data.unlocked.has(part.id):
@@ -453,8 +454,8 @@ func init_graph():
 			# But when it is added to the scene, the @ marks are removed
 			$Graph.add_child(part, true)
 			call_deferred("check_for_at_marks")
-			part.setup()
 			connect_part(part)
+			part.dropped()
 			part.name = node.name
 			if node.depth > 0:
 				for n in node.depth:

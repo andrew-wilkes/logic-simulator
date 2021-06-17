@@ -77,6 +77,12 @@ func set_value(v: int, reverse: bool, from_pin: bool):
 	if value == v:
 		return
 	value = v
+	if type == Parts.REG:
+		if output_enabled:
+			output_enabled = false
+		else: # Just capture the new input value
+			vin = v
+			return
 	update_display_value()
 	emit_signal("bus_changed", self, value, reverse)
 	if type == Parts.OUTBUS and !reverse or type == Parts.INBUS and reverse:
@@ -153,6 +159,8 @@ func _on_button_down():
 
 
 func dropped():
+	if type in [Parts.REG]:
+		return
 	$Timer.start()
 
 

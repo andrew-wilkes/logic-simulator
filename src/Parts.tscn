@@ -479,6 +479,7 @@ script = ExtResource( 31 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 7
 
 [node name="Control" type="Control" parent="Gates/INPUT/INPUTCLK"]
 margin_left = 16.0
@@ -1201,6 +1202,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 19
 
 [node name="Label" type="Label" parent="MISC/INBUS"]
 margin_left = 16.0
@@ -1237,6 +1239,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 20
 
 [node name="Sprite" type="Sprite" parent="MISC/BUS"]
 visible = false
@@ -1273,6 +1276,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 21
 
 [node name="Label" type="Label" parent="MISC/OUTBUS"]
 margin_left = 16.0
@@ -1626,98 +1630,6 @@ rect_min_size = Vector2( 0, 24 )
 text = "R"
 valign = 1
 
-[node name="REG" type="GraphNode" parent="Combinational"]
-margin_left = 182.635
-margin_top = 285.067
-margin_right = 273.635
-margin_bottom = 413.067
-custom_styles/frame = ExtResource( 23 )
-title = "REGISTER"
-slot/0/left_enabled = true
-slot/0/left_type = 0
-slot/0/left_color = Color( 1, 1, 1, 1 )
-slot/0/right_enabled = true
-slot/0/right_type = 0
-slot/0/right_color = Color( 1, 1, 1, 1 )
-slot/1/left_enabled = true
-slot/1/left_type = 0
-slot/1/left_color = Color( 1, 1, 1, 1 )
-slot/1/right_enabled = false
-slot/1/right_type = 0
-slot/1/right_color = Color( 1, 1, 1, 1 )
-slot/2/left_enabled = true
-slot/2/left_type = 0
-slot/2/left_color = Color( 1, 1, 1, 1 )
-slot/2/right_enabled = false
-slot/2/right_type = 0
-slot/2/right_color = Color( 1, 1, 1, 1 )
-slot/3/left_enabled = true
-slot/3/left_type = 0
-slot/3/left_color = Color( 1, 1, 1, 1 )
-slot/3/right_enabled = false
-slot/3/right_type = 0
-slot/3/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-id = "reg"
-type = 26
-
-[node name="Sprite" type="Sprite" parent="Combinational/REG"]
-visible = false
-texture = ExtResource( 28 )
-
-[node name="HBox4" type="HBoxContainer" parent="Combinational/REG"]
-margin_left = 16.0
-margin_top = 23.0
-margin_right = 75.0
-margin_bottom = 47.0
-
-[node name="Label" type="Label" parent="Combinational/REG/HBox4"]
-margin_right = 10.0
-margin_bottom = 24.0
-rect_min_size = Vector2( 0, 24 )
-text = "D"
-valign = 1
-
-[node name="Label2" type="Label" parent="Combinational/REG/HBox4"]
-margin_left = 14.0
-margin_right = 59.0
-margin_bottom = 24.0
-rect_min_size = Vector2( 0, 24 )
-size_flags_horizontal = 3
-text = "Q"
-align = 2
-valign = 1
-
-[node name="L3" type="Label" parent="Combinational/REG"]
-margin_left = 16.0
-margin_top = 48.0
-margin_right = 75.0
-margin_bottom = 72.0
-rect_min_size = Vector2( 0, 24 )
-text = "LD"
-valign = 1
-
-[node name="L4" type="Label" parent="Combinational/REG"]
-margin_left = 16.0
-margin_top = 73.0
-margin_right = 75.0
-margin_bottom = 97.0
-rect_min_size = Vector2( 0, 24 )
-text = "CK"
-valign = 1
-
-[node name="Label2" type="Label" parent="Combinational/REG"]
-margin_left = 16.0
-margin_top = 98.0
-margin_right = 75.0
-margin_bottom = 122.0
-rect_min_size = Vector2( 0, 24 )
-text = "R"
-valign = 1
-
 [node name="JKFLIPFLOP" type="GraphNode" parent="Combinational"]
 margin_left = 307.0
 margin_top = 99.0
@@ -1749,7 +1661,7 @@ __meta__ = {
 }
 id = "jkff"
 has_tt = true
-type = 27
+type = 26
 
 [node name="Sprite" type="Sprite" parent="Combinational/JKFLIPFLOP"]
 visible = false
@@ -1841,7 +1753,7 @@ __meta__ = {
 }
 id = "adder"
 has_tt = true
-type = 28
+type = 27
 
 [node name="Sprite" type="Sprite" parent="Combinational/ADDER"]
 visible = false
@@ -1942,6 +1854,7 @@ script = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 28
 
 [node name="Sprite" type="Sprite" parent="Combinational/DECODER"]
 visible = false
@@ -2092,6 +2005,7 @@ script = ExtResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+type = 29
 seg_color = Color( 0.227451, 0.858824, 0, 1 )
 
 [node name="Sprite" type="Sprite" parent="Combinational/SEG7"]
@@ -2167,6 +2081,119 @@ margin_right = 88.0
 margin_bottom = 148.0
 rect_min_size = Vector2( 0, 24 )
 text = "A3"
+valign = 1
+
+[node name="Blocks" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="REG" type="GraphNode" parent="Blocks"]
+margin_left = 466.871
+margin_top = 288.437
+margin_right = 557.871
+margin_bottom = 416.437
+custom_styles/frame = ExtResource( 23 )
+title = "REGISTER"
+slot/0/left_enabled = true
+slot/0/left_type = 1
+slot/0/left_color = Color( 1, 1, 0, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 1
+slot/0/right_color = Color( 1, 1, 0, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = true
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = true
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = true
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+bits = 1
+type = 30
+
+[node name="Sprite" type="Sprite" parent="Blocks/REG"]
+visible = false
+texture = ExtResource( 28 )
+
+[node name="HBox4" type="HBoxContainer" parent="Blocks/REG"]
+margin_left = 16.0
+margin_top = 23.0
+margin_right = 75.0
+margin_bottom = 47.0
+
+[node name="D" type="Label" parent="Blocks/REG/HBox4"]
+margin_right = 10.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+text = "D"
+valign = 1
+
+[node name="Q" type="Label" parent="Blocks/REG/HBox4"]
+margin_left = 14.0
+margin_right = 59.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+text = "Q"
+align = 2
+valign = 1
+
+[node name="Label" type="Label" parent="Blocks/REG"]
+margin_left = 16.0
+margin_top = 48.0
+margin_right = 75.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+text = "0xFF"
+align = 2
+valign = 1
+
+[node name="L" type="Label" parent="Blocks/REG"]
+margin_left = 16.0
+margin_top = 73.0
+margin_right = 75.0
+margin_bottom = 97.0
+rect_min_size = Vector2( 0, 24 )
+text = "LD"
+valign = 1
+
+[node name="CK" type="Label" parent="Blocks/REG"]
+margin_left = 16.0
+margin_top = 98.0
+margin_right = 75.0
+margin_bottom = 122.0
+rect_min_size = Vector2( 0, 24 )
+text = "CK"
+valign = 1
+
+[node name="R" type="Label" parent="Blocks/REG"]
+margin_left = 16.0
+margin_top = 123.0
+margin_right = 75.0
+margin_bottom = 147.0
+rect_min_size = Vector2( 0, 24 )
+text = "R"
 valign = 1
 
 [node name="Gizmos" type="VBoxContainer" parent="."]

@@ -13,12 +13,12 @@ signal part_clicked(part)
 export var id = ""
 export var has_tt = false
 export var locked = false
+export var bits = 0
+export var type := 0 setget set_type
 
 const RACE_TRIGGER_COUNT = 4
 
 enum PIN_MODE { HIGH, OUTPUT, INPUT, BI }
-
-export var type := 0 setget set_type
 
 var group := 0
 var index := 0
@@ -30,11 +30,12 @@ var in_port_map = []
 var in_port_mode = []
 var out_port_map = []
 var out_port_mode = []
+var output_enabled = false
 var depth = 0
-var bits = 0
 var bit_lengths = [4, 8, 16]
 var output_levels = {}
 var value := -1
+var vin = 0
 var data = {} setget set_data, get_data
 
 var frame_style = preload("res://assets/GraphNodeFrameStyle.tres")
@@ -299,6 +300,19 @@ func update_output(level: bool, port: int, reverse: bool):
 				if input_levels[2]: # Reset
 					set_output(true, 1)
 					set_output(false, 0)
+		Parts.REG:
+			set_default_input_levels()
+			if input_levels[3]: # Reset
+				output_enabled = true
+				set_value(0, false, false)
+			# Detect not rising edge of CK
+			if not input_levels[2] or last_input_levels[2]:
+				return
+			last_input_levels[2] = input_levels[2]
+			if input_levels[1]: # LD
+				value = -1 # Make sure it propagates
+				output_enabled = true
+				set_value(vin, false, false)
 		_:
 			set_value(level, reverse, true)
 
