@@ -23,9 +23,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8"
-     inkscape:cx="-793.39286"
-     inkscape:cy="-786.42857"
+     inkscape:zoom="5.6"
+     inkscape:cx="-740"
+     inkscape:cy="-667.5"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -412,6 +412,13 @@
        style="fill:none;stroke:#ffffff;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
        d="m -778,-675 h 23"
        id="path914"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/bus.png"
+       inkscape:export-xdpi="84"
+       inkscape:export-ydpi="84" />
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -813,-679 h 23"
+       id="path914-5"
        inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/bus.png"
        inkscape:export-xdpi="84"
        inkscape:export-ydpi="84" />
@@ -984,5 +991,45 @@
          x="-682.57294"
          y="-796.11194"
          id="tspan27510-6">DL</tspan></text>
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:6;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4331"
+       sodipodi:type="arc"
+       sodipodi:cx="-755"
+       sodipodi:cy="-702.5"
+       sodipodi:rx="7.5"
+       sodipodi:ry="7.5"
+       sodipodi:start="1.5707963"
+       sodipodi:end="4.712389"
+       sodipodi:arc-type="arc"
+       d="m -755,-695 a 7.5,7.5 0 0 1 -6.49519,-3.75 7.5,7.5 0 0 1 0,-7.5 A 7.5,7.5 0 0 1 -755,-710"
+       sodipodi:open="true"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/refbus.png"
+       inkscape:export-xdpi="73.14286"
+       inkscape:export-ydpi="73.14286" />
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:6;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4331-5"
+       sodipodi:type="arc"
+       sodipodi:cx="790"
+       sodipodi:cy="702.5"
+       sodipodi:rx="7.5"
+       sodipodi:ry="7.5"
+       sodipodi:start="1.5707963"
+       sodipodi:end="4.712389"
+       sodipodi:arc-type="arc"
+       sodipodi:open="true"
+       d="m 790,710 a 7.5,7.5 0 0 1 -6.49519,-3.75 7.5,7.5 0 0 1 0,-7.5 A 7.5,7.5 0 0 1 790,695"
+       transform="scale(-1)"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/refbus.png"
+       inkscape:export-xdpi="73.14286"
+       inkscape:export-ydpi="73.14286" />
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:6.75278;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -782,-702.5 h 19"
+       id="path5374"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/refbus.png"
+       inkscape:export-xdpi="73.14286"
+       inkscape:export-ydpi="73.14286" />
   </g>
 </svg>

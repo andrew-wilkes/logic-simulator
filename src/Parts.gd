@@ -18,19 +18,13 @@ func tool_stuff():
 
 
 # part type equates to the enum value
-enum { INPUT = 1, INPUTPIN, INPUTSW, INPUTPUSH, INPUT4, INPUT8, INPUTCLK, NOT, AND, NAND, OR, NOR, XOR, OUTPUT, OUTPUTPIN, OUTPUT1, OUTPUT4, OUTPUT8, INBUS, BUS1, OUTBUS,  MULT, SRLIPFLOP, DLATCH, DFLIPFLOP, JKFLIPFLOP, ADDER, DECODER, SEG7, REG, COUNTER }
+enum TYPES { INPUT = 1, INPUTPIN, INPUTSW, INPUTPUSH, INPUT4, INPUT8, INPUTCLK, NOT, AND, NAND, OR, NOR, XOR, OUTPUT, OUTPUTPIN, OUTPUT1, OUTPUT4, OUTPUT8, INBUS, BUS1, OUTBUS,  MULT, SRLIPFLOP, DLATCH, DFLIPFLOP, JKFLIPFLOP, ADDER, DECODER, SEG7, REG, COUNTER, LOOPBACK }
 
-func get_part(idx: int, group: int, subidx = 0):
-	var node: Part
-	if subidx > 0:
-		node = get_child(group).get_child(idx).get_child(subidx).duplicate()
-	else:
-		node = get_child(group).get_child(idx).duplicate()
-	node.group = group
-	node.index = idx
-	node.subidx = subidx
-	node.setup()
-	return node
+func get_part(part_name: String):
+	var part = find_node(part_name).duplicate()
+	part.type = TYPES[part.name]
+	part.setup()
+	return part
 
 func get_enums():
 	var e = "enum { "

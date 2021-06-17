@@ -14,7 +14,6 @@ export var id = ""
 export var has_tt = false
 export var locked = false
 export var bits = 0
-export var type := 0 setget set_type
 
 const RACE_TRIGGER_COUNT = 4
 
@@ -37,6 +36,7 @@ var output_levels = {}
 var value := -1
 var vin = 0
 var data = {} setget set_data, get_data
+var type := 0
 
 var frame_style = preload("res://assets/GraphNodeFrameStyle.tres")
 
@@ -56,7 +56,7 @@ func check_if_clicked(event):
 
 
 func connect_inner_io_nodes():
-	if type == Parts.INPUT or type == Parts.OUTPUT:
+	if type == Parts.TYPES.INPUT or type == Parts.TYPES.OUTPUT:
 		for node in get_children():
 			if node is Control:
 				node.connect("gui_input", self, "_on_gui_input", [node])
@@ -85,10 +85,6 @@ func set_title(_v):
 	title = title.strip_edges()
 
 
-func set_type(_t):
-	type = _t
-
-
 func setup():
 	set_port_maps()
 	var child = get_child(0)
@@ -110,16 +106,16 @@ func set_port_maps():
 			if is_slot_enabled_left(idx):
 				in_port_map.append(idx)
 				match type:
-					Parts.INBUS, Parts.BUS1:
+					Parts.TYPES.INBUS, Parts.TYPES.BUS1:
 						in_port_mode.append(PIN_MODE.BI)
 					_:
 						in_port_mode.append(PIN_MODE.INPUT)
 			if is_slot_enabled_right(idx):
 				out_port_map.append(idx)
 				match type:
-					Parts.INBUS, Parts.BUS1:
+					Parts.TYPES.INBUS, Parts.TYPES.BUS1:
 						out_port_mode.append(PIN_MODE.BI)
-					Parts.OUTPUT1:
+					Parts.TYPES.OUTPUT1:
 						out_port_mode.append(PIN_MODE.INPUT)
 					_:
 						out_port_mode.append(PIN_MODE.OUTPUT)
@@ -183,7 +179,7 @@ func set_output(level: bool, port: int, reverse := false):
 
 # Gets passed the port that has an input level
 func update_output(level: bool, port: int, reverse: bool):
-	if type == Parts.OUTPUT1:
+	if type == Parts.TYPES.OUTPUT1:
 		$Label.text = String(int(level))
 	# Cause update for first-time input
 	if not input_levels.keys().has(port):
@@ -203,32 +199,32 @@ func update_output(level: bool, port: int, reverse: bool):
 	last_input_levels[port] = input_levels.get(port, false)
 	input_levels[port] = level
 	match type:
-		Parts.NOT:
+		Parts.TYPES.NOT:
 			level = !level
 			set_output(level, 0)
-		Parts.OUTPUT1:
+		Parts.TYPES.OUTPUT1:
 			set_output(level, port, reverse)
-		Parts.OR, Parts.NOR, Parts.AND, Parts.NAND, Parts.XOR:
+		Parts.TYPES.OR, Parts.TYPES.NOR, Parts.TYPES.AND, Parts.TYPES.NAND, Parts.TYPES.XOR:
 			set_default_input_levels()
 			match type:
-				Parts.OR:
+				Parts.TYPES.OR:
 					level = input_levels[0] or input_levels[1]
-				Parts.NOR:
+				Parts.TYPES.NOR:
 					level = not (input_levels[0] or input_levels[1])
-				Parts.AND:
+				Parts.TYPES.AND:
 					level = input_levels[0] and input_levels[1]
-				Parts.NAND:
+				Parts.TYPES.NAND:
 					level = not (input_levels[0] and input_levels[1])
-				Parts.XOR:
+				Parts.TYPES.XOR:
 					level = (not input_levels[0] and input_levels[1]) or (input_levels[0] and not input_levels[1])
 			set_output(level, 0)
-		Parts.MULT:
+		Parts.TYPES.MULT:
 			set_default_input_levels()
 			if input_levels[0]: # Select
 				set_output(input_levels[2], 0) # A
 			else:
 				set_output(input_levels[1], 0) # B
-		Parts.SRLIPFLOP:
+		Parts.TYPES.SRLIPFLOP:
 			set_default_input_levels()
 			# Init outputs
 			if output_levels.size() == 0:
@@ -242,7 +238,7 @@ func update_output(level: bool, port: int, reverse: bool):
 				if input_levels[1]: # Reset
 					set_output(false, 0)
 					set_output(not input_levels[0], 1)
-		Parts.DLATCH:
+		Parts.TYPES.DLATCH:
 			set_default_input_levels()
 			# Init outputs
 			if output_levels.size() == 0:
@@ -252,7 +248,7 @@ func update_output(level: bool, port: int, reverse: bool):
 			if input_levels[0]: # Enable
 				set_output(input_levels[1], 0)
 				set_output(not input_levels[1], 1)
-		Parts.DFLIPFLOP:
+		Parts.TYPES.DFLIPFLOP:
 			set_default_input_levels()
 			# Init outputs
 			if output_levels.size() == 0:
@@ -268,7 +264,7 @@ func update_output(level: bool, port: int, reverse: bool):
 					if input_levels[2] and not last_input_levels[2]:
 						set_output(input_levels[1], 0)
 					last_input_levels[2] = input_levels[2]
-		Parts.ADDER:
+		Parts.TYPES.ADDER:
 			set_default_input_levels()
 			# Init outputs
 			if output_levels.size() == 0:
@@ -279,7 +275,7 @@ func update_output(level: bool, port: int, reverse: bool):
 			set_output(bool(sum % 2), 0) # Sum
 # warning-ignore:integer_division
 			set_output(bool(sum / 2), 1) # Cout
-		Parts.JKFLIPFLOP:
+		Parts.TYPES.JKFLIPFLOP:
 			set_default_input_levels()
 			# Init outputs
 			if output_levels.size() == 0:
@@ -300,7 +296,7 @@ func update_output(level: bool, port: int, reverse: bool):
 				if input_levels[2]: # Reset
 					set_output(true, 1)
 					set_output(false, 0)
-		Parts.REG:
+		Parts.TYPES.REG:
 			set_default_input_levels()
 			if input_levels[3]: # Reset
 				output_enabled = true
@@ -313,7 +309,7 @@ func update_output(level: bool, port: int, reverse: bool):
 				value = -1 # Make sure it propagates
 				output_enabled = true
 				set_value(vin, false, false)
-		Parts.COUNTER:
+		Parts.TYPES.COUNTER:
 			set_default_input_levels()
 			if input_levels[4]: # Reset
 				output_enabled = true
@@ -346,14 +342,14 @@ func set_value(_v: int, _reverse: bool, _from_pin: bool):
 
 func set_data(d):
 	match type:
-		Parts.INPUTPIN, Parts.OUTPUTPIN:
+		Parts.TYPES.INPUTPIN, Parts.TYPES.OUTPUTPIN:
 			set_pin_name(d)
 
 
 func get_data():
 	var v = null
 	match type:
-		Parts.INPUTPIN, Parts.OUTPUTPIN:
+		Parts.TYPES.INPUTPIN, Parts.TYPES.OUTPUTPIN:
 			v= get_pin_name()
 	return v
 

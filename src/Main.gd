@@ -66,7 +66,7 @@ func start_tests(_data):
 	output_pins = {}
 	# Find input pins
 	for node in $Graph.get_children():
-		if node is Part and node.type == Parts.INPUTPIN:
+		if node is Part and node.type == Parts.TYPES.INPUTPIN:
 			var pin = node.get_pin_name()
 			if _data.inputs.has(pin):
 				input_pins[pin] = node
@@ -78,7 +78,7 @@ func start_tests(_data):
 		return
 	# Find output pins
 	for node in $Graph.get_children():
-		if node is Part and node.type == Parts.OUTPUTPIN:
+		if node is Part and node.type == Parts.TYPES.OUTPUTPIN:
 			var pin = node.get_pin_name()
 			if _data.outputs.has(pin):
 				output_pins[pin] = node
@@ -198,10 +198,9 @@ func delete_wire(node, port):
 			$Graph.disconnect_node(con.from, con.from_port, con.to, con.to_port)
 
 
-func add_part(idx: int, pg: int, _button):
+func add_part(part_name: String, _button):
 	part_button = _button
-	part_group = pg
-	var part: Part = Parts.get_part(idx, pg)
+	var part: Part = Parts.get_part(part_name)
 	assert(part.type > 0)
 	if tt_show_request(part):
 		return
@@ -245,7 +244,7 @@ func connect_part(part):
 	_e = part.connect("part_clicked", self, "tt_show_request")
 	if part is BUS:
 		_e = part.connect("bus_changed", self, "update_bus")
-	if part.type == Parts.INPUT or part.type == Parts.OUTPUT:
+	if part.type == Parts.TYPES.INPUT or part.type == Parts.TYPES.OUTPUT:
 		_e = part.connect("part_variant_selected", self, "add_part_to_graph")
 
 
@@ -257,11 +256,11 @@ func remove_connections_to_node(node):
 
 func _on_Graph_connection_request(from, from_slot, to, to_slot):
 	# Don't connect between OUTBUS and INBUS or BUS to BUS
-	if $Graph.get_node(to).type == Parts.INBUS and $Graph.get_node(from).type == Parts.OUTBUS:
+	if $Graph.get_node(to).type == Parts.TYPES.INBUS and $Graph.get_node(from).type == Parts.TYPES.OUTBUS:
 		return
 	# Don't connect to input that is already connected unless it's a BUS or INPUT
 	var node = $Graph.get_node(to)
-	if node.type != Parts.BUS1 and node.group != Parts.INPUT:
+	if node.type != Parts.TYPES.BUS1 and node.group != Parts.TYPES.INPUT:
 		for con in $Graph.get_connection_list():
 			if con.to == to and con.to_port == to_slot:
 				return
@@ -401,7 +400,7 @@ func save_data():
 	circuit["nodes"] = []
 	for node in $Graph.get_children():
 		if node is GraphNode:
-			circuit["nodes"].append({ "type": node.type, "index": node.index, "group": node.group, "subidx": node.subidx, "name": node.name, "x": node.offset.x, "y": node.offset.y, "depth": node.depth, "data": node.data })
+			circuit["nodes"].append({ "type": node.type, "name": node.name, "x": node.offset.x, "y": node.offset.y, "depth": node.depth, "data": node.data })
 	var file = File.new()
 	file.open(file_name, File.WRITE)
 	if file.is_open():
@@ -444,10 +443,7 @@ func init_graph():
 	clear_graph()
 	if circuit.has("nodes"):
 		for node in circuit.nodes:
-			for prop in ["index", "group", "subidx", "depth", "data"]:
-				if not node.keys().has(prop):
-					node[prop] = 0
-			var part: Part = Parts.get_part(node.index, node.group, node.subidx)
+			var part: Part = Parts.get_part(node.type)
 			part.offset = Vector2(node.x, node.y)
 			part.data = node.data
 			# A non-connected part seems to have a name containing @ marks

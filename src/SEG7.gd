@@ -42,4 +42,5 @@ func set_value(v: int, reverse: bool, _from_pin: bool):
 		led.visible = map[idx].has(v % 16) # Use mod of v to stop overflow
 		idx += 1
 	# Emit divided down signal
+# warning-ignore:integer_division
 	emit_signal("bus_changed", self, value / 16, reverse)

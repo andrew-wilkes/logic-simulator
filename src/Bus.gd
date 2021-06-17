@@ -10,9 +10,9 @@ var button: Button
 var button_mode = BITS
 
 func setup():
-	if type == Parts.INBUS:
+	if type == Parts.TYPES.INBUS:
 		set("slot/0/left_enabled", false)
-	if type == Parts.OUTBUS:
+	if type == Parts.TYPES.OUTBUS:
 		set("slot/0/right_enabled", false)
 	set_port_maps()
 	add_slots()
@@ -22,9 +22,10 @@ func setup():
 
 func add_slots():
 	var slot = get_child_count() - 2 # num slots
-	if type != Parts.INBUS and type != Parts.OUTBUS:
-		if slot == 1:
+	if type != Parts.TYPES.INBUS and type != Parts.TYPES.OUTBUS:
+		if slot < 3:
 			add_button(Label.new(), false)
+			button_to_mode()
 		return
 	if slot > 16:
 		return
@@ -32,7 +33,7 @@ func add_slots():
 	c.size_flags_horizontal = SIZE_EXPAND_FILL
 	c.rect_min_size.y = 24
 	c.valign = Label.VALIGN_CENTER
-	var left = type == Parts.INBUS
+	var left = type == Parts.TYPES.INBUS
 	if not left:
 		c.align = Label.ALIGN_RIGHT
 	var num = 4 if bits < 2 else 8
@@ -77,15 +78,17 @@ func set_value(v: int, reverse: bool, from_pin: bool):
 	if value == v:
 		return
 	value = v
-	if type in [Parts.REG, Parts.COUNTER]:
+	if type in [Parts.TYPES.REG, Parts.TYPES.COUNTER]:
 		if output_enabled:
 			output_enabled = false
 		else: # Just capture the new input value
 			vin = v
 			return
 	update_display_value()
+	if type == Parts.TYPES.LOOPBACK:
+		reverse = not reverse
 	emit_signal("bus_changed", self, value, reverse)
-	if type == Parts.OUTBUS and !reverse or type == Parts.INBUS and reverse:
+	if type == Parts.TYPES.OUTBUS and !reverse or type == Parts.TYPES.INBUS and reverse:
 		for n in bit_lengths[bits]:
 			var level = bool(v % 2)
 			v /= 2
@@ -119,26 +122,6 @@ func set_format():
 		format = "0x%0" + String(bit_lengths[bits] / 4) + "X"
 
 
-func _on_Bits_button_down():
-	if bits < 2:
-		bits += 1
-		set_format()
-		update_display_value()
-		add_slots()
-		if bits == 2:
-			$HBox/Bits.hide()
-		else:
-			$Timer.start()
-		depth = bits
-
-
-func _on_Mode_button_down():
-	mode += 1
-	mode %= 3
-	$HBox/Bits.disabled = mode == DEC
-	set_format()
-	update_display_value()
-
 func _on_button_down():
 	if button_mode == BITS:
 		if bits < 2:
@@ -159,9 +142,8 @@ func _on_button_down():
 
 
 func dropped():
-	if type in [Parts.REG, Parts.COUNTER, Parts.SEG7]:
-		return
-	$Timer.start()
+	if type in [Parts.TYPES.INBUS, Parts.TYPES.OUTBUS]:
+		$Timer.start()
 
 
 func _on_Timer_timeout():

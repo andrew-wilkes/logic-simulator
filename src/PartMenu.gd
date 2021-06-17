@@ -7,9 +7,7 @@ var selected_item = 0
 func _ready():
 	var vspacer = Control.new()
 	vspacer.size_flags_vertical = SIZE_EXPAND_FILL
-	var group = 0
 	for parts in Parts.get_children():
-		var idx = 0
 		var toolbar = HBoxContainer.new()
 		toolbar.set("custom_constants/separation", 0)
 		for p in parts.get_children():
@@ -22,10 +20,8 @@ func _ready():
 					if p.locked and not User.data.unlocked.has(p.id):
 						b.modulate = Color.red
 					break
-			b.connect("button_down", self, "emit_signal", ["part_selected", idx, group, b])
+			b.connect("button_down", self, "emit_signal", ["part_selected", p.name, b])
 			toolbar.add_child(b)
-			idx += 1
-		group += 1
 		var vb = VBoxContainer.new()
 		vb.add_child(vspacer.duplicate())
 		vb.add_child(toolbar)
