@@ -1,11 +1,14 @@
 extends Part
 
+var num_outputs = [4, 8, 16]
+
 func setup():
+	bit_lengths = [2, 3, 4]
 	set_port_maps()
 
 
 func add_slots():
-	var slot = get_child_count() - 1
+	var slot = get_child_count() - 2
 	var temp = get_child(2)
 	for n in [0, 4, 8][bits]:
 		var node = temp.duplicate()
@@ -27,8 +30,14 @@ func set_value(v: int, reverse: bool, _from_pin: bool):
 		v = get_value_from_inputs(reverse)
 	if value == v:
 		return
-	value = v
-	for n in bit_lengths[bits]:
+	match bits:
+		0:
+			v %= 4
+		1:
+			v %= 8
+		2:
+			v %= 16
+	for n in num_outputs[bits]:
 		var level = n == v
 		output_levels[n] = level
 		set_output(level, n)
