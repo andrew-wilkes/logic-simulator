@@ -24,7 +24,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8"
-     inkscape:cx="-787.67857"
+     inkscape:cx="-793.39286"
      inkscape:cy="-786.42857"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -753,6 +753,27 @@
          x="-686.29431"
          y="-836.11719"
          id="tspan682-2-2-9-6">REG</tspan></text>
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -660,-865 c -10,0 -20,0 -30,0 v -30 c 10,0 20,0 30,0 z"
+       id="path889-3-3-3-9-7-6-3"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/counter.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-682.93494"
+       y="-876.11194"
+       id="text893-6-6-5-1-0-2-6"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/counter.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         x="-682.93494"
+         y="-876.11194"
+         id="tspan682-2-2-9-6-7">+1</tspan></text>
     <path
        style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m -705,-825 c -10,0 -20,0 -30,0 v -30 c 10,0 20,0 30,0 z"

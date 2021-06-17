@@ -77,7 +77,7 @@ func set_value(v: int, reverse: bool, from_pin: bool):
 	if value == v:
 		return
 	value = v
-	if type == Parts.REG:
+	if type in [Parts.REG, Parts.COUNTER]:
 		if output_enabled:
 			output_enabled = false
 		else: # Just capture the new input value
@@ -159,7 +159,7 @@ func _on_button_down():
 
 
 func dropped():
-	if type in [Parts.REG]:
+	if type in [Parts.REG, Parts.COUNTER]:
 		return
 	$Timer.start()
 

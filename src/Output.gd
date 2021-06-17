@@ -1,4 +1,3 @@
-tool
 extends Part
 
 var last_value = 0
