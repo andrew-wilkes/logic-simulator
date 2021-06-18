@@ -22,10 +22,13 @@ func setup():
 	#call_deferred("apply_data")
 
 
-func apply_data():
-	$HB/ColorPicker.color = data.color
-	$HB/Mode.text = data.mode
-	$LED.modulate = data.color
+func apply_data(d):
+	$HB/ColorPicker.color = d.color
+	$HB/Mode.text = d.mode
+	$LED.modulate = d.color
+	# Apply this change to the base part to relect user preference
+	if get_parent() is GraphEdit:
+		Parts.find_node("SEG7").apply_data(d)
 
 
 var map = [
@@ -57,7 +60,7 @@ func set_value(v: int, reverse: bool, _from_pin: bool):
 
 func _on_ColorPicker_color_changed(color):
 	data.color = color
-	apply_data()
+	apply_data(data)
 
 
 func _on_Mode_pressed():
@@ -65,7 +68,7 @@ func _on_Mode_pressed():
 		data.mode = "dec"
 	else:
 		data.mode = "hex"
-	apply_data()
+	apply_data(data)
 
 
 func get_data():
@@ -74,4 +77,4 @@ func get_data():
 
 func set_data(d):
 	data = d
-	apply_data()
+	apply_data(data)

@@ -441,10 +441,10 @@ func init_graph(circuit: Circuit):
 	for node in circuit.nodes:
 		var part: Part = Parts.get_part(node.type)
 		part.offset = node.offset
-		part.data = node.data
 		# A non-connected part seems to have a name containing @ marks
 		# But when it is added to the scene, the @ marks are removed
 		$Graph.add_child(part, true)
+		part.data = node.data
 		call_deferred("check_for_at_marks")
 		connect_part(part)
 		part.dropped()
