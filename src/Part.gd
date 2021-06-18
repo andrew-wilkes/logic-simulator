@@ -164,7 +164,7 @@ func set_input(level: bool, port: int, reverse = false):
 		else:
 			emit_signal("short_circuit", [self, port, reverse])
 			return
-		update_output(level, port, reverse)
+	update_output(level, port, reverse)
 
 
 func set_output(level: bool, port: int, reverse := false):

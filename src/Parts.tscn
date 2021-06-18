@@ -554,8 +554,6 @@ __meta__ = {
 }
 id = "not"
 has_tt = true
-locked = false
-bits = 0
 
 [node name="Icon" type="TextureRect" parent="Gates/NOT"]
 margin_left = 16.0
@@ -596,8 +594,6 @@ __meta__ = {
 }
 id = "and"
 has_tt = true
-locked = false
-bits = 0
 
 [node name="Control" type="Control" parent="Gates/AND"]
 margin_left = 16.0
@@ -651,8 +647,6 @@ __meta__ = {
 }
 id = "nand"
 has_tt = true
-locked = false
-bits = 0
 
 [node name="Control" type="Control" parent="Gates/NAND"]
 margin_left = 16.0
@@ -706,8 +700,6 @@ __meta__ = {
 }
 id = "or"
 has_tt = true
-locked = false
-bits = 0
 
 [node name="Control" type="Control" parent="Gates/OR"]
 margin_left = 16.0
@@ -761,8 +753,6 @@ __meta__ = {
 }
 id = "nor"
 has_tt = true
-locked = false
-bits = 0
 
 [node name="Control" type="Control" parent="Gates/NOR"]
 margin_left = 16.0
@@ -816,8 +806,6 @@ __meta__ = {
 }
 id = "xor"
 has_tt = true
-locked = false
-bits = 0
 
 [node name="Control" type="Control" parent="Gates/XOR"]
 margin_left = 16.0
@@ -1377,8 +1365,6 @@ __meta__ = {
 }
 id = "mult"
 has_tt = true
-locked = false
-bits = 0
 
 [node name="Sprite" type="Sprite" parent="Combinational/MULT"]
 visible = false
@@ -1450,8 +1436,6 @@ __meta__ = {
 }
 id = "srff"
 has_tt = true
-locked = false
-bits = 0
 
 [node name="Sprite" type="Sprite" parent="Combinational/SRFLIPFLOP"]
 visible = false
@@ -1528,8 +1512,6 @@ __meta__ = {
 }
 id = "dlatch"
 has_tt = true
-locked = false
-bits = 0
 
 [node name="Sprite" type="Sprite" parent="Combinational/DLATCH"]
 visible = false
@@ -1618,8 +1600,6 @@ __meta__ = {
 }
 id = "dff"
 has_tt = true
-locked = false
-bits = 0
 
 [node name="Sprite" type="Sprite" parent="Combinational/DFLIPFLOP"]
 visible = false
@@ -1706,8 +1686,6 @@ __meta__ = {
 }
 id = "jkff"
 has_tt = true
-locked = false
-bits = 0
 
 [node name="Sprite" type="Sprite" parent="Combinational/JKFLIPFLOP"]
 visible = false
@@ -1799,8 +1777,6 @@ __meta__ = {
 }
 id = "adder"
 has_tt = true
-locked = false
-bits = 0
 
 [node name="Sprite" type="Sprite" parent="Combinational/ADDER"]
 visible = false
