@@ -552,7 +552,6 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = "not"
 has_tt = true
 
 [node name="Icon" type="TextureRect" parent="Gates/NOT"]
@@ -592,7 +591,6 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = "and"
 has_tt = true
 
 [node name="Control" type="Control" parent="Gates/AND"]
@@ -645,7 +643,6 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = "nand"
 has_tt = true
 
 [node name="Control" type="Control" parent="Gates/NAND"]
@@ -698,7 +695,6 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = "or"
 has_tt = true
 
 [node name="Control" type="Control" parent="Gates/OR"]
@@ -751,7 +747,6 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = "nor"
 has_tt = true
 
 [node name="Control" type="Control" parent="Gates/NOR"]
@@ -804,7 +799,6 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = "xor"
 has_tt = true
 
 [node name="Control" type="Control" parent="Gates/XOR"]
@@ -1363,7 +1357,6 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = "mult"
 has_tt = true
 
 [node name="Sprite" type="Sprite" parent="Combinational/MULT"]
@@ -1434,7 +1427,6 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = "srff"
 has_tt = true
 
 [node name="Sprite" type="Sprite" parent="Combinational/SRFLIPFLOP"]
@@ -1510,7 +1502,6 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = "dlatch"
 has_tt = true
 
 [node name="Sprite" type="Sprite" parent="Combinational/DLATCH"]
@@ -1598,7 +1589,6 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = "dff"
 has_tt = true
 
 [node name="Sprite" type="Sprite" parent="Combinational/DFLIPFLOP"]
@@ -1684,7 +1674,6 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = "jkff"
 has_tt = true
 
 [node name="Sprite" type="Sprite" parent="Combinational/JKFLIPFLOP"]
@@ -1775,7 +1764,6 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-id = "adder"
 has_tt = true
 
 [node name="Sprite" type="Sprite" parent="Combinational/ADDER"]

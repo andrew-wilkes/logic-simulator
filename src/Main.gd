@@ -103,16 +103,13 @@ func _on_TestTimer_timeout():
 		show_test_result(true, "Passed Tests")
 		if part_data.locked:
 			part_button.modulate = Color.white
-			if not User.data.unlocked.has(part_data.id):
-				User.data.unlocked.append(part_data.id)
+			if not User.data.unlocked.has(part_data.type):
+				User.data.unlocked.append(part_data.type)
 				save_user_data()
 		return
 	if new_test:
 		show_row = $c/TruthTable/Grid.columns == part_data.tt[test_count].size()
 		reset_race_detection()
-		# Apply input values
-		#if part_data.id == "dff":
-		#	breakpoint
 		for idx in part_data.inputs.size():
 			var x = part_data.tt[test_count][idx]
 			if x is String:
@@ -204,11 +201,11 @@ func add_part(part_name: String, _button):
 	assert(part.type > 0)
 	if tt_show_request(part):
 		return
-	if part.locked and part.has_tt and not User.data.unlocked.has(part.id):
+	if part.locked and part.has_tt and not User.data.unlocked.has(part.type):
 		$c/TruthTable.open(part)
 		alert("Create the circuit and succesfully test it to unlock the part.")
 	else:
-		add_part_to_graph(part, Vector2(get_viewport().get_mouse_position().x, get_part_placement_offset(part.id)))
+		add_part_to_graph(part, Vector2(get_viewport().get_mouse_position().x, get_part_placement_offset(part.type)))
 
 
 func get_part_placement_offset(id):
@@ -400,7 +397,7 @@ func save_data():
 	circuit["nodes"] = []
 	for node in $Graph.get_children():
 		if node is GraphNode:
-			circuit["nodes"].append({ "type": node.type, "name": node.name, "x": node.offset.x, "y": node.offset.y, "depth": node.depth, "data": node.data })
+			circuit["nodes"].append({ "type": Parts.get_type_name(node.type), "name": node.name, "x": node.offset.x, "y": node.offset.y, "depth": node.depth, "data": node.data })
 	var file = File.new()
 	file.open(file_name, File.WRITE)
 	if file.is_open():

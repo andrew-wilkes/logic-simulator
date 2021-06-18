@@ -1,7 +1,7 @@
 extends Node
 
 var parts = {
-	"not":
+	"NOT":
 	{
 		"inputs": ["A1"],
 		"outputs": ["Q"],
@@ -13,7 +13,7 @@ var parts = {
 		"long_title": "",
 		"desc": "A NOT gate inverts its input"
 	},
-	"and":
+	"AND":
 	{
 		"inputs": ["A1","A2"],
 		"outputs": ["Q"],
@@ -27,7 +27,7 @@ var parts = {
 		"long_title": "",
 		"desc": "An AND gate has a 0 output if any of its inputs are 0."
 	},
-	"nand":
+	"NAND":
 	{
 		"inputs": ["A1","A2"],
 		"outputs": ["Q"],
@@ -41,7 +41,7 @@ var parts = {
 		"long_title": "",
 		"desc": "A NAND gate does the opposite of an AND gate."
 	},
-	"or":
+	"OR":
 	{
 		"inputs": ["A1","A2"],
 		"outputs": ["Q"],
@@ -55,7 +55,7 @@ var parts = {
 		"long_title": "",
 		"desc": "An OR gate has a 1 output if any of its inputs are 1."
 	},
-	"nor":
+	"NOR":
 	{
 		"inputs": ["A1","A2"],
 		"outputs": ["Q"],
@@ -69,7 +69,7 @@ var parts = {
 		"long_title": "",
 		"desc": "A NOR gate does the opposite of an OR gate."
 	},
-	"xor":
+	"XOR":
 	{
 		"inputs": ["A1","A2"],
 		"outputs": ["Q"],
@@ -83,7 +83,7 @@ var parts = {
 		"long_title": "",
 		"desc": "An exclusive OR gate outputs a 1 if its inputs differ."
 	},
-	"mult":
+	"MULT":
 	{
 		"inputs": ["Select","A","B"],
 		"outputs": ["Y"],
@@ -101,7 +101,7 @@ var parts = {
 		"long_title": "",
 		"desc": "A multiplexer selects one of several inputs."
 	},
-	"adder":
+	"ADDER":
 	{
 		"inputs": ["A","B","Cin"],
 		"outputs": ["Sum", "Cout"],
@@ -119,7 +119,7 @@ var parts = {
 		"long_title": "",
 		"desc": "A full adder adds together A, B, and carry inputs to give a sum and carry output."
 	},
-	"srff":
+	"SRFLIPFLOP":
 	{
 		"inputs": ["S","R"],
 		"outputs": ["Q", "/Q"],
@@ -135,7 +135,7 @@ var parts = {
 		"long_title": "",
 		"desc": "The SR Flip-flop has Set and Reset inputs. Pulsing S high, sets Q high. Pulsing R high, resets Q. Both S and R being high is not a useful state."
 	},
-	"jkff":
+	"JKFLIPFLOP":
 	{
 		"inputs": ["J","CK", "R"],
 		"outputs": ["Q", "/Q"],
@@ -154,7 +154,7 @@ var parts = {
 		"long_title": "",
 		"desc": "The JK Flip-flop is like a clocked SR Flip-flop. Changes take place on the rising edge of the clock. If J is high, the output is Set. If K is high, the output is Reset. If both J and K are high, the output is Toggled."
 	},
-	"dlatch":
+	"DLATCH":
 	{
 		"inputs": ["E","D"],
 		"outputs": ["Q", "/Q"],
@@ -171,7 +171,7 @@ var parts = {
 		"long_title": "",
 		"desc": "The D Latch loads the data input value when E is high and stores it when E is low."
 	},
-	"dff":
+	"DFLIPFLOP":
 	{
 		"inputs": ["S", "D", "CK", "R"],
 		"outputs": ["Q"],

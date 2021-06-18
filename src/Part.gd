@@ -10,7 +10,6 @@ signal bus_changed(node, value, reverse)
 signal part_variant_selected(part, pos)
 signal part_clicked(part)
 
-export var id = ""
 export var has_tt = false
 export var locked = false
 export var bits = 0

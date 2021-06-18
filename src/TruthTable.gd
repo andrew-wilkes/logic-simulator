@@ -18,9 +18,9 @@ func open(part: Part):
 		node.hide()
 		node.queue_free()
 	set_size(Vector2.ZERO) # Makes it resize starting from a small size
-	data = Data.parts[part.id]
+	data = Data.parts[Parts.get_type_name(part.type)]
 	data["locked"] = part.locked
-	data["id"] = part.id
+	data["type"] = part.type
 	$Grid.columns = data.inputs.size() + data.outputs.size()
 	window_title = data.title + " Truth Table"
 	for txt in data.inputs:
