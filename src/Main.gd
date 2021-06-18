@@ -404,7 +404,6 @@ func save_data():
 			node_data.offset = node.offset
 			node_data.data = node.data
 			circuit.nodes.append(node_data)
-			#circuit["nodes"].append({ "type": Parts.get_type_name(node.type), "name": node.name, "x": node.offset.x, "y": node.offset.y, "depth": node.depth, "data": node.data })
 	if ResourceSaver.save(file_name, circuit) == OK:
 		set_changed(false)
 	else:

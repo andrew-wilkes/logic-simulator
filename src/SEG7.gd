@@ -26,6 +26,7 @@ func apply_data(d):
 	$HB/ColorPicker.color = d.color
 	$HB/Mode.text = d.mode
 	$LED.modulate = d.color
+	seg_color = d.color
 	# Apply this change to the base part to relect user preference
 	if get_parent() is GraphEdit:
 		Parts.find_node("SEG7").apply_data(d)
