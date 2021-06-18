@@ -14,10 +14,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Bus.gd"
 }, {
+"base": "Resource",
+"class": "Circuit",
+"language": "GDScript",
+"path": "res://circuit.gd"
+}, {
 "base": "GraphNode",
 "class": "Part",
 "language": "GDScript",
 "path": "res://Part.gd"
+}, {
+"base": "Resource",
+"class": "PartData",
+"language": "GDScript",
+"path": "res://part_data.gd"
 }, {
 "base": "Node",
 "class": "User",
@@ -26,7 +36,9 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "BUS": "",
+"Circuit": "",
 "Part": "",
+"PartData": "",
 "User": ""
 }
 

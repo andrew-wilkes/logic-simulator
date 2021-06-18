@@ -349,7 +349,7 @@ func get_data():
 	var v = null
 	match type:
 		Parts.TYPES.INPUTPIN, Parts.TYPES.OUTPUTPIN:
-			v= get_pin_name()
+			v = get_pin_name()
 	return v
 
 

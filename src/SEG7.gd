@@ -3,7 +3,7 @@ extends BUS
 export(Color) var seg_color
 
 func _ready():
-	var off = [36,28, 14,14, 0,28, -14,14, -14,-14, 0,-28, 14,14, 22,29]
+	var off = [36,12, 14,14, 0,28, -14,14, -14,-14, 0,-28, 14,14, 22,29]
 	var i = 0
 	var pos = Vector2(0, 0)
 	var n = 6.0 / 16
@@ -13,11 +13,20 @@ func _ready():
 		if s.name != "s7":
 			s.scale = Vector2(n, n)
 		i += 2
-	$LED.modulate = seg_color
 
 
 func setup():
 	set_port_maps()
+	if not data.has("color"):
+		data = { "color": seg_color, "mode": "hex" }
+	#call_deferred("apply_data")
+
+
+func apply_data():
+	$HB/ColorPicker.color = data.color
+	$HB/Mode.text = data.mode
+	$LED.modulate = data.color
+
 
 var map = [
 	[0,2,3,5,6,7,8,9,10,12,14,15],
@@ -44,3 +53,25 @@ func set_value(v: int, reverse: bool, _from_pin: bool):
 	# Emit divided down signal
 # warning-ignore:integer_division
 	emit_signal("bus_changed", self, value / 16, reverse)
+
+
+func _on_ColorPicker_color_changed(color):
+	data.color = color
+	apply_data()
+
+
+func _on_Mode_pressed():
+	if data.mode == "hex":
+		data.mode = "dec"
+	else:
+		data.mode = "hex"
+	apply_data()
+
+
+func get_data():
+	return data
+
+
+func set_data(d):
+	data = d
+	apply_data()

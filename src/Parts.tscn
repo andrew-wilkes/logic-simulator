@@ -1987,7 +1987,7 @@ slot/0/left_color = Color( 1, 1, 0, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 1
 slot/0/right_color = Color( 1, 1, 0, 1 )
-slot/1/left_enabled = true
+slot/1/left_enabled = false
 slot/1/left_type = 0
 slot/1/left_color = Color( 1, 1, 1, 1 )
 slot/1/right_enabled = false
@@ -2011,6 +2011,12 @@ slot/4/left_color = Color( 1, 1, 1, 1 )
 slot/4/right_enabled = false
 slot/4/right_type = 0
 slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = true
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2021,12 +2027,29 @@ seg_color = Color( 0.227451, 0.858824, 0, 1 )
 visible = false
 texture = ExtResource( 18 )
 
-[node name="LED" type="Control" parent="Combinational/SEG7"]
+[node name="HB" type="HBoxContainer" parent="Combinational/SEG7"]
 margin_left = 16.0
 margin_top = 24.0
 margin_right = 88.0
-margin_bottom = 48.0
-rect_min_size = Vector2( 72, 24 )
+margin_bottom = 44.0
+
+[node name="ColorPicker" type="ColorPickerButton" parent="Combinational/SEG7/HB"]
+margin_right = 12.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 0 )
+color = Color( 0.266667, 1, 0, 1 )
+edit_alpha = false
+
+[node name="Mode" type="Button" parent="Combinational/SEG7/HB"]
+margin_right = 12.0
+margin_bottom = 20.0
+text = "hex"
+
+[node name="LED" type="Control" parent="Combinational/SEG7"]
+margin_left = 16.0
+margin_top = 45.0
+margin_right = 88.0
+margin_bottom = 69.0
 
 [node name="s0" type="Sprite" parent="Combinational/SEG7/LED"]
 texture = ExtResource( 19 )
@@ -2058,36 +2081,36 @@ texture = ExtResource( 20 )
 
 [node name="Label" type="Label" parent="Combinational/SEG7"]
 margin_left = 16.0
-margin_top = 49.0
+margin_top = 70.0
 margin_right = 88.0
-margin_bottom = 73.0
+margin_bottom = 94.0
 rect_min_size = Vector2( 0, 24 )
 text = "A0"
 valign = 1
 
 [node name="Label2" type="Label" parent="Combinational/SEG7"]
 margin_left = 16.0
-margin_top = 74.0
+margin_top = 95.0
 margin_right = 88.0
-margin_bottom = 98.0
+margin_bottom = 119.0
 rect_min_size = Vector2( 0, 24 )
 text = "A1"
 valign = 1
 
 [node name="Label3" type="Label" parent="Combinational/SEG7"]
 margin_left = 16.0
-margin_top = 99.0
+margin_top = 120.0
 margin_right = 88.0
-margin_bottom = 123.0
+margin_bottom = 144.0
 rect_min_size = Vector2( 0, 24 )
 text = "A2"
 valign = 1
 
 [node name="Label4" type="Label" parent="Combinational/SEG7"]
 margin_left = 16.0
-margin_top = 124.0
+margin_top = 145.0
 margin_right = 88.0
-margin_bottom = 148.0
+margin_bottom = 169.0
 rect_min_size = Vector2( 0, 24 )
 text = "A3"
 valign = 1
@@ -2348,3 +2371,5 @@ __meta__ = {
 [connection signal="timeout" from="MISC/OUTBUS/Timer" to="MISC/OUTBUS" method="_on_Timer_timeout"]
 [connection signal="button_down" from="Combinational/DECODER/Bits" to="Combinational/DECODER" method="_on_Bits_button_down"]
 [connection signal="timeout" from="Combinational/DECODER/Timer" to="Combinational/DECODER" method="_on_Timer_timeout"]
+[connection signal="color_changed" from="Combinational/SEG7/HB/ColorPicker" to="Combinational/SEG7" method="_on_ColorPicker_color_changed"]
+[connection signal="pressed" from="Combinational/SEG7/HB/Mode" to="Combinational/SEG7" method="_on_Mode_pressed"]

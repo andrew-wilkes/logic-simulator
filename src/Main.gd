@@ -14,7 +14,6 @@ var changed = false
 var action = NOACTION
 var fm
 var hm
-var circuit = {}
 var part_group = 0
 var part_data
 var pm
@@ -393,17 +392,23 @@ func save_user_data():
 
 
 func save_data():
-	circuit["connections"] = $Graph.get_connection_list()
-	circuit["nodes"] = []
+	var circuit = Circuit.new()
+	circuit.txt = "Test"
+	circuit.connections = $Graph.get_connection_list()
 	for node in $Graph.get_children():
 		if node is GraphNode:
-			circuit["nodes"].append({ "type": Parts.get_type_name(node.type), "name": node.name, "x": node.offset.x, "y": node.offset.y, "depth": node.depth, "data": node.data })
-	var file = File.new()
-	file.open(file_name, File.WRITE)
-	if file.is_open():
-		file.store_string(to_json(circuit))
-		file.close()
+			var node_data = PartData.new()
+			node_data.name = node.name
+			node_data.type = Parts.get_type_name(node.type)
+			node_data.offset = node.offset
+			node_data.data = node.data
+			circuit.nodes.append(node_data)
+			print(node_data)
+			#circuit["nodes"].append({ "type": Parts.get_type_name(node.type), "name": node.name, "x": node.offset.x, "y": node.offset.y, "depth": node.depth, "data": node.data })
+	if ResourceSaver.save(file_name, circuit) == OK:
 		set_changed(false)
+	else:
+		alert("Error saving circuit")
 	action = NOACTION
 
 
@@ -418,16 +423,11 @@ func load_user_data():
 
 
 func load_data():
-	var file = File.new()
 	$c/Alert.dialog_text = "Error loading circuit"
-	if file.file_exists(file_name):
-		file.open(file_name, File.READ)
-		var data_in = parse_json(file.get_as_text())
-		file.close()
-		if typeof(data_in) == TYPE_DICTIONARY:
-			circuit = data_in
-			init_graph()
-			set_filename(file_name)
+	if ResourceLoader.exists(file_name):
+		var circuit = ResourceLoader.load(file_name)
+		if circuit is Circuit:
+			init_graph(circuit)
 			set_changed(false)
 		else:
 			alert()
@@ -436,26 +436,24 @@ func load_data():
 	action = NOACTION
 
 
-func init_graph():
+func init_graph(circuit: Circuit):
 	clear_graph()
-	if circuit.has("nodes"):
-		for node in circuit.nodes:
-			var part: Part = Parts.get_part(node.type)
-			part.offset = Vector2(node.x, node.y)
-			part.data = node.data
-			# A non-connected part seems to have a name containing @ marks
-			# But when it is added to the scene, the @ marks are removed
-			$Graph.add_child(part, true)
-			call_deferred("check_for_at_marks")
-			connect_part(part)
-			part.dropped()
-			part.name = node.name
-			if node.depth > 0:
-				for n in node.depth:
-					part.add_slots()
-		if circuit.has("connections"):
-			for con in circuit.connections:
-				var _e = $Graph.connect_node(con.from, con.from_port, con.to, con.to_port)
+	for node in circuit.nodes:
+		var part: Part = Parts.get_part(node.type)
+		part.offset = node.offset
+		part.data = node.data
+		# A non-connected part seems to have a name containing @ marks
+		# But when it is added to the scene, the @ marks are removed
+		$Graph.add_child(part, true)
+		call_deferred("check_for_at_marks")
+		connect_part(part)
+		part.dropped()
+		part.name = node.name
+		if node.depth > 0:
+			for n in node.depth:
+				part.add_slots()
+		for con in circuit.connections:
+			var _e = $Graph.connect_node(con.from, con.from_port, con.to, con.to_port)
 
 
 func alert(txt = ""):
