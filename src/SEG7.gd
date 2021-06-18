@@ -19,7 +19,7 @@ func setup():
 	set_port_maps()
 	if not data.has("color"):
 		data = { "color": seg_color, "mode": "hex" }
-	#call_deferred("apply_data")
+	apply_data(data)
 
 
 func apply_data(d):
@@ -29,6 +29,7 @@ func apply_data(d):
 	# Apply this change to the base part to relect user preference
 	if get_parent() is GraphEdit:
 		Parts.find_node("SEG7").apply_data(d)
+	emit_signal("data_changed")
 
 
 var map = [
@@ -43,6 +44,7 @@ var map = [
 ]
 
 func set_value(v: int, reverse: bool, _from_pin: bool):
+	var base = 16 if data.mode == "hex" else 10
 	var idx = int(reverse)
 	if _from_pin:
 		v = get_value_from_inputs(reverse)
@@ -51,11 +53,11 @@ func set_value(v: int, reverse: bool, _from_pin: bool):
 	value = v
 	idx = 0
 	for led in $LED.get_children():
-		led.visible = map[idx].has(v % 16) # Use mod of v to stop overflow
+		led.visible = map[idx].has(v % base) # Use mod of v to stop overflow
 		idx += 1
 	# Emit divided down signal
 # warning-ignore:integer_division
-	emit_signal("bus_changed", self, value / 16, reverse)
+	emit_signal("bus_changed", self, value / base, reverse)
 
 
 func _on_ColorPicker_color_changed(color):

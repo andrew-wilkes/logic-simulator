@@ -238,6 +238,7 @@ func connect_part(part):
 	_e = part.connect("unstable", self, "delete_wire")
 	_e = part.connect("offset_changed", self, "set_changed")
 	_e = part.connect("part_clicked", self, "tt_show_request")
+	_e = part.connect("data_changed", self, "set_changed")
 	if part is BUS:
 		_e = part.connect("bus_changed", self, "update_bus")
 	if part.type == Parts.TYPES.INPUT or part.type == Parts.TYPES.OUTPUT:
@@ -403,7 +404,6 @@ func save_data():
 			node_data.offset = node.offset
 			node_data.data = node.data
 			circuit.nodes.append(node_data)
-			print(node_data)
 			#circuit["nodes"].append({ "type": Parts.get_type_name(node.type), "name": node.name, "x": node.offset.x, "y": node.offset.y, "depth": node.depth, "data": node.data })
 	if ResourceSaver.save(file_name, circuit) == OK:
 		set_changed(false)

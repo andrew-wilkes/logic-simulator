@@ -9,6 +9,7 @@ signal short_circuit(node, port, reverse)
 signal bus_changed(node, value, reverse)
 signal part_variant_selected(part, pos)
 signal part_clicked(part)
+signal data_changed
 
 export var has_tt = false
 export var locked = false
@@ -69,6 +70,7 @@ func _on_gui_input(event, node):
 		node.index = node.get_parent().index
 		node.subidx = node.get_index()
 		node.setup()
+		node.type = Parts.TYPES[node.name]
 		if node.get_child(0).name == "V":
 			node.set_value(0)
 		remove_child(node)
@@ -364,4 +366,4 @@ func set_pin_name(txt):
 
 # Run code when part is added to graph
 func dropped():
-	pass
+	emit_signal("data_changed") # To avoid warning
