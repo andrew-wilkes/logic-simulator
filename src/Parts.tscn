@@ -1217,6 +1217,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+bits = 2
 
 [node name="Sprite" type="Sprite" parent="MISC/BUS1"]
 visible = false
@@ -1259,6 +1260,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+bits = 2
 
 [node name="Sprite" type="Sprite" parent="MISC/LOOPBACK"]
 visible = false

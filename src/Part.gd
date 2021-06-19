@@ -30,7 +30,6 @@ var in_port_mode = []
 var out_port_map = []
 var out_port_mode = []
 var output_enabled = false
-var depth = 0
 var bit_lengths = [4, 8, 16]
 var output_levels = {}
 var value := -1

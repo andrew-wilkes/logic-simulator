@@ -23,6 +23,7 @@ func add_slots():
 	set_slot(bits + 2, true, 0, Color.white, true, 0, Color.white)
 	in_port_map.append(bits + 2)
 	in_port_mode.append(PIN_MODE.INPUT)
+	data = { "bits": 0 }
 
 
 func set_value(v: int, reverse: bool, _from_pin: bool):
@@ -44,11 +45,10 @@ func set_value(v: int, reverse: bool, _from_pin: bool):
 
 
 func _on_Bits_button_down():
-	if bits < 2:
-		bits += 1
+	if data.bits < 2:
+		data.bits += 1
 		add_slots()
-		depth = bits
-		if bits == 2:
+		if data.bits == 2:
 			$Bits.hide()
 		else:
 			$Timer.start()
@@ -60,3 +60,11 @@ func _on_Timer_timeout():
 
 func dropped():
 	$Timer.start()
+
+
+func get_data():
+	return data
+
+
+func set_data(d):
+	data = d

@@ -4,23 +4,23 @@ class_name BUS
 
 enum { HEX, DEC, BIN, BITS, MODE }
 
-var mode = HEX
 var format = ""
 var button: Button
 var button_mode = BITS
 
 func setup():
+	data = { "bits": bits, "mode": HEX } # bits is a part export var
 	if type == Parts.TYPES.INBUS:
 		set("slot/0/left_enabled", false)
 	if type == Parts.TYPES.OUTBUS:
 		set("slot/0/right_enabled", false)
 	set_port_maps()
-	add_slots()
+	add_slots(4)
 	set_format()
 	set_value(0, false, false)
 
 
-func add_slots():
+func add_slots(num: int):
 	var slot = get_child_count() - 2 # num slots
 	if type != Parts.TYPES.INBUS and type != Parts.TYPES.OUTBUS:
 		if slot < 3:
@@ -36,7 +36,6 @@ func add_slots():
 	var left = type == Parts.TYPES.INBUS
 	if not left:
 		c.align = Label.ALIGN_RIGHT
-	var num = 4 if bits < 2 else 8
 	for _i in num:
 		var l = c.duplicate()
 		var idx = slot - 1
@@ -98,7 +97,7 @@ func set_value(v: int, reverse: bool, from_pin: bool):
 
 
 func update_display_value():
-	match mode:
+	match data.mode:
 		HEX:
 			$Label.text = format % value
 		DEC:
@@ -109,7 +108,7 @@ func update_display_value():
 
 func int2bin(x: int):
 	var b = ""
-	for n in bit_lengths[bits]:
+	for n in bit_lengths[data.bits]:
 		if n > 0 and n % 4 == 0:
 			b = " " + b
 		b = String(x % 2) + b
@@ -118,27 +117,28 @@ func int2bin(x: int):
 
 
 func set_format():
-	if mode == HEX:
-		format = "0x%0" + String(bit_lengths[bits] / 4) + "X"
+	if data.mode == HEX:
+		format = "0x%0" + String(bit_lengths[data.bits] / 4) + "X"
 
 
 func _on_button_down():
 	if button_mode == BITS:
-		if bits < 2:
-			bits += 1
+		if data.bits < 2:
+			data.bits += 1
 			set_format()
 			update_display_value()
-			add_slots()
-			if bits == 2:
+			var num = 4 if data.bits < 2 else 8
+			add_slots(num)
+			if data.bits == 2:
 				button_to_mode()
 			else:
 				$Timer.start()
-			depth = bits
 	else:
-		mode += 1
-		mode %= 3
+		data.mode += 1
+		data.mode %= 3
 		set_format()
 		update_display_value()
+	emit_signal("data_changed")
 
 
 func dropped():
@@ -153,3 +153,19 @@ func _on_Timer_timeout():
 func button_to_mode():
 	button_mode = MODE
 	button.text = "Mode"
+
+
+func get_data():
+	return data
+
+
+func set_data(d):
+	data = d
+	button_to_mode()
+	set_format()
+	update_display_value()
+	if type == Parts.TYPES.INBUS or type == Parts.TYPES.OUTBUS:
+		if data.bits == 1:
+			add_slots(4)
+		if data.bits == 2:
+			add_slots(12)

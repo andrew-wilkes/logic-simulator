@@ -446,11 +446,7 @@ func init_graph(circuit: Circuit):
 		part.data = node.data
 		call_deferred("check_for_at_marks")
 		connect_part(part)
-		part.dropped()
 		part.name = node.name
-		if node.depth > 0:
-			for n in node.depth:
-				part.add_slots()
 		for con in circuit.connections:
 			var _e = $Graph.connect_node(con.from, con.from_port, con.to, con.to_port)
 
