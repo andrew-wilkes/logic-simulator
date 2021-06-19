@@ -78,7 +78,7 @@ func set_value(v: int, reverse: bool, from_pin: bool):
 	if value == v:
 		return
 	value = v
-	if type in [Parts.TYPES.REG, Parts.TYPES.COUNTER]:
+	if type in [Parts.TYPES.REG, Parts.TYPES.COUNTER, Parts.TYPES.SHIFTREG]:
 		if output_enabled:
 			output_enabled = false
 		else: # Just capture the new input value

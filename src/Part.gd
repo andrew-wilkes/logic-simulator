@@ -326,6 +326,27 @@ func update_output(level: bool, port: int, reverse: bool):
 				set_value(vin, false, false)
 			else:
 				set_value(wrapi(value + int(input_levels[1]), 0, 0xff), false, false)
+		Parts.TYPES.SHIFTREG:
+			set_default_input_levels()
+			if input_levels[5]: # Reset
+				output_enabled = true
+				value = -1 # Make sure it propagates
+				set_value(0, false, false)
+			# Detect not rising edge of CK
+			if not input_levels[4] or last_input_levels[4]:
+				return
+			last_input_levels[4] = input_levels[4]
+			output_enabled = true
+			if input_levels[3]: # LD
+				value = -1 # Make sure it propagates
+				set_value(vin, false, false)
+			else:
+				var v = value
+				if input_levels[2]: # EN
+					v /= 2 # Shift right
+					if input_levels[1]: # SI
+						v += 128
+				set_value(v, false, false)
 		_:
 			set_value(level, reverse, true)
 

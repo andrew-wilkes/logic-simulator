@@ -23,9 +23,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6"
-     inkscape:cx="-740.08929"
-     inkscape:cy="-667.5"
+     inkscape:zoom="2.8"
+     inkscape:cx="-756.25"
+     inkscape:cy="-766.07143"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -781,6 +781,27 @@
          x="-682.93494"
          y="-876.11194"
          id="tspan682-2-2-9-6-7">+1</tspan></text>
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -705,-865 c -10,0 -20,0 -30,0 v -30 c 10,0 20,0 30,0 z"
+       id="path889-3-3-3-9-7-6-3-3"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/shiftreg.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-728.9375"
+       y="-876.65625"
+       id="text893-6-6-5-1-0-2-6-6"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/shiftreg.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         x="-728.9375"
+         y="-876.65625"
+         id="tspan682-2-2-9-6-7-7">&gt;&gt;</tspan></text>
     <path
        style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m -705,-825 c -10,0 -20,0 -30,0 v -30 c 10,0 20,0 30,0 z"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://assets/nand.png" type="Texture" id=1]
 [ext_resource path="res://assets/and.png" type="Texture" id=2]
@@ -33,6 +33,7 @@
 [ext_resource path="res://InputClk.gd" type="Script" id=31]
 [ext_resource path="res://assets/counter.png" type="Texture" id=32]
 [ext_resource path="res://assets/refbus.png" type="Texture" id=33]
+[ext_resource path="res://assets/shiftreg.png" type="Texture" id=34]
 
 [node name="Parts" type="Control"]
 visible = false
@@ -2049,7 +2050,7 @@ text = "hex"
 margin_left = 16.0
 margin_top = 45.0
 margin_right = 88.0
-margin_bottom = 69.0
+margin_bottom = 45.0
 
 [node name="s0" type="Sprite" parent="Combinational/SEG7/LED"]
 texture = ExtResource( 19 )
@@ -2081,36 +2082,36 @@ texture = ExtResource( 20 )
 
 [node name="Label" type="Label" parent="Combinational/SEG7"]
 margin_left = 16.0
-margin_top = 70.0
+margin_top = 46.0
 margin_right = 88.0
-margin_bottom = 94.0
+margin_bottom = 70.0
 rect_min_size = Vector2( 0, 24 )
 text = "A0"
 valign = 1
 
 [node name="Label2" type="Label" parent="Combinational/SEG7"]
 margin_left = 16.0
-margin_top = 95.0
+margin_top = 71.0
 margin_right = 88.0
-margin_bottom = 119.0
+margin_bottom = 95.0
 rect_min_size = Vector2( 0, 24 )
 text = "A1"
 valign = 1
 
 [node name="Label3" type="Label" parent="Combinational/SEG7"]
 margin_left = 16.0
-margin_top = 120.0
+margin_top = 96.0
 margin_right = 88.0
-margin_bottom = 144.0
+margin_bottom = 120.0
 rect_min_size = Vector2( 0, 24 )
 text = "A2"
 valign = 1
 
 [node name="Label4" type="Label" parent="Combinational/SEG7"]
 margin_left = 16.0
-margin_top = 145.0
+margin_top = 121.0
 margin_right = 88.0
-margin_bottom = 169.0
+margin_bottom = 145.0
 rect_min_size = Vector2( 0, 24 )
 text = "A3"
 valign = 1
@@ -2160,6 +2161,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+bits = 1
 
 [node name="Sprite" type="Sprite" parent="Blocks/REG"]
 visible = false
@@ -2273,6 +2275,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+bits = 1
 
 [node name="Sprite" type="Sprite" parent="Blocks/COUNTER"]
 visible = false
@@ -2344,6 +2347,144 @@ margin_left = 16.0
 margin_top = 148.0
 margin_right = 77.0
 margin_bottom = 172.0
+rect_min_size = Vector2( 0, 24 )
+text = "R"
+valign = 1
+
+[node name="SHIFTREG" type="GraphNode" parent="Blocks"]
+margin_left = 466.871
+margin_top = 456.006
+margin_right = 559.871
+margin_bottom = 634.006
+custom_styles/frame = ExtResource( 23 )
+title = "SHIFT REG"
+slot/0/left_enabled = true
+slot/0/left_type = 1
+slot/0/left_color = Color( 1, 1, 0, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 1
+slot/0/right_color = Color( 1, 1, 0, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = true
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = true
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = true
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = true
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+slot/6/left_enabled = true
+slot/6/left_type = 0
+slot/6/left_color = Color( 1, 1, 1, 1 )
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+bits = 1
+
+[node name="Sprite" type="Sprite" parent="Blocks/SHIFTREG"]
+visible = false
+texture = ExtResource( 34 )
+
+[node name="HBox4" type="HBoxContainer" parent="Blocks/SHIFTREG"]
+margin_left = 16.0
+margin_top = 23.0
+margin_right = 77.0
+margin_bottom = 47.0
+
+[node name="D" type="Label" parent="Blocks/SHIFTREG/HBox4"]
+margin_right = 10.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+text = "D"
+valign = 1
+
+[node name="Q" type="Label" parent="Blocks/SHIFTREG/HBox4"]
+margin_left = 14.0
+margin_right = 61.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+text = "Q"
+align = 2
+valign = 1
+
+[node name="Label" type="Label" parent="Blocks/SHIFTREG"]
+margin_left = 16.0
+margin_top = 48.0
+margin_right = 77.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+text = "0xFF"
+align = 2
+valign = 1
+
+[node name="SI" type="Label" parent="Blocks/SHIFTREG"]
+margin_left = 16.0
+margin_top = 73.0
+margin_right = 77.0
+margin_bottom = 97.0
+rect_min_size = Vector2( 0, 24 )
+text = "SI"
+valign = 1
+
+[node name="EN" type="Label" parent="Blocks/SHIFTREG"]
+margin_left = 16.0
+margin_top = 98.0
+margin_right = 77.0
+margin_bottom = 122.0
+rect_min_size = Vector2( 0, 24 )
+text = "EN"
+valign = 1
+
+[node name="LD" type="Label" parent="Blocks/SHIFTREG"]
+margin_left = 16.0
+margin_top = 123.0
+margin_right = 77.0
+margin_bottom = 147.0
+rect_min_size = Vector2( 0, 24 )
+text = "LD"
+valign = 1
+
+[node name="CK" type="Label" parent="Blocks/SHIFTREG"]
+margin_left = 16.0
+margin_top = 148.0
+margin_right = 77.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 0, 24 )
+text = "CK"
+valign = 1
+
+[node name="R" type="Label" parent="Blocks/SHIFTREG"]
+margin_left = 16.0
+margin_top = 173.0
+margin_right = 77.0
+margin_bottom = 197.0
 rect_min_size = Vector2( 0, 24 )
 text = "R"
 valign = 1
