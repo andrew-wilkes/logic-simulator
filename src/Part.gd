@@ -324,7 +324,7 @@ func update_output(level: bool, port: int, reverse: bool):
 				value = -1 # Make sure it propagates
 				set_value(vin, false, false)
 			else:
-				set_value(wrapi(value + int(input_levels[1]), 0, 0xff), false, false)
+				set_value(wrapi(value + int(input_levels[1]), 0, 0xffff), false, false)
 		Parts.TYPES.SHIFTREG:
 			set_default_input_levels()
 			if input_levels[5]: # Reset

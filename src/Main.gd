@@ -255,9 +255,13 @@ func _on_Graph_connection_request(from, from_slot, to, to_slot):
 	# Don't connect between OUTBUS and INBUS or BUS to BUS
 	if $Graph.get_node(to).type == Parts.TYPES.INBUS and $Graph.get_node(from).type == Parts.TYPES.OUTBUS:
 		return
+	if $Graph.get_node(to).type == Parts.TYPES.BUS1 and $Graph.get_node(from).type == Parts.TYPES.BUS1:
+		return
+	if $Graph.get_node(to).type == Parts.TYPES.LOOPBACK and $Graph.get_node(from).type == Parts.TYPES.LOOPBACK:
+		return
 	# Don't connect to input that is already connected unless it's a BUS or INPUT
 	var node = $Graph.get_node(to)
-	if node.type != Parts.TYPES.BUS1 and node.group != Parts.TYPES.INPUT:
+	if node.type != Parts.TYPES.BUS1 and node.group != Parts.TYPES.INPUT and node.type != Parts.TYPES.LOOPBACK:
 		for con in $Graph.get_connection_list():
 			if con.to == to and con.to_port == to_slot:
 				return
