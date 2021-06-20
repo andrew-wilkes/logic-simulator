@@ -174,3 +174,11 @@ func set_data(d):
 			add_slots(4)
 		if data.bits == 2:
 			add_slots(12)
+
+
+func _on_Bits_was_pressed(b):
+	data.bits = wrapi(data.bits + 1, 0, 3)
+	b.text = String(bit_lengths[data.bits])
+	value = 0
+	set_format()
+	update_display_value()

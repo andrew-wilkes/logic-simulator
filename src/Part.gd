@@ -31,6 +31,7 @@ var out_port_map = []
 var out_port_mode = []
 var output_enabled = false
 var bit_lengths = [4, 8, 16]
+var msbs = [8, 128, 32768]
 var output_levels = {}
 var value := -1
 var vin = 0
@@ -344,7 +345,7 @@ func update_output(level: bool, port: int, reverse: bool):
 				if input_levels[2]: # EN
 					v /= 2 # Shift right
 					if input_levels[1]: # SI
-						v += 128
+						v += msbs[data.bits]
 				set_value(v, false, false)
 		_:
 			set_value(level, reverse, true)
