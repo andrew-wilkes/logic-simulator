@@ -1,6 +1,7 @@
 extends BUS
 
 export(Color) var seg_color
+export var mode = "hex"
 
 func _ready():
 	var off = [36,12, 14,14, 0,28, -14,14, -14,-14, 0,-28, 14,14, 22,29]
@@ -18,7 +19,7 @@ func _ready():
 func setup():
 	set_port_maps()
 	if not data.has("color"):
-		data = { "color": seg_color, "mode": "hex" }
+		data = { "color": seg_color, "mode": mode }
 	apply_data(data)
 
 
@@ -27,6 +28,7 @@ func apply_data(d):
 	$HB/Mode.text = d.mode
 	$LED.modulate = d.color
 	seg_color = d.color
+	mode = d.mode
 	# Apply this change to the base part to relect user preference
 	if get_parent() is GraphEdit:
 		Parts.find_node("SEG7").apply_data(d)
