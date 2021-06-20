@@ -457,7 +457,7 @@ slot/3/right_color = Color( 1, 1, 1, 1 )
 slot/4/left_enabled = false
 slot/4/left_type = 0
 slot/4/left_color = Color( 1, 1, 1, 1 )
-slot/4/right_enabled = false
+slot/4/right_enabled = true
 slot/4/right_type = 0
 slot/4/right_color = Color( 1, 1, 1, 1 )
 slot/5/left_enabled = false
@@ -466,12 +466,6 @@ slot/5/left_color = Color( 1, 1, 1, 1 )
 slot/5/right_enabled = true
 slot/5/right_type = 0
 slot/5/right_color = Color( 1, 1, 1, 1 )
-slot/6/left_enabled = false
-slot/6/left_type = 0
-slot/6/left_color = Color( 1, 1, 1, 1 )
-slot/6/right_enabled = true
-slot/6/right_type = 0
-slot/6/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 31 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -491,44 +485,36 @@ margin_bottom = 51.0
 focus_mode = 0
 text = "Start"
 
-[node name="Stop" type="Button" parent="Gates/INPUT/INPUTCLK"]
+[node name="Reset" type="Button" parent="Gates/INPUT/INPUTCLK"]
 margin_left = 16.0
 margin_top = 59.0
 margin_right = 95.0
 margin_bottom = 79.0
 focus_mode = 0
-text = "Stop"
+text = "Reset"
 
-[node name="Reset" type="Button" parent="Gates/INPUT/INPUTCLK"]
+[node name="Rate" type="Button" parent="Gates/INPUT/INPUTCLK"]
 margin_left = 16.0
 margin_top = 87.0
 margin_right = 95.0
 margin_bottom = 107.0
 focus_mode = 0
-text = "Reset"
-
-[node name="Rate" type="Button" parent="Gates/INPUT/INPUTCLK"]
-margin_left = 16.0
-margin_top = 115.0
-margin_right = 95.0
-margin_bottom = 135.0
-focus_mode = 0
 text = "Rate"
 
 [node name="Clk" type="Label" parent="Gates/INPUT/INPUTCLK"]
 margin_left = 16.0
-margin_top = 143.0
+margin_top = 115.0
 margin_right = 95.0
-margin_bottom = 157.0
+margin_bottom = 129.0
 text = "Clk"
 align = 2
 valign = 1
 
 [node name="R" type="Label" parent="Gates/INPUT/INPUTCLK"]
 margin_left = 16.0
-margin_top = 165.0
+margin_top = 137.0
 margin_right = 95.0
-margin_bottom = 179.0
+margin_bottom = 151.0
 text = "Reset"
 align = 2
 valign = 1
@@ -2499,7 +2485,6 @@ __meta__ = {
 
 [connection signal="text_changed" from="Gates/INPUT/INPUTPIN/Pin" to="Gates/INPUT/INPUTPIN" method="_on_Pin_text_changed"]
 [connection signal="pressed" from="Gates/INPUT/INPUTCLK/Start" to="Gates/INPUT/INPUTCLK" method="_on_Start_pressed"]
-[connection signal="pressed" from="Gates/INPUT/INPUTCLK/Stop" to="Gates/INPUT/INPUTCLK" method="_on_Stop_pressed"]
 [connection signal="button_down" from="Gates/INPUT/INPUTCLK/Reset" to="Gates/INPUT/INPUTCLK" method="_on_Reset_button_down"]
 [connection signal="button_up" from="Gates/INPUT/INPUTCLK/Reset" to="Gates/INPUT/INPUTCLK" method="_on_Reset_button_up"]
 [connection signal="pressed" from="Gates/INPUT/INPUTCLK/Rate" to="Gates/INPUT/INPUTCLK" method="_on_Rate_pressed"]

@@ -1,15 +1,18 @@
 extends Part
 
 var rate = 1.875
+var running = false
 
 func _on_Start_pressed():
-	$Timer.start(1.0 / rate)
-	output_levels[0] = false
-	set_output(output_levels[0], 0)
-
-
-func _on_Stop_pressed():
-	$Timer.stop()
+	if running:
+		$Start.text = "Start"
+		$Timer.stop()
+	else:
+		$Start.text = "Stop"
+		$Timer.start(1.0 / rate)
+		output_levels[0] = false
+		set_output(output_levels[0], 0)		
+	running = !running
 
 
 func _on_Rate_pressed():
