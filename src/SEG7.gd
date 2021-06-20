@@ -59,8 +59,7 @@ func set_value(v: int, reverse: bool, _from_pin: bool):
 		led.visible = map[idx].has(v % base) # Use mod of v to stop overflow
 		idx += 1
 	# Emit divided down signal
-# warning-ignore:integer_division
-	emit_signal("bus_changed", self, value / base, reverse)
+	emit_signal("bus_changed", self, v / base, reverse)
 
 
 func _on_ColorPicker_color_changed(color):

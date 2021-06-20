@@ -224,7 +224,7 @@ func update_output(level: bool, port: int, reverse: bool):
 				set_output(input_levels[2], 0) # A
 			else:
 				set_output(input_levels[1], 0) # B
-		Parts.TYPES.SRLIPFLOP:
+		Parts.TYPES.SRFLIPFLOP:
 			set_default_input_levels()
 			# Init outputs
 			if output_levels.size() == 0:
