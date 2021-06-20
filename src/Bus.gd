@@ -7,6 +7,7 @@ enum { HEX, DEC, BIN, BITS, MODE }
 var format = ""
 var button: Button
 var button_mode = BITS
+var has_mode_button = false
 
 func setup():
 	data = { "bits": bits, "mode": HEX } # bits is a part export var
@@ -67,6 +68,7 @@ func add_button(l: Label, left: bool):
 		h.add_child(button)
 		h.add_child(l)
 	add_child(h)
+	has_mode_button = true
 
 
 func set_value(v: int, reverse: bool, from_pin: bool):
@@ -161,7 +163,10 @@ func get_data():
 
 func set_data(d):
 	data = d
-	button_to_mode()
+	if data.empty():
+		return
+	if has_mode_button:
+		button_to_mode()
 	set_format()
 	update_display_value()
 	if type == Parts.TYPES.INBUS or type == Parts.TYPES.OUTBUS:
