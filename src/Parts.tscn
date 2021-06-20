@@ -2149,6 +2149,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+bits = 2
 
 [node name="Sprite" type="Sprite" parent="Blocks/REG"]
 visible = false
@@ -2184,8 +2185,7 @@ margin_right = 75.0
 margin_bottom = 72.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
-text = "0xFF"
-align = 2
+text = "0xFFFF"
 valign = 1
 
 [node name="L" type="Label" parent="Blocks/REG"]
@@ -2390,6 +2390,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+bits = 2
 
 [node name="Sprite" type="Sprite" parent="Blocks/SHIFTREG"]
 visible = false
@@ -2425,8 +2426,7 @@ margin_right = 81.0
 margin_bottom = 72.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
-text = "0xFF"
-align = 2
+text = "0xFFFF"
 valign = 1
 
 [node name="SI" type="Label" parent="Blocks/SHIFTREG"]
