@@ -1,0 +1,16 @@
+Todos
+
+Be able to compile circuits to use as modules.
+   Add simulation script functionality to part data.
+
+Some way to input memory bytes.
+Memory dump.
+
+Implement CPU parts. ALU. 4/8/16 bit.
+Memory ROM / RAM
+
+Be able to output a text version of the circuit for use with external programs.
+
+Have a text input format for circuits.
+
+Be able to output a screen shot.

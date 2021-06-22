@@ -398,7 +398,6 @@ func save_user_data():
 
 func save_data():
 	var circuit = Circuit.new()
-	circuit.txt = "Test"
 	circuit.connections = $Graph.get_connection_list()
 	for node in $Graph.get_children():
 		if node is GraphNode:

@@ -541,6 +541,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
+locked = false
+bits = 0
 
 [node name="Icon" type="TextureRect" parent="Gates/NOT"]
 margin_left = 16.0
@@ -580,6 +582,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
+locked = false
+bits = 0
 
 [node name="Control" type="Control" parent="Gates/AND"]
 margin_left = 16.0
@@ -632,6 +636,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
+locked = false
+bits = 0
 
 [node name="Control" type="Control" parent="Gates/NAND"]
 margin_left = 16.0
@@ -684,6 +690,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
+locked = false
+bits = 0
 
 [node name="Control" type="Control" parent="Gates/OR"]
 margin_left = 16.0
@@ -736,6 +744,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
+locked = false
+bits = 0
 
 [node name="Control" type="Control" parent="Gates/NOR"]
 margin_left = 16.0
@@ -788,6 +798,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
+locked = false
+bits = 0
 
 [node name="Control" type="Control" parent="Gates/XOR"]
 margin_left = 16.0
@@ -1204,7 +1216,6 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-bits = 2
 
 [node name="Sprite" type="Sprite" parent="MISC/BUS1"]
 visible = false
@@ -1247,7 +1258,6 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-bits = 2
 
 [node name="Sprite" type="Sprite" parent="MISC/LOOPBACK"]
 visible = false
@@ -1348,6 +1358,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
+locked = false
+bits = 0
 
 [node name="Sprite" type="Sprite" parent="Combinational/MULT"]
 visible = false
@@ -1418,6 +1430,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
+locked = false
+bits = 0
 
 [node name="Sprite" type="Sprite" parent="Combinational/SRFLIPFLOP"]
 visible = false
@@ -1493,6 +1507,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
+locked = false
+bits = 0
 
 [node name="Sprite" type="Sprite" parent="Combinational/DLATCH"]
 visible = false
@@ -1580,6 +1596,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
+locked = false
+bits = 0
 
 [node name="Sprite" type="Sprite" parent="Combinational/DFLIPFLOP"]
 visible = false
@@ -1665,6 +1683,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
+locked = false
+bits = 0
 
 [node name="Sprite" type="Sprite" parent="Combinational/JKFLIPFLOP"]
 visible = false
@@ -1755,6 +1775,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
+locked = false
+bits = 0
 
 [node name="Sprite" type="Sprite" parent="Combinational/ADDER"]
 visible = false
@@ -2033,6 +2055,7 @@ edit_alpha = false
 [node name="Mode" type="Button" parent="Combinational/SEG7/HB"]
 margin_right = 12.0
 margin_bottom = 20.0
+focus_mode = 0
 text = "hex"
 
 [node name="LED" type="Control" parent="Combinational/SEG7"]
@@ -2150,7 +2173,6 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-bits = 2
 
 [node name="Sprite" type="Sprite" parent="Blocks/REG"]
 visible = false
@@ -2263,7 +2285,6 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-bits = 2
 
 [node name="Sprite" type="Sprite" parent="Blocks/COUNTER"]
 visible = false
@@ -2391,7 +2412,6 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-bits = 2
 
 [node name="Sprite" type="Sprite" parent="Blocks/SHIFTREG"]
 visible = false
@@ -2446,6 +2466,7 @@ text = "SI"
 valign = 1
 
 [node name="Bits" parent="Blocks/SHIFTREG/HBox" instance=ExtResource( 35 )]
+focus_mode = 0
 text = "Bits"
 
 [node name="EN" type="Label" parent="Blocks/SHIFTREG"]
