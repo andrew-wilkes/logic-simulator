@@ -71,7 +71,18 @@ func add_button(l: Label, left: bool):
 	has_mode_button = true
 
 
-func set_value(v: int, reverse: bool, from_pin: bool):
+func set_value(v: int, reverse: bool, from_pin: bool, port := 0):
+	if type == Parts.TYPES.ALU:
+		if port == 0:
+			if v != a:
+				a = v
+				update_output(true, -1, false)
+			return
+		if port == 1:
+			if v != b:
+				b = v
+				update_output(true, -1, false)
+			return
 	if from_pin:
 		v = get_value_from_inputs(reverse)
 	# If the value is unchanged ignore it
@@ -79,7 +90,7 @@ func set_value(v: int, reverse: bool, from_pin: bool):
 	if value == v:
 		return
 	value = v
-	if type in [Parts.TYPES.REG, Parts.TYPES.COUNTER, Parts.TYPES.SHIFTREG]:
+	if type in [Parts.TYPES.REG, Parts.TYPES.COUNTER, Parts.TYPES.SHIFTREG, Parts.TYPES.MEM]:
 		if output_enabled:
 			output_enabled = false
 		else: # Just capture the new input value
@@ -177,8 +188,9 @@ func set_data(d):
 
 
 func _on_Bits_was_pressed(b):
-	data.bits = wrapi(data.bits + 1, 0, 3)
-	b.text = String(bit_lengths[data.bits])
-	value = 0
-	set_format()
-	update_display_value()
+	if data.has("bits"):
+		data.bits = wrapi(data.bits + 1, 0, 3)
+		b.text = String(bit_lengths[data.bits])
+		value = 0
+		set_format()
+		update_display_value()

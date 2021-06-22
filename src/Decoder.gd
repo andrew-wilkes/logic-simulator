@@ -26,7 +26,7 @@ func add_slots():
 	data = { "bits": 0 }
 
 
-func set_value(v: int, reverse: bool, _from_pin: bool):
+func set_value(v: int, reverse: bool, _from_pin: bool, _port := 0):
 	if _from_pin:
 		v = get_value_from_inputs(reverse)
 	if value == v:

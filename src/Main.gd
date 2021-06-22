@@ -163,7 +163,7 @@ func update_bus(node, value, reverse = false):
 				$Graph.get_node(con.from).set_value(value, reverse, false)
 		else:
 			if con.from == node.name:
-				$Graph.get_node(con.to).set_value(value, reverse, false)
+				$Graph.get_node(con.to).set_value(value, reverse, false, con.to_port)
 
 
 # A part output level has changed

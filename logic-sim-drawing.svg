@@ -24,7 +24,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8"
-     inkscape:cx="-756.25"
+     inkscape:cx="-833.39286"
      inkscape:cy="-766.07143"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -802,6 +802,48 @@
          x="-728.9375"
          y="-876.65625"
          id="tspan682-2-2-9-6-7-7">&gt;&gt;</tspan></text>
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -750,-865 c -10,0 -20,0 -30,0 v -30 c 10,0 20,0 30,0 z"
+       id="path889-3-3-3-9-7-6-3-3-3"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/alu.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-774.836"
+       y="-876.1875"
+       id="text893-6-6-5-1-0-2-6-6-6"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/alu.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         x="-774.836"
+         y="-876.1875"
+         id="tspan682-2-2-9-6-7-7-7">ALU</tspan></text>
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -790,-865 c -10,0 -20,0 -30,0 v -30 c 10,0 20,0 30,0 z"
+       id="path889-3-3-3-9-7-6-3-3-5"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/memory.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-817.57556"
+       y="-876.11194"
+       id="text893-6-6-5-1-0-2-6-6-3"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/memory.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         x="-817.57556"
+         y="-876.11194"
+         id="tspan682-2-2-9-6-7-7-5">MEM</tspan></text>
     <path
        style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m -705,-825 c -10,0 -20,0 -30,0 v -30 c 10,0 20,0 30,0 z"

@@ -32,8 +32,11 @@ var out_port_mode = []
 var output_enabled = false
 var bit_lengths = [4, 8, 16]
 var msbs = [8, 128, 32768]
+var maxvs = [16, 256, 65536]
 var output_levels = {}
 var value := -1
+var a := 0
+var b := 0
 var vin = 0
 var data = {} setget set_data, get_data
 var type := 0
@@ -347,6 +350,40 @@ func update_output(level: bool, port: int, reverse: bool):
 					if input_levels[1]: # SI
 						v += msbs[data.bits]
 				set_value(v, false, false)
+		Parts.TYPES.ALU:
+			set_default_input_levels()
+			if port < 0: # a or b changed. Ensure that dummy pin is not ignored.
+				var _r = input_levels.erase(port)
+			# Decide function
+			var f = int(input_levels[4])
+			f = 2 * f + int(input_levels[3])
+			f = 2 * f + int(input_levels[2])
+			a %= maxvs[bits]
+			b %= maxvs[bits]
+			var v = a
+			var msb1 = v >= msbs[bits]
+			match f:
+				1:
+					v = b
+				2:
+					v += 1
+				3:
+					v = b + 1
+				4:
+					v += b
+				5:
+					if b > 0:
+						v = v + maxvs[bits] - b # Invert b and add 1
+				6:
+					v &= b
+				7:
+					v |= b
+			var msb2 = v >= msbs[bits]
+			set_output(v >= maxvs[bits], 1) # Cout
+			set_output(v == 0, 2) # Zero
+			set_output(msb1 != msb2, 3) # OF
+			set_output(msb2, 4) # Sign
+			set_value(v % maxvs[bits], false, false, -1)
 		_:
 			set_value(level, reverse, true)
 
@@ -358,7 +395,7 @@ func set_default_input_levels():
 
 
 # This function is overwritten in busses
-func set_value(_v: int, _reverse: bool, _from_pin: bool):
+func set_value(_v: int, _reverse: bool, _from_pin: bool, _port := 0):
 	emit_signal("bus_changed", self, _v, _reverse)
 
 

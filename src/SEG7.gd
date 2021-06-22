@@ -46,7 +46,7 @@ var map = [
 	[10,11,12,13,14,15]
 ]
 
-func set_value(v: int, reverse: bool, _from_pin: bool):
+func set_value(v: int, reverse: bool, _from_pin: bool, _port := 0):
 	var base = 16 if data.mode == "hex" else 10
 	var idx = int(reverse)
 	if _from_pin:

@@ -4,6 +4,7 @@ signal was_pressed(me)
 
 func _ready():
 	var _e = connect("pressed", self, "emit_pressed")
+	call_deferred("emit_pressed")
 
 
 func emit_pressed():
