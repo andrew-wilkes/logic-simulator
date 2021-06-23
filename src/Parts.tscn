@@ -38,7 +38,6 @@
 [ext_resource path="res://assets/alu.png" type="Texture" id=36]
 
 [node name="Parts" type="Control"]
-visible = false
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -236,8 +235,17 @@ margin_right = 95.0
 margin_bottom = 47.0
 rect_min_size = Vector2( 0, 24 )
 text = "0XFF"
-align = 2
 valign = 1
+
+[node name="VSlider" type="VSlider" parent="Gates/INPUT/INPUT4/V"]
+margin_left = 18.0
+margin_top = 28.0
+margin_right = 34.0
+margin_bottom = 101.0
+max_value = 15.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="D0" type="Label" parent="Gates/INPUT/INPUT4"]
 margin_left = 16.0
@@ -274,6 +282,9 @@ margin_bottom = 127.0
 text = "D3"
 align = 2
 valign = 1
+
+[node name="Timer" type="Timer" parent="Gates/INPUT/INPUT4"]
+one_shot = true
 
 [node name="INPUT8" type="GraphNode" parent="Gates/INPUT"]
 margin_left = 16.0
@@ -349,8 +360,17 @@ margin_right = 95.0
 margin_bottom = 47.0
 rect_min_size = Vector2( 0, 24 )
 text = "0XFF"
-align = 2
 valign = 1
+
+[node name="VSlider" type="VSlider" parent="Gates/INPUT/INPUT8/V"]
+margin_left = 18.0
+margin_top = 28.0
+margin_right = 34.0
+margin_bottom = 181.0
+max_value = 255.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="D0" type="Label" parent="Gates/INPUT/INPUT8"]
 margin_left = 16.0
@@ -423,6 +443,9 @@ margin_bottom = 207.0
 text = "D7"
 align = 2
 valign = 1
+
+[node name="Timer" type="Timer" parent="Gates/INPUT/INPUT8"]
+one_shot = true
 
 [node name="INPUTCLK" type="GraphNode" parent="Gates/INPUT"]
 margin_left = 16.0
@@ -542,6 +565,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
+locked = false
+bits = 0
 
 [node name="Icon" type="TextureRect" parent="Gates/NOT"]
 margin_left = 16.0
@@ -581,6 +606,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
+locked = false
+bits = 0
 
 [node name="Control" type="Control" parent="Gates/AND"]
 margin_left = 16.0
@@ -633,6 +660,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
+locked = false
+bits = 0
 
 [node name="Control" type="Control" parent="Gates/NAND"]
 margin_left = 16.0
@@ -685,6 +714,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
+locked = false
+bits = 0
 
 [node name="Control" type="Control" parent="Gates/OR"]
 margin_left = 16.0
@@ -737,6 +768,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
+locked = false
+bits = 0
 
 [node name="Control" type="Control" parent="Gates/NOR"]
 margin_left = 16.0
@@ -789,6 +822,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
+locked = false
+bits = 0
 
 [node name="Control" type="Control" parent="Gates/XOR"]
 margin_left = 16.0
@@ -1347,6 +1382,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
+locked = false
+bits = 0
 
 [node name="Sprite" type="Sprite" parent="Combinational/MULT"]
 visible = false
@@ -1417,6 +1454,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
+locked = false
+bits = 0
 
 [node name="Sprite" type="Sprite" parent="Combinational/SRFLIPFLOP"]
 visible = false
@@ -1492,6 +1531,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
+locked = false
+bits = 0
 
 [node name="Sprite" type="Sprite" parent="Combinational/DLATCH"]
 visible = false
@@ -1579,6 +1620,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
+locked = false
+bits = 0
 
 [node name="Sprite" type="Sprite" parent="Combinational/DFLIPFLOP"]
 visible = false
@@ -1664,6 +1707,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
+locked = false
+bits = 0
 
 [node name="Sprite" type="Sprite" parent="Combinational/JKFLIPFLOP"]
 visible = false
@@ -1754,6 +1799,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
+locked = false
+bits = 0
 
 [node name="Sprite" type="Sprite" parent="Combinational/ADDER"]
 visible = false
@@ -2023,14 +2070,15 @@ margin_right = 88.0
 margin_bottom = 44.0
 
 [node name="ColorPicker" type="ColorPickerButton" parent="Combinational/SEG7/HB"]
-margin_right = 12.0
+margin_right = 20.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 20, 0 )
 color = Color( 0.266667, 1, 0, 1 )
 edit_alpha = false
 
 [node name="Mode" type="Button" parent="Combinational/SEG7/HB"]
-margin_right = 12.0
+margin_left = 24.0
+margin_right = 59.0
 margin_bottom = 20.0
 focus_mode = 0
 text = "hex"
@@ -2409,7 +2457,7 @@ valign = 1
 
 [node name="Q" type="Label" parent="Blocks/SHIFTREG/HBox4"]
 margin_left = 14.0
-margin_right = 61.0
+margin_right = 65.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
@@ -2434,15 +2482,17 @@ margin_right = 81.0
 margin_bottom = 97.0
 
 [node name="SI" type="Label" parent="Blocks/SHIFTREG/HBox"]
-margin_top = 1.0
-margin_right = 65.0
-margin_bottom = 25.0
+margin_right = 24.0
+margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
 text = "SI"
 valign = 1
 
 [node name="Bits" parent="Blocks/SHIFTREG/HBox" instance=ExtResource( 35 )]
+margin_left = 28.0
+margin_right = 65.0
+margin_bottom = 24.0
 focus_mode = 0
 text = "Bits"
 
@@ -2543,19 +2593,19 @@ texture = ExtResource( 36 )
 [node name="HBox4" type="HBoxContainer" parent="Blocks/ALU"]
 margin_left = 16.0
 margin_top = 23.0
-margin_right = 76.0
+margin_right = 86.0
 margin_bottom = 47.0
 
 [node name="A" type="Label" parent="Blocks/ALU/HBox4"]
-margin_right = 10.0
+margin_right = 9.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
 text = "A"
 valign = 1
 
 [node name="Y" type="Label" parent="Blocks/ALU/HBox4"]
-margin_left = 14.0
-margin_right = 61.0
+margin_left = 13.0
+margin_right = 70.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
@@ -2566,7 +2616,7 @@ valign = 1
 [node name="B" type="Label" parent="Blocks/ALU"]
 margin_left = 16.0
 margin_top = 48.0
-margin_right = 76.0
+margin_right = 86.0
 margin_bottom = 72.0
 rect_min_size = Vector2( 0, 24 )
 text = "B"
@@ -2575,7 +2625,7 @@ valign = 1
 [node name="Label" type="Label" parent="Blocks/ALU"]
 margin_left = 16.0
 margin_top = 73.0
-margin_right = 76.0
+margin_right = 86.0
 margin_bottom = 97.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
@@ -2589,14 +2639,13 @@ margin_right = 86.0
 margin_bottom = 122.0
 
 [node name="Bits" parent="Blocks/ALU/HBox5" instance=ExtResource( 35 )]
-margin_top = -25.0
 margin_right = 37.0
-margin_bottom = -5.0
+margin_bottom = 24.0
 text = "Bits"
 
 [node name="Cout" type="Label" parent="Blocks/ALU/HBox5"]
-margin_left = 14.0
-margin_right = 61.0
+margin_left = 41.0
+margin_right = 70.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
@@ -2607,20 +2656,19 @@ valign = 1
 [node name="HBox6" type="HBoxContainer" parent="Blocks/ALU"]
 margin_left = 16.0
 margin_top = 123.0
-margin_right = 76.0
+margin_right = 86.0
 margin_bottom = 147.0
 
 [node name="F0" type="Label" parent="Blocks/ALU/HBox6"]
-margin_top = 25.0
-margin_right = 65.0
-margin_bottom = 49.0
+margin_right = 15.0
+margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
 text = "F0"
 valign = 1
 
 [node name="Z" type="Label" parent="Blocks/ALU/HBox6"]
-margin_left = 14.0
-margin_right = 61.0
+margin_left = 19.0
+margin_right = 70.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
@@ -2631,20 +2679,19 @@ valign = 1
 [node name="HBox7" type="HBoxContainer" parent="Blocks/ALU"]
 margin_left = 16.0
 margin_top = 148.0
-margin_right = 76.0
+margin_right = 86.0
 margin_bottom = 172.0
 
 [node name="F1" type="Label" parent="Blocks/ALU/HBox7"]
-margin_top = 25.0
-margin_right = 65.0
-margin_bottom = 49.0
+margin_right = 15.0
+margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
 text = "F1"
 valign = 1
 
 [node name="OF" type="Label" parent="Blocks/ALU/HBox7"]
-margin_left = 14.0
-margin_right = 61.0
+margin_left = 19.0
+margin_right = 70.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
@@ -2655,20 +2702,19 @@ valign = 1
 [node name="HBox8" type="HBoxContainer" parent="Blocks/ALU"]
 margin_left = 16.0
 margin_top = 173.0
-margin_right = 76.0
+margin_right = 86.0
 margin_bottom = 197.0
 
 [node name="F2" type="Label" parent="Blocks/ALU/HBox8"]
-margin_top = 25.0
-margin_right = 65.0
-margin_bottom = 49.0
+margin_right = 15.0
+margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
 text = "F2"
 valign = 1
 
 [node name="S" type="Label" parent="Blocks/ALU/HBox8"]
-margin_left = 14.0
-margin_right = 61.0
+margin_left = 19.0
+margin_right = 70.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
@@ -2686,6 +2732,10 @@ __meta__ = {
 }
 
 [connection signal="text_changed" from="Gates/INPUT/INPUTPIN/Pin" to="Gates/INPUT/INPUTPIN" method="_on_Pin_text_changed"]
+[connection signal="value_changed" from="Gates/INPUT/INPUT4/V/VSlider" to="Gates/INPUT/INPUT4" method="_on_VSlider_value_changed"]
+[connection signal="timeout" from="Gates/INPUT/INPUT4/Timer" to="Gates/INPUT/INPUT4" method="_on_Timer_timeout"]
+[connection signal="value_changed" from="Gates/INPUT/INPUT8/V/VSlider" to="Gates/INPUT/INPUT8" method="_on_VSlider_value_changed"]
+[connection signal="timeout" from="Gates/INPUT/INPUT8/Timer" to="Gates/INPUT/INPUT8" method="_on_Timer_timeout"]
 [connection signal="pressed" from="Gates/INPUT/INPUTCLK/Start" to="Gates/INPUT/INPUTCLK" method="_on_Start_pressed"]
 [connection signal="button_down" from="Gates/INPUT/INPUTCLK/Reset" to="Gates/INPUT/INPUTCLK" method="_on_Reset_button_down"]
 [connection signal="button_up" from="Gates/INPUT/INPUTCLK/Reset" to="Gates/INPUT/INPUTCLK" method="_on_Reset_button_up"]
