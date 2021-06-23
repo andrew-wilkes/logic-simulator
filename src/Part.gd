@@ -411,7 +411,7 @@ func set_data(d):
 
 
 func get_data():
-	var v = null
+	var v = {}
 	match type:
 		Parts.TYPES.INPUTPIN, Parts.TYPES.OUTPUTPIN:
 			v = get_pin_name()

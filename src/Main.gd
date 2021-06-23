@@ -406,6 +406,11 @@ func save_user_data():
 func save_data():
 	var circuit = Circuit.new()
 	circuit.connections = $Graph.get_connection_list()
+	circuit.scroll_offset = $Graph.scroll_offset
+	circuit.zoom = $Graph.zoom
+	circuit.snap_distance = $Graph.snap_distance
+	circuit.use_snap = $Graph.use_snap
+	circuit.minimap_enabled = $Graph.minimap_enabled
 	for node in $Graph.get_children():
 		if node is GraphNode:
 			var node_data = PartData.new()
@@ -447,6 +452,11 @@ func load_data():
 
 func init_graph(circuit: Circuit):
 	clear_graph()
+	$Graph.zoom = circuit.zoom
+	$Graph.snap_distance = circuit.snap_distance
+	$Graph.use_snap = circuit.use_snap
+	$Graph.minimap_enabled = circuit.minimap_enabled
+	call_deferred("set_scroll_offset", circuit.scroll_offset)
 	for node in circuit.nodes:
 		var part: Part = Parts.get_part(node.type)
 		part.offset = node.offset
@@ -459,6 +469,10 @@ func init_graph(circuit: Circuit):
 		part.name = node.name
 		for con in circuit.connections:
 			var _e = $Graph.connect_node(con.from, con.from_port, con.to, con.to_port)
+
+
+func set_scroll_offset(offset: Vector2):
+	$Graph.scroll_offset = offset
 
 
 func alert(txt = ""):
