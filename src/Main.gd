@@ -239,7 +239,7 @@ func connect_part(part):
 	_e = part.connect("offset_changed", self, "set_changed")
 	_e = part.connect("part_clicked", self, "tt_show_request")
 	_e = part.connect("data_changed", self, "set_changed")
-	if part is BUS:
+	if part.has_signal("bus_changed"):
 		_e = part.connect("bus_changed", self, "update_bus")
 	if part.type == Parts.TYPES.INPUT or part.type == Parts.TYPES.OUTPUT:
 		_e = part.connect("part_variant_selected", self, "add_part_to_graph")

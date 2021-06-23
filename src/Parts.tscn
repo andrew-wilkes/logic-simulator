@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://assets/nand.png" type="Texture" id=1]
 [ext_resource path="res://assets/and.png" type="Texture" id=2]
@@ -36,8 +36,10 @@
 [ext_resource path="res://assets/shiftreg.png" type="Texture" id=34]
 [ext_resource path="res://EmitButton.tscn" type="PackedScene" id=35]
 [ext_resource path="res://assets/alu.png" type="Texture" id=36]
+[ext_resource path="res://assets/busmux.png" type="Texture" id=37]
 
 [node name="Parts" type="Control"]
+visible = false
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -86,7 +88,7 @@ slot/5/left_color = Color( 1, 1, 1, 1 )
 slot/5/right_enabled = false
 slot/5/right_type = 0
 slot/5/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 21 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -114,7 +116,7 @@ slot/1/left_color = Color( 1, 1, 1, 1 )
 slot/1/right_enabled = true
 slot/1/right_type = 0
 slot/1/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 21 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -146,7 +148,7 @@ slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 0
 slot/0/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 21 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -171,7 +173,7 @@ slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 0
 slot/0/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 21 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -284,6 +286,7 @@ align = 2
 valign = 1
 
 [node name="Timer" type="Timer" parent="Gates/INPUT/INPUT4"]
+wait_time = 0.5
 one_shot = true
 
 [node name="INPUT8" type="GraphNode" parent="Gates/INPUT"]
@@ -298,7 +301,7 @@ slot/0/left_enabled = false
 slot/0/left_type = 0
 slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = true
-slot/0/right_type = 0
+slot/0/right_type = 1
 slot/0/right_color = Color( 1, 1, 0, 1 )
 slot/1/left_enabled = false
 slot/1/left_type = 0
@@ -445,6 +448,7 @@ align = 2
 valign = 1
 
 [node name="Timer" type="Timer" parent="Gates/INPUT/INPUT8"]
+wait_time = 0.5
 one_shot = true
 
 [node name="INPUTCLK" type="GraphNode" parent="Gates/INPUT"]
@@ -565,8 +569,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
-locked = false
-bits = 0
 
 [node name="Icon" type="TextureRect" parent="Gates/NOT"]
 margin_left = 16.0
@@ -606,8 +608,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
-locked = false
-bits = 0
 
 [node name="Control" type="Control" parent="Gates/AND"]
 margin_left = 16.0
@@ -660,8 +660,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
-locked = false
-bits = 0
 
 [node name="Control" type="Control" parent="Gates/NAND"]
 margin_left = 16.0
@@ -714,8 +712,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
-locked = false
-bits = 0
 
 [node name="Control" type="Control" parent="Gates/OR"]
 margin_left = 16.0
@@ -768,8 +764,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
-locked = false
-bits = 0
 
 [node name="Control" type="Control" parent="Gates/NOR"]
 margin_left = 16.0
@@ -822,8 +816,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
-locked = false
-bits = 0
 
 [node name="Control" type="Control" parent="Gates/XOR"]
 margin_left = 16.0
@@ -1225,10 +1217,170 @@ texture = ExtResource( 13 )
 wait_time = 2.0
 one_shot = true
 
-[node name="BUS1" type="GraphNode" parent="MISC"]
+[node name="BUSMUX" type="GraphNode" parent="MISC"]
 margin_top = 74.0
 margin_right = 125.0
-margin_bottom = 144.0
+margin_bottom = 278.0
+title = "BUS MUX"
+slot/0/left_enabled = true
+slot/0/left_type = 1
+slot/0/left_color = Color( 1, 1, 0, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 1
+slot/0/right_color = Color( 1, 1, 0, 1 )
+slot/1/left_enabled = true
+slot/1/left_type = 1
+slot/1/left_color = Color( 1, 1, 0, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = true
+slot/2/left_type = 1
+slot/2/left_color = Color( 1, 1, 0, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = true
+slot/3/left_type = 1
+slot/3/left_color = Color( 1, 1, 0, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = true
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+slot/6/left_enabled = true
+slot/6/left_type = 0
+slot/6/left_color = Color( 1, 1, 1, 1 )
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox" type="HBoxContainer" parent="MISC/BUSMUX"]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 109.0
+margin_bottom = 48.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MISC/BUSMUX/HBox"]
+margin_right = 82.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+text = "A"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="MISC/BUSMUX/HBox"]
+margin_left = 86.0
+margin_right = 93.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+text = "Y"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="MISC/BUSMUX"]
+margin_left = 16.0
+margin_top = 49.0
+margin_right = 109.0
+margin_bottom = 73.0
+rect_min_size = Vector2( 0, 24 )
+text = "B"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="MISC/BUSMUX"]
+margin_left = 16.0
+margin_top = 74.0
+margin_right = 109.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 0, 24 )
+text = "C"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="MISC/BUSMUX"]
+margin_left = 16.0
+margin_top = 99.0
+margin_right = 109.0
+margin_bottom = 123.0
+rect_min_size = Vector2( 0, 24 )
+text = "D"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MISC/BUSMUX"]
+margin_left = 16.0
+margin_top = 124.0
+margin_right = 109.0
+margin_bottom = 148.0
+rect_min_size = Vector2( 0, 24 )
+text = "D"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="MISC/BUSMUX"]
+margin_left = 16.0
+margin_top = 149.0
+margin_right = 109.0
+margin_bottom = 173.0
+rect_min_size = Vector2( 0, 24 )
+text = "S0"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label6" type="Label" parent="MISC/BUSMUX"]
+margin_left = 16.0
+margin_top = 174.0
+margin_right = 109.0
+margin_bottom = 198.0
+rect_min_size = Vector2( 0, 24 )
+text = "S1"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="MISC/BUSMUX"]
+visible = false
+texture = ExtResource( 37 )
+
+[node name="BUS1" type="GraphNode" parent="MISC"]
+margin_top = 282.0
+margin_right = 125.0
+margin_bottom = 352.0
 title = "BUS"
 slot/0/left_enabled = true
 slot/0/left_type = 1
@@ -1262,9 +1414,9 @@ wait_time = 2.0
 one_shot = true
 
 [node name="LOOPBACK" type="GraphNode" parent="MISC"]
-margin_top = 148.0
+margin_top = 356.0
 margin_right = 125.0
-margin_bottom = 219.0
+margin_bottom = 427.0
 title = "LOOP BACK"
 slot/0/left_enabled = true
 slot/0/left_type = 1
@@ -1310,9 +1462,9 @@ wait_time = 2.0
 one_shot = true
 
 [node name="OUTBUS" type="GraphNode" parent="MISC"]
-margin_top = 223.0
+margin_top = 431.0
 margin_right = 125.0
-margin_bottom = 293.0
+margin_bottom = 501.0
 title = "OUTBUS"
 slot/0/left_enabled = true
 slot/0/left_type = 1
@@ -1382,8 +1534,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
-locked = false
-bits = 0
 
 [node name="Sprite" type="Sprite" parent="Combinational/MULT"]
 visible = false
@@ -1454,8 +1604,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
-locked = false
-bits = 0
 
 [node name="Sprite" type="Sprite" parent="Combinational/SRFLIPFLOP"]
 visible = false
@@ -1531,8 +1679,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
-locked = false
-bits = 0
 
 [node name="Sprite" type="Sprite" parent="Combinational/DLATCH"]
 visible = false
@@ -1620,8 +1766,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
-locked = false
-bits = 0
 
 [node name="Sprite" type="Sprite" parent="Combinational/DFLIPFLOP"]
 visible = false
@@ -1707,8 +1851,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
-locked = false
-bits = 0
 
 [node name="Sprite" type="Sprite" parent="Combinational/JKFLIPFLOP"]
 visible = false
@@ -1799,8 +1941,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
-locked = false
-bits = 0
 
 [node name="Sprite" type="Sprite" parent="Combinational/ADDER"]
 visible = false

@@ -72,6 +72,8 @@ func add_button(l: Label, left: bool):
 
 
 func set_value(v: int, reverse: bool, from_pin: bool, port := 0):
+	if type == Parts.TYPES.BUSMUX and port != selected_port:
+		return
 	if type == Parts.TYPES.ALU:
 		if port == 0:
 			if v != a:

@@ -25,6 +25,7 @@ var subidx := 0
 var input_levels = {}
 var last_input_levels = {}
 var inputs_effected = {}
+var selected_port = 0
 var in_port_map = []
 var in_port_mode = []
 var out_port_map = []
@@ -384,6 +385,8 @@ func update_output(level: bool, port: int, reverse: bool):
 			set_output(msb1 != msb2, 3) # OF
 			set_output(msb2, 4) # Sign
 			set_value(v % maxvs[bits], false, false, -1)
+		Parts.TYPES.BUSMUX:
+			selected_port = int(input_levels[5]) + 2 * int(input_levels[6])
 		_:
 			set_value(level, reverse, true)
 
