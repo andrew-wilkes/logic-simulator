@@ -152,6 +152,7 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+is_reversible_input = true
 
 [node name="Switch" type="CheckButton" parent="Gates/INPUT/INPUTSW"]
 margin_left = 16.0
@@ -177,6 +178,7 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+is_reversible_input = true
 
 [node name="Push" type="Button" parent="Gates/INPUT/INPUTPUSH"]
 margin_left = 16.0

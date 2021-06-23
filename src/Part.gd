@@ -14,6 +14,7 @@ signal data_changed
 export var has_tt = false
 export var locked = false
 export var bits = 0
+export var is_reversible_input = false
 
 const RACE_TRIGGER_COUNT = 4
 
@@ -386,7 +387,8 @@ func update_output(level: bool, port: int, reverse: bool):
 			set_output(msb2, 4) # Sign
 			set_value(v % maxvs[bits], false, false, -1)
 		Parts.TYPES.BUSMUX:
-			selected_port = int(input_levels[5]) + 2 * int(input_levels[6])
+			set_default_input_levels()
+			selected_port = int(input_levels[4]) + 2 * int(input_levels[5])
 		_:
 			set_value(level, reverse, true)
 

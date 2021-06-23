@@ -260,12 +260,19 @@ func _on_Graph_connection_request(from, from_slot, to, to_slot):
 	if $Graph.get_node(to).type == Parts.TYPES.LOOPBACK and $Graph.get_node(from).type == Parts.TYPES.LOOPBACK:
 		return
 	# Don't connect to input that is already connected unless it's a BUS or INPUT
-	var node = $Graph.get_node(to)
-	if node.type != Parts.TYPES.BUS1 and node.group != Parts.TYPES.INPUT and node.type != Parts.TYPES.LOOPBACK:
+	var to_node = $Graph.get_node(to)
+	if to_node.type != Parts.TYPES.BUS1 and to_node.group != Parts.TYPES.INPUT and to_node.type != Parts.TYPES.LOOPBACK:
 		for con in $Graph.get_connection_list():
-			if con.to == to and con.to_port == to_slot:
+			if con.to == to and con.to_port == to_slot: # Docs incorrect to_slot is a port
 				return
 	$Graph.connect_node(from, from_slot, to, to_slot)
+	# Propagate level
+	var from_node = $Graph.get_node(from)
+	if to_node.get_connection_input_type(to_slot) == 0:
+		if to_node.is_reversible_input:
+			from_node.set_input(to_node.output_levels[to_slot], from_slot, true)
+		else:
+			to_node.set_input(from_node.output_levels[from_slot], to_slot, false)
 	set_changed()
 
 
