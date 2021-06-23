@@ -1516,13 +1516,13 @@ title = "MULTIPLEXER"
 slot/0/left_enabled = true
 slot/0/left_type = 0
 slot/0/left_color = Color( 1, 1, 1, 1 )
-slot/0/right_enabled = false
+slot/0/right_enabled = true
 slot/0/right_type = 0
 slot/0/right_color = Color( 1, 1, 1, 1 )
 slot/1/left_enabled = true
 slot/1/left_type = 0
 slot/1/left_color = Color( 1, 1, 1, 1 )
-slot/1/right_enabled = true
+slot/1/right_enabled = false
 slot/1/right_type = 0
 slot/1/right_color = Color( 1, 1, 1, 1 )
 slot/2/left_enabled = true
@@ -1541,20 +1541,11 @@ has_tt = true
 visible = false
 texture = ExtResource( 24 )
 
-[node name="Label" type="Label" parent="Combinational/MULT"]
+[node name="HBox" type="HBoxContainer" parent="Combinational/MULT"]
 margin_left = 16.0
 margin_top = 23.0
 margin_right = 102.0
 margin_bottom = 47.0
-rect_min_size = Vector2( 0, 24 )
-text = "Select"
-valign = 1
-
-[node name="HBox" type="HBoxContainer" parent="Combinational/MULT"]
-margin_left = 16.0
-margin_top = 48.0
-margin_right = 102.0
-margin_bottom = 72.0
 
 [node name="Label2" type="Label" parent="Combinational/MULT/HBox"]
 margin_right = 9.0
@@ -1575,11 +1566,20 @@ valign = 1
 
 [node name="Label3" type="Label" parent="Combinational/MULT"]
 margin_left = 16.0
+margin_top = 48.0
+margin_right = 102.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 0, 24 )
+text = "B"
+valign = 1
+
+[node name="Label" type="Label" parent="Combinational/MULT"]
+margin_left = 16.0
 margin_top = 73.0
 margin_right = 102.0
 margin_bottom = 97.0
 rect_min_size = Vector2( 0, 24 )
-text = "B"
+text = "Select"
 valign = 1
 
 [node name="SRFLIPFLOP" type="GraphNode" parent="Combinational"]

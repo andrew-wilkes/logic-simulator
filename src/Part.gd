@@ -226,10 +226,10 @@ func update_output(level: bool, port: int, reverse: bool):
 			set_output(level, 0)
 		Parts.TYPES.MULT:
 			set_default_input_levels()
-			if input_levels[0]: # Select
-				set_output(input_levels[2], 0) # A
-			else:
+			if input_levels[2]: # Select
 				set_output(input_levels[1], 0) # B
+			else:
+				set_output(input_levels[0], 0) # A
 		Parts.TYPES.SRFLIPFLOP:
 			set_default_input_levels()
 			# Init outputs

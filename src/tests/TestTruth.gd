@@ -8,31 +8,25 @@ func _ready():
 	main = main_scene.instance()
 	add_child(main)
 	main.get_node("TestTimer").wait_time = 0.05
-	#test_parts_that_have_tt()
-	test_part("DFLIPFLOP")
+	test_parts_that_have_tt()
+	#test_part("DFLIPFLOP")
 
 
 func test_parts_that_have_tt():
-	var gid = 0
 	for group in Parts.get_children():
 		print("Group: ", group.name)
-		var idx = 0
 		for part in group.get_children():
 			if part.has_tt:
 				call_deferred("test_part", part.name)
 				if not yield(main, "test_completed"):
 					return
 				main.call_deferred("hide_alert")
-			var sub_idx = 0
 			for subpart in part.get_children():
 				if subpart is Part and subpart.has_tt:
 					call_deferred("test_part", subpart.name)
 					if yield(main, "test_completed"):
 						return
 					main.call_deferred("hide_alert")
-				sub_idx += 1
-			idx += 1
-		gid += 1
 		main.call_deferred("alert", "Passed tests")
 
 
