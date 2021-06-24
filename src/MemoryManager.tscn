@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://MemoryManager.gd" type="Script" id=1]
 [ext_resource path="res://assets/up.png" type="Texture" id=2]
 [ext_resource path="res://assets/down.png" type="Texture" id=3]
 [ext_resource path="res://assets/Bitstream Vera Sans Mono Roman.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://MemoryValuePanel.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 4 )
@@ -19,8 +20,8 @@ __meta__ = {
 [node name="M" type="MarginContainer" parent="."]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 288.0
-margin_bottom = 125.0
+margin_right = 322.0
+margin_bottom = 137.0
 custom_constants/margin_right = 5
 custom_constants/margin_top = 5
 custom_constants/margin_left = 5
@@ -32,8 +33,8 @@ __meta__ = {
 [node name="VBox" type="VBoxContainer" parent="M"]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 279.0
-margin_bottom = 116.0
+margin_right = 313.0
+margin_bottom = 128.0
 custom_constants/separation = 10
 
 [node name="Top" type="HBoxContainer" parent="M/VBox"]
@@ -120,6 +121,12 @@ margin_right = 274.0
 margin_bottom = 20.0
 text = "OK"
 
+[node name="MemoryValuePanel" parent="." instance=ExtResource( 5 )]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 322.0
+margin_bottom = 137.0
+
 [connection signal="pressed" from="M/VBox/Top/Up" to="." method="_on_Up_pressed"]
 [connection signal="pressed" from="M/VBox/Top/Down" to="." method="_on_Down_pressed"]
 [connection signal="pressed" from="M/VBox/Top/BH" to="." method="_on_BH_pressed"]
@@ -127,3 +134,4 @@ text = "OK"
 [connection signal="gui_input" from="M/VBox/View" to="." method="_on_View_gui_input"]
 [connection signal="pressed" from="M/VBox/Tray/Erase" to="." method="_on_Erase_pressed"]
 [connection signal="pressed" from="M/VBox/Tray/OK" to="." method="_on_OK_pressed"]
+[connection signal="value_changed" from="MemoryValuePanel" to="." method="_on_MemoryValuePanel_value_changed"]

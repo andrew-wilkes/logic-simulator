@@ -6,6 +6,7 @@ var base_addr = 0
 var mem_size = 1024
 var data: PoolIntArray
 var width = 8
+var current_addr = 0
 
 func _ready():
 	data.resize(1024)
@@ -45,11 +46,14 @@ func set_view():
 			_:
 				var asc = PoolStringArray()
 				for b in 16:
-					row.append(bformat % data[addr])
-					if data[addr] > 31:
-						asc.append(char(data[addr]))
-					else:
-						asc.append(".")
+					var d = data[addr] % 16
+					row.append(bformat % d)
+					if b % 2 == 1:
+						var char_code = d * 16 + data[addr - 1]
+						if char_code > 31:
+							asc.append("x") # char(char_code)
+						else:
+							asc.append(".")
 					addr += 1
 				row.append(asc.join(""))
 		items.append(row.join(""))
@@ -111,12 +115,16 @@ func set_mem_size(s):
 
 func _on_View_gui_input(event):
 	if event is InputEventMouseButton:
-		get_addr(event.position)
+		set_addr(event.position)
 
 
-func get_addr(p):
-	p.x = floor((p.x - 53) / 20)
-	p.y = floor(p.y / 22)
-	var a = p.x + base_addr + p.y * 16
-	data[a] = data[a] + 1
+func set_addr(p):
+	var x = int(clamp(floor((p.x - 53) / 20), 0, 15))
+	var y = int(clamp(floor(p.y / 22), 0, 15))
+	current_addr = x + base_addr + y * 16
+	$MemoryValuePanel.open(data[current_addr])
+
+
+func _on_MemoryValuePanel_value_changed(v):
+	data[current_addr] = v
 	set_view()

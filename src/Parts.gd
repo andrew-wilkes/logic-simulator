@@ -59,11 +59,11 @@ func get_enums():
 	print(n)
 
 
-func int2bin(x: int, nbits: int):
+func int2bin(x: int, nbits: int, prefix = "0b"):
 	var b = ""
 	for n in nbits:
 		if n > 0 and n % 4 == 0:
 			b = " " + b
 		b = String(x % 2) + b
 		x /= 2
-	return "0b" + b
+	return prefix + b
