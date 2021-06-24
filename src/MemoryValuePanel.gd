@@ -15,8 +15,10 @@ func _ready():
 
 
 func open(v):
-	value = v
+	value = v % 0x10
 	popup_centered()
+	var b: Button = $M/Grid.get_child(value)
+	b.grab_focus()
 
 
 func _on_button_pressed(n):
