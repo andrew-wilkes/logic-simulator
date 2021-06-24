@@ -88,6 +88,8 @@ text = "8"
 margin_top = 24.0
 margin_right = 274.0
 margin_bottom = 87.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 1 )
 text = "0000
 asdad
@@ -122,5 +124,6 @@ text = "OK"
 [connection signal="pressed" from="M/VBox/Top/Down" to="." method="_on_Down_pressed"]
 [connection signal="pressed" from="M/VBox/Top/BH" to="." method="_on_BH_pressed"]
 [connection signal="pressed" from="M/VBox/Top/Width" to="." method="_on_Width_pressed"]
+[connection signal="gui_input" from="M/VBox/View" to="." method="_on_View_gui_input"]
 [connection signal="pressed" from="M/VBox/Tray/Erase" to="." method="_on_Erase_pressed"]
 [connection signal="pressed" from="M/VBox/Tray/OK" to="." method="_on_OK_pressed"]

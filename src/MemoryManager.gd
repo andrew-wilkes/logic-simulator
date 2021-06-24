@@ -107,4 +107,16 @@ func set_width(w: int):
 func set_mem_size(s):
 	mem_size = s
 	$M/VBox/Top/SizeLabel.text = String(s)
-	
+
+
+func _on_View_gui_input(event):
+	if event is InputEventMouseButton:
+		get_addr(event.position)
+
+
+func get_addr(p):
+	p.x = floor((p.x - 53) / 20)
+	p.y = floor(p.y / 22)
+	var a = p.x + base_addr + p.y * 16
+	data[a] = data[a] + 1
+	set_view()
