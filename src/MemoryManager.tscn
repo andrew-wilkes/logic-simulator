@@ -1,0 +1,126 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://MemoryManager.gd" type="Script" id=1]
+[ext_resource path="res://assets/up.png" type="Texture" id=2]
+[ext_resource path="res://assets/down.png" type="Texture" id=3]
+[ext_resource path="res://assets/Bitstream Vera Sans Mono Roman.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 4 )
+
+[node name="MemoryManager" type="PopupPanel"]
+margin_right = 292.0
+margin_bottom = 108.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="M" type="MarginContainer" parent="."]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 288.0
+margin_bottom = 125.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="M"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 279.0
+margin_bottom = 116.0
+custom_constants/separation = 10
+
+[node name="Top" type="HBoxContainer" parent="M/VBox"]
+margin_right = 274.0
+margin_bottom = 20.0
+custom_constants/separation = 10
+
+[node name="Up" type="TextureButton" parent="M/VBox/Top"]
+margin_right = 18.0
+margin_bottom = 20.0
+texture_normal = ExtResource( 2 )
+
+[node name="Down" type="TextureButton" parent="M/VBox/Top"]
+margin_left = 23.0
+margin_right = 41.0
+margin_bottom = 20.0
+texture_normal = ExtResource( 3 )
+
+[node name="BH" type="Button" parent="M/VBox/Top"]
+margin_left = 46.0
+margin_right = 94.0
+margin_bottom = 20.0
+text = "Mode"
+
+[node name="Size" type="MenuButton" parent="M/VBox/Top"]
+margin_left = 99.0
+margin_right = 137.0
+margin_bottom = 20.0
+text = "Size"
+flat = false
+
+[node name="SizeLabel" type="Label" parent="M/VBox/Top"]
+margin_left = 142.0
+margin_top = 3.0
+margin_right = 174.0
+margin_bottom = 17.0
+rect_min_size = Vector2( 32, 0 )
+text = "64K"
+
+[node name="Width" type="Button" parent="M/VBox/Top"]
+margin_right = 12.0
+margin_bottom = 20.0
+text = "Width"
+
+[node name="WidthLabel" type="Label" parent="M/VBox/Top"]
+margin_right = 40.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 44, 0 )
+text = "8"
+
+[node name="View" type="Label" parent="M/VBox"]
+margin_top = 24.0
+margin_right = 274.0
+margin_bottom = 87.0
+custom_fonts/font = SubResource( 1 )
+text = "0000
+asdad
+asd"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tray" type="HBoxContainer" parent="M/VBox"]
+margin_top = 91.0
+margin_right = 274.0
+margin_bottom = 111.0
+
+[node name="Erase" type="Button" parent="M/VBox/Tray"]
+margin_right = 46.0
+margin_bottom = 20.0
+text = "Erase"
+
+[node name="C" type="Control" parent="M/VBox/Tray"]
+margin_left = 50.0
+margin_right = 239.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="OK" type="Button" parent="M/VBox/Tray"]
+margin_left = 243.0
+margin_right = 274.0
+margin_bottom = 20.0
+text = "OK"
+
+[connection signal="pressed" from="M/VBox/Top/Up" to="." method="_on_Up_pressed"]
+[connection signal="pressed" from="M/VBox/Top/Down" to="." method="_on_Down_pressed"]
+[connection signal="pressed" from="M/VBox/Top/BH" to="." method="_on_BH_pressed"]
+[connection signal="pressed" from="M/VBox/Top/Width" to="." method="_on_Width_pressed"]
+[connection signal="pressed" from="M/VBox/Tray/Erase" to="." method="_on_Erase_pressed"]
+[connection signal="pressed" from="M/VBox/Tray/OK" to="." method="_on_OK_pressed"]

@@ -57,3 +57,13 @@ func get_enums():
 					n += 1
 	print(e.to_upper())
 	print(n)
+
+
+func int2bin(x: int, nbits: int):
+	var b = ""
+	for n in nbits:
+		if n > 0 and n % 4 == 0:
+			b = " " + b
+		b = String(x % 2) + b
+		x /= 2
+	return "0b" + b

@@ -118,17 +118,7 @@ func update_display_value():
 		DEC:
 			$Label.text = String(value)
 		BIN:
-			$Label.text = int2bin(value)
-
-
-func int2bin(x: int):
-	var b = ""
-	for n in bit_lengths[data.bits]:
-		if n > 0 and n % 4 == 0:
-			b = " " + b
-		b = String(x % 2) + b
-		x /= 2
-	return "0b" + b
+			$Label.text = Parts.int2bin(value, bit_lengths[data.bits])
 
 
 func set_format():

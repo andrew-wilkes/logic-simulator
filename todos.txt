@@ -6,7 +6,7 @@ Be able to compile circuits to use as modules.
 Some way to input memory bytes.
 Memory dump.
 
-Memory ROM / RAM
+Memory ROM / RAM. Create csv data import dialog.
 
 Be able to output a text version of the circuit for use with external programs.
 
@@ -14,7 +14,4 @@ Have a text input format for circuits.
 
 Be able to output a screen shot.
 
-Save cct offset.
-
 Add labels for pins.
-
