@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://assets/nand.png" type="Texture" id=1]
 [ext_resource path="res://assets/and.png" type="Texture" id=2]
@@ -38,7 +38,9 @@
 [ext_resource path="res://assets/alu.png" type="Texture" id=36]
 [ext_resource path="res://assets/busmux.png" type="Texture" id=37]
 [ext_resource path="res://Memory.gd" type="Script" id=38]
-[ext_resource path="res://assets/memory.png" type="Texture" id=39]
+[ext_resource path="res://assets/rom.png" type="Texture" id=39]
+[ext_resource path="res://assets/ram.png" type="Texture" id=40]
+[ext_resource path="res://MemoryManager.tscn" type="PackedScene" id=41]
 
 [node name="Parts" type="Control"]
 visible = false
@@ -2916,13 +2918,13 @@ text = "Sign"
 align = 2
 valign = 1
 
-[node name="MEM" type="GraphNode" parent="Blocks"]
+[node name="ROM" type="GraphNode" parent="Blocks"]
 margin_left = 467.0
 margin_top = 673.335
 margin_right = 590.0
 margin_bottom = 772.335
 custom_styles/frame = ExtResource( 23 )
-title = "MEMORY"
+title = "ROM MEMORY"
 slot/0/left_enabled = true
 slot/0/left_type = 1
 slot/0/left_color = Color( 1, 1, 0, 1 )
@@ -2941,30 +2943,36 @@ slot/2/left_color = Color( 1, 1, 1, 1 )
 slot/2/right_enabled = false
 slot/2/right_type = 0
 slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 38 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="Blocks/MEM"]
+[node name="Sprite" type="Sprite" parent="Blocks/ROM"]
 visible = false
 texture = ExtResource( 39 )
 
-[node name="HBox9" type="HBoxContainer" parent="Blocks/MEM"]
+[node name="HBox9" type="HBoxContainer" parent="Blocks/ROM"]
 margin_left = 16.0
 margin_top = 23.0
-margin_right = 107.0
+margin_right = 342.0
 margin_bottom = 47.0
 custom_constants/separation = 10
 
-[node name="A" type="Label" parent="Blocks/MEM/HBox9"]
+[node name="A" type="Label" parent="Blocks/ROM/HBox9"]
 margin_right = 9.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
 text = "A"
 valign = 1
 
-[node name="D" type="Label" parent="Blocks/MEM/HBox9"]
+[node name="D" type="Label" parent="Blocks/ROM/HBox9"]
 margin_left = 19.0
 margin_right = 91.0
 margin_bottom = 24.0
@@ -2974,22 +2982,128 @@ text = "D"
 align = 2
 valign = 1
 
-[node name="Size" type="Label" parent="Blocks/MEM"]
+[node name="Size" type="Label" parent="Blocks/ROM"]
 margin_left = 16.0
 margin_top = 48.0
-margin_right = 107.0
+margin_right = 342.0
 margin_bottom = 72.0
 rect_min_size = Vector2( 0, 24 )
-text = "32x16 ROM"
+text = "32x16"
 valign = 1
 
-[node name="Button" type="Button" parent="Blocks/MEM"]
+[node name="Button" type="Button" parent="Blocks/ROM"]
 margin_left = 16.0
 margin_top = 73.0
-margin_right = 107.0
+margin_right = 342.0
 margin_bottom = 93.0
 focus_mode = 0
 text = "Edit"
+
+[node name="MM" parent="Blocks/ROM" instance=ExtResource( 41 )]
+margin_left = 16.0
+margin_top = 94.0
+margin_right = 342.0
+margin_bottom = 235.0
+
+[node name="RAM" type="GraphNode" parent="Blocks"]
+margin_left = 467.0
+margin_top = 673.335
+margin_right = 590.0
+margin_bottom = 772.335
+custom_styles/frame = ExtResource( 23 )
+title = "RAM MEMORY"
+slot/0/left_enabled = true
+slot/0/left_type = 1
+slot/0/left_color = Color( 1, 1, 0, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 1
+slot/0/right_color = Color( 1, 1, 0, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = true
+slot/2/left_type = 1
+slot/2/left_color = Color( 1, 1, 0, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 38 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Blocks/RAM"]
+visible = false
+texture = ExtResource( 40 )
+
+[node name="HBox9" type="HBoxContainer" parent="Blocks/RAM"]
+margin_left = 16.0
+margin_top = 23.0
+margin_right = 342.0
+margin_bottom = 47.0
+custom_constants/separation = 10
+
+[node name="Din" type="Label" parent="Blocks/RAM/HBox9"]
+margin_right = 9.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+text = "Din"
+valign = 1
+
+[node name="Dout" type="Label" parent="Blocks/RAM/HBox9"]
+margin_left = 19.0
+margin_right = 91.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+text = "Dout"
+align = 2
+valign = 1
+
+[node name="Size" type="Label" parent="Blocks/RAM"]
+margin_left = 16.0
+margin_top = 48.0
+margin_right = 342.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 0, 24 )
+text = "1Kx8"
+valign = 1
+
+[node name="HBox" type="HBoxContainer" parent="Blocks/RAM"]
+margin_left = 16.0
+margin_top = 73.0
+margin_right = 342.0
+margin_bottom = 97.0
+
+[node name="A" type="Label" parent="Blocks/RAM/HBox"]
+margin_top = -50.0
+margin_right = 9.0
+margin_bottom = -26.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+text = "A"
+valign = 1
+
+[node name="Button" type="Button" parent="Blocks/RAM/HBox"]
+margin_top = -21.0
+margin_right = 91.0
+margin_bottom = -1.0
+text = "Edit"
+
+[node name="MM" parent="Blocks/RAM" instance=ExtResource( 41 )]
+margin_left = 16.0
+margin_top = 98.0
+margin_right = 342.0
+margin_bottom = 239.0
 
 [node name="Gizmos" type="VBoxContainer" parent="."]
 margin_left = 417.692
@@ -3021,3 +3135,5 @@ __meta__ = {
 [connection signal="pressed" from="Combinational/SEG7/HB/Mode" to="Combinational/SEG7" method="_on_Mode_pressed"]
 [connection signal="was_pressed" from="Blocks/SHIFTREG/HBox/Bits" to="Blocks/SHIFTREG" method="_on_Bits_was_pressed"]
 [connection signal="was_pressed" from="Blocks/ALU/HBox5/Bits" to="Blocks/ALU" method="_on_Bits_was_pressed"]
+[connection signal="pressed" from="Blocks/ROM/Button" to="Blocks/ROM" method="_on_Button_pressed"]
+[connection signal="pressed" from="Blocks/RAM/HBox/Button" to="Blocks/RAM" method="_on_Button_pressed"]

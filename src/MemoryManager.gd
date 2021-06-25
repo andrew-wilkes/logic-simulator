@@ -4,18 +4,27 @@ enum { HEX, BIN }
 var mode = HEX
 var base_addr = 0
 var mem_size = 1024
-var data: MemoryData
 var current_addr = 0
+var data: MemoryData
 
 func _ready():
-	data = MemoryData.new()
-	set_mem_size(5)
-	set_width(8)
-	set_view()
 	var sizes = $M/VBox/Top/Size.get_popup()
+	sizes.clear()
+	data = MemoryData.new()
 	for v in data.mem_sizes.values():
 		sizes.add_item(v)
 	sizes.connect("id_pressed", self, "_on_size_id_pressed")
+	if get_parent().name == "root":
+		set_mem_size(5)
+		set_width(8)
+		call_deferred("popup_centered")
+
+
+func open(_data):
+	data = _data
+	$M/VBox/Top/WidthLabel.text = String(data.width)
+	$M/VBox/Top/SizeLabel.text = data.get_mem_size_str()
+	set_view()
 	call_deferred("popup_centered")
 
 
@@ -27,7 +36,11 @@ func set_view():
 	var addr = base_addr
 	var bformat = "%X "
 	var items = PoolStringArray()
-	for n in 16:
+# warning-ignore:integer_division
+	var num_rows = data.bytes.size() / 16
+	if num_rows > 16:
+		num_rows = 16
+	for n in num_rows:
 		var row = PoolStringArray()
 		var display_addr = addr
 		if data.width == 16:
@@ -55,17 +68,19 @@ func set_view():
 
 
 func _on_Up_pressed():
-	base_addr = wrapi(base_addr + 0x100, 0, mem_size)
-	set_view()
+	if data.mem_size > 0x100:
+		base_addr = wrapi(base_addr + 0x100, 0, data.mem_size)
+		set_view()
 
 
 func _on_Down_pressed():
-	base_addr = wrapi(base_addr - 0x100, 0, mem_size)
-	set_view()
+	if data.mem_size > 0x100:
+		base_addr = wrapi(base_addr - 0x100, 0, data.mem_size)
+		set_view()
 
 
 func _on_BH_pressed():
-	mode = wrapi(mode + 1, 0, 3)
+	mode = wrapi(mode + 1, 0, 2)
 	set_view()
 
 
@@ -83,17 +98,19 @@ func _on_Width_pressed():
 		set_width(16)
 	else:
 		set_width(8)
+	set_view()
 
 
 func set_width(w: int):
 	data.width = w
 	$M/VBox/Top/WidthLabel.text = String(w)
+
+
+func set_mem_size(id: int):
+	base_addr = 0
+	data.set_indexed_mem_size(id)
+	$M/VBox/Top/SizeLabel.text = data.get_mem_size_str()
 	set_view()
-
-
-func set_mem_size(s):
-	data.mem_size = s
-	$M/VBox/Top/SizeLabel.text = String(s)
 
 
 func _on_View_gui_input(event):

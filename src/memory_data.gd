@@ -5,6 +5,7 @@ class_name MemoryData
 export var mem_size: int setget set_mem_size
 export var width: int
 export var bytes: PoolIntArray
+export var rom: bool = true
 
 const mem_sizes = {
 	32: "32",
@@ -18,8 +19,8 @@ const mem_sizes = {
 	8192: "8K"
 }
 
-func set_mem_size(idx):
-	mem_size = get_mem_size(idx)
+func set_mem_size(v):
+	mem_size = v
 	bytes.resize(mem_size)
 	erase()
 
@@ -29,5 +30,9 @@ func erase():
 		bytes[idx] = 0
 
 
-func get_mem_size(idx):
-	return mem_sizes.keys()[idx]
+func set_indexed_mem_size(idx):
+	set_mem_size(mem_sizes.keys()[idx])
+
+
+func get_mem_size_str():
+	return mem_sizes[mem_size]

@@ -26,9 +26,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="7.9195959"
-     inkscape:cx="-821.31715"
-     inkscape:cy="-662.28126"
+     inkscape:zoom="5.6"
+     inkscape:cx="-825.08929"
+     inkscape:cy="-884.10715"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -887,6 +887,48 @@
          x="-817.57556"
          y="-876.11194"
          id="tspan682-2-2-9-6-7-7-5">MEM</tspan></text>
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -830,-865 c -10,0 -20,0 -30,0 v -30 c 10,0 20,0 30,0 z"
+       id="path889-3-3-3-9-7-6-3-3-5-3"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/rom.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-857.50787"
+       y="-876.11719"
+       id="text893-6-6-5-1-0-2-6-6-3-6"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/rom.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         x="-857.50787"
+         y="-876.11719"
+         id="tspan682-2-2-9-6-7-7-5-7">ROM</tspan></text>
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -830,-825 c -10,0 -20,0 -30,0 v -30 c 10,0 20,0 30,0 z"
+       id="path889-3-3-3-9-7-6-3-3-5-5"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/ram.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-856.74225"
+       y="-836.11194"
+       id="text893-6-6-5-1-0-2-6-6-3-3"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/ram.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         x="-856.74225"
+         y="-836.11194"
+         id="tspan682-2-2-9-6-7-7-5-5">RAM</tspan></text>
     <path
        style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m -705,-825 c -10,0 -20,0 -30,0 v -30 c 10,0 20,0 30,0 z"

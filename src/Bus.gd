@@ -168,6 +168,8 @@ func set_data(d):
 	data = d
 	if data.empty():
 		return
+	if type == Parts.TYPES.ROM or type == Parts.TYPES.RAM:
+		return
 	if has_mode_button:
 		button_to_mode()
 	set_format()

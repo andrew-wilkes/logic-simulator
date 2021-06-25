@@ -42,6 +42,7 @@ var b := 0
 var vin = 0
 var data = {} setget set_data, get_data
 var type := 0
+var read = true
 
 var frame_style = preload("res://assets/GraphNodeFrameStyle.tres")
 
