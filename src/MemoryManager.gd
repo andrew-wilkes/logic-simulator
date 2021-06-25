@@ -44,8 +44,8 @@ func set_view():
 					row.append(bformat % d)
 					if b % 2 == 1:
 						var char_code = d * 16 + data.bytes[addr - 1]
-						if char_code > 31:
-							asc.append("x") # char(char_code)
+						if char_code > 31 and char_code < 128:
+							asc.append(char(char_code))
 						else:
 							asc.append(".")
 					addr += 1
@@ -70,7 +70,8 @@ func _on_BH_pressed():
 
 
 func _on_Erase_pressed():
-	pass # Replace with function body.
+	data.erase()
+	set_view()
 
 
 func _on_OK_pressed():

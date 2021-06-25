@@ -21,6 +21,10 @@ const mem_sizes = {
 func set_mem_size(idx):
 	mem_size = get_mem_size(idx)
 	bytes.resize(mem_size)
+	erase()
+
+
+func erase():
 	for idx in mem_size:
 		bytes[idx] = 0
 
