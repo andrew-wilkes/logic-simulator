@@ -22,7 +22,6 @@ func open(v):
 
 
 func _on_button_pressed(n):
-	print(n)
 	if n != value:
 		emit_signal("value_changed", n)
 	hide()
