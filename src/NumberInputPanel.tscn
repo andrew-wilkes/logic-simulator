@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://NumberInputPanel.gd" type="Script" id=1]
+[ext_resource path="res://assets/mono-font.tres" type="DynamicFont" id=2]
+
+[node name="NumberInputPanel" type="PopupPanel"]
+margin_right = 123.0
+margin_bottom = 38.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="M" type="MarginContainer" parent="."]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 119.0
+margin_bottom = 34.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox" type="HBoxContainer" parent="M"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 110.0
+margin_bottom = 25.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="M/HBox"]
+margin_right = 64.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 64, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="Button" type="Button" parent="M/HBox"]
+margin_left = 74.0
+margin_right = 105.0
+margin_bottom = 20.0
+text = "OK"
+
+[connection signal="pressed" from="M/HBox/Button" to="." method="_on_Button_pressed"]

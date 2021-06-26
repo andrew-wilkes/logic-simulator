@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://MemoryManager.gd" type="Script" id=1]
 [ext_resource path="res://assets/up.png" type="Texture" id=2]
 [ext_resource path="res://assets/down.png" type="Texture" id=3]
 [ext_resource path="res://assets/Bitstream Vera Sans Mono Roman.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://MemoryValuePanel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://NumberInputPanel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/mono-font.tres" type="DynamicFont" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 4 )
@@ -85,7 +86,16 @@ margin_bottom = 14.0
 rect_min_size = Vector2( 44, 0 )
 text = "8"
 
-[node name="View" type="Label" parent="M/VBox"]
+[node name="View" type="HBoxContainer" parent="M/VBox"]
+margin_right = 58.0
+margin_bottom = 63.0
+
+[node name="Addr" type="Label" parent="M/VBox/View"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 6 )
+
+[node name="Bytes" type="Label" parent="M/VBox/View"]
 margin_top = 24.0
 margin_right = 274.0
 margin_bottom = 87.0
@@ -98,6 +108,16 @@ asd"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Mask" type="ColorRect" parent="M/VBox/View/Bytes"]
+margin_right = 40.0
+margin_bottom = 22.0
+color = Color( 0, 1, 0, 0.305882 )
+
+[node name="Chrs" type="Label" parent="M/VBox/View"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 6 )
 
 [node name="Tray" type="HBoxContainer" parent="M/VBox"]
 margin_top = 91.0
@@ -121,7 +141,7 @@ margin_right = 274.0
 margin_bottom = 20.0
 text = "OK"
 
-[node name="MemoryValuePanel" parent="." instance=ExtResource( 5 )]
+[node name="NumberInputPanel" parent="." instance=ExtResource( 5 )]
 margin_left = 4.0
 margin_top = 4.0
 margin_right = 322.0
@@ -131,7 +151,7 @@ margin_bottom = 137.0
 [connection signal="pressed" from="M/VBox/Top/Down" to="." method="_on_Down_pressed"]
 [connection signal="pressed" from="M/VBox/Top/BH" to="." method="_on_BH_pressed"]
 [connection signal="pressed" from="M/VBox/Top/Width" to="." method="_on_Width_pressed"]
-[connection signal="gui_input" from="M/VBox/View" to="." method="_on_View_gui_input"]
+[connection signal="gui_input" from="M/VBox/View/Bytes" to="." method="_on_View_gui_input"]
 [connection signal="pressed" from="M/VBox/Tray/Erase" to="." method="_on_Erase_pressed"]
 [connection signal="pressed" from="M/VBox/Tray/OK" to="." method="_on_OK_pressed"]
-[connection signal="value_changed" from="MemoryValuePanel" to="." method="_on_MemoryValuePanel_value_changed"]
+[connection signal="popup_hide" from="NumberInputPanel" to="." method="_on_NumberInputPanel_popup_hide"]

@@ -8,6 +8,7 @@ var current_addr = 0
 var data: MemoryData
 
 func _ready():
+	hide_mask()
 	var sizes = $M/VBox/Top/Size.get_popup()
 	sizes.clear()
 	data = MemoryData.new()
@@ -34,8 +35,10 @@ func _on_size_id_pressed(id: int):
 
 func set_view():
 	var addr = base_addr
-	var bformat = "%X "
-	var items = PoolStringArray()
+	var bformat = "%02X "
+	var addresses = PoolStringArray()
+	var bytes = PoolStringArray()
+	var chars = PoolStringArray()
 # warning-ignore:integer_division
 	var num_rows = data.bytes.size() / 16
 	if num_rows > 16:
@@ -45,26 +48,28 @@ func set_view():
 		var display_addr = addr
 		if data.width == 16:
 			display_addr /= 2
-		row.append("%04X: " % display_addr)
+		addresses.append("%04X: " % display_addr)
 		match mode:
 			BIN:
-				row.append(Parts.int2bin(data.bytes[addr] + 16 * data.bytes[addr + 1], 16))
-				addr += 2
+				for m in 2:
+					row.append(Parts.int2bin(data.bytes[addr] + 16 * data.bytes[addr + 1], 16, ""))
+					row.append(" ")
+					addr += 2
 			_:
 				var asc = PoolStringArray()
 				for b in 16:
-					var d = data.bytes[addr] % 16
+					var d = data.bytes[addr] % 0x100
 					row.append(bformat % d)
-					if b % 2 == 1:
-						var char_code = d * 16 + data.bytes[addr - 1]
-						if char_code > 31 and char_code < 128:
-							asc.append(char(char_code))
-						else:
-							asc.append(".")
+					if d > 31 and d < 127:
+						asc.append(char(d))
+					else:
+						asc.append(".")
 					addr += 1
-				row.append(asc.join(""))
-		items.append(row.join(""))
-	$M/VBox/View.text = items.join("\n")
+				chars.append(asc.join(""))
+		bytes.append(row.join(""))
+	$M/VBox/View/Addr.text = addresses.join("\n")
+	$M/VBox/View/Bytes.text = bytes.join("\n")
+	$M/VBox/View/Chrs.text = chars.join("\n")
 
 
 func _on_Up_pressed():
@@ -116,15 +121,43 @@ func set_mem_size(id: int):
 func _on_View_gui_input(event):
 	if event is InputEventMouseButton:
 		set_addr(event.position)
+		$NumberInputPanel.open(mode == HEX)
 
 
 func set_addr(p):
-	var x = int(clamp(floor((p.x - 53) / 20), 0, 15))
-	var y = int(clamp(floor(p.y / 22), 0, 15))
+	var div = 30 if mode == HEX else 101
+	var x = int(p.x) / div
+# warning-ignore:integer_division
+	var y = int(p.y) / 22
 	current_addr = x + base_addr + y * 16
-	$MemoryValuePanel.open(data.bytes[current_addr])
+	if mode == BIN:
+		div /= 2
+		x = int(p.x) / div
+	show_mask(Vector2(x, y), Vector2(div, 22))
 
 
-func _on_MemoryValuePanel_value_changed(v):
-	data.bytes[current_addr] = v
+func show_mask(pos, size):
+	$M/VBox/View/Bytes/Mask.show()
+	$M/VBox/View/Bytes/Mask.rect_position = (pos * size) - Vector2(5, 2)
+	$M/VBox/View/Bytes/Mask.rect_size = size
+
+
+func hide_mask():
+	$M/VBox/View/Bytes/Mask.hide()
+
+
+func _on_NumberInputPanel_popup_hide():
+	hide_mask()
+	var v = $NumberInputPanel.txt.text
+	if v[0] != "0":
+		return
+	var x = 0
+	if mode == BIN:
+		for n in 4:
+			x *= 2
+			if v[2 + n] == "1":
+				x += 1
+	else:
+		x = v.hex_to_int()
+	data.bytes[current_addr] = x
 	set_view()
