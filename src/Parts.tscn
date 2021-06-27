@@ -242,7 +242,7 @@ margin_top = 23.0
 margin_right = 95.0
 margin_bottom = 47.0
 rect_min_size = Vector2( 0, 24 )
-text = "0XFF"
+text = "0X00"
 valign = 1
 
 [node name="VSlider" type="VSlider" parent="Gates/INPUT/INPUT4/V"]
@@ -368,7 +368,7 @@ margin_top = 23.0
 margin_right = 95.0
 margin_bottom = 47.0
 rect_min_size = Vector2( 0, 24 )
-text = "0XFF"
+text = "0X00"
 valign = 1
 
 [node name="VSlider" type="VSlider" parent="Gates/INPUT/INPUT8/V"]
@@ -1004,7 +1004,7 @@ margin_top = 23.0
 margin_right = 96.0
 margin_bottom = 47.0
 rect_min_size = Vector2( 0, 24 )
-text = "0XFF"
+text = "0X00"
 valign = 1
 
 [node name="D0" type="Label" parent="Gates/OUTPUT/OUTPUT4"]
@@ -1112,7 +1112,7 @@ margin_top = 23.0
 margin_right = 96.0
 margin_bottom = 47.0
 rect_min_size = Vector2( 0, 24 )
-text = "0XFF"
+text = "0X00"
 valign = 1
 
 [node name="D0" type="Label" parent="Gates/OUTPUT/OUTPUT8"]
@@ -1209,7 +1209,7 @@ margin_top = 24.0
 margin_right = 109.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 0, 40 )
-text = "0xFF"
+text = "0x00"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1409,7 +1409,7 @@ margin_top = 24.0
 margin_right = 109.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 0, 40 )
-text = "0xFF"
+text = "0x00"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1451,7 +1451,7 @@ margin_top = 24.0
 margin_right = 109.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 0, 40 )
-text = "0xFF"
+text = "0x00"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1489,7 +1489,7 @@ margin_top = 24.0
 margin_right = 109.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 0, 40 )
-text = "0xFF"
+text = "0x00"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2893,12 +2893,18 @@ slot/2/left_color = Color( 1, 1, 1, 1 )
 slot/2/right_enabled = false
 slot/2/right_type = 0
 slot/2/right_color = Color( 1, 1, 1, 1 )
-slot/3/left_enabled = false
+slot/3/left_enabled = true
 slot/3/left_type = 0
 slot/3/left_color = Color( 1, 1, 1, 1 )
 slot/3/right_enabled = false
 slot/3/right_type = 0
 slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 38 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2949,11 +2955,20 @@ margin_bottom = 93.0
 focus_mode = 0
 text = "Edit"
 
-[node name="MM" parent="Blocks/ROM" instance=ExtResource( 41 )]
+[node name="OE" type="Label" parent="Blocks/ROM"]
 margin_left = 16.0
 margin_top = 94.0
 margin_right = 342.0
-margin_bottom = 235.0
+margin_bottom = 118.0
+rect_min_size = Vector2( 0, 24 )
+text = "/OE"
+valign = 1
+
+[node name="MM" parent="Blocks/ROM" instance=ExtResource( 41 )]
+margin_left = 16.0
+margin_top = 119.0
+margin_right = 342.0
+margin_bottom = 260.0
 
 [node name="RAM" type="GraphNode" parent="Blocks"]
 margin_left = 467.0
@@ -2980,12 +2995,24 @@ slot/2/left_color = Color( 1, 1, 0, 1 )
 slot/2/right_enabled = false
 slot/2/right_type = 0
 slot/2/right_color = Color( 1, 1, 1, 1 )
-slot/3/left_enabled = false
+slot/3/left_enabled = true
 slot/3/left_type = 0
 slot/3/left_color = Color( 1, 1, 1, 1 )
 slot/3/right_enabled = false
 slot/3/right_type = 0
 slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = true
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 38 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3002,11 +3029,11 @@ margin_right = 342.0
 margin_bottom = 47.0
 custom_constants/separation = 10
 
-[node name="Din" type="Label" parent="Blocks/RAM/HBox9"]
+[node name="A" type="Label" parent="Blocks/RAM/HBox9"]
 margin_right = 9.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
-text = "Din"
+text = "A"
 valign = 1
 
 [node name="Dout" type="Label" parent="Blocks/RAM/HBox9"]
@@ -3034,13 +3061,13 @@ margin_top = 73.0
 margin_right = 342.0
 margin_bottom = 97.0
 
-[node name="A" type="Label" parent="Blocks/RAM/HBox"]
+[node name="Din" type="Label" parent="Blocks/RAM/HBox"]
 margin_top = -50.0
 margin_right = 9.0
 margin_bottom = -26.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
-text = "A"
+text = "Din"
 valign = 1
 
 [node name="Button" type="Button" parent="Blocks/RAM/HBox"]
@@ -3049,11 +3076,29 @@ margin_right = 91.0
 margin_bottom = -1.0
 text = "Edit"
 
-[node name="MM" parent="Blocks/RAM" instance=ExtResource( 41 )]
+[node name="OE" type="Label" parent="Blocks/RAM"]
 margin_left = 16.0
 margin_top = 98.0
 margin_right = 342.0
-margin_bottom = 239.0
+margin_bottom = 122.0
+rect_min_size = Vector2( 0, 24 )
+text = "/OE"
+valign = 1
+
+[node name="R" type="Label" parent="Blocks/RAM"]
+margin_left = 16.0
+margin_top = 123.0
+margin_right = 342.0
+margin_bottom = 147.0
+rect_min_size = Vector2( 0, 24 )
+text = "/W"
+valign = 1
+
+[node name="MM" parent="Blocks/RAM" instance=ExtResource( 41 )]
+margin_left = 16.0
+margin_top = 148.0
+margin_right = 342.0
+margin_bottom = 289.0
 
 [node name="Gizmos" type="VBoxContainer" parent="."]
 margin_left = 417.692
