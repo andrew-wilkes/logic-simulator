@@ -431,3 +431,7 @@ func set_pin_name(txt):
 # Run code when part is added to graph
 func dropped():
 	emit_signal("data_changed") # To avoid warning
+
+
+func loaded_from_file():
+	pass

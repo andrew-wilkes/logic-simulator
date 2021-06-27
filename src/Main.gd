@@ -467,6 +467,7 @@ func init_graph(circuit: Circuit):
 		call_deferred("check_for_at_marks")
 		connect_part(part)
 		part.name = node.name
+		part.loaded_from_file()
 		for con in circuit.connections:
 			var _e = $Graph.connect_node(con.from, con.from_port, con.to, con.to_port)
 

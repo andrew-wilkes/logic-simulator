@@ -96,10 +96,6 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-has_tt = false
-locked = false
-bits = 0
-is_reversible_input = false
 
 [node name="Sprite" type="Sprite" parent="Gates/INPUT"]
 visible = false
@@ -128,10 +124,6 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-has_tt = false
-locked = false
-bits = 0
-is_reversible_input = false
 
 [node name="Control" type="Control" parent="Gates/INPUT/INPUTPIN"]
 margin_left = 16.0
@@ -164,9 +156,6 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-has_tt = false
-locked = false
-bits = 0
 is_reversible_input = true
 
 [node name="Switch" type="CheckButton" parent="Gates/INPUT/INPUTSW"]
@@ -193,9 +182,6 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-has_tt = false
-locked = false
-bits = 0
 is_reversible_input = true
 
 [node name="Push" type="Button" parent="Gates/INPUT/INPUTPUSH"]
@@ -589,9 +575,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
-locked = false
-bits = 0
-is_reversible_input = false
 
 [node name="Icon" type="TextureRect" parent="Gates/NOT"]
 margin_left = 16.0
@@ -631,9 +614,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
-locked = false
-bits = 0
-is_reversible_input = false
 
 [node name="Control" type="Control" parent="Gates/AND"]
 margin_left = 16.0
@@ -686,9 +666,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
-locked = false
-bits = 0
-is_reversible_input = false
 
 [node name="Control" type="Control" parent="Gates/NAND"]
 margin_left = 16.0
@@ -741,9 +718,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
-locked = false
-bits = 0
-is_reversible_input = false
 
 [node name="Control" type="Control" parent="Gates/OR"]
 margin_left = 16.0
@@ -796,9 +770,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
-locked = false
-bits = 0
-is_reversible_input = false
 
 [node name="Control" type="Control" parent="Gates/NOR"]
 margin_left = 16.0
@@ -851,9 +822,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
-locked = false
-bits = 0
-is_reversible_input = false
 
 [node name="Control" type="Control" parent="Gates/XOR"]
 margin_left = 16.0
@@ -1572,9 +1540,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
-locked = false
-bits = 0
-is_reversible_input = false
 
 [node name="Sprite" type="Sprite" parent="Combinational/MULT"]
 visible = false
@@ -1645,9 +1610,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
-locked = false
-bits = 0
-is_reversible_input = false
 
 [node name="Sprite" type="Sprite" parent="Combinational/SRFLIPFLOP"]
 visible = false
@@ -1723,9 +1685,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
-locked = false
-bits = 0
-is_reversible_input = false
 
 [node name="Sprite" type="Sprite" parent="Combinational/DLATCH"]
 visible = false
@@ -1813,9 +1772,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
-locked = false
-bits = 0
-is_reversible_input = false
 
 [node name="Sprite" type="Sprite" parent="Combinational/DFLIPFLOP"]
 visible = false
@@ -1901,9 +1857,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
-locked = false
-bits = 0
-is_reversible_input = false
 
 [node name="Sprite" type="Sprite" parent="Combinational/JKFLIPFLOP"]
 visible = false
@@ -1994,9 +1947,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 has_tt = true
-locked = false
-bits = 0
-is_reversible_input = false
 
 [node name="Sprite" type="Sprite" parent="Combinational/ADDER"]
 visible = false
