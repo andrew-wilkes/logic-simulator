@@ -35,7 +35,7 @@ func _on_size_id_pressed(id: int):
 
 func set_view():
 	var addr = base_addr
-	var bformat = "%02X "
+	var hex_format = "%02X " if data.width == 8 else "%04X "
 	var addresses = PoolStringArray()
 	var bytes = PoolStringArray()
 	var chars = PoolStringArray()
@@ -51,25 +51,40 @@ func set_view():
 		addresses.append("%04X: " % display_addr)
 		match mode:
 			BIN:
-				for m in 2:
-					row.append(Parts.int2bin(data.bytes[addr] + 16 * data.bytes[addr + 1], 16, ""))
+				for m in 32 / data.width: # 2 words or 4 bytes
+					if data.width == 8:
+						row.append(int2bin(data.bytes[addr]))
+						addr += 1
+					else:
+						row.append(int2bin(data.bytes[addr] + 16 * data.bytes[addr + 1]))
+						addr += 2
 					row.append(" ")
-					addr += 2
 			_:
 				var asc = PoolStringArray()
-				for b in 16:
-					var d = data.bytes[addr] % 0x100
-					row.append(bformat % d)
-					if d > 31 and d < 127:
-						asc.append(char(d))
+				var count = 8 if data.width == 16 else 16
+				for m in count: # 16 bytes or 8 words
+					var d1 = data.bytes[addr]
+					asc.append(get_ascii(d1))
+					if data.width == 8:
+						row.append(hex_format % d1)
 					else:
-						asc.append(".")
+						addr += 1
+						var d2 = data.bytes[addr]
+						row.append(hex_format % (d1 + 0x100 * d2))
+						asc.append(get_ascii(d2))
 					addr += 1
 				chars.append(asc.join(""))
-		bytes.append(row.join(""))
+		bytes.append(row.join("").strip_edges())
 	$M/VBox/View/Addr.text = addresses.join("\n")
 	$M/VBox/View/Bytes.text = bytes.join("\n")
 	$M/VBox/View/Chrs.text = chars.join("\n")
+
+
+func get_ascii(d):
+	if d > 31 and d < 127:
+		return char(d)
+	else:
+		return"."
 
 
 func _on_Up_pressed():
@@ -87,6 +102,7 @@ func _on_Down_pressed():
 func _on_BH_pressed():
 	mode = wrapi(mode + 1, 0, 2)
 	set_view()
+	resize()
 
 
 func _on_Erase_pressed():
@@ -109,6 +125,8 @@ func _on_Width_pressed():
 func set_width(w: int):
 	data.width = w
 	$M/VBox/Top/WidthLabel.text = String(w)
+	set_view()
+	resize()
 
 
 func set_mem_size(id: int):
@@ -121,19 +139,25 @@ func set_mem_size(id: int):
 func _on_View_gui_input(event):
 	if event is InputEventMouseButton:
 		set_addr(event.position)
-		$NumberInputPanel.open(mode == HEX)
+		$NumberInputPanel.rect_position = rect_position + Vector2(0, rect_size.y + 20)
+		$NumberInputPanel.open(mode == HEX, data.width)
 
 
 func set_addr(p):
-	var div = 30 if mode == HEX else 101
+	# To get the constants: divide the bytes label width by the number of numbers per row
+	var div: int
+	if mode == HEX:
+		div = 30 if data.width == 8 else 50
+	else:
+		div = 90 if data.width == 8 else 170
 	var x = int(p.x) / div
 # warning-ignore:integer_division
 	var y = int(p.y) / 22
-	current_addr = x + base_addr + y * 16
-	if mode == BIN:
-		div /= 2
-		x = int(p.x) / div
+	var ystep = 16 if mode == HEX else 4
 	show_mask(Vector2(x, y), Vector2(div, 22))
+	if data.width == 16:
+		x *= 2
+	current_addr = x + base_addr + y * ystep
 
 
 func show_mask(pos, size):
@@ -149,15 +173,31 @@ func hide_mask():
 func _on_NumberInputPanel_popup_hide():
 	hide_mask()
 	var v = $NumberInputPanel.txt.text
-	if v[0] != "0":
+	if v[0] != "0": # No entry was made
 		return
 	var x = 0
 	if mode == BIN:
-		for n in 4:
-			x *= 2
-			if v[2 + n] == "1":
-				x += 1
+		for i in v.length():
+			if i > 1: # Skip the prefix 0b
+				x *= 2
+				if v[i] == "1":
+					x += 1
 	else:
-		x = v.hex_to_int()
-	data.bytes[current_addr] = x
+		x = v.hex_to_int() # Godot function
+	data.bytes[current_addr] = x % 0x100
+	if data.width == 16:
+		data.bytes[current_addr + 1] = x / 0x100
 	set_view()
+
+
+func int2bin(x: int) -> String:
+	var b = ""
+	for n in data.width:
+		b = String(x % 2) + b
+		x /= 2
+	return b
+
+
+func resize():
+	yield(get_tree(), "idle_frame")
+	rect_size = Vector2.ZERO

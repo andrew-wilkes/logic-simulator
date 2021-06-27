@@ -7,18 +7,21 @@ var opener
 var txt
 var n = 0
 
-func open(_hex_mode: bool, _n: int):
+func open(_hex_mode: bool, width: int):
 	opener = self
-	n = _n
 	txt = $M/HBox/Label
 	hex_mode = _hex_mode
+	if hex_mode:
+		n = 2 if width == 8 else 4
+	else:
+		n = width
 	key_up = true
 	start = true
 	if _hex_mode:
 		txt.text = "Enter HEX value using keyboard"
 	else:
 		txt.text = "Enter BINARY value using keyboard"
-	popup_centered()
+	popup()
 	# Correct expansion issue
 	yield(get_tree(), "idle_frame")
 	rect_size = Vector2.ZERO
@@ -47,7 +50,7 @@ func _input(event):
 						txt.text = "0b" + "0".repeat(n)
 				for i in n - 1:
 					txt.text[2 + i] = txt.text[3 + i]
-					txt.text[1 + n] = char(x)
+				txt.text[1 + n] = char(x)
 				key_up = false
 				start = false
 		else:
