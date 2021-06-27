@@ -52,3 +52,7 @@ func _on_Button_pressed():
 	if data.memory.bytes.size() < 1:
 		data.memory.set_mem_size(256)
 	$MM.open(data.memory)
+
+
+func memory_data_changed():
+	emit_signal("data_changed")

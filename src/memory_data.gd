@@ -3,7 +3,7 @@ extends Resource
 class_name MemoryData
 
 export var mem_size: int setget set_mem_size
-export var width: int
+export var width: int = 8
 export var bytes: PoolIntArray
 export var rom: bool = true
 

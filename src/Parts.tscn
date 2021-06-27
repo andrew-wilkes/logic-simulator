@@ -3136,4 +3136,6 @@ __meta__ = {
 [connection signal="was_pressed" from="Blocks/SHIFTREG/HBox/Bits" to="Blocks/SHIFTREG" method="_on_Bits_was_pressed"]
 [connection signal="was_pressed" from="Blocks/ALU/HBox5/Bits" to="Blocks/ALU" method="_on_Bits_was_pressed"]
 [connection signal="pressed" from="Blocks/ROM/Button" to="Blocks/ROM" method="_on_Button_pressed"]
+[connection signal="data_changed" from="Blocks/ROM/MM" to="Blocks/ROM" method="memory_data_changed"]
 [connection signal="pressed" from="Blocks/RAM/HBox/Button" to="Blocks/RAM" method="_on_Button_pressed"]
+[connection signal="data_changed" from="Blocks/RAM/MM" to="Blocks/RAM" method="memory_data_changed"]

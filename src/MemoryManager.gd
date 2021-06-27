@@ -1,6 +1,9 @@
 extends PopupPanel
 
+signal data_changed
+
 enum { HEX, BIN }
+
 var mode = HEX
 var base_addr = 0
 var mem_size = 1024
@@ -51,6 +54,7 @@ func set_view():
 		addresses.append("%04X: " % display_addr)
 		match mode:
 			BIN:
+# warning-ignore:integer_division
 				for m in 32 / data.width: # 2 words or 4 bytes
 					if data.width == 8:
 						row.append(int2bin(data.bytes[addr]))
@@ -119,7 +123,6 @@ func _on_Width_pressed():
 		set_width(16)
 	else:
 		set_width(8)
-	set_view()
 
 
 func set_width(w: int):
@@ -127,6 +130,7 @@ func set_width(w: int):
 	$M/VBox/Top/WidthLabel.text = String(w)
 	set_view()
 	resize()
+	emit_signal("data_changed")
 
 
 func set_mem_size(id: int):
@@ -134,6 +138,7 @@ func set_mem_size(id: int):
 	data.set_indexed_mem_size(id)
 	$M/VBox/Top/SizeLabel.text = data.get_mem_size_str()
 	set_view()
+	emit_signal("data_changed")
 
 
 func _on_View_gui_input(event):
@@ -150,6 +155,7 @@ func set_addr(p):
 		div = 30 if data.width == 8 else 50
 	else:
 		div = 90 if data.width == 8 else 170
+# warning-ignore:integer_division
 	var x = int(p.x) / div
 # warning-ignore:integer_division
 	var y = int(p.y) / 22
@@ -188,6 +194,7 @@ func _on_NumberInputPanel_popup_hide():
 	if data.width == 16:
 		data.bytes[current_addr + 1] = x / 0x100
 	set_view()
+	emit_signal("data_changed")
 
 
 func int2bin(x: int) -> String:
