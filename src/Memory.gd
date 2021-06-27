@@ -19,15 +19,20 @@ func loaded_from_file():
 	set_mem_size_label_text()
 
 
-func set_value(addr: int, reverse: bool, _from_pin: bool, _port := 0):
-	# If the value is unchanged ignore it
-	if value == addr:
-		return
-	value = addr
-	
-	addr %= data.mem_size
-	
-	emit_signal("bus_changed", self, data.bytes[addr], reverse)
+func set_value(v: int, reverse: bool, _from_pin: bool, port := 0):
+	if port == 0: # Address
+		v %= data.mem_size
+		# If the value is unchanged ignore it
+		if value == v:
+			return
+		value = v
+	else: # Data
+		if data.width == 8:
+			v %= 0x100
+		if data.bytes[value] == v:
+			return
+		data.bytes[value] = v
+	emit_signal("bus_changed", self, data.bytes[value], reverse)
 
 
 func _on_Button_pressed():

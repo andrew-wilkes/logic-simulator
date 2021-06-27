@@ -28,6 +28,8 @@ func open(_hex_mode: bool, width: int):
 
 
 func _input(event):
+	if event is InputEventKey:
+		pass
 	if event is InputEventKey and opener == self:
 		if event.pressed:
 			if key_up:

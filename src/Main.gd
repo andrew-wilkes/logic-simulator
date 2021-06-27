@@ -281,7 +281,16 @@ func _on_Graph_disconnection_request(from, from_slot, to, to_slot):
 	set_changed()
 
 
+func _input(event):
+	if event is InputEventKey:
+		if event.scancode == KEY_DELETE and event.pressed:
+			# Before adding _input to NumberInputPanel, could simply connect signal from GraphEdit
+			# But now need this _input function in main
+			_on_Graph_delete_nodes_request()
+
+
 func _on_Graph_delete_nodes_request():
+	print("Delete request")
 	for node in selected_nodes.keys():
 		if selected_nodes[node]:
 			remove_connections_to_node(node)

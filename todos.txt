@@ -3,9 +3,6 @@ Todos
 Be able to compile circuits to use as modules.
    Add simulation script functionality to part data.
 
-Some way to input memory bytes.
-Memory dump.
-
 Memory ROM / RAM. Create csv data import dialog.
 
 Be able to output a text version of the circuit for use with external programs.
