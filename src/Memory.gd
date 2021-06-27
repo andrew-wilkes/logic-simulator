@@ -19,20 +19,25 @@ func loaded_from_file():
 	set_mem_size_label_text()
 
 
-func set_value(v: int, reverse: bool, _from_pin: bool, port := 0):
-	if port == 0: # Address
-		v %= data.mem_size
+func set_value(v: int, _reverse: bool, _from_pin: bool, port := 0):
+	if port == 1: # Address
+		v %= data.memory.mem_size
 		# If the value is unchanged ignore it
 		if value == v:
 			return
 		value = v
 	else: # Data
-		if data.width == 8:
+		if data.memory.width == 8:
 			v %= 0x100
-		if data.bytes[value] == v:
+		if data.memory.bytes[value] == v:
 			return
-		data.bytes[value] = v
-	emit_signal("bus_changed", self, data.bytes[value], reverse)
+		data.memory.bytes[value] = v
+	emit_bus_update()
+
+
+func emit_bus_update():
+	var addr = value if value >= 0 else 0
+	emit_signal("bus_changed", self, data.memory.bytes[addr], false)
 
 
 func _on_Button_pressed():
@@ -42,6 +47,7 @@ func _on_Button_pressed():
 func memory_data_changed():
 	set_mem_size_label_text()
 	emit_signal("data_changed")
+	emit_bus_update()
 
 
 func set_mem_size_label_text():
