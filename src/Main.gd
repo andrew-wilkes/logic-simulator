@@ -207,6 +207,16 @@ func add_part(part_name: String, _button):
 		add_part_to_graph(part, Vector2(get_viewport().get_mouse_position().x, get_part_placement_offset(part.type)))
 
 
+func connect_part(part):
+	var _e = part.connect("gui_input", self, "check_if_clicked")
+	_e = part.connect("part_variant_selected", self, "add_part_to_graph")
+	_e = part.connect("output_changed", self, "update_levels")
+	_e = part.connect("unstable", self, "delete_wire")
+	_e = part.connect("offset_changed", self, "set_changed")
+	_e = part.connect("part_clicked", self, "tt_show_request")
+	_e = part.connect("data_changed", self, "set_changed")
+
+
 func get_part_placement_offset(id):
 	if part_placement_offsets.has(id):
 		part_placement_offsets[id] = wrapi(part_placement_offsets[id] + $Graph.snap_distance, 0, 100)
@@ -229,20 +239,8 @@ func add_part_to_graph(part: Part, pos: Vector2):
 	part.offset = pos
 	call_deferred("unselect_all")
 	set_changed()
-	connect_part(part)
+	#connect_part(part)
 	part.dropped()
-
-
-func connect_part(part):
-	var _e = part.connect("output_changed", self, "update_levels")
-	_e = part.connect("unstable", self, "delete_wire")
-	_e = part.connect("offset_changed", self, "set_changed")
-	_e = part.connect("part_clicked", self, "tt_show_request")
-	_e = part.connect("data_changed", self, "set_changed")
-	if part.has_signal("bus_changed"):
-		_e = part.connect("bus_changed", self, "update_bus")
-	if part.type == Parts.TYPES.INPUT or part.type == Parts.TYPES.OUTPUT:
-		_e = part.connect("part_variant_selected", self, "add_part_to_graph")
 
 
 func remove_connections_to_node(node):

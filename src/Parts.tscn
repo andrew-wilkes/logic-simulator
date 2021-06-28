@@ -1,27 +1,27 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://assets/nand.png" type="Texture" id=1]
 [ext_resource path="res://assets/and.png" type="Texture" id=2]
-[ext_resource path="res://Part.gd" type="Script" id=3]
+[ext_resource path="res://parts/input_sw.gd" type="Script" id=3]
 [ext_resource path="res://assets/or.png" type="Texture" id=4]
 [ext_resource path="res://assets/xor.png" type="Texture" id=5]
 [ext_resource path="res://assets/nor.png" type="Texture" id=6]
 [ext_resource path="res://assets/not.png" type="Texture" id=7]
 [ext_resource path="res://Parts.gd" type="Script" id=8]
-[ext_resource path="res://Bus.gd" type="Script" id=9]
+[ext_resource path="res://parts/join_bus.gd" type="Script" id=9]
 [ext_resource path="res://assets/in.png" type="Texture" id=10]
 [ext_resource path="res://assets/out.png" type="Texture" id=11]
 [ext_resource path="res://assets/bus.png" type="Texture" id=12]
 [ext_resource path="res://assets/busin.png" type="Texture" id=13]
 [ext_resource path="res://assets/busout.png" type="Texture" id=14]
-[ext_resource path="res://Decoder.gd" type="Script" id=15]
+[ext_resource path="res://parts/decoder_comb.gd" type="Script" id=15]
 [ext_resource path="res://assets/dec.png" type="Texture" id=16]
-[ext_resource path="res://SEG7.gd" type="Script" id=17]
+[ext_resource path="res://parts/seg7_comb.gd" type="Script" id=17]
 [ext_resource path="res://assets/7seg.png" type="Texture" id=18]
 [ext_resource path="res://assets/ledseg.png" type="Texture" id=19]
 [ext_resource path="res://assets/led-dot.png" type="Texture" id=20]
 [ext_resource path="res://Input.gd" type="Script" id=21]
-[ext_resource path="res://Output.gd" type="Script" id=22]
+[ext_resource path="res://parts/io_pin.gd" type="Script" id=22]
 [ext_resource path="res://assets/GraphNodeFrameStyle.tres" type="StyleBox" id=23]
 [ext_resource path="res://assets/mult.png" type="Texture" id=24]
 [ext_resource path="res://assets/adder.png" type="Texture" id=25]
@@ -30,17 +30,40 @@
 [ext_resource path="res://assets/reg.png" type="Texture" id=28]
 [ext_resource path="res://assets/dff.png" type="Texture" id=29]
 [ext_resource path="res://assets/dlatch.png" type="Texture" id=30]
-[ext_resource path="res://InputClk.gd" type="Script" id=31]
+[ext_resource path="res://parts/clock_input.gd" type="Script" id=31]
 [ext_resource path="res://assets/counter.png" type="Texture" id=32]
 [ext_resource path="res://assets/refbus.png" type="Texture" id=33]
 [ext_resource path="res://assets/shiftreg.png" type="Texture" id=34]
 [ext_resource path="res://EmitButton.tscn" type="PackedScene" id=35]
 [ext_resource path="res://assets/alu.png" type="Texture" id=36]
 [ext_resource path="res://assets/busmux.png" type="Texture" id=37]
-[ext_resource path="res://Memory.gd" type="Script" id=38]
+[ext_resource path="res://parts/dff_comb.gd" type="Script" id=38]
 [ext_resource path="res://assets/rom.png" type="Texture" id=39]
 [ext_resource path="res://assets/ram.png" type="Texture" id=40]
 [ext_resource path="res://MemoryManager.tscn" type="PackedScene" id=41]
+[ext_resource path="res://parts/dlatch_comb.gd" type="Script" id=42]
+[ext_resource path="res://parts/counter_block.gd" type="Script" id=43]
+[ext_resource path="res://parts/and_gate.gd" type="Script" id=44]
+[ext_resource path="res://parts/alu_block.gd" type="Script" id=45]
+[ext_resource path="res://parts/adder_comb.gd" type="Script" id=46]
+[ext_resource path="res://parts/io_block.gd" type="Script" id=47]
+[ext_resource path="res://parts/jkff_comb.gd" type="Script" id=48]
+[ext_resource path="res://parts/mult_comb.gd" type="Script" id=49]
+[ext_resource path="res://parts/nand_gate.gd" type="Script" id=50]
+[ext_resource path="res://parts/nor_gate.gd" type="Script" id=51]
+[ext_resource path="res://parts/not_gate.gd" type="Script" id=52]
+[ext_resource path="res://parts/or_gate.gd" type="Script" id=53]
+[ext_resource path="res://parts/register_block.gd" type="Script" id=54]
+[ext_resource path="res://parts/shiftreg_block.gd" type="Script" id=55]
+[ext_resource path="res://parts/srff_comb.gd" type="Script" id=56]
+[ext_resource path="res://parts/xor_gate.gd" type="Script" id=57]
+[ext_resource path="res://parts/rom_block.gd" type="Script" id=58]
+[ext_resource path="res://parts/input_bus.gd" type="Script" id=59]
+[ext_resource path="res://parts/mux_bus.gd" type="Script" id=60]
+[ext_resource path="res://parts/ram_block.gd" type="Script" id=61]
+[ext_resource path="res://parts/output_bus.gd" type="Script" id=62]
+[ext_resource path="res://parts/loop_bus.gd" type="Script" id=63]
+[ext_resource path="res://parts/bidirectional_output.gd" type="Script" id=65]
 
 [node name="Parts" type="Control"]
 visible = false
@@ -92,7 +115,7 @@ slot/5/left_color = Color( 1, 1, 1, 1 )
 slot/5/right_enabled = false
 slot/5/right_type = 0
 slot/5/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 3 )
+script = ExtResource( 47 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -120,7 +143,7 @@ slot/1/left_color = Color( 1, 1, 1, 1 )
 slot/1/right_enabled = true
 slot/1/right_type = 0
 slot/1/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 3 )
+script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -156,7 +179,6 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-is_reversible_input = true
 
 [node name="Switch" type="CheckButton" parent="Gates/INPUT/INPUTSW"]
 margin_left = 16.0
@@ -182,7 +204,6 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-is_reversible_input = true
 
 [node name="Push" type="Button" parent="Gates/INPUT/INPUTPUSH"]
 margin_left = 16.0
@@ -570,11 +591,10 @@ slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 0
 slot/0/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 3 )
+script = ExtResource( 52 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-has_tt = true
 
 [node name="Icon" type="TextureRect" parent="Gates/NOT"]
 margin_left = 16.0
@@ -609,11 +629,10 @@ slot/2/left_color = Color( 1, 1, 1, 1 )
 slot/2/right_enabled = false
 slot/2/right_type = 0
 slot/2/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 3 )
+script = ExtResource( 44 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-has_tt = true
 
 [node name="Control" type="Control" parent="Gates/AND"]
 margin_left = 16.0
@@ -661,11 +680,10 @@ slot/2/left_color = Color( 1, 1, 1, 1 )
 slot/2/right_enabled = false
 slot/2/right_type = 0
 slot/2/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 3 )
+script = ExtResource( 50 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-has_tt = true
 
 [node name="Control" type="Control" parent="Gates/NAND"]
 margin_left = 16.0
@@ -713,11 +731,10 @@ slot/2/left_color = Color( 1, 1, 1, 1 )
 slot/2/right_enabled = false
 slot/2/right_type = 0
 slot/2/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 3 )
+script = ExtResource( 53 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-has_tt = true
 
 [node name="Control" type="Control" parent="Gates/OR"]
 margin_left = 16.0
@@ -765,11 +782,10 @@ slot/2/left_color = Color( 1, 1, 1, 1 )
 slot/2/right_enabled = false
 slot/2/right_type = 0
 slot/2/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 3 )
+script = ExtResource( 51 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-has_tt = true
 
 [node name="Control" type="Control" parent="Gates/NOR"]
 margin_left = 16.0
@@ -817,11 +833,10 @@ slot/2/left_color = Color( 1, 1, 1, 1 )
 slot/2/right_enabled = false
 slot/2/right_type = 0
 slot/2/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 3 )
+script = ExtResource( 57 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-has_tt = true
 
 [node name="Control" type="Control" parent="Gates/XOR"]
 margin_left = 16.0
@@ -874,7 +889,7 @@ slot/3/left_color = Color( 1, 1, 1, 1 )
 slot/3/right_enabled = false
 slot/3/right_type = 0
 slot/3/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 22 )
+script = ExtResource( 47 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -938,7 +953,7 @@ slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 0
 slot/0/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 22 )
+script = ExtResource( 65 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1198,7 +1213,7 @@ slot/0/left_color = Color( 1, 1, 0, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 1
 slot/0/right_color = Color( 1, 1, 0, 1 )
-script = ExtResource( 9 )
+script = ExtResource( 59 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1270,7 +1285,7 @@ slot/6/left_color = Color( 1, 1, 1, 1 )
 slot/6/right_enabled = false
 slot/6/right_type = 0
 slot/6/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 9 )
+script = ExtResource( 60 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1419,7 +1434,7 @@ __meta__ = {
 wait_time = 2.0
 one_shot = true
 
-[node name="LOOPBACK" type="GraphNode" parent="MISC"]
+[node name="LOOPBUS" type="GraphNode" parent="MISC"]
 margin_top = 356.0
 margin_right = 125.0
 margin_bottom = 427.0
@@ -1436,16 +1451,16 @@ slot/1/left_color = Color( 1, 1, 0, 1 )
 slot/1/right_enabled = true
 slot/1/right_type = 1
 slot/1/right_color = Color( 1, 1, 0, 1 )
-script = ExtResource( 9 )
+script = ExtResource( 63 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="MISC/LOOPBACK"]
+[node name="Sprite" type="Sprite" parent="MISC/LOOPBUS"]
 visible = false
 texture = ExtResource( 33 )
 
-[node name="Label" type="Label" parent="MISC/LOOPBACK"]
+[node name="Label" type="Label" parent="MISC/LOOPBUS"]
 margin_left = 16.0
 margin_top = 24.0
 margin_right = 109.0
@@ -1457,13 +1472,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LB" type="Control" parent="MISC/LOOPBACK"]
+[node name="LB" type="Control" parent="MISC/LOOPBUS"]
 margin_left = 16.0
 margin_top = 65.0
 margin_right = 109.0
 margin_bottom = 65.0
 
-[node name="Timer" type="Timer" parent="MISC/LOOPBACK"]
+[node name="Timer" type="Timer" parent="MISC/LOOPBUS"]
 wait_time = 2.0
 one_shot = true
 
@@ -1478,7 +1493,7 @@ slot/0/left_color = Color( 1, 1, 0, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 1
 slot/0/right_color = Color( 1, 1, 0, 1 )
-script = ExtResource( 9 )
+script = ExtResource( 62 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1535,11 +1550,10 @@ slot/2/left_color = Color( 1, 1, 1, 1 )
 slot/2/right_enabled = false
 slot/2/right_type = 0
 slot/2/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 3 )
+script = ExtResource( 49 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-has_tt = true
 
 [node name="Sprite" type="Sprite" parent="Combinational/MULT"]
 visible = false
@@ -1605,11 +1619,10 @@ slot/1/left_color = Color( 1, 1, 1, 1 )
 slot/1/right_enabled = true
 slot/1/right_type = 0
 slot/1/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 3 )
+script = ExtResource( 56 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-has_tt = true
 
 [node name="Sprite" type="Sprite" parent="Combinational/SRFLIPFLOP"]
 visible = false
@@ -1680,11 +1693,10 @@ slot/1/left_color = Color( 1, 1, 1, 1 )
 slot/1/right_enabled = true
 slot/1/right_type = 0
 slot/1/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 3 )
+script = ExtResource( 42 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-has_tt = true
 
 [node name="Sprite" type="Sprite" parent="Combinational/DLATCH"]
 visible = false
@@ -1767,11 +1779,10 @@ slot/3/left_color = Color( 1, 1, 1, 1 )
 slot/3/right_enabled = false
 slot/3/right_type = 0
 slot/3/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 3 )
+script = ExtResource( 38 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-has_tt = true
 
 [node name="Sprite" type="Sprite" parent="Combinational/DFLIPFLOP"]
 visible = false
@@ -1852,11 +1863,10 @@ slot/2/left_color = Color( 1, 1, 1, 1 )
 slot/2/right_enabled = true
 slot/2/right_type = 0
 slot/2/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 3 )
+script = ExtResource( 48 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-has_tt = true
 
 [node name="Sprite" type="Sprite" parent="Combinational/JKFLIPFLOP"]
 visible = false
@@ -1942,11 +1952,10 @@ slot/2/left_color = Color( 1, 1, 1, 1 )
 slot/2/right_enabled = true
 slot/2/right_type = 0
 slot/2/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 3 )
+script = ExtResource( 46 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-has_tt = true
 
 [node name="Sprite" type="Sprite" parent="Combinational/ADDER"]
 visible = false
@@ -2203,7 +2212,6 @@ script = ExtResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-seg_color = Color( 0.227451, 0.858824, 0, 1 )
 
 [node name="Sprite" type="Sprite" parent="Combinational/SEG7"]
 visible = false
@@ -2340,7 +2348,7 @@ slot/4/left_color = Color( 1, 1, 1, 1 )
 slot/4/right_enabled = false
 slot/4/right_type = 0
 slot/4/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 9 )
+script = ExtResource( 54 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2452,7 +2460,7 @@ slot/5/left_color = Color( 1, 1, 1, 1 )
 slot/5/right_enabled = false
 slot/5/right_type = 0
 slot/5/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 9 )
+script = ExtResource( 43 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2579,7 +2587,7 @@ slot/6/left_color = Color( 1, 1, 1, 1 )
 slot/6/right_enabled = false
 slot/6/right_type = 0
 slot/6/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 9 )
+script = ExtResource( 55 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2727,7 +2735,7 @@ slot/6/left_color = Color( 1, 1, 1, 1 )
 slot/6/right_enabled = true
 slot/6/right_type = 0
 slot/6/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 9 )
+script = ExtResource( 45 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2905,7 +2913,7 @@ slot/4/left_color = Color( 1, 1, 1, 1 )
 slot/4/right_enabled = false
 slot/4/right_type = 0
 slot/4/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 38 )
+script = ExtResource( 58 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -3013,7 +3021,7 @@ slot/5/left_color = Color( 1, 1, 1, 1 )
 slot/5/right_enabled = false
 slot/5/right_type = 0
 slot/5/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 38 )
+script = ExtResource( 61 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -3122,7 +3130,7 @@ __meta__ = {
 [connection signal="text_changed" from="Gates/OUTPUT/OUTPUTPIN/Pin" to="Gates/OUTPUT/OUTPUTPIN" method="_on_Pin_text_changed"]
 [connection signal="timeout" from="MISC/INBUS/Timer" to="MISC/INBUS" method="_on_Timer_timeout"]
 [connection signal="timeout" from="MISC/BUS1/Timer" to="MISC/BUS1" method="_on_Timer_timeout"]
-[connection signal="timeout" from="MISC/LOOPBACK/Timer" to="MISC/LOOPBACK" method="_on_Timer_timeout"]
+[connection signal="timeout" from="MISC/LOOPBUS/Timer" to="MISC/LOOPBUS" method="_on_Timer_timeout"]
 [connection signal="timeout" from="MISC/OUTBUS/Timer" to="MISC/OUTBUS" method="_on_Timer_timeout"]
 [connection signal="button_down" from="Combinational/DECODER/Bits" to="Combinational/DECODER" method="_on_Bits_button_down"]
 [connection signal="timeout" from="Combinational/DECODER/Timer" to="Combinational/DECODER" method="_on_Timer_timeout"]

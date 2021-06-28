@@ -1,5 +1,11 @@
 extends BUS
 
+class_name Seg7Comb
+
+func set_port_maps():
+	in_port_map = [0, 1]
+	out_port_map = [0]
+
 export(Color) var seg_color
 export var mode = "hex"
 

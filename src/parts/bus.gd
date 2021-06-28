@@ -1,4 +1,5 @@
-extends Part
+extends Node
+# This will be added to a part where Bus functionality is required
 
 class_name BUS
 
@@ -9,20 +10,45 @@ var button: Button
 var button_mode = BITS
 var has_mode_button = false
 
-func setup():
-	data = { "bits": bits, "mode": HEX } # bits is a part export var
+func setup_bus(part: Part):
+	part.data = { "bits": part.bits, "mode": HEX } # bits is a part export var
+	"""
 	if type == Parts.TYPES.INBUS:
 		set("slot/0/left_enabled", false)
 	if type == Parts.TYPES.OUTBUS:
 		set("slot/0/right_enabled", false)
+	"""
 	set_port_maps()
 	add_slots(4)
 	set_format()
 	set_value(0, false, false)
+	_e = part.connect("bus_changed", self, "update_bus")
 
 
-func add_slots(num: int):
-	var slot = get_child_count() - 2 # num slots
+# This function is overwritten in busses
+func set_value(_v: int, _reverse: bool, _from_pin: bool, _port := 0):
+	if from_pin:
+		v = get_value_from_inputs(reverse)
+	# If the value is unchanged ignore it
+	# This also guards against a feedback loop
+	if value == v:
+		return
+	value = v
+	
+	if type in [Parts.TYPES.REG, Parts.TYPES.COUNTER, Parts.TYPES.SHIFTREG]:
+		if output_enabled:
+			output_enabled = false
+		else: # Just capture the new input value
+			vin = v
+			return
+	update_display_value()
+	if type == Parts.TYPES.LOOPBACK:
+		reverse = not reverse
+	emit_signal("bus_changed", self, value, reverse)
+
+
+func add_slots(part: Part, num: int):
+	var slot = part.get_child_count() - 2 # num slots
 	if type != Parts.TYPES.INBUS and type != Parts.TYPES.OUTBUS:
 		if slot < 3:
 			add_button(Label.new(), false)
@@ -43,20 +69,20 @@ func add_slots(num: int):
 		l.text = String(idx)
 		output_levels[idx] = false
 		if idx == 0:
-			add_button(l, left)
+			add_button(part, l, left)
 		else:
-			add_child(l)
-		set_slot(slot, left, 0, Color.white, not left, 0, Color.white)
+			part.add_child(l)
+		g.set_slot(slot, left, 0, Color.white, not left, 0, Color.white)
 		if left:
-			in_port_map.append(slot)
-			in_port_mode.append(PIN_MODE.BI)
+			part.in_port_map.append(slot)
+			part.in_port_mode.append(PIN_MODE.BI)
 		else:
-			out_port_map.append(slot)
-			out_port_mode.append(PIN_MODE.BI)
+			part.out_port_map.append(slot)
+			part.out_port_mode.append(PIN_MODE.BI)
 		slot += 1
 
 
-func add_button(l: Label, left: bool):
+func add_button(part: Part, l: Label, left: bool):
 	var h = HBoxContainer.new()
 	button = Button.new()
 	button.text = "Bits"
@@ -67,48 +93,8 @@ func add_button(l: Label, left: bool):
 	else:
 		h.add_child(button)
 		h.add_child(l)
-	add_child(h)
+	part.add_child(h)
 	has_mode_button = true
-
-
-func set_value(v: int, reverse: bool, from_pin: bool, port := 0):
-	if type == Parts.TYPES.BUSMUX and port != selected_port:
-		return
-	if type == Parts.TYPES.ALU:
-		if port == 0:
-			if v != a:
-				a = v
-				update_output(true, -1, false)
-			return
-		if port == 1:
-			if v != b:
-				b = v
-				update_output(true, -1, false)
-			return
-	if from_pin:
-		v = get_value_from_inputs(reverse)
-	# If the value is unchanged ignore it
-	# This also guards against a feedback loop
-	if value == v:
-		return
-	value = v
-	if type in [Parts.TYPES.REG, Parts.TYPES.COUNTER, Parts.TYPES.SHIFTREG]:
-		if output_enabled:
-			output_enabled = false
-		else: # Just capture the new input value
-			vin = v
-			return
-	update_display_value()
-	if type == Parts.TYPES.LOOPBACK:
-		reverse = not reverse
-	emit_signal("bus_changed", self, value, reverse)
-	if type == Parts.TYPES.OUTBUS and !reverse or type == Parts.TYPES.INBUS and reverse:
-		for n in bit_lengths[bits]:
-			var level = bool(v % 2)
-			v /= 2
-			if output_levels[n] != level:
-				output_levels[n] = level
-				set_output(level, n, reverse)
 
 
 func update_display_value():
@@ -153,11 +139,6 @@ func dropped():
 
 func _on_Timer_timeout():
 	button_to_mode()
-
-
-func button_to_mode():
-	button_mode = MODE
-	button.text = "Mode"
 
 
 func get_data():

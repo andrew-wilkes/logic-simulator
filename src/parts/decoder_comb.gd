@@ -1,5 +1,15 @@
 extends Part
 
+class_name DecoderComb
+
+func update_output(level: bool, port: int, _r: bool):
+	if .update_output(level, port, _r):
+		set_output(level, 0)
+
+func set_port_maps():
+	in_port_map = [0, 1]
+	out_port_map = [0]
+
 var num_outputs = [4, 8, 16]
 
 func setup():

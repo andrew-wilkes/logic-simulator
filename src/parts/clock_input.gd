@@ -1,5 +1,7 @@
 extends Part
 
+class_name ClockInput
+
 var rate = 1.875
 var running = false
 

@@ -1,4 +1,6 @@
-extends BUS
+extends Part
+
+class_name MemoryBlock
 
 func erase():
 	for idx in data.bytes.size():
