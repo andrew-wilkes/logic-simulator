@@ -2,13 +2,13 @@ extends Part
 
 var last_value = 0
 
-func set_value(v: int, reverse = false, from_pin = false, _port := 0):
-	if from_pin:
-		v = get_value_from_inputs(reverse)
+func set_value(v: int, reverse = false, port := 0):
+	if port > 0:
+		return # Let the pin update set the value
 	if value == v:
 		return
 	value = v
-	get_child(0).text = "0x%02X" % value
+	set_display_value()
 	if reverse:
 		emit_signal("bus_changed", self, value, reverse)
 	else:
@@ -34,3 +34,12 @@ func get_pin_name():
 func set_pin_name(txt):
 	if txt is String:
 		get_node("Pin").text = txt
+
+
+func update_output(_level, _port, _reverse):
+	value = get_value_from_inputs(false)
+	set_display_value()
+
+
+func set_display_value():
+	get_child(0).text = "0x%02X" % value

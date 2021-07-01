@@ -1,6 +1,6 @@
 extends Part
 
-func set_value(value: int, reverse = false, _from_pin = false, _port := 0):
+func set_value(value: int, reverse = false, _port := 0):
 	set_text(value)
 	emit_signal("bus_changed", self, value, reverse)
 	for n in output_pins.size() - 1:

@@ -88,12 +88,13 @@ func get_value_from_inputs(reverse):
 	var pins = input_pins
 	if reverse:
 		pins = output_pins
-	var num_bits = pins.size()
+	var num_bits = pins.size() - 1
+	# Port 0 is the bus
 	var port = num_bits
 	for n in num_bits:
-		port -= 1
 		v *= 2
 		v += int(pins[port].level)
+		port -= 1
 	return v
 
 

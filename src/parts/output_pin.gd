@@ -2,7 +2,7 @@ extends Part
 
 var last_value = 0
 
-func set_value(v: int, reverse = false, from_pin = false, _port := 0):
+func set_value(v: int, _reverse = false, _port := 0):
 	value = v
 
 

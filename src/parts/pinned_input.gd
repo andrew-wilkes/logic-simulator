@@ -2,8 +2,8 @@ extends Part
 
 var last_value = 0
 
-func set_value(v: int, reverse = false, from_pin = false, _port := 0):
-	if from_pin:
+func set_value(v: int, reverse = false, port := 0):
+	if port > 0:
 		v = get_value_from_inputs(reverse)
 	if value == v:
 		return
@@ -12,11 +12,11 @@ func set_value(v: int, reverse = false, from_pin = false, _port := 0):
 	if reverse:
 		emit_signal("bus_changed", self, value, reverse)
 	else:
-		for n in bit_lengths[bits]:
+		for n in bit_lengths[data.bits]:
 			var level = bool(v % 2)
 			v /= 2
-			if output_levels[n] != level:
-				output_levels[n] = level
+			if output_pins[n] != level:
+				output_pins[n] = level
 				set_output(level, n, reverse)
 
 

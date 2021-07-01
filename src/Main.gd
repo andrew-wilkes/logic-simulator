@@ -161,10 +161,10 @@ func update_bus(node, value, reverse = false):
 	for con in $Graph.get_connection_list():
 		if reverse:
 			if con.to == node.name:
-				$Graph.get_node(con.from).set_value(value, reverse, false)
+				$Graph.get_node(con.from).set_value(value, reverse)
 		else:
 			if con.from == node.name:
-				$Graph.get_node(con.to).set_value(value, reverse, false, con.to_port)
+				$Graph.get_node(con.to).set_value(value, reverse, con.to_port)
 
 
 # A part output level has changed
@@ -221,6 +221,7 @@ func connect_part(part):
 	_e = part.connect("offset_changed", self, "set_changed")
 	_e = part.connect("part_clicked", self, "tt_show_request")
 	_e = part.connect("data_changed", self, "set_changed")
+	_e = part.connect("bus_changed", self, "update_bus")
 
 
 func get_part_placement_offset(id):
