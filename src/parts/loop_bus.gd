@@ -2,12 +2,6 @@ extends Part
 
 class_name LoopBus
 
-func update_output(level: bool, port: int, _r: bool):
-	if .update_output(level, port, _r):
-		level = input_levels[0] and input_levels[1]
-		set_output(level, 0)
-
-
-func set_port_maps():
-	in_port_map = [0, 1]
-	out_port_map = [0]
+func set_value(v: int, reverse: bool, _port := 0):
+	value = v
+	emit_signal("bus_changed", self, v, not reverse)

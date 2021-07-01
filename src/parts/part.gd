@@ -2,9 +2,9 @@ extends GraphNode
 
 class_name Part
 
-signal output_changed(node, slot, level, reverse)
+signal output_changed(node, port, level, reverse)
 signal bus_changed(node, value, reverse)
-signal unstable(node, slot)
+signal unstable(node, port, reverse)
 signal part_variant_selected(part, pos)
 signal part_clicked(part)
 signal data_changed
@@ -13,8 +13,9 @@ const RACE_TRIGGER_COUNT = 4
 
 export var has_tt = false
 export var locked = false
-export var bits = 0
+export var num_bytes = 2
 export var is_reversible_input = false
+export var is_input = false
 
 var input_pins = []
 var output_pins = []
@@ -28,8 +29,9 @@ var a := 0
 var b := 0
 var vin = 0
 var data = {} setget set_data, get_data
-var type := 0
+var type := ""
 var read = true
+var format = ""
 
 var frame_style = preload("res://assets/GraphNodeFrameStyle.tres")
 
@@ -47,7 +49,8 @@ func _on_Pin_text_changed(_new_text):
 
 
 func setup():
-	breakpoint
+	set_pins()
+
 
 class Pin:
 	var slot = 0
@@ -76,6 +79,8 @@ func set_pins():
 func reset():
 	for input_pin in input_pins:
 		input_pin.count = 0
+	for output_pin in output_pins:
+		output_pin.count = 0
 
 
 func get_value_from_inputs(reverse):
@@ -95,19 +100,20 @@ func get_value_from_inputs(reverse):
 func set_input(level: bool, port: int, reverse = false):
 	var col = Color.red if level else Color.blue
 	if reverse:
-		set("slot/%d/right_color" % output_pins[port], col)
+		set("slot/%d/right_color" % output_pins[port].slot, col)
 	else:
-		set("slot/%d/left_color" % input_pins[port], col)
+		set("slot/%d/left_color" % input_pins[port].slot, col)
 	update_output(level, port, reverse)
 
 
 func set_output(level: bool, port: int, reverse := false):
-	output_pins[port] = level
 	var col = Color.red if level else Color.blue
 	if reverse:
-		set("slot/%d/left_color" % input_pins[port], col)
+		input_pins[port].level = level
+		set("slot/%d/left_color" % input_pins[port].slot, col)
 	else:
-		set("slot/%d/right_color" % output_pins[port], col)
+		output_pins[port].level = level
+		set("slot/%d/right_color" % output_pins[port].slot, col)
 	emit_signal("output_changed", self, port, level, reverse)
 
 
@@ -122,11 +128,12 @@ func apply_input(level: bool, port: int, reverse: bool):
 		return false
 	# Detect race condition
 	pin.count += 1
-	if pin.count == RACE_TRIGGER_COUNT:
-			emit_signal("unstable", self, port)
-			return false
+	if pin.count > RACE_TRIGGER_COUNT:
+		emit_signal("unstable", self, port, reverse)
+		return false
 	pin.copy_level()
 	pin.level = level
+	set_input(level, port, reverse)
 	update_output(level, port, reverse)
 
 
@@ -141,12 +148,50 @@ func get_data():
 # Run code when part is added to graph
 func dropped():
 	emit_signal("data_changed") # To avoid warning
-	emit_signal("part_variant_selected")
 
 
 func loaded_from_file():
 	pass
 
 
-func update_output(level, port, reverse):
-	breakpoint
+func update_output(_level, _port, _reverse):
+	pass
+
+
+func change_button(_b):
+	_b.text = "Mode"
+	data.mode = MODE
+
+
+func handle_button_press(_b):
+	if data.mode == BITS:
+		change_bit_depth(_b)
+		_b.start_timer()
+	else:
+		data.mode += 1
+		data.mode %= 3
+		set_format()
+		update_display_value()
+
+
+func change_bit_depth(_b):
+	data.bits = wrapi(data.bits + 1, 0, 3)
+	_b.text = String(bit_lengths[data.bits])
+	value = 0
+	update_display_value()
+
+
+func set_format():
+	if data.mode == HEX:
+		format = "0x%0" + String(bit_lengths[data.bits] / 4) + "X"
+
+enum { HEX, DEC, BIN, BITS, MODE }
+
+func update_display_value():
+	match data.mode:
+		HEX:
+			$Label.text = format % value
+		DEC:
+			$Label.text = String(value)
+		BIN:
+			$Label.text = Parts.int2bin(value, bit_lengths[data.bits])

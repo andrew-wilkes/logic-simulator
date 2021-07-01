@@ -65,7 +65,7 @@ func start_tests(_data):
 	output_pins = {}
 	# Find input pins
 	for node in $Graph.get_children():
-		if node is Part and node.type == Parts.TYPES.INPUTPIN:
+		if node is Part and node.type == "INPUTPIN":
 			var pin = node.get_pin_name()
 			if _data.inputs.has(pin):
 				input_pins[pin] = node
@@ -77,7 +77,7 @@ func start_tests(_data):
 		return
 	# Find output pins
 	for node in $Graph.get_children():
-		if node is Part and node.type == Parts.TYPES.OUTPUTPIN:
+		if node is Part and node.type == "OUTPUTPIN":
 			var pin = node.get_pin_name()
 			if _data.outputs.has(pin):
 				output_pins[pin] = node
@@ -128,8 +128,9 @@ func _on_TestTimer_timeout():
 		var offset = part_data.inputs.size()
 		for idx in part_data.outputs.size():
 			var wanted = part_data.tt[test_count][idx + offset]
-			var last_value = output_pins[part_data.outputs[idx]].last_value
-			var got = output_pins[part_data.outputs[idx]].get_value()
+			# Output pin only has input pin
+			var last_value = int(output_pins[part_data.outputs[idx]].input_pins[0].last_level)
+			var got = int(output_pins[part_data.outputs[idx]].input_pins[0].level)
 			if wanted is String:
 				match wanted:
 					"X":
@@ -168,15 +169,15 @@ func update_bus(node, value, reverse = false):
 
 # A part output level has changed
 func update_levels(node, port, level, reverse = false):
-	if node.group == 0:
+	if node.is_input:
 		reset_race_detection()
 	for con in $Graph.get_connection_list():
 		if reverse:
 			if con.to == node.name and con.to_port == port:
-				$Graph.get_node(con.from).set_input(level, con.from_port, reverse)
+				$Graph.get_node(con.from).apply_input(level, con.from_port, reverse)
 		else:
 			if con.from == node.name and con.from_port == port:
-				$Graph.get_node(con.to).set_input(level, con.to_port)
+				$Graph.get_node(con.to).apply_input(level, con.to_port, reverse)
 
 
 func reset_race_detection():
@@ -187,17 +188,22 @@ func reset_race_detection():
 			node.reset()
 
 
-func delete_wire(node, port):
+func delete_wire(node, port, reverse):
 	alert("Unstable connection deleted.")
 	for con in $Graph.get_connection_list():
-		if con.to == node.name and con.to_port == port:
-			$Graph.disconnect_node(con.from, con.from_port, con.to, con.to_port)
+		if reverse:
+			if con.from != node.name or con.from_port != port:
+				continue
+		else:
+			if con.to != node.name or con.to_port != port:
+				continue
+		$Graph.disconnect_node(con.from, con.from_port, con.to, con.to_port)
+		break
 
 
 func add_part(part_name: String, _button):
 	part_button = _button
 	var part: Part = Parts.get_part(part_name)
-	assert(part.type > 0)
 	if tt_show_request(part):
 		return
 	if part.locked and part.has_tt and not User.data.unlocked.has(part.type):
@@ -208,7 +214,7 @@ func add_part(part_name: String, _button):
 
 
 func connect_part(part):
-	var _e = part.connect("gui_input", self, "check_if_clicked")
+	var _e = part.connect("gui_input", part, "check_if_clicked")
 	_e = part.connect("part_variant_selected", self, "add_part_to_graph")
 	_e = part.connect("output_changed", self, "update_levels")
 	_e = part.connect("unstable", self, "delete_wire")
@@ -239,7 +245,7 @@ func add_part_to_graph(part: Part, pos: Vector2):
 	part.offset = pos
 	call_deferred("unselect_all")
 	set_changed()
-	#connect_part(part)
+	connect_part(part)
 	part.dropped()
 
 
@@ -251,15 +257,15 @@ func remove_connections_to_node(node):
 
 func _on_Graph_connection_request(from, from_slot, to, to_slot):
 	# Don't connect between OUTBUS and INBUS or BUS to BUS
-	if $Graph.get_node(to).type == Parts.TYPES.INBUS and $Graph.get_node(from).type == Parts.TYPES.OUTBUS:
+	if $Graph.get_node(to).type == "INBUS" and $Graph.get_node(from).type == "OUTBUS":
 		return
-	if $Graph.get_node(to).type == Parts.TYPES.BUS1 and $Graph.get_node(from).type == Parts.TYPES.BUS1:
+	if $Graph.get_node(to).type == "BUS1" and $Graph.get_node(from).type == "BUS1":
 		return
-	if $Graph.get_node(to).type == Parts.TYPES.LOOPBACK and $Graph.get_node(from).type == Parts.TYPES.LOOPBACK:
+	if $Graph.get_node(to).type == "LOOPBACK" and $Graph.get_node(from).type == "LOOPBACK":
 		return
 	# Don't connect to input that is already connected unless it's a BUS or INPUT
 	var to_node = $Graph.get_node(to)
-	if to_node.type != Parts.TYPES.BUS1 and to_node.group != Parts.TYPES.INPUT and to_node.type != Parts.TYPES.LOOPBACK:
+	if to_node.type != "BUS1" and to_node.type != "INPUT" and to_node.type != "LOOPBACK":
 		for con in $Graph.get_connection_list():
 			if con.to == to and con.to_port == to_slot: # Docs incorrect to_slot is a port
 				return
@@ -268,9 +274,9 @@ func _on_Graph_connection_request(from, from_slot, to, to_slot):
 	var from_node = $Graph.get_node(from)
 	if to_node.get_connection_input_type(to_slot) == 0:
 		if to_node.is_reversible_input:
-			from_node.set_input(to_node.output_levels[to_slot], from_slot, true)
+			from_node.set_input(to_node.input_levels[to_slot].level, from_slot, true)
 		else:
-			to_node.set_input(from_node.output_levels[from_slot], to_slot, false)
+			to_node.set_input(from_node.output_pins[from_slot].level, to_slot, false)
 	set_changed()
 
 

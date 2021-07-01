@@ -2,12 +2,14 @@ extends Part
 
 class_name JoinBus
 
-func update_output(level: bool, port: int, _r: bool):
-	if .update_output(level, port, _r):
-		level = input_levels[0] and input_levels[1]
-		set_output(level, 0)
+func set_value(v: int, _reverse: bool, _port := 0):
+	value = v
+	update_display_value()
+	emit_signal("bus_changed", self, v, false)
 
 
-func set_port_maps():
-	in_port_map = [0, 1]
-	out_port_map = [0]
+func _on_Button_pressed():
+	data.mode += 1
+	data.mode %= 3
+	update_display_value()
+	emit_signal("data_changed")

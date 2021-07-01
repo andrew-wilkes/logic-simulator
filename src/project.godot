@@ -24,11 +24,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://parts/and_gate.gd"
 }, {
-"base": "Node",
-"class": "BUS",
-"language": "GDScript",
-"path": "res://parts/bus.gd"
-}, {
 "base": "Part",
 "class": "BiOutput",
 "language": "GDScript",
@@ -154,7 +149,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://part_data.gd"
 }, {
-"base": "Part",
+"base": "MemoryBlock",
 "class": "RamBlock",
 "language": "GDScript",
 "path": "res://parts/ram_block.gd"
@@ -164,12 +159,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://parts/register_block.gd"
 }, {
-"base": "Part",
+"base": "MemoryBlock",
 "class": "RomBlock",
 "language": "GDScript",
 "path": "res://parts/rom_block.gd"
 }, {
-"base": "BUS",
+"base": "Part",
 "class": "Seg7Comb",
 "language": "GDScript",
 "path": "res://parts/seg7_comb.gd"
@@ -203,7 +198,6 @@ _global_script_class_icons={
 "AdderComb": "",
 "AluBlock": "",
 "AndGate": "",
-"BUS": "",
 "BiOutput": "",
 "CircFormatLoader": "",
 "Circuit": "",

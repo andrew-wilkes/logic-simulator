@@ -12,8 +12,8 @@ func _on_Start_pressed():
 	else:
 		$Start.text = "Stop"
 		$Timer.start(1.0 / rate)
-		output_levels[0] = false
-		set_output(output_levels[0], 0)		
+		output_pins[0].level = false
+		set_output(output_pins[0].level, 0)		
 	running = !running
 
 
@@ -31,5 +31,5 @@ func _on_Reset_button_up():
 
 
 func _on_Timer_timeout():
-	output_levels[0] = !output_levels[0]
-	set_output(output_levels[0], 0)
+	output_pins[0].level = !output_pins[0].level
+	set_output(output_pins[0].level, 0)

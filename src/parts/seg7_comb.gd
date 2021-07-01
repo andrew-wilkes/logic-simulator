@@ -1,10 +1,6 @@
-extends BUS
+extends Part
 
 class_name Seg7Comb
-
-func set_port_maps():
-	in_port_map = [0, 1]
-	out_port_map = [0]
 
 export(Color) var seg_color
 export var mode = "hex"
@@ -23,7 +19,6 @@ func _ready():
 
 
 func setup():
-	set_port_maps()
 	if not data.has("color"):
 		data = { "color": seg_color, "mode": mode }
 	apply_data(data)
@@ -52,11 +47,14 @@ var map = [
 	[10,11,12,13,14,15]
 ]
 
-func set_value(v: int, reverse: bool, _from_pin: bool, _port := 0):
+
+func update_output(_level: bool, _port: int, _r: bool):
+	set_value(get_value_from_inputs(false), false)
+
+
+func set_value(v: int, reverse: bool, _port := 0):
 	var base = 16 if data.mode == "hex" else 10
 	var idx = int(reverse)
-	if _from_pin:
-		v = get_value_from_inputs(reverse)
 	if value == v:
 		return
 	value = v

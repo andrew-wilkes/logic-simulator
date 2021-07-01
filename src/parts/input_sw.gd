@@ -3,8 +3,7 @@ extends Part
 class_name InputSwitch
 
 func setup():
-	in_port_map = [0]
-	out_port_map = [0]
+	set_pins()
 	var button = get_child(0)
 	button.focus_mode = Control.FOCUS_NONE
 	set_io(button.pressed, 0, 0)

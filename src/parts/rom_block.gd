@@ -1,12 +1,8 @@
-extends Part
+extends MemoryBlock
 
 class_name RomBlock
 
-func update_output(level: bool, port: int, _r: bool):
-	if .update_output(level, port, _r):
-		pass
-
-
-func set_port_maps():
-	in_port_map = [0, 1]
-	out_port_map = [0]
+func set_value(v: int, reverse: bool, port := 0):
+	.set_value(v, reverse, port)
+	if not input_pins[1].level: # /OE
+		emit_bus_update()

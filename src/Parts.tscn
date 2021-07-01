@@ -20,7 +20,7 @@
 [ext_resource path="res://assets/7seg.png" type="Texture" id=18]
 [ext_resource path="res://assets/ledseg.png" type="Texture" id=19]
 [ext_resource path="res://assets/led-dot.png" type="Texture" id=20]
-[ext_resource path="res://Input.gd" type="Script" id=21]
+[ext_resource path="res://parts/input.gd" type="Script" id=21]
 [ext_resource path="res://parts/io_pin.gd" type="Script" id=22]
 [ext_resource path="res://assets/GraphNodeFrameStyle.tres" type="StyleBox" id=23]
 [ext_resource path="res://assets/mult.png" type="Texture" id=24]
@@ -147,6 +147,7 @@ script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+is_input = true
 
 [node name="Control" type="Control" parent="Gates/INPUT/INPUTPIN"]
 margin_left = 16.0
@@ -179,6 +180,7 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+is_input = true
 
 [node name="Switch" type="CheckButton" parent="Gates/INPUT/INPUTSW"]
 margin_left = 16.0
@@ -204,6 +206,7 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+is_input = true
 
 [node name="Push" type="Button" parent="Gates/INPUT/INPUTPUSH"]
 margin_left = 16.0
@@ -256,6 +259,7 @@ script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+is_input = true
 
 [node name="V" type="Label" parent="Gates/INPUT/INPUT4"]
 margin_left = 16.0
@@ -382,6 +386,7 @@ script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+is_input = true
 
 [node name="V" type="Label" parent="Gates/INPUT/INPUT8"]
 margin_left = 16.0
@@ -526,6 +531,7 @@ script = ExtResource( 31 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+is_input = true
 
 [node name="Control" type="Control" parent="Gates/INPUT/INPUTCLK"]
 margin_left = 16.0
@@ -595,6 +601,7 @@ script = ExtResource( 52 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+has_tt = true
 
 [node name="Icon" type="TextureRect" parent="Gates/NOT"]
 margin_left = 16.0
@@ -633,6 +640,7 @@ script = ExtResource( 44 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+has_tt = true
 
 [node name="Control" type="Control" parent="Gates/AND"]
 margin_left = 16.0
@@ -684,6 +692,7 @@ script = ExtResource( 50 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+has_tt = true
 
 [node name="Control" type="Control" parent="Gates/NAND"]
 margin_left = 16.0
@@ -735,6 +744,7 @@ script = ExtResource( 53 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+has_tt = true
 
 [node name="Control" type="Control" parent="Gates/OR"]
 margin_left = 16.0
@@ -786,6 +796,7 @@ script = ExtResource( 51 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+has_tt = true
 
 [node name="Control" type="Control" parent="Gates/NOR"]
 margin_left = 16.0
@@ -837,6 +848,7 @@ script = ExtResource( 57 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+has_tt = true
 
 [node name="Control" type="Control" parent="Gates/XOR"]
 margin_left = 16.0
@@ -1203,10 +1215,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="INBUS" type="GraphNode" parent="MISC"]
+[node name="INBUS8" type="GraphNode" parent="MISC"]
 margin_right = 125.0
 margin_bottom = 70.0
-title = "INBUS"
+title = "INBUS 8"
 slot/0/left_enabled = true
 slot/0/left_type = 1
 slot/0/left_color = Color( 1, 1, 0, 1 )
@@ -1218,7 +1230,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="MISC/INBUS"]
+[node name="Label" type="Label" parent="MISC/INBUS8"]
 margin_left = 16.0
 margin_top = 24.0
 margin_right = 109.0
@@ -1230,13 +1242,40 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="MISC/INBUS"]
+[node name="Sprite" type="Sprite" parent="MISC/INBUS8"]
 visible = false
 texture = ExtResource( 13 )
 
-[node name="Timer" type="Timer" parent="MISC/INBUS"]
-wait_time = 2.0
-one_shot = true
+[node name="INBUS16" type="GraphNode" parent="MISC"]
+margin_right = 125.0
+margin_bottom = 70.0
+title = "INBUS 16"
+slot/0/left_enabled = true
+slot/0/left_type = 1
+slot/0/left_color = Color( 1, 1, 0, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 1
+slot/0/right_color = Color( 1, 1, 0, 1 )
+script = ExtResource( 59 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MISC/INBUS16"]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 109.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 40 )
+text = "0x00"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="MISC/INBUS16"]
+visible = false
+texture = ExtResource( 13 )
 
 [node name="BUSMUX" type="GraphNode" parent="MISC"]
 margin_top = 74.0
@@ -1409,6 +1448,12 @@ slot/0/left_color = Color( 1, 1, 0, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 1
 slot/0/right_color = Color( 1, 1, 0, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1419,6 +1464,7 @@ visible = false
 texture = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="MISC/BUS1"]
+visible = false
 margin_left = 16.0
 margin_top = 24.0
 margin_right = 109.0
@@ -1430,9 +1476,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Timer" type="Timer" parent="MISC/BUS1"]
-wait_time = 2.0
-one_shot = true
+[node name="Button" type="Button" parent="MISC/BUS1"]
+margin_left = 16.0
+margin_top = 65.0
+margin_right = 109.0
+margin_bottom = 85.0
+text = "Mode"
 
 [node name="LOOPBUS" type="GraphNode" parent="MISC"]
 margin_top = 356.0
@@ -1478,15 +1527,11 @@ margin_top = 65.0
 margin_right = 109.0
 margin_bottom = 65.0
 
-[node name="Timer" type="Timer" parent="MISC/LOOPBUS"]
-wait_time = 2.0
-one_shot = true
-
-[node name="OUTBUS" type="GraphNode" parent="MISC"]
+[node name="OUTBUS8" type="GraphNode" parent="MISC"]
 margin_top = 431.0
 margin_right = 125.0
 margin_bottom = 501.0
-title = "OUTBUS"
+title = "OUTBUS 8"
 slot/0/left_enabled = true
 slot/0/left_type = 1
 slot/0/left_color = Color( 1, 1, 0, 1 )
@@ -1498,7 +1543,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="MISC/OUTBUS"]
+[node name="Label" type="Label" parent="MISC/OUTBUS8"]
 margin_left = 16.0
 margin_top = 24.0
 margin_right = 109.0
@@ -1510,13 +1555,42 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="MISC/OUTBUS"]
+[node name="Sprite" type="Sprite" parent="MISC/OUTBUS8"]
 visible = false
 texture = ExtResource( 14 )
 
-[node name="Timer" type="Timer" parent="MISC/OUTBUS"]
-wait_time = 2.0
-one_shot = true
+[node name="OUTBUS16" type="GraphNode" parent="MISC"]
+margin_top = 431.0
+margin_right = 125.0
+margin_bottom = 501.0
+title = "OUTBUS 16"
+slot/0/left_enabled = true
+slot/0/left_type = 1
+slot/0/left_color = Color( 1, 1, 0, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 1
+slot/0/right_color = Color( 1, 1, 0, 1 )
+script = ExtResource( 62 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+num_pins = 16
+
+[node name="Label" type="Label" parent="MISC/OUTBUS16"]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 109.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 40 )
+text = "0x00"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="MISC/OUTBUS16"]
+visible = false
+texture = ExtResource( 14 )
 
 [node name="Combinational" type="Control" parent="."]
 margin_left = 284.236
@@ -3128,15 +3202,14 @@ __meta__ = {
 [connection signal="pressed" from="Gates/INPUT/INPUTCLK/Rate" to="Gates/INPUT/INPUTCLK" method="_on_Rate_pressed"]
 [connection signal="timeout" from="Gates/INPUT/INPUTCLK/Timer" to="Gates/INPUT/INPUTCLK" method="_on_Timer_timeout"]
 [connection signal="text_changed" from="Gates/OUTPUT/OUTPUTPIN/Pin" to="Gates/OUTPUT/OUTPUTPIN" method="_on_Pin_text_changed"]
-[connection signal="timeout" from="MISC/INBUS/Timer" to="MISC/INBUS" method="_on_Timer_timeout"]
-[connection signal="timeout" from="MISC/BUS1/Timer" to="MISC/BUS1" method="_on_Timer_timeout"]
-[connection signal="timeout" from="MISC/LOOPBUS/Timer" to="MISC/LOOPBUS" method="_on_Timer_timeout"]
-[connection signal="timeout" from="MISC/OUTBUS/Timer" to="MISC/OUTBUS" method="_on_Timer_timeout"]
+[connection signal="pressed" from="MISC/BUS1/Button" to="MISC/BUS1" method="_on_Button_pressed"]
 [connection signal="button_down" from="Combinational/DECODER/Bits" to="Combinational/DECODER" method="_on_Bits_button_down"]
 [connection signal="timeout" from="Combinational/DECODER/Timer" to="Combinational/DECODER" method="_on_Timer_timeout"]
 [connection signal="color_changed" from="Combinational/SEG7/HB/ColorPicker" to="Combinational/SEG7" method="_on_ColorPicker_color_changed"]
 [connection signal="pressed" from="Combinational/SEG7/HB/Mode" to="Combinational/SEG7" method="_on_Mode_pressed"]
+[connection signal="button_timer_timeout" from="Blocks/SHIFTREG/HBox/Bits" to="Blocks/SHIFTREG" method="_on_Bits_button_timer_timeout"]
 [connection signal="was_pressed" from="Blocks/SHIFTREG/HBox/Bits" to="Blocks/SHIFTREG" method="_on_Bits_was_pressed"]
+[connection signal="button_timer_timeout" from="Blocks/ALU/HBox5/Bits" to="Blocks/ALU" method="_on_Bits_button_timer_timeout"]
 [connection signal="was_pressed" from="Blocks/ALU/HBox5/Bits" to="Blocks/ALU" method="_on_Bits_was_pressed"]
 [connection signal="pressed" from="Blocks/ROM/Button" to="Blocks/ROM" method="_on_Button_pressed"]
 [connection signal="data_changed" from="Blocks/ROM/MM" to="Blocks/ROM" method="memory_data_changed"]

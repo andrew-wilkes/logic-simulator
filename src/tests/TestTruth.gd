@@ -42,7 +42,7 @@ func test_part(type: String):
 	var pos = Vector2(200 + randf() * 1500, randf() * 600)
 	main.add_part_to_graph(part, pos)
 	main.get_node("c/TruthTable").open(part)
-	var part_data = Data.parts[Parts.get_type_name(part.type)]
+	var part_data = Data.parts[part.type]
 	# Add input pins
 	for i in part.get_connection_input_count():
 		var input_pin = Parts.get_part("INPUTPIN")
