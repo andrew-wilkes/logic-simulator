@@ -1401,7 +1401,6 @@ margin_top = 124.0
 margin_right = 109.0
 margin_bottom = 148.0
 rect_min_size = Vector2( 0, 24 )
-text = "D"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1523,6 +1522,7 @@ margin_left = 16.0
 margin_top = 65.0
 margin_right = 109.0
 margin_bottom = 65.0
+rect_min_size = Vector2( 0, 24 )
 
 [node name="OUTBUS8" type="GraphNode" parent="MISC"]
 margin_top = 431.0

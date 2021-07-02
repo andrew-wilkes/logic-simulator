@@ -16,10 +16,10 @@ func apply_data():
 	update_display_value()
 
 
-func set_value(v: int, _reverse: bool, _port := 0):
+func set_value(v: int, reverse: bool, _port := 0):
 	value = v
 	update_display_value()
-	emit_signal("bus_changed", self, v, false)
+	emit_signal("bus_changed", self, v, reverse)
 
 
 func _on_EmitButton_button_timer_timeout(b):
