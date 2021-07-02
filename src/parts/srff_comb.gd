@@ -7,7 +7,7 @@ func update_output(_level: bool, _port: int, _r: bool):
 	if output_pins[0].level == output_pins[1].level:
 		set_output(false, 0)
 		set_output(true, 1)
-	if input_pins[0]: # Set
+	if input_pins[0].level: # Set
 		set_output(not input_pins[1].level, 0)
 		set_output(false, 1)
 	else:

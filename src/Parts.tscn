@@ -1225,6 +1225,7 @@ script = ExtResource( 59 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+is_reversible_input = true
 
 [node name="Label" type="Label" parent="MISC/INBUS8"]
 margin_left = 16.0
@@ -1257,6 +1258,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 num_bytes = 4
+is_reversible_input = true
 num_pins = 16
 
 [node name="Label" type="Label" parent="MISC/INBUS16"]
@@ -1326,6 +1328,7 @@ script = ExtResource( 60 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+is_reversible_input = true
 
 [node name="HBox" type="HBoxContainer" parent="MISC/BUSMUX"]
 margin_left = 16.0
@@ -1455,6 +1458,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+is_reversible_input = true
 
 [node name="Sprite" type="Sprite" parent="MISC/BUS1"]
 visible = false
@@ -1500,6 +1504,7 @@ script = ExtResource( 63 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+is_reversible_input = true
 
 [node name="Sprite" type="Sprite" parent="MISC/LOOPBUS"]
 visible = false
@@ -1521,7 +1526,7 @@ __meta__ = {
 margin_left = 16.0
 margin_top = 65.0
 margin_right = 109.0
-margin_bottom = 65.0
+margin_bottom = 89.0
 rect_min_size = Vector2( 0, 24 )
 
 [node name="OUTBUS8" type="GraphNode" parent="MISC"]
@@ -1539,6 +1544,7 @@ script = ExtResource( 62 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+is_reversible_input = true
 
 [node name="Label" type="Label" parent="MISC/OUTBUS8"]
 margin_left = 16.0
@@ -1572,6 +1578,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 num_bytes = 4
+is_reversible_input = true
 num_pins = 16
 
 [node name="Label" type="Label" parent="MISC/OUTBUS16"]
@@ -1626,6 +1633,7 @@ script = ExtResource( 49 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+has_tt = true
 
 [node name="Sprite" type="Sprite" parent="Combinational/MULT"]
 visible = false
@@ -1695,6 +1703,7 @@ script = ExtResource( 56 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+has_tt = true
 
 [node name="Sprite" type="Sprite" parent="Combinational/SRFLIPFLOP"]
 visible = false
@@ -1769,6 +1778,7 @@ script = ExtResource( 42 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+has_tt = true
 
 [node name="Sprite" type="Sprite" parent="Combinational/DLATCH"]
 visible = false
@@ -1855,6 +1865,7 @@ script = ExtResource( 38 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+has_tt = true
 
 [node name="Sprite" type="Sprite" parent="Combinational/DFLIPFLOP"]
 visible = false
@@ -1939,6 +1950,7 @@ script = ExtResource( 48 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+has_tt = true
 
 [node name="Sprite" type="Sprite" parent="Combinational/JKFLIPFLOP"]
 visible = false
@@ -2028,6 +2040,7 @@ script = ExtResource( 46 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+has_tt = true
 
 [node name="Sprite" type="Sprite" parent="Combinational/ADDER"]
 visible = false

@@ -79,8 +79,9 @@ func set_pins():
 func reset():
 	for input_pin in input_pins:
 		input_pin.count = 0
-	for output_pin in output_pins:
-		output_pin.count = 0
+	if is_reversible_input:
+		for output_pin in output_pins:
+			output_pin.count = 0
 
 
 func get_value_from_inputs(reverse):
@@ -112,9 +113,9 @@ func set_output(level: bool, port: int, reverse := false):
 	var pin = output_pins[port]
 	if reverse:
 		pin = input_pins[port]
-		set("slot/%d/left_color" % input_pins[port].slot, col)
+		set("slot/%d/left_color" % pin.slot, col)
 	else:
-		set("slot/%d/right_color" % output_pins[port].slot, col)
+		set("slot/%d/right_color" % pin.slot, col)
 	pin.level = level
 	pin.count += 1
 	emit_signal("output_changed", self, port, level, reverse)
@@ -200,3 +201,7 @@ func update_display_value():
 			$Label.text = String(value)
 		BIN:
 			$Label.text = Parts.int2bin(value, bit_lengths[data.bits])
+
+
+func apply_data():
+	pass

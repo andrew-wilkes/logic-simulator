@@ -434,7 +434,7 @@ func save_data():
 		if node is GraphNode:
 			var node_data = PartData.new()
 			node_data.name = node.name
-			node_data.type = Parts.get_type_name(node.type)
+			node_data.type = node.type
 			node_data.offset = node.offset
 			node_data.data = node.data
 			circuit.nodes.append(node_data)

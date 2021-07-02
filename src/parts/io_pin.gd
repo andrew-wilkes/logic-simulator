@@ -37,8 +37,9 @@ func set_pin_name(txt):
 
 
 func update_output(_level, _port, _reverse):
-	value = get_value_from_inputs(false)
-	set_display_value()
+	pass
+	#value = get_value_from_inputs(false)
+	#set_display_value()
 
 
 func set_display_value():

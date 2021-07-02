@@ -137,7 +137,7 @@ var parts = {
 	},
 	"JKFLIPFLOP":
 	{
-		"inputs": ["J","CK", "R"],
+		"inputs": ["J","CK", "K"],
 		"outputs": ["Q", "/Q"],
 		"tt": [
 			[0,"X",0,"X","X"],

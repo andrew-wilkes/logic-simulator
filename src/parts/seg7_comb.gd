@@ -21,18 +21,18 @@ func _ready():
 func setup():
 	if not data.has("color"):
 		data = { "color": seg_color, "mode": mode }
-	apply_data(data)
+	apply_data()
 
 
-func apply_data(d):
-	$HB/ColorPicker.color = d.color
-	$HB/Mode.text = d.mode
-	$LED.modulate = d.color
-	seg_color = d.color
-	mode = d.mode
+func apply_data():
+	$HB/ColorPicker.color = data.color
+	$HB/Mode.text = data.mode
+	$LED.modulate = data.color
+	seg_color = data.color
+	mode = data.mode
 	# Apply this change to the base part to relect user preference
 	if get_parent() is GraphEdit:
-		Parts.find_node("SEG7").apply_data(d)
+		Parts.find_node("SEG7").apply_data()
 	emit_signal("data_changed")
 
 
@@ -68,7 +68,7 @@ func set_value(v: int, reverse: bool, _port := 0):
 
 func _on_ColorPicker_color_changed(color):
 	data.color = color
-	apply_data(data)
+	apply_data()
 
 
 func _on_Mode_pressed():
@@ -76,7 +76,7 @@ func _on_Mode_pressed():
 		data.mode = "dec"
 	else:
 		data.mode = "hex"
-	apply_data(data)
+	apply_data()
 
 
 func get_data():
@@ -85,4 +85,4 @@ func get_data():
 
 func set_data(d):
 	data = d
-	apply_data(data)
+	apply_data()
