@@ -1,22 +1,23 @@
 extends Part
 
-func set_value(value: int, reverse = false, _port := 0):
-	set_text(value)
-	emit_signal("bus_changed", self, value, reverse)
+func set_value(v: int, reverse = false, _port := 0):
+	value = v
+	set_text(v)
+	emit_signal("bus_changed", self, v, reverse)
 	for n in output_pins.size() - 1:
-		var level = bool(value % 2)
-		value /= 2
+		var level = bool(v % 2)
+		v /= 2
 		set_output(level, n + 1, reverse)
 
 
-func set_text(value):
-	get_child(0).text = "0x%02X" % value
+func set_text(v):
+	get_child(0).text = "0x%02X" % v
 
 
 var vs
 
-func _on_VSlider_value_changed(value):
-	vs = int(value)
+func _on_VSlider_value_changed(v):
+	vs = int(v)
 	set_text(vs)
 	$Timer.start()
 

@@ -271,13 +271,18 @@ func _on_Graph_connection_request(from, from_slot, to, to_slot):
 			if con.to == to and con.to_port == to_slot: # Docs incorrect to_slot is a port
 				return
 	$Graph.connect_node(from, from_slot, to, to_slot)
-	# Propagate level
+	# Propagate level or value
 	var from_node = $Graph.get_node(from)
 	if to_node.get_connection_input_type(to_slot) == 0:
 		if to_node.is_reversible_input:
 			from_node.set_input(to_node.input_levels[to_slot].level, from_slot, true)
 		else:
 			to_node.set_input(from_node.output_pins[from_slot].level, to_slot, false)
+	else:
+		if to_node.is_reversible_input:
+			from_node.set_value(to_node.value, true, from_slot)
+		else:
+			to_node.set_value(from_node.value, false, to_slot)
 	set_changed()
 
 
@@ -477,11 +482,11 @@ func init_graph(circuit: Circuit):
 		# A non-connected part seems to have a name containing @ marks
 		# But when it is added to the scene, the @ marks are removed
 		$Graph.add_child(part, true)
-		part.data = node.data
 		call_deferred("check_for_at_marks")
 		connect_part(part)
 		part.name = node.name
-		part.loaded_from_file()
+		part.data = node.data
+		part.apply_data()
 		for con in circuit.connections:
 			var _e = $Graph.connect_node(con.from, con.from_port, con.to, con.to_port)
 

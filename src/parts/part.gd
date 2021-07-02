@@ -24,7 +24,7 @@ var output_enabled = false
 var bit_lengths = [4, 8, 16]
 var msbs = [8, 128, 32768]
 var maxvs = [16, 256, 65536]
-var value := -1
+var value := 0
 var a := 0
 var b := 0
 var vin = 0
@@ -109,12 +109,14 @@ func set_input(level: bool, port: int, reverse = false):
 
 func set_output(level: bool, port: int, reverse := false):
 	var col = Color.red if level else Color.blue
+	var pin = output_pins[port]
 	if reverse:
-		input_pins[port].level = level
+		pin = input_pins[port]
 		set("slot/%d/left_color" % input_pins[port].slot, col)
 	else:
-		output_pins[port].level = level
 		set("slot/%d/right_color" % output_pins[port].slot, col)
+	pin.level = level
+	pin.count += 1
 	emit_signal("output_changed", self, port, level, reverse)
 
 
@@ -168,11 +170,13 @@ func handle_button_press(_b):
 	if data.mode == BITS:
 		change_bit_depth(_b)
 		_b.start_timer()
+		rect_size.x = 0
 	else:
 		data.mode += 1
 		data.mode %= 3
 		set_format()
 		update_display_value()
+		emit_signal("data_changed")
 
 
 func change_bit_depth(_b):

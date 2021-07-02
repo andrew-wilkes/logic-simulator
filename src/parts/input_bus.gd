@@ -15,19 +15,26 @@ func set_value(v: int, _reverse: bool, _port := 0):
 
 
 func update_value(v: int):
-	$Bus.update_display_value(v)
+	update_display_value()
 	emit_signal("bus_changed", self, v, false)
 
 
 func setup():
-	var c = Control.new()
+	data = { "mode": HEX, "bits": num_bytes / 2 }
+	set_format()
+	update_display_value()
+	var c = Label.new()
+	c.valign = Label.VALIGN_CENTER
 	c.rect_min_size.y = 24
 	for idx in num_pins:
+		c.text = "D%d" % idx
 		add_child(c.duplicate())
 	call_deferred("set_slots")
 
 
 func set_slots():
-	var slot = 2
+	var slot = 1
 	for idx in num_pins:
 		set_slot(slot, true, 0, Color.white, false, 0, Color.white)
+		slot += 1
+	set_pins()
