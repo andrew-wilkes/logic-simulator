@@ -38,7 +38,6 @@ var frame_style = preload("res://assets/GraphNodeFrameStyle.tres")
 
 func _ready():
 	set("custom_styles/frame", frame_style)
-	has_tt = Data.parts.has(name)
 
 
 func check_if_clicked(event):
