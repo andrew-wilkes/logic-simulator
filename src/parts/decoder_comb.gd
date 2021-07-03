@@ -6,13 +6,16 @@ func update_output(_level: bool, _port: int, _r: bool):
 	set_value(get_value_from_inputs(false), false)
 
 
-func set_value(v: int, _reverse: bool, _port := 0):
-	if value == v:
+func set_value(v: int, _reverse: bool, port := 0):
+	if value == v or port > 0:
 		return
-	match num_bytes:
-		1:
+	value = v
+	match input_pins.size():
+		3:
+			v %= 4
+		4:
 			v %= 8
-		2:
+		5:
 			v %= 16
 	for n in output_pins.size():
 		var level = n == v
