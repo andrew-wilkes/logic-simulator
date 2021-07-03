@@ -2,7 +2,13 @@ extends Part
 
 class_name OutputBus
 
-export var num_pins = 8
+var num_pins = 8
+
+func _ready():
+	if name == "OUTBUS16":
+		num_bytes = 4
+		num_pins = 16
+
 
 func set_value(v: int, reverse: bool, _port := 0):
 	value = v

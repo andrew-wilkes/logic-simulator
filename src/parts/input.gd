@@ -1,5 +1,9 @@
 extends Part
 
+func _ready():
+	is_input = true
+
+
 func set_value(v: int, reverse = false, _port := 0):
 	value = v
 	set_text(v)

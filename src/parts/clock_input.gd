@@ -5,6 +5,10 @@ class_name ClockInput
 var rate = 1.875
 var running = false
 
+func _ready():
+	is_input = true
+
+
 func _on_Start_pressed():
 	if running:
 		$Start.text = "Start"

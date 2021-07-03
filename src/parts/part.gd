@@ -11,11 +11,11 @@ signal data_changed
 
 const RACE_TRIGGER_COUNT = 4
 
-export var has_tt = false
-export var locked = false
-export var num_bytes = 2
-export var is_reversible_input = false
-export var is_input = false
+var has_tt = false
+var locked = false
+var num_bytes = 2
+var is_reversible_input = false
+var is_input = false
 
 var input_pins = []
 var output_pins = []
@@ -38,6 +38,7 @@ var frame_style = preload("res://assets/GraphNodeFrameStyle.tres")
 
 func _ready():
 	set("custom_styles/frame", frame_style)
+	has_tt = Data.parts.has(name)
 
 
 func check_if_clicked(event):
@@ -101,7 +102,6 @@ func get_value_from_inputs(reverse):
 
 # Gets passed the port that has an input level passed to it
 func apply_input(level: bool, port: int, reverse: bool):
-	print(name, " ", level, " ", port)
 	var pin = input_pins[port]
 	if reverse:
 		pin = output_pins[port]

@@ -2,6 +2,11 @@ extends Part
 
 class_name InputSwitch
 
+func _ready():
+	is_input = true
+	is_reversible_input = true
+
+
 func setup():
 	set_pins()
 	var button = get_child(0)
