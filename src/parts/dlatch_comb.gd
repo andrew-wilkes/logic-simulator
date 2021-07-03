@@ -2,7 +2,7 @@ extends Part
 
 class_name DlatchComb
 
-func update_output(level: bool, _port: int, _r: bool):
+func update_output(_level: bool, _port: int, _r: bool):
 	# Init outputs
 	if output_pins[0].level == output_pins[1].level:
 		set_output(false, 0)

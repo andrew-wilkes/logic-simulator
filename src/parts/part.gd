@@ -32,6 +32,7 @@ var data = {} setget set_data, get_data
 var type := ""
 var read = true
 var format = ""
+var untouched = true
 
 var frame_style = preload("res://assets/GraphNodeFrameStyle.tres")
 
@@ -57,6 +58,7 @@ class Pin:
 	var level = false
 	var last_level = false
 	var count = 0
+	var untouched = true
 
 
 func set_pins():
@@ -99,17 +101,15 @@ func get_value_from_inputs(reverse):
 
 # Gets passed the port that has an input level passed to it
 func apply_input(level: bool, port: int, reverse: bool):
+	print(name, " ", level, " ", port)
 	var pin = input_pins[port]
 	if reverse:
 		pin = output_pins[port]
-	# Cause update for first-time input
-	if pin.count == 0:
-		# pin.level is undefined
-		pin.level = level # Test for same as last level must pass
-	else:
-		# return if no change to established input
-		if pin.level == level:
-			return false
+	if pin.untouched: # Reset this after update_output
+		pin.level = not level # Ensure that change is recognized
+	# return if no change to established input
+	if pin.level == level:
+		return false
 	# Detect race condition
 	pin.count += 1
 	if pin.count > RACE_TRIGGER_COUNT:
@@ -119,6 +119,7 @@ func apply_input(level: bool, port: int, reverse: bool):
 	pin.level = level
 	set_input(level, port, reverse)
 	update_output(level, port, reverse)
+	pin.untouched = false
 
 
 func set_input(level: bool, port: int, reverse = false):
@@ -159,8 +160,10 @@ func loaded_from_file():
 	pass
 
 
-func update_output(_level, _port, _reverse):
-	pass
+# Parts that don't process the inputs
+func update_output(level, port, _reverse):
+	if input_pins[port].untouched: # Last level was unknown
+		input_pins[port].last_level = level
 
 
 func change_button(_b):

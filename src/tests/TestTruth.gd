@@ -9,7 +9,7 @@ func _ready():
 	add_child(main)
 	main.get_node("TestTimer").wait_time = 0.05
 	test_parts_that_have_tt()
-	#test_part("JKFLIPFLOP")
+	#test_part("DFLIPFLOP")
 
 
 func test_parts_that_have_tt():

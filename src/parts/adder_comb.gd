@@ -4,7 +4,8 @@ class_name AdderComb
 
 func update_output(_level: bool, _port: int, _r: bool):
 	# Init outputs
-	if output_pins[0].level == output_pins[1].level:
+	if untouched:
+		untouched = false
 		set_output(false, 0)
 		set_output(true, 1)
 	var sum: int = int(input_pins[0].level) + int(input_pins[1].level) + int(input_pins[2].level)
