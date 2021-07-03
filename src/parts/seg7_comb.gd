@@ -2,8 +2,8 @@ extends Part
 
 class_name Seg7Comb
 
-export(Color) var seg_color
-export var mode = "hex"
+var seg_color = Color.green
+var mode = "hex"
 
 func _ready():
 	var off = [36,12, 14,14, 0,28, -14,14, -14,-14, 0,-28, 14,14, 22,29]
@@ -19,6 +19,7 @@ func _ready():
 
 
 func setup():
+	set_pins()
 	if not data.has("color"):
 		data = { "color": seg_color, "mode": mode }
 	apply_data()
@@ -32,7 +33,9 @@ func apply_data():
 	mode = data.mode
 	# Apply this change to the base part to relect user preference
 	if get_parent() is GraphEdit:
-		Parts.find_node("SEG7").apply_data()
+		var p = Parts.find_node("SEG7")
+		p.data = data
+		p.apply_data()
 	emit_signal("data_changed")
 
 
