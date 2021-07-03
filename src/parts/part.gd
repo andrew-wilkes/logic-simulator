@@ -57,9 +57,7 @@ class Pin:
 	var level = false
 	var last_level = false
 	var count = 0
-	
-	func copy_level():
-		last_level = level
+
 
 func set_pins():
 	var slot = 0
@@ -99,13 +97,36 @@ func get_value_from_inputs(reverse):
 	return v
 
 
+# Gets passed the port that has an input level passed to it
+func apply_input(level: bool, port: int, reverse: bool):
+	var pin = input_pins[port]
+	if reverse:
+		pin = output_pins[port]
+	# Cause update for first-time input
+	if pin.count == 0:
+		# pin.level is undefined
+		pin.level = level # Test for same as last level must pass
+	else:
+		# return if no change to established input
+		if pin.level == level:
+			return false
+	# Detect race condition
+	pin.count += 1
+	if pin.count > RACE_TRIGGER_COUNT:
+		emit_signal("unstable", self, port, reverse)
+		return false
+	pin.last_level = pin.level
+	pin.level = level
+	set_input(level, port, reverse)
+	update_output(level, port, reverse)
+
+
 func set_input(level: bool, port: int, reverse = false):
 	var col = Color.red if level else Color.blue
 	if reverse:
 		set("slot/%d/right_color" % output_pins[port].slot, col)
 	else:
 		set("slot/%d/left_color" % input_pins[port].slot, col)
-	update_output(level, port, reverse)
 
 
 func set_output(level: bool, port: int, reverse := false):
@@ -119,26 +140,6 @@ func set_output(level: bool, port: int, reverse := false):
 	pin.level = level
 	pin.count += 1
 	emit_signal("output_changed", self, port, level, reverse)
-
-
-# Gets passed the port that has an input level passed to it
-func apply_input(level: bool, port: int, reverse: bool):
-	var pin = input_pins[port]
-	if reverse:
-		pin = output_pins[port]
-	# Cause update for first-time input or
-	# return if no change to established input
-	if pin.level == level and pin.count > 0:
-		return false
-	# Detect race condition
-	pin.count += 1
-	if pin.count > RACE_TRIGGER_COUNT:
-		emit_signal("unstable", self, port, reverse)
-		return false
-	pin.copy_level()
-	pin.level = level
-	set_input(level, port, reverse)
-	update_output(level, port, reverse)
 
 
 func set_data(d):
