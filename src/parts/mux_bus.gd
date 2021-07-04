@@ -2,12 +2,18 @@ extends Part
 
 class_name MuxBus
 
+var values = [0, 0, 0, 0]
+
 func update_output(_level: bool, _port: int, _r: bool):
 	selected_port = int(input_pins[4].level) + 2 * int(input_pins[5].level)
 	set_bus_pin_colors()
+	set_value(values[selected_port], false, selected_port)
 
 
+# This is called whenever a part with a bus that is connected (via a wire) to this part changes its bus value
 func set_value(v: int, _reverse: bool, port := 0):
+	if port < 4:
+		values[port] = v
 	if port != selected_port:
 		return
 	value = v
