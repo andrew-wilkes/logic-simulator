@@ -9,9 +9,10 @@ func update_output(_level: bool, _port: int, rev: bool):
 	update_value(value)
 
 
-func set_value(v: int, _reverse: bool, _port := 0):
-	value = v
-	update_value(v)
+func set_value(v: int, _reverse: bool, port := 0):
+	if port == 0:
+		value = v
+		update_value(v)
 
 
 func update_value(v: int):

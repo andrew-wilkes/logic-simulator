@@ -6,7 +6,9 @@ func update_output(_level: bool, _port: int, _r: bool):
 	set_value(get_value_from_inputs(false), false)
 
 
-func set_value(v: int, _reverse: bool, _port := 0):
+func set_value(v: int, _reverse: bool, port := 0):
+	if port != 0:
+		return
 	value = v
 	match input_pins.size():
 		3:

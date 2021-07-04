@@ -55,7 +55,9 @@ func update_output(_level: bool, _port: int, _r: bool):
 	set_value(get_value_from_inputs(false), false)
 
 
-func set_value(v: int, reverse: bool, _port := 0):
+func set_value(v: int, reverse: bool, port := 0):
+	if port != 0:
+		return
 	var base = 16 if data.mode == "hex" else 10
 	var idx = int(reverse)
 	value = v

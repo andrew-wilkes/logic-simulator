@@ -10,7 +10,9 @@ func _ready():
 		num_pins = 16
 
 
-func set_value(v: int, reverse: bool, _port := 0):
+func set_value(v: int, reverse: bool, port := 0):
+	if port != 0:
+		return
 	value = v
 	update_display_value()
 	emit_signal("bus_changed", self, v, false)
