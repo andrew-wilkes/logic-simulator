@@ -5,7 +5,6 @@ signal button_timer_timeout(b)
 
 func _ready():
 	var _e = connect("pressed", self, "emit_pressed")
-	start_timer()
 
 
 func start_timer():

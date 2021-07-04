@@ -2125,29 +2125,43 @@ visible = false
 position = Vector2( 90.3349, -6.21597 )
 texture = ExtResource( 16 )
 
-[node name="Bits" type="Button" parent="Combinational/DECODER"]
+[node name="HBox" type="HBoxContainer" parent="Combinational/DECODER"]
 margin_left = 16.0
 margin_top = 24.0
 margin_right = 116.0
-margin_bottom = 44.0
-focus_mode = 0
-text = "Bits"
-
-[node name="HBox" type="HBoxContainer" parent="Combinational/DECODER"]
-margin_left = 16.0
-margin_top = 45.0
-margin_right = 116.0
-margin_bottom = 69.0
+margin_bottom = 48.0
 rect_min_size = Vector2( 0, 24 )
 
 [node name="Label" type="Label" parent="Combinational/DECODER/HBox"]
 margin_top = 5.0
 margin_right = 17.0
 margin_bottom = 19.0
+text = "D"
+valign = 1
+
+[node name="Bits" parent="Combinational/DECODER/HBox" instance=ExtResource( 35 )]
+margin_left = 31.0
+margin_top = 100.0
+margin_right = 68.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+text = "Bits"
+
+[node name="HBox2" type="HBoxContainer" parent="Combinational/DECODER"]
+margin_left = 16.0
+margin_top = 49.0
+margin_right = 116.0
+margin_bottom = 73.0
+rect_min_size = Vector2( 0, 24 )
+
+[node name="Label" type="Label" parent="Combinational/DECODER/HBox2"]
+margin_top = 5.0
+margin_right = 17.0
+margin_bottom = 19.0
 text = "A0"
 valign = 1
 
-[node name="Label2" type="Label" parent="Combinational/DECODER/HBox"]
+[node name="Label2" type="Label" parent="Combinational/DECODER/HBox2"]
 margin_left = 21.0
 margin_top = 5.0
 margin_right = 100.0
@@ -2157,22 +2171,21 @@ text = "Y0"
 align = 2
 valign = 1
 
-[node name="HBox2" type="HBoxContainer" parent="Combinational/DECODER"]
+[node name="HBox3" type="HBoxContainer" parent="Combinational/DECODER"]
 margin_left = 16.0
-margin_top = 70.0
+margin_top = 74.0
 margin_right = 116.0
-margin_bottom = 94.0
+margin_bottom = 98.0
 rect_min_size = Vector2( 0, 24 )
 
-[node name="Label" type="Label" parent="Combinational/DECODER/HBox2"]
+[node name="Label" type="Label" parent="Combinational/DECODER/HBox3"]
 margin_top = 5.0
-margin_right = 17.0
 margin_bottom = 19.0
 text = "A1"
 valign = 1
 
-[node name="Label2" type="Label" parent="Combinational/DECODER/HBox2"]
-margin_left = 21.0
+[node name="Label2" type="Label" parent="Combinational/DECODER/HBox3"]
+margin_left = 4.0
 margin_top = 5.0
 margin_right = 100.0
 margin_bottom = 19.0
@@ -2181,19 +2194,19 @@ text = "Y1"
 align = 2
 valign = 1
 
-[node name="HBox3" type="HBoxContainer" parent="Combinational/DECODER"]
+[node name="HBox4" type="HBoxContainer" parent="Combinational/DECODER"]
 margin_left = 16.0
-margin_top = 95.0
+margin_top = 99.0
 margin_right = 116.0
-margin_bottom = 119.0
+margin_bottom = 123.0
 rect_min_size = Vector2( 0, 24 )
 
-[node name="Label" type="Label" parent="Combinational/DECODER/HBox3"]
+[node name="Label" type="Label" parent="Combinational/DECODER/HBox4"]
 margin_top = 5.0
 margin_bottom = 19.0
 valign = 1
 
-[node name="Label2" type="Label" parent="Combinational/DECODER/HBox3"]
+[node name="Label2" type="Label" parent="Combinational/DECODER/HBox4"]
 margin_left = 4.0
 margin_top = 5.0
 margin_right = 100.0
@@ -2203,19 +2216,19 @@ text = "Y2"
 align = 2
 valign = 1
 
-[node name="HBox4" type="HBoxContainer" parent="Combinational/DECODER"]
+[node name="HBox5" type="HBoxContainer" parent="Combinational/DECODER"]
 margin_left = 16.0
-margin_top = 120.0
+margin_top = 124.0
 margin_right = 116.0
-margin_bottom = 144.0
+margin_bottom = 148.0
 rect_min_size = Vector2( 0, 24 )
 
-[node name="Label" type="Label" parent="Combinational/DECODER/HBox4"]
+[node name="Label" type="Label" parent="Combinational/DECODER/HBox5"]
 margin_top = 5.0
 margin_bottom = 19.0
 valign = 1
 
-[node name="Label2" type="Label" parent="Combinational/DECODER/HBox4"]
+[node name="Label2" type="Label" parent="Combinational/DECODER/HBox5"]
 margin_left = 4.0
 margin_top = 5.0
 margin_right = 100.0
@@ -3192,7 +3205,8 @@ __meta__ = {
 [connection signal="text_changed" from="Gates/OUTPUT/OUTPUTPIN/Pin" to="Gates/OUTPUT/OUTPUTPIN" method="_on_Pin_text_changed"]
 [connection signal="button_timer_timeout" from="MISC/BUS1/EmitButton" to="MISC/BUS1" method="_on_EmitButton_button_timer_timeout"]
 [connection signal="was_pressed" from="MISC/BUS1/EmitButton" to="MISC/BUS1" method="_on_EmitButton_was_pressed"]
-[connection signal="button_down" from="Combinational/DECODER/Bits" to="Combinational/DECODER" method="_on_Bits_button_down"]
+[connection signal="button_timer_timeout" from="Combinational/DECODER/HBox/Bits" to="Combinational/DECODER" method="_on_Bits_button_timer_timeout"]
+[connection signal="was_pressed" from="Combinational/DECODER/HBox/Bits" to="Combinational/DECODER" method="_on_Bits_was_pressed"]
 [connection signal="timeout" from="Combinational/DECODER/Timer" to="Combinational/DECODER" method="_on_Timer_timeout"]
 [connection signal="color_changed" from="Combinational/SEG7/HB/ColorPicker" to="Combinational/SEG7" method="_on_ColorPicker_color_changed"]
 [connection signal="pressed" from="Combinational/SEG7/HB/Mode" to="Combinational/SEG7" method="_on_Mode_pressed"]
