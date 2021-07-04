@@ -8,10 +8,11 @@ func set_value(v: int, reverse = false, _port := 0):
 	value = v
 	set_text(v)
 	emit_signal("bus_changed", self, v, reverse)
-	for n in output_pins.size() - 1:
-		var level = bool(v % 2)
-		v /= 2
-		set_output(level, n + 1, reverse)
+	if not reverse or reverse and is_reversible_input:
+		for n in output_pins.size() - 1:
+			var level = bool(v % 2)
+			v /= 2
+			set_output(level, n + 1, reverse)
 
 
 func set_text(v):
