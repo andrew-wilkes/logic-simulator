@@ -22,7 +22,7 @@ func set_value(v: int, _reverse: bool, port := 0):
 
 
 func set_text():
-	$Label.text = "0x%04X" % value
+	$Label.text = "0x%02X" % value
 
 
 func setup():
