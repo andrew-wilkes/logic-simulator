@@ -2,6 +2,19 @@ extends Part
 
 class_name ShiftRegBlock
 
+func setup():
+	.setup()
+	data = {
+		"mode": HEX,
+		"bits": 2,
+	}
+	apply_data()
+
+
+func apply_data():
+	#set_format()
+	update_display_value()
+
 func update_output(_level: bool, _port: int, _r: bool):
 	if input_pins[5].level: # Reset
 		output_enabled = true
@@ -28,7 +41,7 @@ func set_value(v: int, _reverse: bool, _port := 0):
 	value = v
 	if output_enabled:
 		output_enabled = false
-		$Bus.update_display_value()
+		update_display_value()
 		emit_signal("bus_changed", self, v, false)
 
 

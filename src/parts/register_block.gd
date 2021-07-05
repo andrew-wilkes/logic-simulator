@@ -20,5 +20,5 @@ func set_value(v: int, _reverse: bool, _port := 0):
 	value = v
 	if output_enabled:
 		output_enabled = false
-		$Bus.update_display_value()
+		update_display_value()
 		emit_signal("bus_changed", self, v, false)

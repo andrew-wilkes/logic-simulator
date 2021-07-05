@@ -221,3 +221,7 @@ func int2bin(x: int, num_bits = 8) -> String:
 
 func apply_data():
 	pass
+
+
+func set_value(_v, _r, _p):
+	pass

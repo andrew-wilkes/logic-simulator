@@ -2,26 +2,32 @@ extends Part
 
 class_name CounterBlock
 
+func setup():
+	.setup()
+	data = {
+		"mode": HEX,
+		"bits": 2,
+	}
+
+
 func update_output(_level: bool, _port: int, _r: bool):
 	if input_pins[4].level: # Reset
-		output_enabled = true
-		value = -1 # Make sure it propagates
-		set_value(0, false, false)
+		output_value(0)
 	# Detect not rising edge of CK
 	if not input_pins[3].level or input_pins[3].last_level:
 		return
 	input_pins[3].last_level = input_pins[3].level
-	output_enabled = true
 	if input_pins[2].level: # LD
-		value = -1 # Make sure it propagates
-		set_value(vin, false, false)
+		output_value(vin)
 	else:
-		set_value(wrapi(value + int(input_pins[1]), 0, 0xffff), false, false)
+		output_value(wrapi(value + int(input_pins[1].level), 0, 0xffff))
 
 
 func set_value(v: int, _reverse: bool, _port := 0):
+	vin = v
+
+
+func output_value(v: int):
 	value = v
-	if output_enabled:
-		output_enabled = false
-		$Bus.update_display_value()
-		emit_signal("bus_changed", self, v, false)
+	update_display_value()
+	emit_signal("bus_changed", self, value, false)

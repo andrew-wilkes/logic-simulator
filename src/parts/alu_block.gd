@@ -2,6 +2,20 @@ extends Part
 
 class_name AluBlock
 
+func setup():
+	.setup()
+	data = {
+		"mode": HEX,
+		"bits": 2,
+	}
+	apply_data()
+
+
+func apply_data():
+	#set_format()
+	update_display_value()
+
+
 func update_output(_level: bool, port: int, _r: bool):
 	var bits = 8
 	if port < 0: # a or b changed. Ensure that dummy pin is not ignored.

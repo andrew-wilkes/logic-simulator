@@ -2463,7 +2463,7 @@ margin_right = 75.0
 margin_bottom = 72.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
-text = "0xFFFF"
+text = "0x00"
 valign = 1
 
 [node name="L" type="Label" parent="Blocks/REG"]
@@ -2575,7 +2575,7 @@ margin_right = 77.0
 margin_bottom = 72.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
-text = "0xFFFF"
+text = "0x00"
 valign = 1
 
 [node name="INC" type="Label" parent="Blocks/COUNTER"]
@@ -2702,7 +2702,7 @@ margin_right = 81.0
 margin_bottom = 72.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
-text = "0xFFFF"
+text = "0x00"
 valign = 1
 
 [node name="HBox" type="HBoxContainer" parent="Blocks/SHIFTREG"]
@@ -2858,7 +2858,7 @@ margin_right = 86.0
 margin_bottom = 97.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
-text = "0xFFFF"
+text = "0x00"
 valign = 1
 
 [node name="HBox5" type="HBoxContainer" parent="Blocks/ALU"]
