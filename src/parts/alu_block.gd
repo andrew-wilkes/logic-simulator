@@ -8,18 +8,10 @@ func setup():
 		"mode": HEX,
 		"bits": 2,
 	}
-	apply_data()
-
-
-func apply_data():
-	#set_format()
-	update_display_value()
 
 
 func update_output(_level: bool, port: int, _r: bool):
 	var bits = 8
-	if port < 0: # a or b changed. Ensure that dummy pin is not ignored.
-		_r = input_pins.erase(port)
 	# Decide function
 	var f = int(input_pins[4].level)
 	f = 2 * f + int(input_pins[3].level)
@@ -49,7 +41,7 @@ func update_output(_level: bool, port: int, _r: bool):
 	set_output(v == 0, 2) # Zero
 	set_output(msb1 != msb2, 3) # OF
 	set_output(msb2, 4) # Sign
-	set_value(v % maxvs[bits], false, -1)
+	output_value(v % maxvs[bits])
 
 
 func set_value(v: int, _r: bool, port := 0):
@@ -63,6 +55,12 @@ func set_value(v: int, _r: bool, port := 0):
 				b = v
 				update_output(true, -1, false)
 			return
+
+
+func output_value(v: int):
+	value = v
+	update_display_value()
+	emit_signal("bus_changed", self, value, false)
 
 
 func _on_Bits_was_pressed(button):
