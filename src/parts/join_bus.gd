@@ -12,7 +12,7 @@ func setup():
 
 
 func apply_data():
-	set_format()
+	#set_format()
 	update_display_value()
 
 

@@ -31,7 +31,7 @@ var vin = 0
 var data = {} setget set_data, get_data
 var type := ""
 var read = true
-var format = ""
+var format = "0x%02X"
 var untouched = true
 
 var frame_style = preload("res://assets/GraphNodeFrameStyle.tres")
@@ -178,7 +178,7 @@ func handle_button_press(_b):
 	else:
 		data.mode += 1
 		data.mode %= 3
-		set_format()
+		#set_format()
 		update_display_value()
 		emit_signal("data_changed")
 
@@ -203,7 +203,20 @@ func update_display_value():
 		DEC:
 			$Label.text = String(value)
 		BIN:
-			$Label.text = Parts.int2bin(value, bit_lengths[data.bits])
+			$Label.text = int2bin(value)
+
+
+# Create groups of 4 bits
+func int2bin(x: int, num_bits = 8) -> String:
+	var _b = ""
+	for n in 16:
+		if n > 0 and n % 4 == 0:
+			if x == 0 and n == num_bits:
+				break
+			_b = " " + _b
+		_b = String(x % 2) + _b
+		x /= 2
+	return "0b" + _b
 
 
 func apply_data():

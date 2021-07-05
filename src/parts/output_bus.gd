@@ -27,7 +27,7 @@ func set_value(v: int, reverse: bool, port := 0):
 
 func setup():
 	data = { "mode": HEX, "bits": num_bytes / 2 }
-	set_format()
+	#set_format()
 	update_display_value()
 	var c = Label.new()
 	c.valign = Label.VALIGN_CENTER
