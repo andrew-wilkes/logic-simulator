@@ -112,13 +112,16 @@ func _on_TestTimer_timeout():
 		for idx in part_data.inputs.size():
 			var x = part_data.tt[test_count][idx]
 			if x is String:
-				match x:
-					"X":
-						x = randi() % 2
-					"+":
-						x = 1
-					"-":
-						x = 0
+				if x.is_valid_hex_number(true):
+					x = x.hex_to_int()
+				else:
+					match x:
+						"X":
+							x = randi() % 2
+						"+":
+							x = 1
+						"-":
+							x = 0
 			var node = input_pins[part_data.inputs[idx]]
 			if node.output_pins[0].type == 0:
 				node.set_output(bool(x), 0)
@@ -143,6 +146,8 @@ func _on_TestTimer_timeout():
 				last_value = pin.last_value
 				got = pin.value
 			if wanted is String:
+				if wanted.is_valid_hex_number(true):
+					wanted = wanted.hex_to_int()
 				match wanted:
 					"X":
 						wanted = got
