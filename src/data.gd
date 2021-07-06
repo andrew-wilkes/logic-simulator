@@ -207,5 +207,25 @@ var parts = {
 		"title": "Register",
 		"long_title": "",
 		"desc": "The Register stores the value at D when LD is high on a rising edge of the clock. A high on R resets the output."
+	},
+	"COUNTER":
+	{
+		"inputs": ["d","INC","LD","CK","R"],
+		"outputs": ["q"],
+		"tt": [
+			["0xf",0,0,0,0,"X"],
+			["0xf",0,1,0,0,"L"],
+			["0xf",0,1,1,0,"0xf"],
+			["0xf",1,0,0,0,"0xf"],
+			["0xf",1,0,1,0,"0x10"],
+			["0xf",1,0,0,0,"0x10"],
+			["0xf",1,0,1,0,"0x11"],
+			["0xf",0,0,0,0,"0x11"],
+			["0xf",0,0,1,0,"0x11"],
+			["0xffff",0,0,0,1,0]
+		],
+		"title": "Counter",
+		"long_title": "",
+		"desc": "The Counter increments its output when the INC pin is high on rising clock edges. It stores the value at D when LD is high on a rising edge of the clock. A high on R resets the output. With LD and INC low, the output is preserved."
 	}
 }
