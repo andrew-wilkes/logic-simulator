@@ -65,7 +65,7 @@ func start_tests(_data):
 	output_pins = {}
 	# Find input pins
 	for node in $Graph.get_children():
-		if node is Part and node.type == "INPUTPIN":
+		if node is Part and (node.type == "INPUTPIN" or node.type == "INPUTBUS"):
 			var pin = node.get_pin_name()
 			if _data.inputs.has(pin):
 				input_pins[pin] = node
@@ -77,7 +77,7 @@ func start_tests(_data):
 		return
 	# Find output pins
 	for node in $Graph.get_children():
-		if node is Part and node.type == "OUTPUTPIN":
+		if node is Part and (node.type == "OUTPUTPIN" or node.type == "OUTPUTBUS"):
 			var pin = node.get_pin_name()
 			if _data.outputs.has(pin):
 				output_pins[pin] = node
@@ -119,7 +119,11 @@ func _on_TestTimer_timeout():
 						x = 1
 					"-":
 						x = 0
-			input_pins[part_data.inputs[idx]].set_output(bool(x), 0)
+			var node = input_pins[part_data.inputs[idx]]
+			if node.output_pins[0].type == 0:
+				node.set_output(bool(x), 0)
+			else:
+				node.set_value(x, false, 0)
 			if show_row:
 				$c/TruthTable.highlight_value(display_row, idx, true)
 		new_test = false
@@ -129,8 +133,15 @@ func _on_TestTimer_timeout():
 		for idx in part_data.outputs.size():
 			var wanted = part_data.tt[test_count][idx + offset]
 			# Output pin only has input pin
-			var last_value = int(output_pins[part_data.outputs[idx]].input_pins[0].last_level)
-			var got = int(output_pins[part_data.outputs[idx]].input_pins[0].level)
+			var pin = output_pins[part_data.outputs[idx]]
+			var last_value: int
+			var got: int
+			if pin.input_pins[0].type == 0:
+				last_value = int(pin.input_pins[0].last_level)
+				got = int(pin.input_pins[0].level)
+			else:
+				last_value = pin.last_value
+				got = pin.value
 			if wanted is String:
 				match wanted:
 					"X":

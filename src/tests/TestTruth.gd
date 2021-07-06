@@ -8,8 +8,8 @@ func _ready():
 	main = main_scene.instance()
 	add_child(main)
 	main.get_node("TestTimer").wait_time = 0.05
-	test_parts_that_have_tt()
-	#test_part("DFLIPFLOP")
+	#test_parts_that_have_tt()
+	test_part("REG")
 
 
 func test_parts_that_have_tt():
@@ -45,16 +45,24 @@ func test_part(type: String):
 	var part_data = Data.parts[part.type]
 	# Add input pins
 	for i in part.get_connection_input_count():
-		var input_pin = Parts.get_part("INPUTPIN")
-		input_pin.get_node("Pin").text = part_data.inputs[i]
-		assert(input_pin.name == "INPUTPIN")
+		var tag = part_data.inputs[i]
+		var input_pin
+		if tag[0] > "Z":
+			input_pin = Parts.get_part("INPUTBUS")
+		else:
+			input_pin = Parts.get_part("INPUTPIN")
+		input_pin.set_pin_name(tag)
 		main.add_part_to_graph(input_pin, Vector2(pos.x - 200, pos.y - rand_range(-100, 100)))
 		main.get_node("Graph").connect_node(input_pin.name, 0, part.name, i)
 	# Add output pins
 	for i in part.get_connection_output_count():
-		var output_pin = Parts.get_part("OUTPUTPIN")
-		output_pin.get_node("Pin").text = part_data.outputs[i]
-		assert(output_pin.name == "OUTPUTPIN")
+		var tag = part_data.outputs[i]
+		var output_pin
+		if tag[0] > "Z":
+			output_pin = Parts.get_part("OUTPUTBUS")
+		else:
+			output_pin = Parts.get_part("OUTPUTPIN")
+		output_pin.set_pin_name(tag)
 		main.add_part_to_graph(output_pin, Vector2(pos.x + 200, pos.y - rand_range(-100, 100)))
 		main.get_node("Graph").connect_node(part.name, i, output_pin.name, 0)
 	main.get_node("c/TruthTable").run_test()
