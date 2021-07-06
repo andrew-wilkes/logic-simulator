@@ -201,8 +201,8 @@ var parts = {
 			["0xf",0,0,0,"0xf"],
 			["0xf",0,0,1,0],
 			["0xf",0,1,0,0],
-			["0xffff",1,0,0,0],
-			["0xffff",1,1,0,"0xffff"]
+			["0xffff",1,0,0,0,"!"],
+			["0xffff",1,"+",0,"0xffff"]
 		],
 		"title": "Register",
 		"long_title": "",
@@ -215,17 +215,62 @@ var parts = {
 		"tt": [
 			["0xf",0,0,0,0,"X"],
 			["0xf",0,1,0,0,"L"],
-			["0xf",0,1,1,0,"0xf"],
-			["0xf",1,0,0,0,"0xf"],
-			["0xf",1,0,1,0,"0x10"],
-			["0xf",1,0,0,0,"0x10"],
-			["0xf",1,0,1,0,"0x11"],
-			["0xf",0,0,0,0,"0x11"],
-			["0xf",0,0,1,0,"0x11"],
+			["0xf",0,1,"+",0,"0xf"],
+			["0xf",1,0,0,0,"0xf","!"],
+			["0xf",1,0,"+",0,"0x10"],
+			["0xf",1,0,0,0,"0x10","!"],
+			["0xf",1,0,"+",0,"0x11"],
+			["0xf",0,0,0,0,"0x11","!"],
+			["0xf",0,0,"+",0,"0x11"],
 			["0xffff",0,0,0,1,0]
 		],
 		"title": "Counter",
 		"long_title": "",
 		"desc": "The Counter increments its output when the INC pin is high on rising clock edges. It stores the value at D when LD is high on a rising edge of the clock. A high on R resets the output. With LD and INC low, the output is preserved."
+	},
+	"SHIFTREG":
+	{
+		"inputs": ["d","SI","EN","LD","CK","R"],
+		"outputs": ["q"],
+		"tt": [
+			["0xff",0,0,1,0,0,"X"],
+			["0xff",0,0,1,1,0,"0xff"],
+			["0xff",0,1,0,0,0,"0xff","!"],
+			["0xff",0,1,0,"+",0,"0x7f"],
+			["0xff",0,1,0,0,0,"0x7f","!"],
+			["0xff",0,1,0,"+",0,"0x3f"],
+			["0xff",1,1,0,0,0,"0x3f","!"],
+			["0xff",1,1,0,"+",0,"0x801f"],
+			["0xff",0,0,0,0,0,"0x801f","!"],
+			["0xff",0,0,0,"+",0,"0x801f"],
+			["0xff",0,0,0,0,1,0],
+		],
+		"title": "Shift Register",
+		"long_title": "",
+		"desc": "The Shift Register shifts bits to the right when EN is high on rising clock edges. A 1 is shifted in from the left when SI is high. It stores the value at D when LD is high on a rising edge of the clock. A high on R resets the output. With LD and EN low, the output is preserved."
+		},
+	"ALU":
+	{
+		"inputs": ["a","b","F0","F1","F2"],
+		"outputs": ["y","Cout","Zero","Over","Sign"],
+		"tt": [
+			[3,6,0,0,0,3,0,0,0,0], # a
+			[3,6,1,0,0,6,0,0,0,0], # b
+			[3,6,0,1,0,4,0,0,0,0], # a + 1
+			[3,6,1,1,0,7,0,0,0,0], # b + 1
+			[3,6,0,0,1,9,0,0,0,0], # a + b
+			[63,4,1,0,1,59,0,0,0,0], # a - b
+			["0xff","0x56",0,1,1,"0x56",0,0,0,0], # a & b
+			["0xd0","0x0c",1,1,1,"0xdc",0,0,0,0], # a | b
+			["0x7fff",6,0,1,0,"0x8000",0,0,1,1], # a + 1
+			[3,"0x7fff",1,1,0,"0x8000",0,0,1,1], # b + 1
+			["0x7ff0","0x10",0,0,1,"0x8000",0,0,1,1], # a + b
+			["0x8000",1,1,0,1,"0x7fff",0,0,1,0], # a - b
+			["0xffff",6,0,1,0,"0x0000",1,1,0,0], # a + 1
+			
+		],
+		"title": "Aritmetic and Logic Unit (16 bit)",
+		"long_title": "",
+		"desc": "The Aritmetic anf Logic Unit performs one of 8 operations on the A and B inputs to produce an output Y. The Function inputs determine the function and there are various status outputs."
 	}
 }

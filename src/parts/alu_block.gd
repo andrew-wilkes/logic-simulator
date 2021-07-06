@@ -11,15 +11,14 @@ func setup():
 
 
 func update_output(_level: bool, _port: int, _r: bool):
-	var bits = 8
 	# Decide function
 	var f = int(input_pins[4].level)
 	f = 2 * f + int(input_pins[3].level)
 	f = 2 * f + int(input_pins[2].level)
-	a %= maxvs[bits]
-	b %= maxvs[bits]
+	a %= maxvs[data.bits]
+	b %= maxvs[data.bits]
 	var v = a
-	var msb1 = v >= msbs[bits]
+	var msb1 = v >= msbs[data.bits]
 	match f:
 		1:
 			v = b
@@ -31,17 +30,24 @@ func update_output(_level: bool, _port: int, _r: bool):
 			v += b
 		5:
 			if b > 0:
-				v = v + maxvs[bits] - b # Invert b and add 1
+				v -= b # maxvs[data.bits] - b # Invert b and add 1
 		6:
 			v &= b
 		7:
 			v |= b
-	var msb2 = v >= msbs[bits]
-	set_output(v >= maxvs[bits], 1) # Cout
+	set_output(v >= maxvs[data.bits], 1) # Cout
+	v %= maxvs[data.bits]
+	var msb2 = v >= msbs[data.bits]
 	set_output(v == 0, 2) # Zero
-	set_output(msb1 != msb2, 3) # OF
+	var of = false
+	match f:
+		2,3,4:
+			of = msb2 > msb1
+		5:
+			of = msb2 < msb1
+	set_output(of, 3) # OF
 	set_output(msb2, 4) # Sign
-	output_value(v % maxvs[bits])
+	output_value(v)
 
 
 func set_value(v: int, _r: bool, port := 0):

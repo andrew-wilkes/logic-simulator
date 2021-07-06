@@ -954,7 +954,7 @@ texture = ExtResource( 11 )
 [node name="OUTPUT1" type="GraphNode" parent="Gates/OUTPUT"]
 margin_left = 16.0
 margin_top = 23.0
-margin_right = 128.0
+margin_right = 131.0
 margin_bottom = 92.0
 custom_styles/frame = ExtResource( 23 )
 title = "OUTPUT1"
@@ -972,7 +972,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="Gates/OUTPUT/OUTPUT1"]
 margin_left = 16.0
 margin_top = 23.0
-margin_right = 96.0
+margin_right = 99.0
 margin_bottom = 63.0
 rect_min_size = Vector2( 0, 40 )
 align = 1
@@ -984,7 +984,7 @@ __meta__ = {
 [node name="OUTPUT4" type="GraphNode" parent="Gates/OUTPUT"]
 margin_left = 16.0
 margin_top = 93.0
-margin_right = 128.0
+margin_right = 131.0
 margin_bottom = 226.0
 custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 6
@@ -1027,7 +1027,7 @@ __meta__ = {
 [node name="V" type="Label" parent="Gates/OUTPUT/OUTPUT4"]
 margin_left = 16.0
 margin_top = 23.0
-margin_right = 96.0
+margin_right = 99.0
 margin_bottom = 47.0
 rect_min_size = Vector2( 0, 24 )
 text = "0X00"
@@ -1036,7 +1036,7 @@ valign = 1
 [node name="D0" type="Label" parent="Gates/OUTPUT/OUTPUT4"]
 margin_left = 16.0
 margin_top = 53.0
-margin_right = 96.0
+margin_right = 99.0
 margin_bottom = 67.0
 text = "D0"
 valign = 1
@@ -1044,7 +1044,7 @@ valign = 1
 [node name="D1" type="Label" parent="Gates/OUTPUT/OUTPUT4"]
 margin_left = 16.0
 margin_top = 73.0
-margin_right = 96.0
+margin_right = 99.0
 margin_bottom = 87.0
 text = "D1"
 valign = 1
@@ -1052,7 +1052,7 @@ valign = 1
 [node name="D2" type="Label" parent="Gates/OUTPUT/OUTPUT4"]
 margin_left = 16.0
 margin_top = 93.0
-margin_right = 96.0
+margin_right = 99.0
 margin_bottom = 107.0
 text = "D2"
 valign = 1
@@ -1060,7 +1060,7 @@ valign = 1
 [node name="D3" type="Label" parent="Gates/OUTPUT/OUTPUT4"]
 margin_left = 16.0
 margin_top = 113.0
-margin_right = 96.0
+margin_right = 99.0
 margin_bottom = 127.0
 text = "D3"
 valign = 1
@@ -1068,7 +1068,7 @@ valign = 1
 [node name="OUTPUT8" type="GraphNode" parent="Gates/OUTPUT"]
 margin_left = 16.0
 margin_top = 227.0
-margin_right = 128.0
+margin_right = 131.0
 margin_bottom = 440.0
 custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 6
@@ -1135,7 +1135,7 @@ __meta__ = {
 [node name="V" type="Label" parent="Gates/OUTPUT/OUTPUT8"]
 margin_left = 16.0
 margin_top = 23.0
-margin_right = 96.0
+margin_right = 99.0
 margin_bottom = 47.0
 rect_min_size = Vector2( 0, 24 )
 text = "0X00"
@@ -1144,7 +1144,7 @@ valign = 1
 [node name="D0" type="Label" parent="Gates/OUTPUT/OUTPUT8"]
 margin_left = 16.0
 margin_top = 53.0
-margin_right = 96.0
+margin_right = 99.0
 margin_bottom = 67.0
 text = "D0"
 valign = 1
@@ -1152,7 +1152,7 @@ valign = 1
 [node name="D1" type="Label" parent="Gates/OUTPUT/OUTPUT8"]
 margin_left = 16.0
 margin_top = 73.0
-margin_right = 96.0
+margin_right = 99.0
 margin_bottom = 87.0
 text = "D1"
 valign = 1
@@ -1160,7 +1160,7 @@ valign = 1
 [node name="D2" type="Label" parent="Gates/OUTPUT/OUTPUT8"]
 margin_left = 16.0
 margin_top = 93.0
-margin_right = 96.0
+margin_right = 99.0
 margin_bottom = 107.0
 text = "D2"
 valign = 1
@@ -1168,7 +1168,7 @@ valign = 1
 [node name="D3" type="Label" parent="Gates/OUTPUT/OUTPUT8"]
 margin_left = 16.0
 margin_top = 113.0
-margin_right = 96.0
+margin_right = 99.0
 margin_bottom = 127.0
 text = "D3"
 valign = 1
@@ -1176,7 +1176,7 @@ valign = 1
 [node name="D4" type="Label" parent="Gates/OUTPUT/OUTPUT8"]
 margin_left = 16.0
 margin_top = 133.0
-margin_right = 96.0
+margin_right = 99.0
 margin_bottom = 147.0
 text = "D4"
 valign = 1
@@ -1184,7 +1184,7 @@ valign = 1
 [node name="D5" type="Label" parent="Gates/OUTPUT/OUTPUT8"]
 margin_left = 16.0
 margin_top = 153.0
-margin_right = 96.0
+margin_right = 99.0
 margin_bottom = 167.0
 text = "D5"
 valign = 1
@@ -1192,7 +1192,7 @@ valign = 1
 [node name="D6" type="Label" parent="Gates/OUTPUT/OUTPUT8"]
 margin_left = 16.0
 margin_top = 173.0
-margin_right = 96.0
+margin_right = 99.0
 margin_bottom = 187.0
 text = "D6"
 valign = 1
@@ -1200,7 +1200,7 @@ valign = 1
 [node name="D7" type="Label" parent="Gates/OUTPUT/OUTPUT8"]
 margin_left = 16.0
 margin_top = 193.0
-margin_right = 96.0
+margin_right = 99.0
 margin_bottom = 207.0
 text = "D7"
 valign = 1
@@ -1208,7 +1208,7 @@ valign = 1
 [node name="OUTPUTPIN" type="GraphNode" parent="Gates/OUTPUT"]
 margin_left = 16.0
 margin_top = 441.0
-margin_right = 128.0
+margin_right = 131.0
 margin_bottom = 497.0
 mouse_filter = 1
 custom_styles/frame = ExtResource( 23 )
@@ -1233,7 +1233,7 @@ __meta__ = {
 [node name="Control" type="Control" parent="Gates/OUTPUT/OUTPUTPIN"]
 margin_left = 16.0
 margin_top = 23.0
-margin_right = 96.0
+margin_right = 99.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 0, 2 )
 mouse_filter = 1
@@ -1241,7 +1241,7 @@ mouse_filter = 1
 [node name="Pin" type="LineEdit" parent="Gates/OUTPUT/OUTPUTPIN"]
 margin_left = 16.0
 margin_top = 26.0
-margin_right = 96.0
+margin_right = 99.0
 margin_bottom = 50.0
 mouse_filter = 1
 text = "Q"
@@ -1249,7 +1249,7 @@ text = "Q"
 [node name="OUTPUTBUS" type="GraphNode" parent="Gates/OUTPUT"]
 margin_left = 16.0
 margin_top = 498.0
-margin_right = 128.0
+margin_right = 131.0
 margin_bottom = 554.0
 mouse_filter = 1
 custom_styles/frame = ExtResource( 23 )
@@ -1274,7 +1274,7 @@ __meta__ = {
 [node name="Control" type="Control" parent="Gates/OUTPUT/OUTPUTBUS"]
 margin_left = 16.0
 margin_top = 23.0
-margin_right = 96.0
+margin_right = 99.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 0, 2 )
 mouse_filter = 1
@@ -1282,7 +1282,7 @@ mouse_filter = 1
 [node name="Pin" type="LineEdit" parent="Gates/OUTPUT/OUTPUTBUS"]
 margin_left = 16.0
 margin_top = 26.0
-margin_right = 96.0
+margin_right = 99.0
 margin_bottom = 50.0
 mouse_filter = 1
 text = "Q"
@@ -2961,7 +2961,7 @@ margin_bottom = 122.0
 [node name="Bits" parent="Blocks/ALU/HBox5" instance=ExtResource( 35 )]
 margin_right = 37.0
 margin_bottom = 24.0
-text = "Bits"
+text = "16"
 
 [node name="Cout" type="Label" parent="Blocks/ALU/HBox5"]
 margin_left = 41.0
