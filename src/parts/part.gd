@@ -55,6 +55,7 @@ func setup():
 
 class Pin:
 	var slot = 0
+	var type = 0
 	var level = false
 	var last_level = false
 	var count = 0
@@ -63,16 +64,22 @@ class Pin:
 
 func set_pins():
 	var slot = 0
+	var left_port = 0
+	var right_port = 0
 	for node in get_children():
 		if node is Control:
 			if is_slot_enabled_left(slot):
 				var input_pin = Pin.new()
 				input_pin.slot = slot
+				input_pin.type = get_connection_input_type(left_port)
 				input_pins.append(input_pin)
+				left_port += 1
 			if is_slot_enabled_right(slot):
 				var output_pin = Pin.new()
 				output_pin.slot = slot
+				output_pin.type = get_connection_output_type(right_port)
 				output_pins.append(output_pin)
+				right_port += 1
 			slot += 1
 
 

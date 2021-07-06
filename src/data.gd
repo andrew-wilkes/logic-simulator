@@ -189,5 +189,23 @@ var parts = {
 		"title": "D Flip-Flop",
 		"long_title": "Edge-triggered D Flip-Flop with set and reset",
 		"desc": "An Edge-triggered D Flip-Flop loads the input data on the rising edge of the clock input. Also, the SR inputs are used for setting the flip-flop to a desired state without giving it a clock pulse."
+	},
+	"REG":
+	{
+		"inputs": ["D","LD","CK","R"],
+		"outputs": ["Q"],
+		"tt": [
+			[15,0,0,0,"X"],
+			[15,1,0,0,"L"],
+			[15,1,1,0,15],
+			[15,0,0,0,15],
+			[15,0,0,1,0],
+			[15,0,1,0,0],
+			[65535,1,0,0,0],
+			[65535,1,1,0,65535]
+		],
+		"title": "Register",
+		"long_title": "",
+		"desc": "The Register stores the value at D when LD is high on a rising edge of the clock. A high on R resets the output."
 	}
 }
