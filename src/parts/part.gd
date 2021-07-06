@@ -225,3 +225,8 @@ func apply_data():
 
 func set_value(_v, _r, _p):
 	pass
+
+
+func supress_error():
+	emit_signal("bus_changed")
+	emit_signal("part_variant_selected", 1, 2)

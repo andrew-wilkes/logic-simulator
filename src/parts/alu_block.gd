@@ -10,7 +10,7 @@ func setup():
 	}
 
 
-func update_output(_level: bool, port: int, _r: bool):
+func update_output(_level: bool, _port: int, _r: bool):
 	var bits = 8
 	# Decide function
 	var f = int(input_pins[4].level)

@@ -16,7 +16,7 @@ func test_parts_that_have_tt():
 	for group in Parts.get_children():
 		print("Group: ", group.name)
 		for part in group.get_children():
-			if part.has_tt:
+			if Data.parts.has(part.name):
 				call_deferred("test_part", part.name)
 				if not yield(main, "test_completed"):
 					return
