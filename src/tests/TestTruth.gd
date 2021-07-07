@@ -49,9 +49,10 @@ func test_part(type: String):
 		var input_pin
 		if tag[0] > "Z":
 			input_pin = Parts.get_part("INPUTBUS")
+			input_pin.set_pin_name(tag, true)
 		else:
 			input_pin = Parts.get_part("INPUTPIN")
-		input_pin.set_pin_name(tag)
+			input_pin.set_pin_name(tag)
 		main.add_part_to_graph(input_pin, Vector2(pos.x - 200, pos.y - rand_range(-100, 100)))
 		main.get_node("Graph").connect_node(input_pin.name, 0, part.name, i)
 	# Add output pins
@@ -60,9 +61,10 @@ func test_part(type: String):
 		var output_pin
 		if tag[0] > "Z":
 			output_pin = Parts.get_part("OUTPUTBUS")
+			output_pin.set_pin_name(tag, true)
 		else:
 			output_pin = Parts.get_part("OUTPUTPIN")
-		output_pin.set_pin_name(tag)
+			output_pin.set_pin_name(tag)
 		main.add_part_to_graph(output_pin, Vector2(pos.x + 200, pos.y - rand_range(-100, 100)))
 		main.get_node("Graph").connect_node(part.name, i, output_pin.name, 0)
 	main.get_node("c/TruthTable").run_test()

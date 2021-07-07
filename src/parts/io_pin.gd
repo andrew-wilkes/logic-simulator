@@ -10,9 +10,12 @@ func get_pin_name():
 	return pin_name
 
 
-func set_pin_name(txt):
+func set_pin_name(txt, capitalize = false):
 	if txt is String:
-		get_node("Pin").text = txt.capitalize()
+		if capitalize:
+			get_node("Pin").text = txt.capitalize()
+		else:
+			get_node("Pin").text = txt
 		pin_name = txt
 
 
