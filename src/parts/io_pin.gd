@@ -12,7 +12,7 @@ func get_pin_name():
 
 func set_pin_name(txt):
 	if txt is String:
-		get_node("Pin").text = txt.to_upper()
+		get_node("Pin").text = txt.capitalize()
 		pin_name = txt
 
 

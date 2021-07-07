@@ -248,7 +248,7 @@ var parts = {
 		"title": "Shift Register",
 		"long_title": "",
 		"desc": "The Shift Register shifts bits to the right when EN is high on rising clock edges. A 1 is shifted in from the left when SI is high. It stores the value at D when LD is high on a rising edge of the clock. A high on R resets the output. With LD and EN low, the output is preserved."
-		},
+	},
 	"ALU":
 	{
 		"inputs": ["a","b","F0","F1","F2"],
@@ -272,5 +272,41 @@ var parts = {
 		"title": "Aritmetic and Logic Unit (16 bit)",
 		"long_title": "",
 		"desc": "The Aritmetic anf Logic Unit performs one of 8 operations on the A and B inputs to produce an output Y. The Function inputs determine the function and there are various status outputs."
+	},
+	"ROM":
+	{
+		"inputs": ["a","/OE"],
+		"outputs": ["d"],
+		"tt": [
+			[0,0,1],
+			[0,1,1],
+			[255,1,1],
+			[254,0,255]
+		],
+		"title": "Read Only Memory (ROM)",
+		"long_title": "",
+		"desc": "The ROM stores data referenced by an address. The data is output when the /OE pin is low. The contents of the memory are retained in the data for the circuit."
+	},
+	"RAM":
+	{
+		"inputs": ["a","din","/OE","/W"],
+		"outputs": ["dout"],
+		"tt": [
+			[0,0,1,1,"X"],
+			[0,33,1,0,0],
+			[0,33,1,1,0],
+			[0,7,0,1,33],
+			[0,7,1,1,33],
+			[1,"0x11",1,0,33],
+			[1,"0x11",1,1,33],
+			[1,"0x11",0,1,"0x11"],
+			[255,255,0,1,0],
+			[255,255,1,0,0],
+			[255,255,1,1,0],
+			[255,255,0,1,255],
+		],
+		"title": "Random Access Memory (RAM)",
+		"long_title": "",
+		"desc": "The RAM stores data temporarily as long as power is applied. The data is output when the /OE pin is low. Input data is written to the current address when the /W pin is low."
 	}
 }

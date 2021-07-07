@@ -43,7 +43,7 @@ func set_view():
 	var bytes = PoolStringArray()
 	var chars = PoolStringArray()
 # warning-ignore:integer_division
-	var num_rows = data.bytes.size() / 16
+	var num_rows = data.words.size() / 16
 	if num_rows > 16:
 		num_rows = 16
 	for n in num_rows:
@@ -52,32 +52,21 @@ func set_view():
 		if data.width == 16:
 			display_addr /= 2
 		addresses.append("%04X: " % display_addr)
-		match mode:
-			BIN:
+		if mode == BIN:
 # warning-ignore:integer_division
-				for m in 32 / data.width: # 2 words or 4 bytes
-					if data.width == 8:
-						row.append(int2bin(data.bytes[addr]))
-						addr += 1
-					else:
-						row.append(int2bin(data.bytes[addr] + 16 * data.bytes[addr + 1]))
-						addr += 2
-					row.append(" ")
-			_:
-				var asc = PoolStringArray()
-				var count = 8 if data.width == 16 else 16
-				for m in count: # 16 bytes or 8 words
-					var d1 = data.bytes[addr]
-					asc.append(get_ascii(d1))
-					if data.width == 8:
-						row.append(hex_format % d1)
-					else:
-						addr += 1
-						var d2 = data.bytes[addr]
-						row.append(hex_format % (d1 + 0x100 * d2))
-						asc.append(get_ascii(d2))
-					addr += 1
-				chars.append(asc.join(""))
+			for m in 32 / data.width: # 2 words or 4 bytes
+				row.append(int2bin(data.words[addr]))
+				addr += 1
+				row.append(" ")
+		else:
+			var asc = PoolStringArray()
+			var count = 8 if data.width == 16 else 16
+			for m in count: # 16 bytes or 8 words
+				var _d = data.words[addr]
+				asc.append(get_ascii(_d))
+				row.append(hex_format % _d)
+				addr += 1
+			chars.append(asc.join(""))
 		bytes.append(row.join("").strip_edges())
 	$M/VBox/View/Addr.text = addresses.join("\n")
 	$M/VBox/View/Bytes.text = bytes.join("\n")
