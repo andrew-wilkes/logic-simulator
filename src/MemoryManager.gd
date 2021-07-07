@@ -82,17 +82,18 @@ func get_ascii(d):
 
 
 func _on_Up_pressed():
-	base_addr = wrapi(base_addr + addr_increment, 0, data.mem_size)
+	base_addr = wrapi(base_addr - addr_increment, 0, data.mem_size)
 	set_view()
 
 
 func _on_Down_pressed():
-	base_addr = wrapi(base_addr - addr_increment, 0, data.mem_size)
+	base_addr = wrapi(base_addr + addr_increment, 0, data.mem_size)
 	set_view()
 
 
 func _on_BH_pressed():
 	mode = wrapi(mode + 1, 0, 2)
+	set_addr_increment()
 	set_view()
 	resize()
 
@@ -107,12 +108,16 @@ func _on_OK_pressed():
 
 
 func _on_Width_pressed():
+	set_addr_increment()
+
+
+func set_addr_increment():
 	if data.width == 8:
-		addr_increment = 0x80
+		addr_increment = 0x80 if mode == HEX else 0x20
 		set_width(16)
 	else:
 		data.trim()
-		addr_increment = 0x100
+		addr_increment = 0x100 if mode == HEX else 0x40
 		# Make base addr start from increments of addr_increment
 		base_addr = base_addr / addr_increment * addr_increment
 		set_width(8)
