@@ -8,8 +8,8 @@ func _ready():
 	main = main_scene.instance()
 	add_child(main)
 	main.get_node("TestTimer").wait_time = 0.05
-	#test_parts_that_have_tt()
-	test_part("RAM")
+	test_parts_that_have_tt()
+	#test_part("ROM")
 
 
 func test_parts_that_have_tt():

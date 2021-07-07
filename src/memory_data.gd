@@ -29,6 +29,11 @@ func fill():
 		words[idx] = (idx + 1) % mem_size
 
 
+func trim():
+	for idx in mem_size:
+		words[idx] %= 0x100
+
+
 func erase():
 	for idx in mem_size:
 		words[idx] = 0

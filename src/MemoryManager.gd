@@ -9,6 +9,7 @@ var base_addr = 0
 var mem_size = 1024
 var current_addr = 0
 var data: MemoryData
+var addr_increment = 0x100
 
 func _ready():
 	hide_mask()
@@ -49,8 +50,6 @@ func set_view():
 	for n in num_rows:
 		var row = PoolStringArray()
 		var display_addr = addr
-		if data.width == 16:
-			display_addr /= 2
 		addresses.append("%04X: " % display_addr)
 		if mode == BIN:
 # warning-ignore:integer_division
@@ -63,7 +62,9 @@ func set_view():
 			var count = 8 if data.width == 16 else 16
 			for m in count: # 16 bytes or 8 words
 				var _d = data.words[addr]
-				asc.append(get_ascii(_d))
+				asc.append(get_ascii(_d % 0x100))
+				if data.width == 16:
+					asc.append(get_ascii(_d / 0x100))
 				row.append(hex_format % _d)
 				addr += 1
 			chars.append(asc.join(""))
@@ -81,15 +82,13 @@ func get_ascii(d):
 
 
 func _on_Up_pressed():
-	if data.mem_size > 0x100:
-		base_addr = wrapi(base_addr + 0x100, 0, data.mem_size)
-		set_view()
+	base_addr = wrapi(base_addr + addr_increment, 0, data.mem_size)
+	set_view()
 
 
 func _on_Down_pressed():
-	if data.mem_size > 0x100:
-		base_addr = wrapi(base_addr - 0x100, 0, data.mem_size)
-		set_view()
+	base_addr = wrapi(base_addr - addr_increment, 0, data.mem_size)
+	set_view()
 
 
 func _on_BH_pressed():
@@ -109,8 +108,13 @@ func _on_OK_pressed():
 
 func _on_Width_pressed():
 	if data.width == 8:
+		addr_increment = 0x80
 		set_width(16)
 	else:
+		data.trim()
+		addr_increment = 0x100
+		# Make base addr start from increments of addr_increment
+		base_addr = base_addr / addr_increment * addr_increment
 		set_width(8)
 
 
@@ -148,14 +152,16 @@ func set_addr(p):
 	var x = int(p.x) / div
 # warning-ignore:integer_division
 	var y = int(p.y) / 22
+	if data.width == 16:
+		y /= 2
 	var ystep = 16 if mode == HEX else 4
 	show_mask(Vector2(x, y), Vector2(div, 22))
-	if data.width == 16:
-		x *= 2
 	current_addr = x + base_addr + y * ystep
 
 
 func show_mask(pos, size):
+	if data.width == 16:
+		pos.y *= 2
 	$M/VBox/View/Bytes/Mask.show()
 	$M/VBox/View/Bytes/Mask.rect_position = (pos * size) - Vector2(5, 2)
 	$M/VBox/View/Bytes/Mask.rect_size = size
@@ -179,9 +185,7 @@ func _on_NumberInputPanel_popup_hide():
 					x += 1
 	else:
 		x = v.hex_to_int() # Godot function
-	data.bytes[current_addr] = x % 0x100
-	if data.width == 16:
-		data.bytes[current_addr + 1] = x / 0x100
+	data.words[current_addr] = x
 	set_view()
 	emit_signal("data_changed")
 

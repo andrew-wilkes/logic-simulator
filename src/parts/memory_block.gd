@@ -15,6 +15,7 @@ func setup():
 	data.memory.set_mem_size(256)
 	set_mem_size_label_text()
 	value = 0
+	data.memory.erase()
 
 
 func loaded_from_file():
