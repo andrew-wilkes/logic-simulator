@@ -18,7 +18,7 @@ func on_inner_node_gui_input(event, node):
 		node.setup()
 		node.type = node.name # This is the pure name used when loading a circuit
 		if node.get_child(0).name == "V":
-			node.set_value(0)
+			node.set_value(0, false)
 		remove_child(node)
 		emit_signal("part_variant_selected", node, offset)
 		queue_free() # Remove this IoBlock

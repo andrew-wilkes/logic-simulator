@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://assets/nand.png" type="Texture" id=1]
 [ext_resource path="res://assets/and.png" type="Texture" id=2]
@@ -66,6 +66,7 @@
 [ext_resource path="res://assets/busin8.png" type="Texture" id=64]
 [ext_resource path="res://parts/bidirectional_output.gd" type="Script" id=65]
 [ext_resource path="res://assets/busout8.png" type="Texture" id=66]
+[ext_resource path="res://parts/output.gd" type="Script" id=67]
 
 [node name="Parts" type="Control"]
 script = ExtResource( 8 )
@@ -1054,7 +1055,7 @@ slot/4/left_color = Color( 1, 1, 1, 1 )
 slot/4/right_enabled = false
 slot/4/right_type = 0
 slot/4/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 22 )
+script = ExtResource( 67 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1162,7 +1163,7 @@ slot/8/left_color = Color( 1, 1, 1, 1 )
 slot/8/right_enabled = false
 slot/8/right_type = 0
 slot/8/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 22 )
+script = ExtResource( 67 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

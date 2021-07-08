@@ -99,8 +99,9 @@ func _on_BH_pressed():
 
 
 func _on_Erase_pressed():
-	data.erase()
-	set_view()
+	if data.erase():
+		set_view()
+		emit_signal("data_changed")
 
 
 func _on_OK_pressed():

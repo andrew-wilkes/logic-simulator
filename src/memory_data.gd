@@ -34,9 +34,13 @@ func trim():
 		words[idx] %= 0x100
 
 
-func erase():
+func erase() -> bool:
+	var changed = false
 	for idx in mem_size:
+		if words[idx] > 0:
+			changed = true
 		words[idx] = 0
+	return changed
 
 
 func set_indexed_mem_size(idx):

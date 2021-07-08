@@ -2,11 +2,6 @@ extends Part
 
 class_name MemoryBlock
 
-func erase():
-	data.memory.erase()
-	memory_data_changed()
-
-
 func setup():
 	set_pins()
 	data = {
@@ -30,17 +25,12 @@ func set_value(v: int, _reverse: bool, port := 0):
 
 func emit_bus_update():
 	# Emit 16 bits or 8 bits of data
-	emit_signal("bus_changed", self, data.memory.words[value], false)
+	var v = data.memory.words[value]
+	emit_signal("bus_changed", self, v, false)
 
 
 func _on_Button_pressed():
 	$MM.open(data.memory)
-
-
-func memory_data_changed():
-	set_mem_size_label_text()
-	emit_signal("data_changed")
-	emit_bus_update()
 
 
 func set_mem_size_label_text():
