@@ -5,6 +5,7 @@ class_name InputSwitch
 func _ready():
 	is_input = true
 	is_reversible_input = true
+	var _e = $Tag.connect("text_changed", self, "text_changed")
 
 
 func setup():
@@ -33,3 +34,7 @@ func set_data(d: Dictionary):
 
 func get_data():
 	return { "tag": $Tag.text }
+
+
+func text_changed(_t):
+	emit_signal("data_changed")

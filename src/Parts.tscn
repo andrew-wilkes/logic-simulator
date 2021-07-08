@@ -212,7 +212,7 @@ margin_bottom = 72.0
 margin_left = 16.0
 margin_top = 197.0
 margin_right = 127.0
-margin_bottom = 330.0
+margin_bottom = 360.0
 custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 6
 title = "INPUT4"
@@ -246,6 +246,12 @@ slot/4/left_color = Color( 1, 1, 1, 1 )
 slot/4/right_enabled = true
 slot/4/right_type = 0
 slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -306,15 +312,21 @@ text = "D3"
 align = 2
 valign = 1
 
+[node name="Tag" type="LineEdit" parent="Gates/INPUT/INPUT4"]
+margin_left = 16.0
+margin_top = 133.0
+margin_right = 95.0
+margin_bottom = 157.0
+
 [node name="Timer" type="Timer" parent="Gates/INPUT/INPUT4"]
 wait_time = 0.5
 one_shot = true
 
 [node name="INPUT8" type="GraphNode" parent="Gates/INPUT"]
 margin_left = 16.0
-margin_top = 331.0
+margin_top = 361.0
 margin_right = 127.0
-margin_bottom = 544.0
+margin_bottom = 604.0
 custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 6
 title = "INPUT8"
@@ -372,6 +384,12 @@ slot/8/left_color = Color( 1, 1, 1, 1 )
 slot/8/right_enabled = true
 slot/8/right_type = 0
 slot/8/right_color = Color( 1, 1, 1, 1 )
+slot/9/left_enabled = false
+slot/9/left_type = 0
+slot/9/left_color = Color( 1, 1, 1, 1 )
+slot/9/right_enabled = false
+slot/9/right_type = 0
+slot/9/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -468,15 +486,21 @@ text = "D7"
 align = 2
 valign = 1
 
+[node name="Tag" type="LineEdit" parent="Gates/INPUT/INPUT8"]
+margin_left = 16.0
+margin_top = 213.0
+margin_right = 95.0
+margin_bottom = 237.0
+
 [node name="Timer" type="Timer" parent="Gates/INPUT/INPUT8"]
 wait_time = 0.5
 one_shot = true
 
 [node name="INPUTCLK" type="GraphNode" parent="Gates/INPUT"]
 margin_left = 16.0
-margin_top = 545.0
+margin_top = 605.0
 margin_right = 127.0
-margin_bottom = 702.0
+margin_bottom = 762.0
 custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 8
 title = "INPUTCLK"
@@ -574,9 +598,9 @@ wait_time = 0.5
 
 [node name="INPUTPIN" type="GraphNode" parent="Gates/INPUT"]
 margin_left = 16.0
-margin_top = 703.0
+margin_top = 763.0
 margin_right = 127.0
-margin_bottom = 759.0
+margin_bottom = 819.0
 custom_styles/frame = ExtResource( 23 )
 title = "INPUT PIN"
 slot/0/left_enabled = false
@@ -603,7 +627,7 @@ margin_right = 95.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 0, 2 )
 
-[node name="Pin" type="LineEdit" parent="Gates/INPUT/INPUTPIN"]
+[node name="Tag" type="LineEdit" parent="Gates/INPUT/INPUTPIN"]
 margin_left = 16.0
 margin_top = 26.0
 margin_right = 95.0
@@ -612,9 +636,9 @@ text = "A"
 
 [node name="INPUTBUS" type="GraphNode" parent="Gates/INPUT"]
 margin_left = 16.0
-margin_top = 760.0
+margin_top = 820.0
 margin_right = 127.0
-margin_bottom = 816.0
+margin_bottom = 876.0
 custom_styles/frame = ExtResource( 23 )
 title = "INPUT BUS"
 slot/0/left_enabled = false
@@ -641,7 +665,7 @@ margin_right = 95.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 0, 2 )
 
-[node name="Pin" type="LineEdit" parent="Gates/INPUT/INPUTBUS"]
+[node name="Tag" type="LineEdit" parent="Gates/INPUT/INPUTBUS"]
 margin_left = 16.0
 margin_top = 26.0
 margin_right = 95.0
@@ -1021,7 +1045,7 @@ margin_bottom = 72.0
 margin_left = 16.0
 margin_top = 102.0
 margin_right = 131.0
-margin_bottom = 235.0
+margin_bottom = 265.0
 custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 6
 title = "OUTPUT4"
@@ -1055,6 +1079,12 @@ slot/4/left_color = Color( 1, 1, 1, 1 )
 slot/4/right_enabled = false
 slot/4/right_type = 0
 slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 67 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1101,11 +1131,17 @@ margin_bottom = 127.0
 text = "D3"
 valign = 1
 
+[node name="Tag" type="LineEdit" parent="Gates/OUTPUT/OUTPUT4"]
+margin_left = 16.0
+margin_top = 133.0
+margin_right = 99.0
+margin_bottom = 157.0
+
 [node name="OUTPUT8" type="GraphNode" parent="Gates/OUTPUT"]
 margin_left = 16.0
-margin_top = 236.0
+margin_top = 266.0
 margin_right = 131.0
-margin_bottom = 449.0
+margin_bottom = 509.0
 custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 6
 title = "OUTPUT8"
@@ -1163,6 +1199,12 @@ slot/8/left_color = Color( 1, 1, 1, 1 )
 slot/8/right_enabled = false
 slot/8/right_type = 0
 slot/8/right_color = Color( 1, 1, 1, 1 )
+slot/9/left_enabled = false
+slot/9/left_type = 0
+slot/9/left_color = Color( 1, 1, 1, 1 )
+slot/9/right_enabled = false
+slot/9/right_type = 0
+slot/9/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 67 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1241,11 +1283,17 @@ margin_bottom = 207.0
 text = "D7"
 valign = 1
 
+[node name="Tag" type="LineEdit" parent="Gates/OUTPUT/OUTPUT8"]
+margin_left = 16.0
+margin_top = 213.0
+margin_right = 99.0
+margin_bottom = 237.0
+
 [node name="OUTPUTPIN" type="GraphNode" parent="Gates/OUTPUT"]
 margin_left = 16.0
-margin_top = 450.0
+margin_top = 510.0
 margin_right = 131.0
-margin_bottom = 506.0
+margin_bottom = 566.0
 mouse_filter = 1
 custom_styles/frame = ExtResource( 23 )
 title = "OUTPUT PIN"
@@ -1274,7 +1322,7 @@ margin_bottom = 25.0
 rect_min_size = Vector2( 0, 2 )
 mouse_filter = 1
 
-[node name="Pin" type="LineEdit" parent="Gates/OUTPUT/OUTPUTPIN"]
+[node name="Tag" type="LineEdit" parent="Gates/OUTPUT/OUTPUTPIN"]
 margin_left = 16.0
 margin_top = 26.0
 margin_right = 99.0
@@ -1284,9 +1332,9 @@ text = "Q"
 
 [node name="OUTPUTBUS" type="GraphNode" parent="Gates/OUTPUT"]
 margin_left = 16.0
-margin_top = 507.0
+margin_top = 567.0
 margin_right = 131.0
-margin_bottom = 563.0
+margin_bottom = 623.0
 mouse_filter = 1
 custom_styles/frame = ExtResource( 23 )
 title = "OUTPUT BUS"
@@ -1315,7 +1363,7 @@ margin_bottom = 25.0
 rect_min_size = Vector2( 0, 2 )
 mouse_filter = 1
 
-[node name="Pin" type="LineEdit" parent="Gates/OUTPUT/OUTPUTBUS"]
+[node name="Tag" type="LineEdit" parent="Gates/OUTPUT/OUTPUTBUS"]
 margin_left = 16.0
 margin_top = 26.0
 margin_right = 99.0
@@ -3328,10 +3376,10 @@ __meta__ = {
 [connection signal="button_up" from="Gates/INPUT/INPUTCLK/Reset" to="Gates/INPUT/INPUTCLK" method="_on_Reset_button_up"]
 [connection signal="pressed" from="Gates/INPUT/INPUTCLK/Rate" to="Gates/INPUT/INPUTCLK" method="_on_Rate_pressed"]
 [connection signal="timeout" from="Gates/INPUT/INPUTCLK/Timer" to="Gates/INPUT/INPUTCLK" method="_on_Timer_timeout"]
-[connection signal="text_changed" from="Gates/INPUT/INPUTPIN/Pin" to="Gates/INPUT/INPUTPIN" method="_on_Pin_text_changed"]
-[connection signal="text_changed" from="Gates/INPUT/INPUTBUS/Pin" to="Gates/INPUT/INPUTBUS" method="_on_Pin_text_changed"]
-[connection signal="text_changed" from="Gates/OUTPUT/OUTPUTPIN/Pin" to="Gates/OUTPUT/OUTPUTPIN" method="_on_Pin_text_changed"]
-[connection signal="text_changed" from="Gates/OUTPUT/OUTPUTBUS/Pin" to="Gates/OUTPUT/OUTPUTBUS" method="_on_Pin_text_changed"]
+[connection signal="text_changed" from="Gates/INPUT/INPUTPIN/Tag" to="Gates/INPUT/INPUTPIN" method="_on_Pin_text_changed"]
+[connection signal="text_changed" from="Gates/INPUT/INPUTBUS/Tag" to="Gates/INPUT/INPUTBUS" method="_on_Pin_text_changed"]
+[connection signal="text_changed" from="Gates/OUTPUT/OUTPUTPIN/Tag" to="Gates/OUTPUT/OUTPUTPIN" method="_on_Pin_text_changed"]
+[connection signal="text_changed" from="Gates/OUTPUT/OUTPUTBUS/Tag" to="Gates/OUTPUT/OUTPUTBUS" method="_on_Pin_text_changed"]
 [connection signal="button_timer_timeout" from="MISC/BUS1/EmitButton" to="MISC/BUS1" method="_on_EmitButton_button_timer_timeout"]
 [connection signal="was_pressed" from="MISC/BUS1/EmitButton" to="MISC/BUS1" method="_on_EmitButton_was_pressed"]
 [connection signal="button_timer_timeout" from="Combinational/DECODER/HBox/Bits" to="Combinational/DECODER" method="_on_Bits_button_timer_timeout"]

@@ -8,8 +8,8 @@ func _ready():
 	main = main_scene.instance()
 	add_child(main)
 	main.get_node("TestTimer").wait_time = 0.05
-	test_parts_that_have_tt()
-	#test_part("ROM")
+	#test_parts_that_have_tt()
+	test_part("REG")
 
 
 func test_parts_that_have_tt():
@@ -49,10 +49,11 @@ func test_part(type: String):
 		var input_pin
 		if tag[0] > "Z":
 			input_pin = Parts.get_part("INPUTBUS")
-			input_pin.set_pin_name(tag, true)
+			tag[0] = tag[0].to_upper()
+			part_data.inputs[i] = tag
 		else:
 			input_pin = Parts.get_part("INPUTPIN")
-			input_pin.set_pin_name(tag)
+		input_pin.set_pin_name(tag)
 		main.add_part_to_graph(input_pin, Vector2(pos.x - 200, pos.y - rand_range(-100, 100)))
 		main.get_node("Graph").connect_node(input_pin.name, 0, part.name, i)
 	# Add output pins
@@ -61,10 +62,11 @@ func test_part(type: String):
 		var output_pin
 		if tag[0] > "Z":
 			output_pin = Parts.get_part("OUTPUTBUS")
-			output_pin.set_pin_name(tag, true)
+			tag[0] = tag[0].to_upper()
+			part_data.outputs[i] = tag
 		else:
 			output_pin = Parts.get_part("OUTPUTPIN")
-			output_pin.set_pin_name(tag)
+		output_pin.set_pin_name(tag)
 		main.add_part_to_graph(output_pin, Vector2(pos.x + 200, pos.y - rand_range(-100, 100)))
 		main.get_node("Graph").connect_node(part.name, i, output_pin.name, 0)
 	main.get_node("c/TruthTable").run_test()

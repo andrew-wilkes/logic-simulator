@@ -2,6 +2,11 @@ extends Part
 
 func _ready():
 	is_input = true
+	var _e = $Tag.connect("text_changed", self, "text_changed")
+
+
+func text_changed(_t):
+	emit_signal("data_changed")
 
 
 func set_value(v: int, reverse = false, _port := 0):
@@ -29,3 +34,13 @@ func _on_VSlider_value_changed(v):
 
 func _on_Timer_timeout():
 	set_value(vs)
+
+
+func set_data(d: Dictionary):
+	if d.has("tag"):
+		data = d
+		$Tag.text = d.tag
+
+
+func get_data():
+	return { "tag": $Tag.text }

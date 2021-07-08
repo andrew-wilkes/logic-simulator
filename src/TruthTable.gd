@@ -41,7 +41,8 @@ func open(part: Part):
 
 func get_header_label(txt, is_output: bool):
 	var l = $Header2.duplicate() if is_output else $Header1.duplicate()
-	l.text = txt.to_upper()
+	txt[0] = txt[0].to_upper()
+	l.text = txt
 	l.show()
 	return l
 

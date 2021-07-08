@@ -66,7 +66,7 @@ func start_tests(_data):
 	# Find input pins
 	for node in $Graph.get_children():
 		if node is Part and (node.type == "INPUTPIN" or node.type == "INPUTBUS"):
-			var pin = node.get_pin_name()
+			var pin = node.data.tag
 			if _data.inputs.has(pin):
 				input_pins[pin] = node
 	$c/TruthTable.highlight_inputs(input_pins.keys(), _data.inputs)
@@ -78,7 +78,7 @@ func start_tests(_data):
 	# Find output pins
 	for node in $Graph.get_children():
 		if node is Part and (node.type == "OUTPUTPIN" or node.type == "OUTPUTBUS"):
-			var pin = node.get_pin_name()
+			var pin = node.data.tag
 			if _data.outputs.has(pin):
 				output_pins[pin] = node
 	$c/TruthTable.highlight_outputs(output_pins.keys(), _data.inputs, _data.outputs)
