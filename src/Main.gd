@@ -81,6 +81,8 @@ func start_tests(_data):
 			var pin = node.data.tag
 			if _data.outputs.has(pin):
 				output_pins[pin] = node
+				node.last_value = 0
+				node.value = 0
 	$c/TruthTable.highlight_outputs(output_pins.keys(), _data.inputs, _data.outputs)
 	if output_pins.size() != _data.outputs.size():
 		alert("Missing output pins")

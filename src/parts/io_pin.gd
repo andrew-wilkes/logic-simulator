@@ -1,7 +1,5 @@
 extends Part
 
-var last_value = 0
-
 func _ready():
 	is_input = name == "INPUTPIN"
 	data = { "tag": "" }

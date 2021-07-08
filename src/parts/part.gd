@@ -25,6 +25,7 @@ var bit_lengths = [4, 8, 16]
 var msbs = [8, 128, 32768]
 var maxvs = [16, 256, 65536]
 var value := 0
+var last_value := 0
 var a := 0
 var b := 0
 var vin = 0
