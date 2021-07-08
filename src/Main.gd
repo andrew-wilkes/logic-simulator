@@ -204,6 +204,21 @@ func reset_race_detection():
 			node.reset()
 
 
+func apply_all_inputs():
+	var nodes = $Graph.get_children()
+	for node in nodes:
+		if node is GraphNode and node.is_input:
+			for idx in node.input_pins.size():
+				var p = node.input_pins[idx]
+				if p.type == 0:
+					update_levels(node, idx, false, false)
+				else:
+					update_bus(node, 0, false)
+			if node.is_reversible_input:
+				# Only port 0 is used
+				update_levels(node, 0, false, true)
+
+
 func delete_wire(node, port, reverse):
 	alert("Unstable connection deleted.")
 	for con in $Graph.get_connection_list():
@@ -503,8 +518,9 @@ func init_graph(circuit: Circuit):
 		part.name = node.name
 		part.data = node.data
 		part.apply_data()
-		for con in circuit.connections:
-			var _e = $Graph.connect_node(con.from, con.from_port, con.to, con.to_port)
+	for con in circuit.connections:
+		var _e = $Graph.connect_node(con.from, con.from_port, con.to, con.to_port)
+	apply_all_inputs()
 
 
 func set_scroll_offset(offset: Vector2):
