@@ -57,38 +57,53 @@ align = 1
 
 [node name="Left" type="Control" parent="M/Topbar"]
 margin_left = 101.0
-margin_right = 895.0
+margin_right = 760.0
 margin_bottom = 49.0
 size_flags_horizontal = 3
 
 [node name="H" type="HBoxContainer" parent="M/Topbar"]
-margin_left = 899.0
-margin_right = 959.0
+margin_left = 764.0
+margin_right = 1424.0
 margin_bottom = 49.0
+rect_min_size = Vector2( 520, 0 )
+size_flags_horizontal = 3
 custom_constants/separation = 0
 
+[node name="Left" type="Control" parent="M/Topbar/H"]
+margin_right = 300.0
+margin_bottom = 49.0
+size_flags_horizontal = 3
+
+[node name="Right" type="Control" parent="M/Topbar/H"]
+margin_left = 300.0
+margin_right = 600.0
+margin_bottom = 49.0
+size_flags_horizontal = 3
+
 [node name="Up" type="ToolButton" parent="M/Topbar/H"]
-margin_right = 30.0
+margin_left = 600.0
+margin_right = 630.0
 margin_bottom = 49.0
 focus_mode = 0
 icon = ExtResource( 11 )
 
 [node name="Down" type="ToolButton" parent="M/Topbar/H"]
-margin_left = 30.0
-margin_right = 60.0
+margin_left = 630.0
+margin_right = 660.0
 margin_bottom = 49.0
 focus_mode = 0
 icon = ExtResource( 10 )
 
 [node name="Right" type="Control" parent="M/Topbar"]
-margin_left = 963.0
-margin_right = 1758.0
+margin_left = 1428.0
+margin_right = 1757.0
 margin_bottom = 49.0
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
 
 [node name="TTSelect" type="CheckBox" parent="M/Topbar"]
-margin_left = 1762.0
-margin_right = 1900.0
+margin_left = 1761.0
+margin_right = 1899.0
 margin_bottom = 49.0
 focus_mode = 0
 text = "Select truth table"

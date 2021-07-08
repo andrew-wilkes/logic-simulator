@@ -34,7 +34,7 @@ func _ready():
 	fm.add_item("Quit", QUIT, KEY_MASK_CTRL | KEY_Q)
 	fm.connect("id_pressed", self, "_on_FileMenu_id_pressed")
 	pm = part_menu_scene.instance()
-	$M/Topbar.add_child_below_node($M/Topbar/Left, pm)
+	$M/Topbar/H.add_child_below_node($M/Topbar/H/Left, pm)
 	pm.connect("part_selected", self, "add_part")
 	var i = InputEventKey.new()
 	i.alt = true
