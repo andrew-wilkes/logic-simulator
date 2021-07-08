@@ -23,3 +23,13 @@ func setup():
 func set_io(level: bool, in_port: int, out_port: int):
 	set_output(level, out_port)
 	set_output(level, in_port, true)
+
+
+func set_data(d: Dictionary):
+	if d.has("tag"):
+		data = d
+		$Tag.text = d.tag
+
+
+func get_data():
+	return { "tag": $Tag.text }

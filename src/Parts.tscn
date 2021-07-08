@@ -68,7 +68,6 @@
 [ext_resource path="res://assets/busout8.png" type="Texture" id=66]
 
 [node name="Parts" type="Control"]
-visible = false
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -136,7 +135,7 @@ texture = ExtResource( 10 )
 margin_left = 16.0
 margin_top = 23.0
 margin_right = 127.0
-margin_bottom = 92.0
+margin_bottom = 117.0
 custom_styles/frame = ExtResource( 23 )
 title = "INPUT SW"
 slot/0/left_enabled = true
@@ -145,6 +144,12 @@ slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 0
 slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -157,12 +162,19 @@ margin_right = 95.0
 margin_bottom = 63.0
 focus_mode = 0
 
+[node name="Tag" type="LineEdit" parent="Gates/INPUT/INPUTSW"]
+margin_left = 16.0
+margin_top = 64.0
+margin_right = 95.0
+margin_bottom = 88.0
+
 [node name="INPUTPUSH" type="GraphNode" parent="Gates/INPUT"]
 margin_left = 16.0
-margin_top = 93.0
+margin_top = 118.0
 margin_right = 127.0
-margin_bottom = 152.0
+margin_bottom = 196.0
 custom_styles/frame = ExtResource( 23 )
+custom_constants/separation = 5
 title = "INPUT PUSH"
 slot/0/left_enabled = true
 slot/0/left_type = 0
@@ -170,6 +182,12 @@ slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 0
 slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -179,16 +197,21 @@ __meta__ = {
 margin_left = 16.0
 margin_top = 23.0
 margin_right = 95.0
-margin_bottom = 53.0
-rect_min_size = Vector2( 0, 30 )
+margin_bottom = 43.0
 focus_mode = 0
 text = "Push"
 
+[node name="Tag" type="LineEdit" parent="Gates/INPUT/INPUTPUSH"]
+margin_left = 16.0
+margin_top = 48.0
+margin_right = 95.0
+margin_bottom = 72.0
+
 [node name="INPUT4" type="GraphNode" parent="Gates/INPUT"]
 margin_left = 16.0
-margin_top = 153.0
+margin_top = 197.0
 margin_right = 127.0
-margin_bottom = 286.0
+margin_bottom = 330.0
 custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 6
 title = "INPUT4"
@@ -288,9 +311,9 @@ one_shot = true
 
 [node name="INPUT8" type="GraphNode" parent="Gates/INPUT"]
 margin_left = 16.0
-margin_top = 287.0
+margin_top = 331.0
 margin_right = 127.0
-margin_bottom = 500.0
+margin_bottom = 544.0
 custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 6
 title = "INPUT8"
@@ -450,9 +473,9 @@ one_shot = true
 
 [node name="INPUTCLK" type="GraphNode" parent="Gates/INPUT"]
 margin_left = 16.0
-margin_top = 501.0
+margin_top = 545.0
 margin_right = 127.0
-margin_bottom = 658.0
+margin_bottom = 702.0
 custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 8
 title = "INPUTCLK"
@@ -550,9 +573,9 @@ wait_time = 0.5
 
 [node name="INPUTPIN" type="GraphNode" parent="Gates/INPUT"]
 margin_left = 16.0
-margin_top = 659.0
+margin_top = 703.0
 margin_right = 127.0
-margin_bottom = 715.0
+margin_bottom = 759.0
 custom_styles/frame = ExtResource( 23 )
 title = "INPUT PIN"
 slot/0/left_enabled = false
@@ -588,9 +611,9 @@ text = "A"
 
 [node name="INPUTBUS" type="GraphNode" parent="Gates/INPUT"]
 margin_left = 16.0
-margin_top = 716.0
+margin_top = 760.0
 margin_right = 127.0
-margin_bottom = 772.0
+margin_bottom = 816.0
 custom_styles/frame = ExtResource( 23 )
 title = "INPUT BUS"
 slot/0/left_enabled = false
@@ -955,7 +978,7 @@ texture = ExtResource( 11 )
 margin_left = 16.0
 margin_top = 23.0
 margin_right = 131.0
-margin_bottom = 92.0
+margin_bottom = 101.0
 custom_styles/frame = ExtResource( 23 )
 title = "OUTPUT1"
 slot/0/left_enabled = true
@@ -964,6 +987,12 @@ slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 0
 slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 65 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -973,19 +1002,25 @@ __meta__ = {
 margin_left = 16.0
 margin_top = 23.0
 margin_right = 99.0
-margin_bottom = 63.0
-rect_min_size = Vector2( 0, 40 )
+margin_bottom = 47.0
+rect_min_size = Vector2( 0, 24 )
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Tag" type="LineEdit" parent="Gates/OUTPUT/OUTPUT1"]
+margin_left = 16.0
+margin_top = 48.0
+margin_right = 99.0
+margin_bottom = 72.0
+
 [node name="OUTPUT4" type="GraphNode" parent="Gates/OUTPUT"]
 margin_left = 16.0
-margin_top = 93.0
+margin_top = 102.0
 margin_right = 131.0
-margin_bottom = 226.0
+margin_bottom = 235.0
 custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 6
 title = "OUTPUT4"
@@ -1067,9 +1102,9 @@ valign = 1
 
 [node name="OUTPUT8" type="GraphNode" parent="Gates/OUTPUT"]
 margin_left = 16.0
-margin_top = 227.0
+margin_top = 236.0
 margin_right = 131.0
-margin_bottom = 440.0
+margin_bottom = 449.0
 custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 6
 title = "OUTPUT8"
@@ -1207,9 +1242,9 @@ valign = 1
 
 [node name="OUTPUTPIN" type="GraphNode" parent="Gates/OUTPUT"]
 margin_left = 16.0
-margin_top = 441.0
+margin_top = 450.0
 margin_right = 131.0
-margin_bottom = 497.0
+margin_bottom = 506.0
 mouse_filter = 1
 custom_styles/frame = ExtResource( 23 )
 title = "OUTPUT PIN"
@@ -1248,9 +1283,9 @@ text = "Q"
 
 [node name="OUTPUTBUS" type="GraphNode" parent="Gates/OUTPUT"]
 margin_left = 16.0
-margin_top = 498.0
+margin_top = 507.0
 margin_right = 131.0
-margin_bottom = 554.0
+margin_bottom = 563.0
 mouse_filter = 1
 custom_styles/frame = ExtResource( 23 )
 title = "OUTPUT BUS"
@@ -1328,8 +1363,9 @@ visible = false
 texture = ExtResource( 64 )
 
 [node name="INBUS16" type="GraphNode" parent="MISC"]
+margin_top = 74.0
 margin_right = 125.0
-margin_bottom = 70.0
+margin_bottom = 144.0
 title = "INBUS 16"
 slot/0/left_enabled = true
 slot/0/left_type = 1
@@ -1360,9 +1396,9 @@ visible = false
 texture = ExtResource( 13 )
 
 [node name="BUSMUX" type="GraphNode" parent="MISC"]
-margin_top = 74.0
+margin_top = 148.0
 margin_right = 125.0
-margin_bottom = 278.0
+margin_bottom = 352.0
 title = "BUS MUX"
 slot/0/left_enabled = true
 slot/0/left_type = 1
@@ -1519,9 +1555,9 @@ visible = false
 texture = ExtResource( 37 )
 
 [node name="BUS1" type="GraphNode" parent="MISC"]
-margin_top = 282.0
+margin_top = 356.0
 margin_right = 125.0
-margin_bottom = 352.0
+margin_bottom = 447.0
 title = "BUS"
 slot/0/left_enabled = true
 slot/0/left_type = 1
@@ -1564,9 +1600,9 @@ margin_bottom = 85.0
 text = "Format"
 
 [node name="LOOPBUS" type="GraphNode" parent="MISC"]
-margin_top = 356.0
+margin_top = 451.0
 margin_right = 125.0
-margin_bottom = 427.0
+margin_bottom = 546.0
 title = "LOOP BACK"
 slot/0/left_enabled = true
 slot/0/left_type = 1
@@ -1609,9 +1645,9 @@ margin_bottom = 89.0
 rect_min_size = Vector2( 0, 24 )
 
 [node name="OUTBUS8" type="GraphNode" parent="MISC"]
-margin_top = 431.0
+margin_top = 550.0
 margin_right = 125.0
-margin_bottom = 501.0
+margin_bottom = 620.0
 title = "OUTBUS 8"
 slot/0/left_enabled = true
 slot/0/left_type = 1
@@ -1641,9 +1677,9 @@ visible = false
 texture = ExtResource( 66 )
 
 [node name="OUTBUS16" type="GraphNode" parent="MISC"]
-margin_top = 431.0
+margin_top = 624.0
 margin_right = 125.0
-margin_bottom = 501.0
+margin_bottom = 694.0
 title = "OUTBUS 16"
 slot/0/left_enabled = true
 slot/0/left_type = 1
@@ -2225,16 +2261,15 @@ rect_min_size = Vector2( 0, 24 )
 
 [node name="Label" type="Label" parent="Combinational/DECODER/HBox"]
 margin_top = 5.0
-margin_right = 17.0
+margin_right = 10.0
 margin_bottom = 19.0
 text = "D"
 valign = 1
 
 [node name="Bits" parent="Combinational/DECODER/HBox" instance=ExtResource( 35 )]
-margin_left = 31.0
-margin_top = 100.0
-margin_right = 68.0
-margin_bottom = 120.0
+margin_left = 14.0
+margin_right = 100.0
+margin_bottom = 24.0
 size_flags_horizontal = 3
 text = "Bits"
 
@@ -2271,12 +2306,13 @@ rect_min_size = Vector2( 0, 24 )
 
 [node name="Label" type="Label" parent="Combinational/DECODER/HBox3"]
 margin_top = 5.0
+margin_right = 17.0
 margin_bottom = 19.0
 text = "A1"
 valign = 1
 
 [node name="Label2" type="Label" parent="Combinational/DECODER/HBox3"]
-margin_left = 4.0
+margin_left = 21.0
 margin_top = 5.0
 margin_right = 100.0
 margin_bottom = 19.0
@@ -2959,12 +2995,12 @@ margin_right = 86.0
 margin_bottom = 122.0
 
 [node name="Bits" parent="Blocks/ALU/HBox5" instance=ExtResource( 35 )]
-margin_right = 37.0
+margin_right = 28.0
 margin_bottom = 24.0
 text = "16"
 
 [node name="Cout" type="Label" parent="Blocks/ALU/HBox5"]
-margin_left = 41.0
+margin_left = 32.0
 margin_right = 70.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
@@ -3104,7 +3140,7 @@ valign = 1
 
 [node name="D" type="Label" parent="Blocks/ROM/HBox9"]
 margin_left = 19.0
-margin_right = 91.0
+margin_right = 326.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
@@ -3212,7 +3248,7 @@ valign = 1
 
 [node name="Dout" type="Label" parent="Blocks/RAM/HBox9"]
 margin_left = 19.0
-margin_right = 91.0
+margin_right = 326.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
@@ -3236,18 +3272,17 @@ margin_right = 342.0
 margin_bottom = 97.0
 
 [node name="Din" type="Label" parent="Blocks/RAM/HBox"]
-margin_top = -50.0
-margin_right = 9.0
-margin_bottom = -26.0
+margin_right = 286.0
+margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
 text = "Din"
 valign = 1
 
 [node name="Button" type="Button" parent="Blocks/RAM/HBox"]
-margin_top = -21.0
-margin_right = 91.0
-margin_bottom = -1.0
+margin_left = 290.0
+margin_right = 326.0
+margin_bottom = 24.0
 text = "Edit"
 
 [node name="OE" type="Label" parent="Blocks/RAM"]

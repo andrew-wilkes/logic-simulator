@@ -291,7 +291,7 @@ func _on_Graph_connection_request(from, from_slot, to, to_slot):
 	var from_node = $Graph.get_node(from)
 	if to_node.get_connection_input_type(to_slot) == 0:
 		if to_node.is_reversible_input:
-			from_node.apply_input(to_node.input_levels[to_slot].level, from_slot, true)
+			from_node.apply_input(to_node.input_pins[to_slot].level, from_slot, true)
 		else:
 			to_node.apply_input(from_node.output_pins[from_slot].level, to_slot, false)
 	else:
