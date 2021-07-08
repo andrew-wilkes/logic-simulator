@@ -192,8 +192,8 @@ var parts = {
 	},
 	"REG":
 	{
-		"inputs": ["d","LD","CK","R"],
-		"outputs": ["q"],
+		"inputs": ["D","LD","CK","R"],
+		"outputs": ["Q"],
 		"tt": [
 			["0xf",0,0,0,"X"],
 			["0xf",1,0,0,"L"],

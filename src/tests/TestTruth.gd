@@ -37,7 +37,7 @@ func check_result(result, part: String):
 
 
 func test_part(type: String):
-	var part = Parts.get_part(type)
+	var part: GraphNode = Parts.get_part(type)
 	print("Test: ", part.name)
 	var pos = Vector2(200 + randf() * 1500, randf() * 600)
 	main.add_part_to_graph(part, pos)
@@ -47,10 +47,8 @@ func test_part(type: String):
 	for i in part.get_connection_input_count():
 		var tag = part_data.inputs[i]
 		var input_pin
-		if tag[0] > "Z":
+		if part.get_connection_input_type(i) == 1:
 			input_pin = Parts.get_part("INPUTBUS")
-			tag[0] = tag[0].to_upper()
-			part_data.inputs[i] = tag
 		else:
 			input_pin = Parts.get_part("INPUTPIN")
 		input_pin.set_pin_name(tag)
@@ -60,10 +58,8 @@ func test_part(type: String):
 	for i in part.get_connection_output_count():
 		var tag = part_data.outputs[i]
 		var output_pin
-		if tag[0] > "Z":
+		if part.get_connection_output_type(i) == 1:
 			output_pin = Parts.get_part("OUTPUTBUS")
-			tag[0] = tag[0].to_upper()
-			part_data.outputs[i] = tag
 		else:
 			output_pin = Parts.get_part("OUTPUTPIN")
 		output_pin.set_pin_name(tag)
