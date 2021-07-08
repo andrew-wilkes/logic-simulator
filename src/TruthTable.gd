@@ -3,6 +3,7 @@ extends AcceptDialog
 signal test_pressed(data)
 
 var data
+var _part: Part
 
 func _ready():
 	insert_test_button()
@@ -14,6 +15,7 @@ func _ready():
 
 
 func open(part: Part):
+	_part = part
 	for node in $Grid.get_children():
 		node.hide()
 		node.queue_free()
@@ -80,6 +82,8 @@ func insert_test_button():
 
 
 func run_test():
+	if _part.type == "RAM":
+		_part.apply_data() # Erase the memory
 	emit_signal("test_pressed", data)
 
 

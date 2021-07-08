@@ -210,8 +210,8 @@ var parts = {
 	},
 	"COUNTER":
 	{
-		"inputs": ["d","INC","LD","CK","R"],
-		"outputs": ["q"],
+		"inputs": ["D","INC","LD","CK","R"],
+		"outputs": ["Q"],
 		"tt": [
 			["0xf",0,0,0,0,"X"],
 			["0xf",0,1,0,0,"L"],
@@ -230,8 +230,8 @@ var parts = {
 	},
 	"SHIFTREG":
 	{
-		"inputs": ["d","SI","EN","LD","CK","R"],
-		"outputs": ["q"],
+		"inputs": ["D","SI","EN","LD","CK","R"],
+		"outputs": ["Q"],
 		"tt": [
 			["0xff",0,0,1,0,0,"X"],
 			["0xff",0,0,1,1,0,"0xff"],
@@ -251,8 +251,8 @@ var parts = {
 	},
 	"ALU":
 	{
-		"inputs": ["a","b","F0","F1","F2"],
-		"outputs": ["y","Cout","Zero","Over","Sign"],
+		"inputs": ["A","B","F0","F1","F2"],
+		"outputs": ["Y","Cout","Zero","Over","Sign"],
 		"tt": [
 			[3,6,0,0,0,3,0,0,0,0], # a
 			[3,6,1,0,0,6,0,0,0,0], # b
@@ -275,8 +275,8 @@ var parts = {
 	},
 	"ROM":
 	{
-		"inputs": ["a","/OE"],
-		"outputs": ["d"],
+		"inputs": ["A","/OE"],
+		"outputs": ["D"],
 		"tt": [
 			[0,0,1],
 			[0,1,1],
@@ -289,8 +289,8 @@ var parts = {
 	},
 	"RAM":
 	{
-		"inputs": ["a","din","/OE","/W"],
-		"outputs": ["dout"],
+		"inputs": ["A","Din","/OE","/W"],
+		"outputs": ["Dout"],
 		"tt": [
 			[0,0,1,1,"X"],
 			[0,33,1,0,0],
