@@ -2,6 +2,11 @@ extends MemoryBlock
 
 class_name RamBlock
 
+func setup():
+	.setup()
+	data.memory.ram = true
+
+
 func set_value(v: int, reverse: bool, port := 0):
 	.set_value(v, reverse, port)
 	if port == 1: # Data

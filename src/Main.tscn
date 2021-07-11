@@ -212,8 +212,8 @@ mode = 0
 access = 2
 filters = PoolStringArray( "*.res ; Circuit files" )
 show_hidden_files = true
-current_dir = "/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src"
-current_path = "/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/"
+current_dir = "/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/data/"
+current_path = "/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/data/"
 
 [node name="Confirm" type="ConfirmationDialog" parent="c"]
 margin_right = 200.0

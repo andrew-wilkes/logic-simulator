@@ -21,7 +21,7 @@ __meta__ = {
 [node name="M" type="MarginContainer" parent="."]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 322.0
+margin_right = 441.0
 margin_bottom = 137.0
 custom_constants/margin_right = 5
 custom_constants/margin_top = 5
@@ -34,7 +34,7 @@ __meta__ = {
 [node name="VBox" type="VBoxContainer" parent="M"]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 313.0
+margin_right = 432.0
 margin_bottom = 128.0
 custom_constants/separation = 10
 
@@ -88,6 +88,18 @@ margin_right = 308.0
 margin_bottom = 17.0
 rect_min_size = Vector2( 44, 0 )
 text = "8"
+
+[node name="Load" type="Button" parent="M/VBox/Top"]
+margin_right = 12.0
+margin_bottom = 20.0
+focus_mode = 0
+text = "Load"
+
+[node name="Save" type="Button" parent="M/VBox/Top"]
+margin_right = 12.0
+margin_bottom = 20.0
+focus_mode = 0
+text = "Save"
 
 [node name="View" type="HBoxContainer" parent="M/VBox"]
 margin_top = 30.0
@@ -151,14 +163,30 @@ text = "OK"
 [node name="NumberInputPanel" parent="." instance=ExtResource( 5 )]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 322.0
+margin_right = 441.0
 margin_bottom = 137.0
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 441.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 600, 300 )
+window_title = "Save Data"
+mode_overrides_title = false
+access = 2
+filters = PoolStringArray( "*.rom ; ROM files" )
+current_dir = "/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/data"
+current_path = "/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/data/"
 
 [connection signal="pressed" from="M/VBox/Top/Up" to="." method="_on_Up_pressed"]
 [connection signal="pressed" from="M/VBox/Top/Down" to="." method="_on_Down_pressed"]
 [connection signal="pressed" from="M/VBox/Top/BH" to="." method="_on_BH_pressed"]
 [connection signal="pressed" from="M/VBox/Top/Width" to="." method="_on_Width_pressed"]
+[connection signal="pressed" from="M/VBox/Top/Load" to="." method="_on_Load_pressed"]
+[connection signal="pressed" from="M/VBox/Top/Save" to="." method="_on_Save_pressed"]
 [connection signal="gui_input" from="M/VBox/View/Bytes" to="." method="_on_View_gui_input"]
 [connection signal="pressed" from="M/VBox/Tray/Erase" to="." method="_on_Erase_pressed"]
 [connection signal="pressed" from="M/VBox/Tray/OK" to="." method="_on_OK_pressed"]
 [connection signal="popup_hide" from="NumberInputPanel" to="." method="_on_NumberInputPanel_popup_hide"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]

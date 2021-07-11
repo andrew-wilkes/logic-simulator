@@ -10,6 +10,7 @@ var mem_size = 1024
 var current_addr = 0
 var data: MemoryData
 var addr_increment = 0x100
+var file_name = ""
 
 func _ready():
 	hide_mask()
@@ -30,6 +31,9 @@ func open(_data):
 	$M/VBox/Top/WidthLabel.text = String(data.width)
 	$M/VBox/Top/SizeLabel.text = data.get_mem_size_str()
 	set_view()
+	if data.ram:
+		$M/VBox/Top/Load.hide()
+		$M/VBox/Top/Save.hide()
 	call_deferred("popup_centered")
 
 
@@ -207,3 +211,51 @@ func int2bin(x: int) -> String:
 func resize():
 	yield(get_tree(), "idle_frame")
 	rect_size = Vector2.ZERO
+
+
+func _on_Load_pressed():
+	$FileDialog.window_title = "Load Data"
+	$FileDialog.current_file = file_name
+	$FileDialog.mode = FileDialog.MODE_OPEN_FILE
+	$FileDialog.popup_centered()
+
+
+func _on_Save_pressed():
+	$FileDialog.window_title = "Save Data"
+	$FileDialog.current_file = file_name
+	$FileDialog.mode = FileDialog.MODE_SAVE_FILE
+	$FileDialog.popup_centered()
+
+
+func _on_FileDialog_file_selected(path):
+	file_name = path
+	if path.rstrip("/") == path.get_base_dir():
+		return # No file selected
+	var file = File.new()
+	if $FileDialog.mode == FileDialog.MODE_OPEN_FILE:
+		file.open(path, File.READ)
+		var values = file.get_as_text().split("\n")
+		file.close()
+		var idx = 0
+		for v in values:
+			v = v.rstrip("\r")
+			if v.is_valid_integer():
+				if data.width == 8:
+					data.words[idx] = int(v) % 0x100
+				else:
+					data.words[idx] = int(v) % 0x10000
+				idx += 1
+				if data.mem_size == idx:
+					break
+		while idx < data.mem_size:
+			data.words[idx] = 0
+			idx += 1
+		set_view()
+		emit_signal("data_changed")
+	else:
+		var t: PoolStringArray
+		for v in data.words:
+			t.append(String(v))
+		file.open(path, File.WRITE)
+		file.store_string(t.join("\n"))
+		file.close()

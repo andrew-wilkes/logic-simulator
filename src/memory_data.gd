@@ -5,7 +5,7 @@ class_name MemoryData
 export var mem_size: int setget set_mem_size
 export var width: int = 8
 export var words: PoolIntArray
-export var rom: bool = true
+export var ram: bool = false
 
 const mem_sizes = {
 	32: "32",
