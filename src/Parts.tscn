@@ -1426,6 +1426,7 @@ script = ExtResource( 59 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+num_bytes = 4
 num_pins = 16
 
 [node name="Label" type="Label" parent="MISC/INBUS16"]
@@ -1740,6 +1741,8 @@ script = ExtResource( 62 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+num_bytes = 4
+num_pins = 16
 
 [node name="Label" type="Label" parent="MISC/OUTBUS16"]
 margin_left = 16.0
@@ -3176,7 +3179,7 @@ texture = ExtResource( 39 )
 [node name="HBox9" type="HBoxContainer" parent="Blocks/ROM"]
 margin_left = 16.0
 margin_top = 23.0
-margin_right = 342.0
+margin_right = 624.0
 margin_bottom = 47.0
 custom_constants/separation = 10
 
@@ -3189,7 +3192,7 @@ valign = 1
 
 [node name="D" type="Label" parent="Blocks/ROM/HBox9"]
 margin_left = 19.0
-margin_right = 326.0
+margin_right = 608.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
@@ -3200,7 +3203,7 @@ valign = 1
 [node name="Size" type="Label" parent="Blocks/ROM"]
 margin_left = 16.0
 margin_top = 48.0
-margin_right = 342.0
+margin_right = 624.0
 margin_bottom = 72.0
 rect_min_size = Vector2( 0, 24 )
 text = "32x16"
@@ -3209,7 +3212,7 @@ valign = 1
 [node name="Button" type="Button" parent="Blocks/ROM"]
 margin_left = 16.0
 margin_top = 73.0
-margin_right = 342.0
+margin_right = 624.0
 margin_bottom = 93.0
 focus_mode = 0
 text = "Edit"
@@ -3217,7 +3220,7 @@ text = "Edit"
 [node name="OE" type="Label" parent="Blocks/ROM"]
 margin_left = 16.0
 margin_top = 94.0
-margin_right = 342.0
+margin_right = 624.0
 margin_bottom = 118.0
 rect_min_size = Vector2( 0, 24 )
 text = "/OE"
@@ -3226,8 +3229,8 @@ valign = 1
 [node name="MM" parent="Blocks/ROM" instance=ExtResource( 41 )]
 margin_left = 16.0
 margin_top = 119.0
-margin_right = 342.0
-margin_bottom = 260.0
+margin_right = 624.0
+margin_bottom = 427.0
 
 [node name="RAM" type="GraphNode" parent="Blocks"]
 margin_left = 467.0
@@ -3284,7 +3287,7 @@ texture = ExtResource( 40 )
 [node name="HBox9" type="HBoxContainer" parent="Blocks/RAM"]
 margin_left = 16.0
 margin_top = 23.0
-margin_right = 342.0
+margin_right = 624.0
 margin_bottom = 47.0
 custom_constants/separation = 10
 
@@ -3297,7 +3300,7 @@ valign = 1
 
 [node name="Dout" type="Label" parent="Blocks/RAM/HBox9"]
 margin_left = 19.0
-margin_right = 326.0
+margin_right = 608.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
@@ -3308,7 +3311,7 @@ valign = 1
 [node name="Size" type="Label" parent="Blocks/RAM"]
 margin_left = 16.0
 margin_top = 48.0
-margin_right = 342.0
+margin_right = 624.0
 margin_bottom = 72.0
 rect_min_size = Vector2( 0, 24 )
 text = "1Kx8"
@@ -3317,11 +3320,11 @@ valign = 1
 [node name="HBox" type="HBoxContainer" parent="Blocks/RAM"]
 margin_left = 16.0
 margin_top = 73.0
-margin_right = 342.0
+margin_right = 624.0
 margin_bottom = 97.0
 
 [node name="Din" type="Label" parent="Blocks/RAM/HBox"]
-margin_right = 286.0
+margin_right = 568.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
@@ -3329,15 +3332,15 @@ text = "Din"
 valign = 1
 
 [node name="Button" type="Button" parent="Blocks/RAM/HBox"]
-margin_left = 290.0
-margin_right = 326.0
+margin_left = 572.0
+margin_right = 608.0
 margin_bottom = 24.0
 text = "Edit"
 
 [node name="OE" type="Label" parent="Blocks/RAM"]
 margin_left = 16.0
 margin_top = 98.0
-margin_right = 342.0
+margin_right = 624.0
 margin_bottom = 122.0
 rect_min_size = Vector2( 0, 24 )
 text = "/OE"
@@ -3346,7 +3349,7 @@ valign = 1
 [node name="R" type="Label" parent="Blocks/RAM"]
 margin_left = 16.0
 margin_top = 123.0
-margin_right = 342.0
+margin_right = 624.0
 margin_bottom = 147.0
 rect_min_size = Vector2( 0, 24 )
 text = "/W"
@@ -3355,8 +3358,8 @@ valign = 1
 [node name="MM" parent="Blocks/RAM" instance=ExtResource( 41 )]
 margin_left = 16.0
 margin_top = 148.0
-margin_right = 342.0
-margin_bottom = 289.0
+margin_right = 624.0
+margin_bottom = 456.0
 
 [node name="Gizmos" type="VBoxContainer" parent="."]
 margin_left = 417.692

@@ -21,8 +21,8 @@ __meta__ = {
 [node name="M" type="MarginContainer" parent="."]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 441.0
-margin_bottom = 137.0
+margin_right = 604.0
+margin_bottom = 304.0
 custom_constants/margin_right = 5
 custom_constants/margin_top = 5
 custom_constants/margin_left = 5
@@ -34,8 +34,8 @@ __meta__ = {
 [node name="VBox" type="VBoxContainer" parent="M"]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 432.0
-margin_bottom = 128.0
+margin_right = 595.0
+margin_bottom = 295.0
 custom_constants/separation = 10
 
 [node name="Top" type="HBoxContainer" parent="M/VBox"]
@@ -163,19 +163,20 @@ text = "OK"
 [node name="NumberInputPanel" parent="." instance=ExtResource( 5 )]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 441.0
-margin_bottom = 137.0
+margin_right = 604.0
+margin_bottom = 304.0
 
 [node name="FileDialog" type="FileDialog" parent="."]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 441.0
-margin_bottom = 137.0
+margin_right = 604.0
+margin_bottom = 304.0
 rect_min_size = Vector2( 600, 300 )
 window_title = "Save Data"
 mode_overrides_title = false
 access = 2
 filters = PoolStringArray( "*.rom ; ROM files" )
+show_hidden_files = true
 current_dir = "/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/data"
 current_path = "/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/data/"
 

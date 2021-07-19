@@ -13,7 +13,7 @@ const RACE_TRIGGER_COUNT = 4
 
 var has_tt = false
 var locked = false
-var num_bytes = 2
+export var num_bytes = 2
 var is_reversible_input = false
 var is_input = false
 
