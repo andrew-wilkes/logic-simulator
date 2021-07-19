@@ -210,8 +210,8 @@ func apply_all_inputs():
 	var nodes = $Graph.get_children()
 	for node in nodes:
 		if node is GraphNode and node.is_input:
-			for idx in node.input_pins.size():
-				var p = node.input_pins[idx]
+			for idx in node.output_pins.size():
+				var p = node.output_pins[idx]
 				if p.type == 0:
 					update_levels(node, idx, false, false)
 				else:
@@ -333,7 +333,6 @@ func _input(event):
 
 
 func _on_Graph_delete_nodes_request():
-	print("Delete request")
 	for node in selected_nodes.keys():
 		if selected_nodes[node]:
 			remove_connections_to_node(node)
@@ -520,6 +519,7 @@ func init_graph(circuit: Circuit):
 		part.name = node.name
 		part.data = node.data
 		part.apply_data()
+	yield(get_tree(), "idle_frame") # Get lots of out of range errors without this
 	for con in circuit.connections:
 		var _e = $Graph.connect_node(con.from, con.from_port, con.to, con.to_port)
 	apply_all_inputs()

@@ -37,3 +37,9 @@ func _on_Reset_button_up():
 func _on_Timer_timeout():
 	output_pins[0].level = !output_pins[0].level
 	set_output(output_pins[0].level, 0)
+
+
+func setup():
+	.setup()
+	set_output(false, 0)
+	set_output(false, 1)
