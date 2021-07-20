@@ -165,17 +165,14 @@ func set_addr(p):
 # warning-ignore:integer_division
 	var x = int(p.x) / div
 # warning-ignore:integer_division
-	var y = int(p.y) / 22
-	if data.width == 16:
-		y /= 2
-	var ystep = 16 if mode == HEX else 4
+	var y = int(p.y) / 22 # line position
 	show_mask(Vector2(x, y), Vector2(div, 22))
+	var ystep = 16 if mode == HEX else 4
+	if data.width == 16: ystep /= 2
 	current_addr = x + base_addr + y * ystep
 
 
 func show_mask(pos, size):
-	if data.width == 16:
-		pos.y *= 2
 	$M/VBox/View/Bytes/Mask.show()
 	$M/VBox/View/Bytes/Mask.rect_position = (pos * size) - Vector2(5, 2)
 	$M/VBox/View/Bytes/Mask.rect_size = size
