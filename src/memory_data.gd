@@ -30,8 +30,9 @@ func fill():
 
 
 func trim():
+	var lim = 0x100 if width == 8 else 0x10000
 	for idx in mem_size:
-		words[idx] %= 0x100
+		words[idx] %= lim
 
 
 func erase() -> bool:
