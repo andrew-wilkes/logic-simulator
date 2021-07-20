@@ -1426,7 +1426,6 @@ script = ExtResource( 59 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-num_bytes = 4
 num_pins = 16
 
 [node name="Label" type="Label" parent="MISC/INBUS16"]
@@ -1741,7 +1740,6 @@ script = ExtResource( 62 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-num_bytes = 4
 num_pins = 16
 
 [node name="Label" type="Label" parent="MISC/OUTBUS16"]
@@ -2603,6 +2601,12 @@ slot/4/left_color = Color( 1, 1, 1, 1 )
 slot/4/right_enabled = false
 slot/4/right_type = 0
 slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 54 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2671,6 +2675,12 @@ margin_bottom = 147.0
 rect_min_size = Vector2( 0, 24 )
 text = "R"
 valign = 1
+
+[node name="Tag" type="LineEdit" parent="Blocks/REG"]
+margin_left = 16.0
+margin_top = 148.0
+margin_right = 75.0
+margin_bottom = 172.0
 
 [node name="COUNTER" type="GraphNode" parent="Blocks"]
 margin_left = 466.871
@@ -3390,6 +3400,7 @@ __meta__ = {
 [connection signal="timeout" from="Combinational/DECODER/Timer" to="Combinational/DECODER" method="_on_Timer_timeout"]
 [connection signal="color_changed" from="Combinational/SEG7/HB/ColorPicker" to="Combinational/SEG7" method="_on_ColorPicker_color_changed"]
 [connection signal="pressed" from="Combinational/SEG7/HB/Mode" to="Combinational/SEG7" method="_on_Mode_pressed"]
+[connection signal="text_changed" from="Blocks/REG/Tag" to="Blocks/REG" method="_on_Tag_text_changed"]
 [connection signal="button_timer_timeout" from="Blocks/SHIFTREG/HBox/Bits" to="Blocks/SHIFTREG" method="_on_Bits_button_timer_timeout"]
 [connection signal="was_pressed" from="Blocks/SHIFTREG/HBox/Bits" to="Blocks/SHIFTREG" method="_on_Bits_was_pressed"]
 [connection signal="button_timer_timeout" from="Blocks/ALU/HBox5/Bits" to="Blocks/ALU" method="_on_Bits_button_timer_timeout"]

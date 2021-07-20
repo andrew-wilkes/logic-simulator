@@ -23,3 +23,7 @@ func memory_data_changed():
 	if not input_pins[1].level: # /OE
 		emit_bus_update()
 	emit_signal("data_changed")
+
+
+func apply_data():
+	set_mem_size_label_text()

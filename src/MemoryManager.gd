@@ -22,7 +22,7 @@ func _ready():
 	sizes.connect("id_pressed", self, "_on_size_id_pressed")
 	if get_parent().name == "root":
 		set_mem_size(5)
-		set_width(8)
+		update_width(8)
 		call_deferred("popup_centered")
 
 
@@ -48,7 +48,9 @@ func set_view():
 	var bytes = PoolStringArray()
 	var chars = PoolStringArray()
 # warning-ignore:integer_division
-	var num_rows = data.words.size() / 16
+	var div = 16 if mode == HEX else 4
+	if data.width == 16: div /= 2
+	var num_rows = data.words.size() / div
 	if num_rows > 16:
 		num_rows = 16
 	for n in num_rows:
@@ -113,23 +115,25 @@ func _on_OK_pressed():
 
 
 func _on_Width_pressed():
+	if data.width == 8:
+		data.width = 16
+	else:
+		data.width = 8
 	set_addr_increment()
+	update_width(data.width)
 
 
 func set_addr_increment():
 	if data.width == 8:
 		addr_increment = 0x80 if mode == HEX else 0x20
-		set_width(16)
 	else:
 		data.trim()
 		addr_increment = 0x100 if mode == HEX else 0x40
 		# Make base addr start from increments of addr_increment
 		base_addr = base_addr / addr_increment * addr_increment
-		set_width(8)
 
 
-func set_width(w: int):
-	data.width = w
+func update_width(w: int):
 	$M/VBox/Top/WidthLabel.text = String(w)
 	set_view()
 	resize()
