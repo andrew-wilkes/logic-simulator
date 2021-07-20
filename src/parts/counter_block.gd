@@ -23,8 +23,9 @@ func update_output(_level: bool, _port: int, _r: bool):
 		output_value(wrapi(value + int(input_pins[1].level), 0, 0xffff))
 
 
-func set_value(v: int, _reverse: bool, _port := 0):
-	vin = v
+func set_value(v: int, _reverse: bool, port := 0):
+	if port == 0:
+		vin = v
 
 
 func output_value(v: int):
