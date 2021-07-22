@@ -151,7 +151,7 @@ func set_mem_size(id: int):
 func _on_View_gui_input(event):
 	if event is InputEventMouseButton:
 		set_addr(event.position)
-		$NumberInputPanel.rect_position = rect_position + Vector2(0, rect_size.y + 20)
+		$NumberInputPanel.rect_position = rect_position + Vector2(0, rect_size.y)
 		$NumberInputPanel.open(mode == HEX, data.width)
 
 
