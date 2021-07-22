@@ -14,6 +14,7 @@ var file_name = ""
 
 func _ready():
 	hide_mask()
+	rect_size = Vector2.ZERO
 	var sizes = $M/VBox/Top/Size.get_popup()
 	sizes.clear()
 	data = MemoryData.new()
