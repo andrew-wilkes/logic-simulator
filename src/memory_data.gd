@@ -21,7 +21,11 @@ const mem_sizes = {
 
 func set_mem_size(v):
 	mem_size = v
+	var old_size = words.size()
 	words.resize(mem_size)
+	if mem_size > old_size:
+		for idx in range(old_size, mem_size):
+			words[idx] = 0
 
 
 func fill():
