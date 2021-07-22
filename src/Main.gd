@@ -209,11 +209,18 @@ func reset_race_detection():
 func apply_all_inputs():
 	var nodes = $Graph.get_children()
 	for node in nodes:
+		if node is GraphNode and not node.is_input:
+			apply_outputs(node)
+	for node in nodes:
 		if node is GraphNode and node.is_input:
+			apply_outputs(node)
+
+
+func apply_outputs(node):
 			for idx in node.output_pins.size():
 				var p = node.output_pins[idx]
 				if p.type == 0:
-					update_levels(node, idx, false, false)
+					update_levels(node, idx, p.level, false)
 				else:
 					update_bus(node, 0, false)
 			if node.is_reversible_input:
