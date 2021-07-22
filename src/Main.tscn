@@ -233,6 +233,7 @@ margin_bottom = 1080.0
 [connection signal="disconnection_request" from="Graph" to="." method="_on_Graph_disconnection_request"]
 [connection signal="node_selected" from="Graph" to="." method="_on_Graph_node_selected"]
 [connection signal="node_unselected" from="Graph" to="." method="_on_Graph_node_unselected"]
+[connection signal="scroll_offset_changed" from="Graph" to="." method="_on_Graph_scroll_offset_changed"]
 [connection signal="timeout" from="TestTimer" to="." method="_on_TestTimer_timeout"]
 [connection signal="file_selected" from="c/FileDialog" to="." method="_on_FileDialog_file_selected"]
 [connection signal="confirmed" from="c/Confirm" to="." method="_on_Confirm_confirmed"]

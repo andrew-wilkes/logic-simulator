@@ -574,3 +574,7 @@ func check_for_at_marks():
 		if node is Part:
 			if "@" in node.name:
 				alert("@ found in: " + node.name)
+
+
+func _on_Graph_scroll_offset_changed(_ofs):
+	set_changed()

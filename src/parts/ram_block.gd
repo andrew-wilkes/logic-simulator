@@ -5,6 +5,7 @@ class_name RamBlock
 func setup():
 	.setup()
 	data.memory.ram = true
+	preset_input(false, 2)
 
 
 func set_value(v: int, reverse: bool, port := 0):

@@ -9,6 +9,8 @@ func setup():
 		"bits": 2,
 		"tag": ""
 	}
+	preset_input(true, 1)
+	preset_input(false, 3)
 
 
 func set_data(d: Dictionary):

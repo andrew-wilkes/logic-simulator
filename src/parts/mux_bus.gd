@@ -29,6 +29,8 @@ func setup():
 	.setup()
 	set_text()
 	set_bus_pin_colors()
+	preset_input(false, 4)
+	preset_input(false, 5)
 
 
 func set_bus_pin_colors():

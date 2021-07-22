@@ -5,6 +5,7 @@ class_name RomBlock
 func setup():
 	.setup()
 	data.memory.fill() # Add test data
+	preset_input(false, 1)
 
 
 func set_value(v: int, reverse: bool, port := 0):

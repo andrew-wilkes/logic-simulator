@@ -129,6 +129,11 @@ func apply_input(level: bool, port: int, reverse: bool):
 	pin.untouched = false
 
 
+func preset_input(level: bool, port: int):
+	input_pins[port].level = level
+	set_input(level, port)
+
+
 func set_input(level: bool, port: int, reverse = false):
 	var col = Color.red if level else Color.blue
 	if reverse:
