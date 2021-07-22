@@ -243,7 +243,7 @@ func add_part(part_name: String, _button):
 		$c/TruthTable.open(part)
 		alert("Create the circuit and succesfully test it to unlock the part.")
 	else:
-		add_part_to_graph(part, Vector2(get_viewport().get_mouse_position().x, get_part_placement_offset(part.type)))
+		add_part_to_graph(part, Vector2(get_viewport().get_mouse_position().x, get_part_placement_offset(part.type)) + $Graph.scroll_offset)
 
 
 func connect_part(part):
