@@ -66,15 +66,23 @@ func start_tests(_data):
 	# Find input pins
 	for node in $Graph.get_children():
 		if node is Part and (node.type == "INPUTPIN" or node.type == "INPUTBUS"):
-			var pin = node.data.tag
-			if _data.inputs.has(pin):
-				input_pins[pin] = node
+			var pin_name = node.data.tag
+			if _data.inputs.has(pin_name):
+				input_pins[pin_name] = node
+	# Add missing pins
+	var i = 0
+	for pin_name in _data.inputs:
+		var input_pin
+		if not input_pins.keys().has(pin_name):
+			if part_data.part.get_connection_input_type(i) == 1:
+				input_pin = Parts.get_part("INPUTBUS")
+			else:
+				input_pin = Parts.get_part("INPUTPIN")
+		input_pin.set_pin_name(pin_name)
+		input_pins[pin_name] = input_pin
+		add_part_to_graph(input_pin, Vector2(get_viewport().size.x * 0.3, 50 + i * 100) + $Graph.scroll_offset)
+		i += 1
 	$c/TruthTable.highlight_inputs(input_pins.keys(), _data.inputs)
-	if input_pins.size() != _data.inputs.size():
-		alert("Missing input pins")
-		yield($c/Alert, "popup_hide")
-		$c/TruthTable.unhighlight_all()
-		return
 	# Find output pins
 	for node in $Graph.get_children():
 		if node is Part and (node.type == "OUTPUTPIN" or node.type == "OUTPUTBUS"):
@@ -83,12 +91,20 @@ func start_tests(_data):
 				output_pins[pin] = node
 				node.last_value = 0
 				node.value = 0
+	# Add missing pins
+	i = 0
+	for pin_name in _data.outputs:
+		var output_pin
+		if not output_pins.keys().has(pin_name):
+			if part_data.part.get_connection_output_type(i) == 1:
+				output_pin = Parts.get_part("OUTPUTBUS")
+			else:
+				output_pin = Parts.get_part("OUTPUTPIN")
+		output_pin.set_pin_name(pin_name)
+		output_pins[pin_name] = output_pin
+		add_part_to_graph(output_pin, Vector2(get_viewport().size.x * 0.7, 50 + i * 100) + $Graph.scroll_offset)
+		i += 1
 	$c/TruthTable.highlight_outputs(output_pins.keys(), _data.inputs, _data.outputs)
-	if output_pins.size() != _data.outputs.size():
-		alert("Missing output pins")
-		yield($c/Alert, "popup_hide")
-		$c/TruthTable.unhighlight_all()
-		return
 	test_count = 0
 	display_row = 1
 	passed_tests = true

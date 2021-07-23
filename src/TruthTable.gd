@@ -22,7 +22,7 @@ func open(part: Part):
 	set_size(Vector2.ZERO) # Makes it resize starting from a small size
 	data = Data.parts[part.type]
 	data["locked"] = part.locked
-	data["type"] = part.type
+	data["part"] = part
 	$Grid.columns = data.inputs.size() + data.outputs.size()
 	window_title = data.title + " Truth Table"
 	for txt in data.inputs:
