@@ -14,14 +14,18 @@ bg_color = Color( 0.552941, 0.6, 0.619608, 1 )
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.376471, 0.545098, 0.607843, 1 )
 
-[node name="TruthTable" type="AcceptDialog"]
+[node name="TruthTable" type="WindowDialog"]
+visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -1801.0
-margin_bottom = -1016.0
+margin_right = -1781.0
+margin_bottom = -979.0
 popup_exclusive = true
 window_title = "Truth Table"
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Header1" type="Label" parent="."]
 margin_left = 8.0
@@ -81,13 +85,75 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Grid" type="GridContainer" parent="."]
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 111.0
-margin_bottom = 28.0
+[node name="M" type="MarginContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="M"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 143.0
+margin_bottom = 35.0
+custom_constants/separation = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="GridContainer" parent="M/VBox"]
+margin_right = 138.0
 custom_constants/vseparation = 2
 custom_constants/hseparation = 2
 columns = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox" type="HBoxContainer" parent="M/VBox"]
+margin_top = 5.0
+margin_right = 138.0
+margin_bottom = 25.0
+custom_constants/separation = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Test" type="Button" parent="M/VBox/HBox"]
+margin_right = 39.0
+margin_bottom = 20.0
+focus_mode = 0
+text = "Test"
+
+[node name="Info" type="Button" parent="M/VBox/HBox"]
+margin_left = 44.0
+margin_right = 81.0
+margin_bottom = 20.0
+text = "Info"
+
+[node name="Control" type="Control" parent="M/VBox/HBox"]
+margin_left = 86.0
+margin_right = 86.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="Close" type="Button" parent="M/VBox/HBox"]
+margin_left = 91.0
+margin_right = 138.0
+margin_bottom = 20.0
+text = "Close"
+
+[node name="Info" type="AcceptDialog" parent="."]
+margin_right = 265.0
+margin_bottom = 176.0
+dialog_autowrap = true
 
 [connection signal="mouse_exited" from="." to="." method="_on_TruthTable_mouse_exited"]
+[connection signal="pressed" from="M/VBox/HBox/Test" to="." method="_on_Test_pressed"]
+[connection signal="pressed" from="M/VBox/HBox/Info" to="." method="_on_Info_pressed"]
+[connection signal="pressed" from="M/VBox/HBox/Close" to="." method="_on_Close_pressed"]

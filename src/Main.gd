@@ -78,9 +78,9 @@ func start_tests(_data):
 				input_pin = Parts.get_part("INPUTBUS")
 			else:
 				input_pin = Parts.get_part("INPUTPIN")
-		input_pin.set_pin_name(pin_name)
-		input_pins[pin_name] = input_pin
-		add_part_to_graph(input_pin, Vector2(get_viewport().size.x * 0.3, 50 + i * 100) + $Graph.scroll_offset)
+			input_pin.set_pin_name(pin_name)
+			input_pins[pin_name] = input_pin
+			add_part_to_graph(input_pin, Vector2(get_viewport().size.x * 0.3, 50 + i * 100) + $Graph.scroll_offset)
 		i += 1
 	$c/TruthTable.highlight_inputs(input_pins.keys(), _data.inputs)
 	# Find output pins
@@ -100,9 +100,9 @@ func start_tests(_data):
 				output_pin = Parts.get_part("OUTPUTBUS")
 			else:
 				output_pin = Parts.get_part("OUTPUTPIN")
-		output_pin.set_pin_name(pin_name)
-		output_pins[pin_name] = output_pin
-		add_part_to_graph(output_pin, Vector2(get_viewport().size.x * 0.7, 50 + i * 100) + $Graph.scroll_offset)
+			output_pin.set_pin_name(pin_name)
+			output_pins[pin_name] = output_pin
+			add_part_to_graph(output_pin, Vector2(get_viewport().size.x * 0.7, 50 + i * 100) + $Graph.scroll_offset)
 		i += 1
 	$c/TruthTable.highlight_outputs(output_pins.keys(), _data.inputs, _data.outputs)
 	test_count = 0
@@ -125,7 +125,7 @@ func _on_TestTimer_timeout():
 				save_user_data()
 		return
 	if new_test:
-		show_row = $c/TruthTable/Grid.columns == part_data.tt[test_count].size()
+		show_row = $c/TruthTable.grid.columns == part_data.tt[test_count].size()
 		reset_race_detection()
 		for idx in part_data.inputs.size():
 			var x = part_data.tt[test_count][idx]
