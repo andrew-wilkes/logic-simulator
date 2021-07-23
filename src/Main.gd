@@ -429,6 +429,7 @@ func do_action():
 			set_filename()
 			clear_graph()
 		OPEN:
+			clear_graph()
 			$c/FileDialog.current_file = file_name
 			$c/FileDialog.mode = FileDialog.MODE_OPEN_FILE
 			$c/FileDialog.popup_centered()
