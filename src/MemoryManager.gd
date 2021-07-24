@@ -55,6 +55,8 @@ func set_view():
 	if num_rows > 16:
 		num_rows = 16
 	for n in num_rows:
+		if addr == data.mem_size:
+			break
 		var row = PoolStringArray()
 		var display_addr = addr
 		addresses.append("%04X: " % display_addr)
@@ -79,6 +81,7 @@ func set_view():
 	$M/VBox/View/Addr.text = addresses.join("\n")
 	$M/VBox/View/Bytes.text = bytes.join("\n")
 	$M/VBox/View/Chrs.text = chars.join("\n")
+	resize()
 
 
 func get_ascii(d):
@@ -98,11 +101,15 @@ func _on_Down_pressed():
 	set_view()
 
 
+func get_max_base_addr():
+	var m = data.mem_size - addr_increment
+	return m if m > 0 else 0
+
+
 func _on_BH_pressed():
 	mode = wrapi(mode + 1, 0, 2)
 	set_addr_increment()
 	set_view()
-	resize()
 
 
 func _on_Erase_pressed():
@@ -126,10 +133,10 @@ func _on_Width_pressed():
 
 func set_addr_increment():
 	if data.width == 8:
-		addr_increment = 0x80 if mode == HEX else 0x20
+		addr_increment = 0x100 if mode == HEX else 0x40
 	else:
 		data.trim()
-		addr_increment = 0x100 if mode == HEX else 0x40
+		addr_increment = 0x80 if mode == HEX else 0x20
 		# Make base addr start from increments of addr_increment
 		base_addr = base_addr / addr_increment * addr_increment
 
@@ -137,7 +144,6 @@ func set_addr_increment():
 func update_width(w: int):
 	$M/VBox/Top/WidthLabel.text = String(w)
 	set_view()
-	resize()
 	emit_signal("data_changed")
 
 

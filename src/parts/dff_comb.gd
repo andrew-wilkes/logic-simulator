@@ -2,6 +2,12 @@ extends Part
 
 class_name DffComb
 
+func setup():
+	.setup()
+	preset_input(false, 0)
+	preset_input(false, 3)
+
+
 func update_output(_level: bool, _port: int, _r: bool):
 	# Init output
 	if untouched:

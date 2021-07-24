@@ -213,6 +213,7 @@ resizable = true
 mode = 0
 access = 1
 filters = PoolStringArray( "*.res ; Circuit files" )
+show_hidden_files = true
 current_dir = "user://"
 current_path = "user://"
 
