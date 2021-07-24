@@ -15,7 +15,6 @@ bg_color = Color( 0.552941, 0.6, 0.619608, 1 )
 bg_color = Color( 0.376471, 0.545098, 0.607843, 1 )
 
 [node name="TruthTable" type="WindowDialog"]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -1781.0

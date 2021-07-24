@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-enum { NOACTION, NEW, OPEN, SAVE, SAVEAS, SETTINGS, QUIT, ABOUT, LICENCES }
+enum { NOACTION, NEW, OPEN, SAVE, SAVEAS, SETTINGS, QUIT, ABOUT, LICENCES, MANUAL }
 
 signal test_completed(passed)
 
@@ -42,6 +42,7 @@ func _ready():
 	$M/Topbar/V/H/File.shortcut = i # shortcut doesn't work
 	hm = $M/Topbar/V/H/Help.get_popup()
 	hm.add_item("About", ABOUT, KEY_MASK_CTRL | KEY_A)
+	hm.add_item("Manual", MANUAL, KEY_MASK_CTRL | KEY_M)
 	hm.add_separator()
 	hm.add_item("Licences", LICENCES)
 	hm.connect("id_pressed", self, "_on_HelpMenu_id_pressed")
@@ -406,6 +407,8 @@ func _on_HelpMenu_id_pressed(id):
 	match id:
 		ABOUT:
 			$c/About.popup_centered()
+		MANUAL:
+			var _e = OS.shell_open("https://gdscript.com/downloads/digital-logic-simulator-manual/")
 		LICENCES:
 			$c/Licences.popup_centered()
 
