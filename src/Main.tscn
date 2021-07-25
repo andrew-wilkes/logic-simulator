@@ -14,7 +14,7 @@ __meta__ = {
 }
 
 [node name="M" type="MarginContainer" parent="."]
-margin_right = 1920.0
+margin_right = 1024.0
 margin_bottom = 69.0
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
@@ -24,7 +24,7 @@ custom_constants/margin_bottom = 10
 [node name="Topbar" type="HBoxContainer" parent="M"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 1910.0
+margin_right = 1014.0
 margin_bottom = 59.0
 
 [node name="V" type="VBoxContainer" parent="M/Topbar"]
@@ -57,65 +57,66 @@ align = 1
 
 [node name="Left" type="Control" parent="M/Topbar"]
 margin_left = 101.0
-margin_right = 760.0
+margin_right = 256.0
 margin_bottom = 49.0
 size_flags_horizontal = 3
 
 [node name="H" type="HBoxContainer" parent="M/Topbar"]
-margin_left = 764.0
-margin_right = 1424.0
+margin_left = 260.0
+margin_right = 780.0
 margin_bottom = 49.0
 rect_min_size = Vector2( 520, 0 )
 size_flags_horizontal = 3
 custom_constants/separation = 0
 
 [node name="Left" type="Control" parent="M/Topbar/H"]
-margin_right = 300.0
+margin_right = 230.0
 margin_bottom = 49.0
 size_flags_horizontal = 3
 
 [node name="Right" type="Control" parent="M/Topbar/H"]
-margin_left = 300.0
-margin_right = 600.0
+margin_left = 230.0
+margin_right = 460.0
 margin_bottom = 49.0
 size_flags_horizontal = 3
 
 [node name="Up" type="ToolButton" parent="M/Topbar/H"]
-margin_left = 600.0
-margin_right = 630.0
+margin_left = 460.0
+margin_right = 490.0
 margin_bottom = 49.0
 focus_mode = 0
 icon = ExtResource( 11 )
 
 [node name="Down" type="ToolButton" parent="M/Topbar/H"]
-margin_left = 630.0
-margin_right = 660.0
+margin_left = 490.0
+margin_right = 520.0
 margin_bottom = 49.0
 focus_mode = 0
 icon = ExtResource( 10 )
 
 [node name="Right" type="Control" parent="M/Topbar"]
-margin_left = 1428.0
-margin_right = 1757.0
+margin_left = 784.0
+margin_right = 861.0
 margin_bottom = 49.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 
 [node name="TTSelect" type="CheckBox" parent="M/Topbar"]
-margin_left = 1761.0
-margin_right = 1899.0
+margin_left = 865.0
+margin_right = 1003.0
 margin_bottom = 49.0
 focus_mode = 0
 text = "Select truth table"
 
 [node name="Graph" type="GraphEdit" parent="."]
 margin_top = 73.0
-margin_right = 1920.0
-margin_bottom = 1080.0
+margin_right = 1024.0
+margin_bottom = 768.0
 focus_mode = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 right_disconnects = true
+scroll_offset = Vector2( -896, -312 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -134,7 +135,7 @@ margin_bottom = 457.0
 window_title = "About"
 dialog_text = "Created by Andrew Wilkes 2021
 
-v1.0
+v1.01
 "
 dialog_autowrap = true
 __meta__ = {

@@ -22,6 +22,7 @@ var part_placement_offsets = {}
 var user: User
 
 func _ready():
+	OS.window_maximized = true
 	Parts.hide()
 	load_user_data()
 	fm = $M/Topbar/V/H/File.get_popup()
