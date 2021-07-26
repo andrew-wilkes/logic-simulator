@@ -6,7 +6,7 @@ func setup():
 	.setup()
 	data = {
 		"mode": HEX,
-		"bits": 2,
+		"bits": 1,
 	}
 
 
@@ -75,3 +75,8 @@ func _on_Bits_was_pressed(button):
 
 func _on_Bits_button_timer_timeout(button):
 	change_button(button)
+
+
+func apply_data():
+	change_bit_depth($HBox5/Bits, 0)
+	change_button($HBox5/Bits)

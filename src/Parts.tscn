@@ -3047,7 +3047,7 @@ margin_right = 86.0
 margin_bottom = 97.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
-text = "0x00"
+text = "0x0"
 valign = 1
 
 [node name="HBox5" type="HBoxContainer" parent="Blocks/ALU"]
@@ -3057,12 +3057,12 @@ margin_right = 86.0
 margin_bottom = 122.0
 
 [node name="Bits" parent="Blocks/ALU/HBox5" instance=ExtResource( 35 )]
-margin_right = 28.0
+margin_right = 20.0
 margin_bottom = 24.0
-text = "16"
+text = "8"
 
 [node name="Cout" type="Label" parent="Blocks/ALU/HBox5"]
-margin_left = 32.0
+margin_left = 24.0
 margin_right = 70.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
