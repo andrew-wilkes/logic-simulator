@@ -1,6 +1,8 @@
 extends Part
 
-var last_value = 0
+func _ready():
+	last_value = 0
+
 
 func set_value(v: int, _reverse = false, _port := 0):
 	value = v
@@ -22,9 +24,9 @@ func get_data():
 
 
 func get_pin_name():
-	return get_node("Pin").text
+	return $Pin.text
 
 
 func set_pin_name(txt):
-	if txt is String:
-		get_node("Pin").text = txt
+	if $Pin and txt is String:
+		$Pin.text = txt

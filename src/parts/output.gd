@@ -23,7 +23,7 @@ func show_value():
 
 
 func set_data(d: Dictionary):
-	if d.has("tag"):
+	if has_node("Tag") and d.has("tag"):
 		data = d
 		$Tag.text = d.tag
 

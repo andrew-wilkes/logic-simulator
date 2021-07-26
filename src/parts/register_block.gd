@@ -15,7 +15,7 @@ func setup():
 
 func set_data(d: Dictionary):
 	data = d
-	if d.has("tag"):
+	if has_node("Tag") and d.has("tag"):
 		$Tag.text = d.tag
 
 

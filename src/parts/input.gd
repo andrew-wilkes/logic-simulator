@@ -37,7 +37,7 @@ func _on_Timer_timeout():
 
 
 func set_data(d: Dictionary):
-	if d.has("tag"):
+	if has_node("Tag") and d.has("tag"):
 		data = d
 		$Tag.text = d.tag
 

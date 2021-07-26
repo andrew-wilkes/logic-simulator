@@ -26,12 +26,14 @@ func setup():
 
 
 func apply_data():
+	if data.size() == 0:
+		return
 	$HB/ColorPicker.color = data.color
 	$HB/Mode.text = data.mode
 	$LED.modulate = data.color
 	seg_color = data.color
 	mode = data.mode
-	# Apply this change to the base part to relect user preference
+	# Apply this change to the base part to reflect user preference
 	if get_parent() is GraphEdit:
 		var p = Parts.find_node("SEG7")
 		p.data = data
@@ -88,4 +90,3 @@ func get_data():
 
 func set_data(d):
 	data = d
-	apply_data()

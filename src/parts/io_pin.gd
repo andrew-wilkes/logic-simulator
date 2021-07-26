@@ -17,8 +17,9 @@ func set_value(v: int, _reverse: bool, _port := 0):
 
 
 func set_data(d: Dictionary):
-	data = d
-	$Tag.text = d.tag
+	if has_node("Tag") and d.has("tag"):
+		data = d
+		$Tag.text = d.tag
 
 
 func get_data():
