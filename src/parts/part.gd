@@ -177,6 +177,7 @@ func update_output(level, port, _reverse):
 	if input_pins[port].untouched: # Last level was unknown
 		input_pins[port].last_level = level
 
+enum { HEX, DEC, BIN, BITS, MODE }
 
 func change_button(_b):
 	_b.text = "Mode"
@@ -191,32 +192,31 @@ func handle_button_press(_b):
 	else:
 		data.mode += 1
 		data.mode %= 3
-		#set_format()
+		set_format()
 		update_display_value()
 		emit_signal("data_changed")
 
 
-func change_bit_depth(_b):
-	data.bits = wrapi(data.bits + 1, 0, 3)
+func change_bit_depth(_b, inc = 1):
+	data.bits = wrapi(data.bits + inc, 0, 3)
 	_b.text = String(bit_lengths[data.bits])
 	value = 0
+	set_format()
 	update_display_value()
 
 
 func set_format():
-	if data.mode == HEX:
-		format = "0x%0" + String(bit_lengths[data.bits] / 4) + "X"
+	format = "0x%0" + String(bit_lengths[data.bits] / 4) + "X"
 
-enum { HEX, DEC, BIN, BITS, MODE }
 
 func update_display_value():
 	match data.mode:
-		HEX:
-			$Label.text = format % value
 		DEC:
 			$Label.text = String(value)
 		BIN:
-			$Label.text = int2bin(value)
+			$Label.text = int2bin(value, bit_lengths[data.bits])
+		_:
+			$Label.text = format % value
 
 
 # Create groups of 4 bits

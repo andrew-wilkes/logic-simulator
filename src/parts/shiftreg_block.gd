@@ -5,8 +5,8 @@ class_name ShiftRegBlock
 func setup():
 	.setup()
 	data = {
-		"mode": HEX,
-		"bits": 2,
+		"mode": BITS,
+		"bits": 0,
 	}
 	preset_input(false, 1)
 	preset_input(false, 2)
@@ -44,8 +44,13 @@ func output_value(v: int):
 
 
 func _on_Bits_was_pressed(_b):
-	change_bit_depth(_b)
+	handle_button_press(_b)
 
 
 func _on_Bits_button_timer_timeout(_b):
 	change_button(_b)
+
+
+func apply_data():
+	change_bit_depth($HBox/Bits, 0)
+	change_button($HBox/Bits)
