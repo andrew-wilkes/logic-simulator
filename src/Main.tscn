@@ -135,7 +135,7 @@ margin_bottom = 457.0
 window_title = "About"
 dialog_text = "Created by Andrew Wilkes 2021
 
-v1.01
+v1.02
 "
 dialog_autowrap = true
 __meta__ = {
