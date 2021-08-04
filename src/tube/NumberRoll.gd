@@ -19,6 +19,7 @@ func _ready():
 	size.x = $PB/PL/VBox.rect_size.x
 	size.y = num.rect_size.y * num_to_show
 	vsize = $PB/PL/VBox.rect_size.y
+	$PB/PL/ColorRect.rect_size = $PB/PL/VBox.rect_size
 	set_values(BIN)
 	goto_num(0, OK)
 
@@ -39,7 +40,7 @@ func set_values(base):
 
 func goto_num(n, status):
 	var el = $PB/PL/VBox.get_child(get_idx(value))
-	el.bg_color = Color.black
+	el.bg_color = Color.transparent
 	el.text_color = Color.white
 	$PB/PL.motion_offset.y = vsize * n / num_elements + size.y / 2
 	value = n

@@ -15,6 +15,11 @@ script = ExtResource( 2 )
 
 [node name="PL" type="ParallaxLayer" parent="PB"]
 
+[node name="ColorRect" type="ColorRect" parent="PB/PL"]
+margin_right = 40.0
+margin_bottom = 40.0
+color = Color( 0, 0.113725, 0.223529, 0.901961 )
+
 [node name="VBox" type="VBoxContainer" parent="PB/PL"]
 margin_right = 40.0
 margin_bottom = 40.0
