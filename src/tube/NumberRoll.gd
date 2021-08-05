@@ -1,6 +1,6 @@
 extends Viewport
 
-var num_elements = 32
+var num_elements = 48
 var num_to_show = 32
 var vsize = 0.0
 var value = 0
@@ -16,15 +16,19 @@ func _ready():
 			$PB/PL/VBox.add_child(new_num)
 	yield(get_tree(), "idle_frame")
 	$PB/PL.motion_mirroring = $PB/PL/VBox.rect_size
+	# Size the viewport to expose the number of labels that we want to show
 	size.x = $PB/PL/VBox.rect_size.x
 	size.y = num.rect_size.y * num_to_show
+	# Get the size of the entire column of labels
 	vsize = $PB/PL/VBox.rect_size.y
 	$PB/PL/ColorRect.rect_size = $PB/PL/VBox.rect_size
 	set_values(BIN)
 	goto_num(0, OK)
+	#print(get_num())
 
 
 func set_values(base):
+	# Set the numbers from max at idx 0 to 0 for the last label
 	var num_bits = log(num_elements) / log(2)
 	for idx in num_elements:
 		var n = num_elements - idx - 1
@@ -39,10 +43,12 @@ func set_values(base):
 
 
 func goto_num(n, status):
+	# Reset the previous label colors
 	var el = $PB/PL/VBox.get_child(get_idx(value))
 	el.bg_color = Color.transparent
 	el.text_color = Color.white
-	$PB/PL.motion_offset.y = vsize * n / num_elements + size.y / 2
+	# Scroll the box
+	$PB/PL.motion_offset.y = size.y / 2 - vsize * (1.0 - float(n) / num_elements)
 	value = n
 	el = $PB/PL/VBox.get_child(get_idx(n))
 	match status:
@@ -61,7 +67,7 @@ func get_idx(n):
 
 
 func get_num():
-	return int(($PB/PL.motion_offset.y - size.y / 2) / vsize * num_elements) % num_elements
+	return num_elements + (int(($PB/PL.motion_offset.y - size.y / 2) / vsize * num_elements) % num_elements)
 
 
 func inc():

@@ -7,7 +7,7 @@ func resize():
 	$ColorRect.rect_size = rect_size
 
 func set_bg_color(c):
-	$ColorRect.modulate = c
+	$ColorRect.color = c
 
 func set_text_color(c):
 	modulate = c

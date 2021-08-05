@@ -26,5 +26,3 @@ margin_bottom = 40.0
 custom_constants/separation = 0
 
 [node name="Num" parent="PB/PL/VBox" instance=ExtResource( 1 )]
-margin_right = 72.0
-margin_bottom = 18.0

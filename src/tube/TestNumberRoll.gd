@@ -9,4 +9,4 @@ func _process(delta):
 
 
 func _on_Timer_timeout():
-	$ViewportContainer/NumberRoll.dec()
+	$ViewportContainer/NumberRoll.inc()
