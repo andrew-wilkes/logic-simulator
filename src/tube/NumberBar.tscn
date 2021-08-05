@@ -4,12 +4,13 @@
 [ext_resource path="res://assets/Bitstream Vera Sans Mono Roman.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=1]
+size = 48
 font_data = ExtResource( 2 )
 
 [node name="NumberBar" type="Label"]
-margin_right = 90.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 72, 18 )
+margin_right = 300.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 300, 70 )
 custom_fonts/font = SubResource( 1 )
 text = "0000 0000"
 align = 1
