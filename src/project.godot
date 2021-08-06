@@ -129,6 +129,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://parts/not_gate.gd"
 }, {
+"base": "Viewport",
+"class": "NumberRoll",
+"language": "GDScript",
+"path": "res://tube/NumberRoll.gd"
+}, {
 "base": "Part",
 "class": "OrGate",
 "language": "GDScript",
@@ -219,6 +224,7 @@ _global_script_class_icons={
 "NandGate": "",
 "NorGate": "",
 "NotGate": "",
+"NumberRoll": "",
 "OrGate": "",
 "OutputBus": "",
 "Part": "",

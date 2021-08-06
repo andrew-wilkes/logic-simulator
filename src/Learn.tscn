@@ -1,0 +1,236 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Learn.gd" type="Script" id=1]
+[ext_resource path="res://tube/NumberTube.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/down.png" type="Texture" id=3]
+[ext_resource path="res://assets/up.png" type="Texture" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+
+[node name="Learn" type="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.05946
+margin_right = -1.05945
+custom_styles/panel = SubResource( 1 )
+tab_align = 0
+all_tabs_in_front = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="M" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 24.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="Numbers" type="HBoxContainer" parent="M"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1014.0
+margin_bottom = 734.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RollTimer" type="Timer" parent="M/Numbers"]
+one_shot = true
+
+[node name="VBox" type="VBoxContainer" parent="M/Numbers"]
+margin_right = 331.0
+margin_bottom = 724.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RT" type="RichTextLabel" parent="M/Numbers/VBox"]
+margin_right = 331.0
+margin_bottom = 360.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+scroll_active = false
+
+[node name="RT2" type="RichTextLabel" parent="M/Numbers/VBox"]
+margin_top = 364.0
+margin_right = 331.0
+margin_bottom = 724.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+
+[node name="VBox2" type="VBoxContainer" parent="M/Numbers"]
+margin_left = 341.0
+margin_right = 1004.0
+margin_bottom = 724.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="HBox" type="HBoxContainer" parent="M/Numbers/VBox2"]
+margin_right = 663.0
+margin_bottom = 354.0
+custom_constants/separation = 10
+
+[node name="Left" type="VBoxContainer" parent="M/Numbers/VBox2/HBox"]
+margin_right = 53.0
+margin_bottom = 354.0
+
+[node name="C" type="Control" parent="M/Numbers/VBox2/HBox/Left"]
+margin_right = 53.0
+margin_bottom = 139.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="M/Numbers/VBox2/HBox/Left"]
+margin_top = 143.0
+margin_right = 53.0
+margin_bottom = 157.0
+text = "Hex"
+align = 1
+
+[node name="Label2" type="Label" parent="M/Numbers/VBox2/HBox/Left"]
+margin_top = 161.0
+margin_right = 53.0
+margin_bottom = 175.0
+text = "0x00"
+align = 1
+
+[node name="Label3" type="Label" parent="M/Numbers/VBox2/HBox/Left"]
+margin_top = 179.0
+margin_right = 53.0
+margin_bottom = 193.0
+text = "Decimal"
+align = 1
+
+[node name="Label4" type="Label" parent="M/Numbers/VBox2/HBox/Left"]
+margin_top = 197.0
+margin_right = 53.0
+margin_bottom = 211.0
+text = "22"
+align = 1
+
+[node name="C2" type="Control" parent="M/Numbers/VBox2/HBox/Left"]
+margin_top = 215.0
+margin_right = 53.0
+margin_bottom = 354.0
+size_flags_vertical = 3
+
+[node name="Mid" type="VBoxContainer" parent="M/Numbers/VBox2/HBox"]
+margin_left = 63.0
+margin_right = 363.0
+margin_bottom = 354.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="M/Numbers/VBox2/HBox/Mid"]
+margin_right = 300.0
+margin_bottom = 14.0
+text = "Number Spinner"
+
+[node name="VC" type="ViewportContainer" parent="M/Numbers/VBox2/HBox/Mid"]
+margin_top = 24.0
+margin_right = 300.0
+margin_bottom = 324.0
+
+[node name="Viewport" type="Viewport" parent="M/Numbers/VBox2/HBox/Mid/VC"]
+size = Vector2( 300, 300 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="NumberTube" parent="M/Numbers/VBox2/HBox/Mid/VC/Viewport" instance=ExtResource( 2 )]
+
+[node name="H" type="HBoxContainer" parent="M/Numbers/VBox2/HBox/Mid"]
+margin_top = 334.0
+margin_right = 300.0
+margin_bottom = 354.0
+custom_constants/separation = 10
+
+[node name="BitsButton" type="Button" parent="M/Numbers/VBox2/HBox/Mid/H"]
+margin_right = 108.0
+margin_bottom = 20.0
+text = "Number of bits"
+
+[node name="Bits" type="Label" parent="M/Numbers/VBox2/HBox/Mid/H"]
+margin_left = 118.0
+margin_top = 3.0
+margin_right = 126.0
+margin_bottom = 17.0
+text = "8"
+
+[node name="Right" type="VBoxContainer" parent="M/Numbers/VBox2/HBox"]
+margin_left = 373.0
+margin_right = 473.0
+margin_bottom = 354.0
+
+[node name="C" type="Control" parent="M/Numbers/VBox2/HBox/Right"]
+margin_right = 100.0
+margin_bottom = 66.0
+size_flags_vertical = 3
+
+[node name="Up" type="TextureButton" parent="M/Numbers/VBox2/HBox/Right"]
+margin_top = 70.0
+margin_right = 100.0
+margin_bottom = 86.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 4 )
+
+[node name="C2" type="Control" parent="M/Numbers/VBox2/HBox/Right"]
+margin_top = 90.0
+margin_right = 100.0
+margin_bottom = 157.0
+size_flags_vertical = 3
+
+[node name="Message" type="Label" parent="M/Numbers/VBox2/HBox/Right"]
+margin_top = 161.0
+margin_right = 100.0
+margin_bottom = 193.0
+rect_min_size = Vector2( 0, 32 )
+text = "Signed overflow"
+align = 1
+valign = 2
+
+[node name="C3" type="Control" parent="M/Numbers/VBox2/HBox/Right"]
+margin_top = 197.0
+margin_right = 100.0
+margin_bottom = 263.0
+size_flags_vertical = 3
+
+[node name="Down" type="TextureButton" parent="M/Numbers/VBox2/HBox/Right"]
+margin_top = 267.0
+margin_right = 100.0
+margin_bottom = 283.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 3 )
+
+[node name="C4" type="Control" parent="M/Numbers/VBox2/HBox/Right"]
+margin_top = 287.0
+margin_right = 100.0
+margin_bottom = 354.0
+size_flags_vertical = 3
+
+[node name="Home" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 24.0
+
+[node name="Logic" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 24.0
+
+[connection signal="timeout" from="M/Numbers/RollTimer" to="." method="_on_RollTimer_timeout"]
+[connection signal="pressed" from="M/Numbers/VBox2/HBox/Mid/H/BitsButton" to="." method="_on_BitsButton_pressed"]
+[connection signal="button_down" from="M/Numbers/VBox2/HBox/Right/Up" to="." method="_on_Up_button_down"]
+[connection signal="button_up" from="M/Numbers/VBox2/HBox/Right/Up" to="." method="_on_Up_button_up"]
+[connection signal="button_down" from="M/Numbers/VBox2/HBox/Right/Down" to="." method="_on_Down_button_down"]
+[connection signal="button_up" from="M/Numbers/VBox2/HBox/Right/Down" to="." method="_on_Down_button_up"]
