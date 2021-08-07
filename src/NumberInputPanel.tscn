@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://NumberInputPanel.gd" type="Script" id=1]
-[ext_resource path="res://assets/mono-font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/fonts/mono-font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/PopupPanelStyle.tres" type="StyleBox" id=3]
 
 [node name="NumberInputPanel" type="PopupPanel"]

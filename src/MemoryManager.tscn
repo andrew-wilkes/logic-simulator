@@ -3,9 +3,9 @@
 [ext_resource path="res://MemoryManager.gd" type="Script" id=1]
 [ext_resource path="res://assets/up.png" type="Texture" id=2]
 [ext_resource path="res://assets/down.png" type="Texture" id=3]
-[ext_resource path="res://assets/Bitstream Vera Sans Mono Roman.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/fonts/Bitstream Vera Sans Mono Roman.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://NumberInputPanel.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/mono-font.tres" type="DynamicFont" id=6]
+[ext_resource path="res://assets/fonts/mono-font.tres" type="DynamicFont" id=6]
 [ext_resource path="res://assets/PopupPanelStyle.tres" type="StyleBox" id=7]
 
 [sub_resource type="DynamicFont" id=1]

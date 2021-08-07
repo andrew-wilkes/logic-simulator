@@ -26,9 +26,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="11.313709"
-     inkscape:cx="-792.40153"
-     inkscape:cy="-675.28697"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="-1198.1924"
+     inkscape:cy="-703.57122"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -75,10 +75,10 @@
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="fill:#4b88ad;stroke:none;stroke-width:6;stroke-linejoin:bevel"
+       style="fill:#4b88ad;stroke:none;stroke-width:5.13809;stroke-linejoin:bevel"
        id="rect982"
        width="95"
-       height="75"
+       height="55"
        x="-945"
        y="-705" />
     <g
@@ -464,9 +464,9 @@
        inkscape:randomized="0"
        d="m -855.00003,-564.99998 -77.45966,0 38.72983,-67.08204 z"
        inkscape:transform-center-y="-11.18034"
-       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/up.png"
-       inkscape:export-xdpi="20.476889"
-       inkscape:export-ydpi="20.476889" />
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/up-l.png"
+       inkscape:export-xdpi="55.170879"
+       inkscape:export-ydpi="55.170879" />
     <path
        sodipodi:type="star"
        style="fill:#ffffff;stroke:#ffffff;stroke-width:8;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -482,9 +482,9 @@
        inkscape:rounded="0"
        inkscape:randomized="0"
        inkscape:transform-center-y="11.180332"
-       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/down.png"
-       inkscape:export-xdpi="20.476889"
-       inkscape:export-ydpi="20.476889"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/down-l.png"
+       inkscape:export-xdpi="55.170856"
+       inkscape:export-ydpi="55.170856"
        d="m -855.00002,510.08202 -77.45967,0 38.72984,-67.08204 z"
        transform="scale(1,-1)" />
     <path

@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Learn.gd" type="Script" id=1]
 [ext_resource path="res://tube/NumberTube.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/down.png" type="Texture" id=3]
-[ext_resource path="res://assets/up.png" type="Texture" id=4]
+[ext_resource path="res://assets/up-l.png" type="Texture" id=3]
+[ext_resource path="res://assets/down-l.png" type="Texture" id=4]
+[ext_resource path="res://assets/fonts/BoldTitle.tres" type="DynamicFont" id=5]
+[ext_resource path="res://assets/fonts/osreg.tres" type="DynamicFont" id=6]
+[ext_resource path="res://assets/fonts/BoldHeading.tres" type="DynamicFont" id=7]
+[ext_resource path="res://assets/fonts/mono-font.tres" type="DynamicFont" id=8]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.168627, 0.168627, 0.168627, 1 )
@@ -21,7 +25,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="M" type="MarginContainer" parent="."]
+[node name="Numbers" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 24.0
@@ -30,7 +34,7 @@ custom_constants/margin_top = 10
 custom_constants/margin_left = 10
 custom_constants/margin_bottom = 10
 
-[node name="Numbers" type="HBoxContainer" parent="M"]
+[node name="HBox" type="HBoxContainer" parent="Numbers"]
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 1014.0
@@ -42,16 +46,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RollTimer" type="Timer" parent="M/Numbers"]
+[node name="RollTimer" type="Timer" parent="Numbers/HBox"]
 one_shot = true
 
-[node name="VBox" type="VBoxContainer" parent="M/Numbers"]
+[node name="VBox" type="VBoxContainer" parent="Numbers/HBox"]
 margin_right = 331.0
 margin_bottom = 724.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="RT" type="RichTextLabel" parent="M/Numbers/VBox"]
+[node name="RT" type="RichTextLabel" parent="Numbers/HBox/VBox"]
 margin_right = 331.0
 margin_bottom = 360.0
 rect_min_size = Vector2( 0, 100 )
@@ -60,7 +64,7 @@ size_flags_vertical = 3
 text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
 scroll_active = false
 
-[node name="RT2" type="RichTextLabel" parent="M/Numbers/VBox"]
+[node name="RT2" type="RichTextLabel" parent="Numbers/HBox/VBox"]
 margin_top = 364.0
 margin_right = 331.0
 margin_bottom = 724.0
@@ -68,7 +72,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
 
-[node name="VBox2" type="VBoxContainer" parent="M/Numbers"]
+[node name="VBox2" type="VBoxContainer" parent="Numbers/HBox"]
 margin_left = 341.0
 margin_right = 1004.0
 margin_bottom = 724.0
@@ -76,144 +80,152 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 
-[node name="HBox" type="HBoxContainer" parent="M/Numbers/VBox2"]
+[node name="HBox" type="HBoxContainer" parent="Numbers/HBox/VBox2"]
 margin_right = 663.0
-margin_bottom = 354.0
+margin_bottom = 380.0
 custom_constants/separation = 10
 
-[node name="Left" type="VBoxContainer" parent="M/Numbers/VBox2/HBox"]
-margin_right = 53.0
-margin_bottom = 354.0
+[node name="Left" type="VBoxContainer" parent="Numbers/HBox/VBox2/HBox"]
+margin_right = 65.0
+margin_bottom = 380.0
 
-[node name="C" type="Control" parent="M/Numbers/VBox2/HBox/Left"]
-margin_right = 53.0
-margin_bottom = 139.0
+[node name="C" type="Control" parent="Numbers/HBox/VBox2/HBox/Left"]
+margin_right = 65.0
+margin_bottom = 138.0
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="M/Numbers/VBox2/HBox/Left"]
-margin_top = 143.0
-margin_right = 53.0
-margin_bottom = 157.0
+[node name="Label" type="Label" parent="Numbers/HBox/VBox2/HBox/Left"]
+margin_top = 142.0
+margin_right = 65.0
+margin_bottom = 165.0
+custom_fonts/font = ExtResource( 7 )
 text = "Hex"
 align = 1
 
-[node name="Label2" type="Label" parent="M/Numbers/VBox2/HBox/Left"]
-margin_top = 161.0
-margin_right = 53.0
-margin_bottom = 175.0
+[node name="hex" type="Label" parent="Numbers/HBox/VBox2/HBox/Left"]
+margin_top = 169.0
+margin_right = 65.0
+margin_bottom = 188.0
+custom_fonts/font = ExtResource( 8 )
 text = "0x00"
 align = 1
 
-[node name="Label3" type="Label" parent="M/Numbers/VBox2/HBox/Left"]
-margin_top = 179.0
-margin_right = 53.0
-margin_bottom = 193.0
+[node name="Label3" type="Label" parent="Numbers/HBox/VBox2/HBox/Left"]
+margin_top = 192.0
+margin_right = 65.0
+margin_bottom = 215.0
+custom_fonts/font = ExtResource( 7 )
 text = "Decimal"
 align = 1
 
-[node name="Label4" type="Label" parent="M/Numbers/VBox2/HBox/Left"]
-margin_top = 197.0
-margin_right = 53.0
-margin_bottom = 211.0
+[node name="dec" type="Label" parent="Numbers/HBox/VBox2/HBox/Left"]
+margin_top = 219.0
+margin_right = 65.0
+margin_bottom = 238.0
+custom_fonts/font = ExtResource( 8 )
 text = "22"
 align = 1
 
-[node name="C2" type="Control" parent="M/Numbers/VBox2/HBox/Left"]
-margin_top = 215.0
-margin_right = 53.0
-margin_bottom = 354.0
+[node name="C2" type="Control" parent="Numbers/HBox/VBox2/HBox/Left"]
+margin_top = 242.0
+margin_right = 65.0
+margin_bottom = 380.0
 size_flags_vertical = 3
 
-[node name="Mid" type="VBoxContainer" parent="M/Numbers/VBox2/HBox"]
-margin_left = 63.0
-margin_right = 363.0
-margin_bottom = 354.0
+[node name="Mid" type="VBoxContainer" parent="Numbers/HBox/VBox2/HBox"]
+margin_left = 75.0
+margin_right = 375.0
+margin_bottom = 380.0
 custom_constants/separation = 10
 
-[node name="Label" type="Label" parent="M/Numbers/VBox2/HBox/Mid"]
+[node name="Label" type="Label" parent="Numbers/HBox/VBox2/HBox/Mid"]
 margin_right = 300.0
-margin_bottom = 14.0
+margin_bottom = 31.0
+custom_fonts/font = ExtResource( 5 )
 text = "Number Spinner"
 
-[node name="VC" type="ViewportContainer" parent="M/Numbers/VBox2/HBox/Mid"]
-margin_top = 24.0
+[node name="VC" type="ViewportContainer" parent="Numbers/HBox/VBox2/HBox/Mid"]
+margin_top = 41.0
 margin_right = 300.0
-margin_bottom = 324.0
+margin_bottom = 341.0
 
-[node name="Viewport" type="Viewport" parent="M/Numbers/VBox2/HBox/Mid/VC"]
+[node name="Viewport" type="Viewport" parent="Numbers/HBox/VBox2/HBox/Mid/VC"]
 size = Vector2( 300, 300 )
 handle_input_locally = false
 render_target_update_mode = 3
 
-[node name="NumberTube" parent="M/Numbers/VBox2/HBox/Mid/VC/Viewport" instance=ExtResource( 2 )]
+[node name="NumberTube" parent="Numbers/HBox/VBox2/HBox/Mid/VC/Viewport" instance=ExtResource( 2 )]
 
-[node name="H" type="HBoxContainer" parent="M/Numbers/VBox2/HBox/Mid"]
-margin_top = 334.0
+[node name="H" type="HBoxContainer" parent="Numbers/HBox/VBox2/HBox/Mid"]
+margin_top = 351.0
 margin_right = 300.0
-margin_bottom = 354.0
+margin_bottom = 380.0
 custom_constants/separation = 10
 
-[node name="BitsButton" type="Button" parent="M/Numbers/VBox2/HBox/Mid/H"]
-margin_right = 108.0
-margin_bottom = 20.0
+[node name="BitsButton" type="Button" parent="Numbers/HBox/VBox2/HBox/Mid/H"]
+margin_right = 126.0
+margin_bottom = 29.0
+custom_fonts/font = ExtResource( 6 )
 text = "Number of bits"
 
-[node name="Bits" type="Label" parent="M/Numbers/VBox2/HBox/Mid/H"]
-margin_left = 118.0
+[node name="Bits" type="Label" parent="Numbers/HBox/VBox2/HBox/Mid/H"]
+margin_left = 136.0
 margin_top = 3.0
-margin_right = 126.0
-margin_bottom = 17.0
+margin_right = 145.0
+margin_bottom = 26.0
+custom_fonts/font = ExtResource( 6 )
 text = "8"
 
-[node name="Right" type="VBoxContainer" parent="M/Numbers/VBox2/HBox"]
-margin_left = 373.0
-margin_right = 473.0
-margin_bottom = 354.0
+[node name="Right" type="VBoxContainer" parent="Numbers/HBox/VBox2/HBox"]
+margin_left = 385.0
+margin_right = 505.0
+margin_bottom = 380.0
 
-[node name="C" type="Control" parent="M/Numbers/VBox2/HBox/Right"]
-margin_right = 100.0
-margin_bottom = 66.0
+[node name="C" type="Control" parent="Numbers/HBox/VBox2/HBox/Right"]
+margin_right = 120.0
+margin_bottom = 60.0
 size_flags_vertical = 3
 
-[node name="Up" type="TextureButton" parent="M/Numbers/VBox2/HBox/Right"]
-margin_top = 70.0
-margin_right = 100.0
-margin_bottom = 86.0
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 4 )
+[node name="Up" type="TextureButton" parent="Numbers/HBox/VBox2/HBox/Right"]
+margin_top = 64.0
+margin_right = 120.0
+margin_bottom = 106.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 3 )
 
-[node name="C2" type="Control" parent="M/Numbers/VBox2/HBox/Right"]
-margin_top = 90.0
-margin_right = 100.0
-margin_bottom = 157.0
+[node name="C2" type="Control" parent="Numbers/HBox/VBox2/HBox/Right"]
+margin_top = 110.0
+margin_right = 120.0
+margin_bottom = 170.0
 size_flags_vertical = 3
 
-[node name="Message" type="Label" parent="M/Numbers/VBox2/HBox/Right"]
-margin_top = 161.0
-margin_right = 100.0
-margin_bottom = 193.0
+[node name="Message" type="Label" parent="Numbers/HBox/VBox2/HBox/Right"]
+margin_top = 174.0
+margin_right = 120.0
+margin_bottom = 206.0
 rect_min_size = Vector2( 0, 32 )
+custom_fonts/font = ExtResource( 6 )
 text = "Signed overflow"
 align = 1
 valign = 2
 
-[node name="C3" type="Control" parent="M/Numbers/VBox2/HBox/Right"]
-margin_top = 197.0
-margin_right = 100.0
-margin_bottom = 263.0
+[node name="C3" type="Control" parent="Numbers/HBox/VBox2/HBox/Right"]
+margin_top = 210.0
+margin_right = 120.0
+margin_bottom = 270.0
 size_flags_vertical = 3
 
-[node name="Down" type="TextureButton" parent="M/Numbers/VBox2/HBox/Right"]
-margin_top = 267.0
-margin_right = 100.0
-margin_bottom = 283.0
-texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 3 )
+[node name="Down" type="TextureButton" parent="Numbers/HBox/VBox2/HBox/Right"]
+margin_top = 274.0
+margin_right = 120.0
+margin_bottom = 316.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 4 )
 
-[node name="C4" type="Control" parent="M/Numbers/VBox2/HBox/Right"]
-margin_top = 287.0
-margin_right = 100.0
-margin_bottom = 354.0
+[node name="C4" type="Control" parent="Numbers/HBox/VBox2/HBox/Right"]
+margin_top = 320.0
+margin_right = 120.0
+margin_bottom = 380.0
 size_flags_vertical = 3
 
 [node name="Home" type="Control" parent="."]
@@ -228,9 +240,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 24.0
 
-[connection signal="timeout" from="M/Numbers/RollTimer" to="." method="_on_RollTimer_timeout"]
-[connection signal="pressed" from="M/Numbers/VBox2/HBox/Mid/H/BitsButton" to="." method="_on_BitsButton_pressed"]
-[connection signal="button_down" from="M/Numbers/VBox2/HBox/Right/Up" to="." method="_on_Up_button_down"]
-[connection signal="button_up" from="M/Numbers/VBox2/HBox/Right/Up" to="." method="_on_Up_button_up"]
-[connection signal="button_down" from="M/Numbers/VBox2/HBox/Right/Down" to="." method="_on_Down_button_down"]
-[connection signal="button_up" from="M/Numbers/VBox2/HBox/Right/Down" to="." method="_on_Down_button_up"]
+[connection signal="timeout" from="Numbers/HBox/RollTimer" to="." method="_on_RollTimer_timeout"]
+[connection signal="pressed" from="Numbers/HBox/VBox2/HBox/Mid/H/BitsButton" to="." method="_on_BitsButton_pressed"]
+[connection signal="button_down" from="Numbers/HBox/VBox2/HBox/Right/Up" to="." method="_on_Up_button_down"]
+[connection signal="button_up" from="Numbers/HBox/VBox2/HBox/Right/Up" to="." method="_on_Up_button_up"]
+[connection signal="button_down" from="Numbers/HBox/VBox2/HBox/Right/Down" to="." method="_on_Down_button_down"]
+[connection signal="button_up" from="Numbers/HBox/VBox2/HBox/Right/Down" to="." method="_on_Down_button_up"]

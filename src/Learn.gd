@@ -10,6 +10,8 @@ var bits
 var up: bool
 var rt: Timer
 var rolling = false
+var hex: Label
+var dec: Label
 
 func _ready():
 	Parts.hide()
@@ -17,8 +19,11 @@ func _ready():
 	bits = find_node("Bits")
 	num_roll = find_node("NumberRoll")
 	rt = find_node("RollTimer")
+	hex = find_node("hex")
+	dec = find_node("dec")
 	var _e = num_roll.connect("notice", self, "update_message")
 	bits.text = String(num_roll.num_bits)
+	show_value()
 
 
 func update_message(id):
@@ -42,6 +47,8 @@ func _on_BitsButton_pressed():
 	num_roll.num_bits = wrapi(num_roll.num_bits + 1, 4, 9)
 	num_roll.set_values(num_roll.BIN)
 	bits.text = String(num_roll.num_bits)
+	num_roll.value = 0
+	show_value()
 
 
 func _on_RollTimer_timeout():
@@ -51,6 +58,7 @@ func _on_RollTimer_timeout():
 		else:
 			num_roll.dec()
 		rt.start(REPEAT_DELAY)
+		show_value()
 
 
 func _on_Up_button_down():
@@ -58,6 +66,7 @@ func _on_Up_button_down():
 	up = true
 	rt.start(ROLL_DELAY)
 	rolling = true
+	show_value()
 
 
 func _on_Up_button_up():
@@ -70,8 +79,14 @@ func _on_Down_button_down():
 	up = false
 	rt.start(ROLL_DELAY)
 	rolling = true
+	show_value()
 
 
 func _on_Down_button_up():
 	rolling = false
 	rt.stop()
+
+
+func show_value():
+	dec.text = String(num_roll.value)
+	hex.text = "0x%02X" % num_roll.value
