@@ -52,13 +52,7 @@ __meta__ = {
 [node name="RollTimer" type="Timer" parent="Numbers/HBox"]
 one_shot = true
 
-[node name="VBox" type="VBoxContainer" parent="Numbers/HBox"]
-margin_right = 331.0
-margin_bottom = 724.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="RT" type="RichTextLabel" parent="Numbers/HBox/VBox"]
+[node name="RT" type="RichTextLabel" parent="Numbers/HBox"]
 margin_right = 331.0
 margin_bottom = 724.0
 rect_min_size = Vector2( 0, 100 )
@@ -80,6 +74,8 @@ Also, conditions for when [i]signed overflow[/i], [i]carry[/i], and [i]borrow[/i
 
 [i]Change the number of bits between 4 and 8.[/i]
 
+The left-most bit may be used as a sign bit.
+
 
 [b]Hexadecimal Numbers[/b]
 
@@ -96,6 +92,8 @@ Also, conditions for when signed overflow, carry, and borrow are indicated.
 
 Change the number of bits between 4 and 8.
 
+The left-most bit may be used as a sign bit.
+
 
 Hexadecimal Numbers
 
@@ -111,62 +109,94 @@ margin_bottom = 724.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
+custom_constants/separation = 5
 
 [node name="HBox" type="HBoxContainer" parent="Numbers/HBox/VBox2"]
 margin_right = 663.0
 margin_bottom = 380.0
 custom_constants/separation = 10
 
-[node name="Left" type="VBoxContainer" parent="Numbers/HBox/VBox2/HBox"]
-margin_right = 65.0
+[node name="C" type="Control" parent="Numbers/HBox/VBox2/HBox"]
+margin_right = 40.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 40, 0 )
+
+[node name="Nums" type="VBoxContainer" parent="Numbers/HBox/VBox2/HBox"]
+margin_left = 50.0
+margin_right = 201.0
 margin_bottom = 380.0
 
-[node name="C" type="Control" parent="Numbers/HBox/VBox2/HBox/Left"]
-margin_right = 65.0
-margin_bottom = 138.0
-size_flags_vertical = 3
+[node name="C" type="Control" parent="Numbers/HBox/VBox2/HBox/Nums"]
+margin_right = 151.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 130 )
 
-[node name="Label" type="Label" parent="Numbers/HBox/VBox2/HBox/Left"]
-margin_top = 142.0
-margin_right = 65.0
-margin_bottom = 165.0
+[node name="Label2" type="Label" parent="Numbers/HBox/VBox2/HBox/Nums"]
+margin_top = 134.0
+margin_right = 151.0
+margin_bottom = 157.0
 custom_fonts/font = ExtResource( 7 )
-text = "Hex"
-align = 1
+text = "Hexadecimal value"
 
-[node name="hex" type="Label" parent="Numbers/HBox/VBox2/HBox/Left"]
-margin_top = 169.0
-margin_right = 65.0
-margin_bottom = 188.0
+[node name="hex" type="Label" parent="Numbers/HBox/VBox2/HBox/Nums"]
+margin_top = 161.0
+margin_right = 151.0
+margin_bottom = 180.0
 custom_fonts/font = ExtResource( 8 )
 text = "0x00"
-align = 1
 
-[node name="Label3" type="Label" parent="Numbers/HBox/VBox2/HBox/Left"]
-margin_top = 192.0
-margin_right = 65.0
-margin_bottom = 215.0
+[node name="Label3" type="Label" parent="Numbers/HBox/VBox2/HBox/Nums"]
+margin_top = 184.0
+margin_right = 151.0
+margin_bottom = 207.0
 custom_fonts/font = ExtResource( 7 )
-text = "Decimal"
+text = "Decimal values"
+
+[node name="H3" type="HBoxContainer" parent="Numbers/HBox/VBox2/HBox/Nums"]
+margin_top = 211.0
+margin_right = 151.0
+margin_bottom = 230.0
+custom_constants/separation = 10
+
+[node name="L" type="Label" parent="Numbers/HBox/VBox2/HBox/Nums/H3"]
+margin_right = 80.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 8 )
+text = "Unsigned"
 align = 1
 
-[node name="dec" type="Label" parent="Numbers/HBox/VBox2/HBox/Left"]
-margin_top = 219.0
-margin_right = 65.0
-margin_bottom = 238.0
+[node name="dec" type="Label" parent="Numbers/HBox/VBox2/HBox/Nums/H3"]
+margin_left = 90.0
+margin_right = 110.0
+margin_bottom = 19.0
 custom_fonts/font = ExtResource( 8 )
 text = "22"
 align = 1
 
-[node name="C2" type="Control" parent="Numbers/HBox/VBox2/HBox/Left"]
-margin_top = 242.0
-margin_right = 65.0
-margin_bottom = 380.0
-size_flags_vertical = 3
+[node name="H4" type="HBoxContainer" parent="Numbers/HBox/VBox2/HBox/Nums"]
+margin_top = 234.0
+margin_right = 151.0
+margin_bottom = 253.0
+custom_constants/separation = 10
+
+[node name="L" type="Label" parent="Numbers/HBox/VBox2/HBox/Nums/H4"]
+margin_right = 80.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 8 )
+text = "  Signed"
+align = 1
+
+[node name="neg" type="Label" parent="Numbers/HBox/VBox2/HBox/Nums/H4"]
+margin_left = 90.0
+margin_right = 110.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 8 )
+text = "22"
+align = 1
 
 [node name="Mid" type="VBoxContainer" parent="Numbers/HBox/VBox2/HBox"]
-margin_left = 75.0
-margin_right = 375.0
+margin_left = 211.0
+margin_right = 511.0
 margin_bottom = 380.0
 custom_constants/separation = 10
 
@@ -208,57 +238,115 @@ margin_bottom = 26.0
 custom_fonts/font = ExtResource( 6 )
 text = "8"
 
-[node name="Right" type="VBoxContainer" parent="Numbers/HBox/VBox2/HBox"]
-margin_left = 385.0
-margin_right = 505.0
+[node name="Arrows" type="VBoxContainer" parent="Numbers/HBox/VBox2/HBox"]
+margin_left = 521.0
+margin_right = 661.0
 margin_bottom = 380.0
+rect_min_size = Vector2( 140, 0 )
 
-[node name="C" type="Control" parent="Numbers/HBox/VBox2/HBox/Right"]
-margin_right = 120.0
+[node name="C" type="Control" parent="Numbers/HBox/VBox2/HBox/Arrows"]
+margin_right = 140.0
 margin_bottom = 60.0
 size_flags_vertical = 3
 
-[node name="Up" type="TextureButton" parent="Numbers/HBox/VBox2/HBox/Right"]
+[node name="Up" type="TextureButton" parent="Numbers/HBox/VBox2/HBox/Arrows"]
 margin_top = 64.0
-margin_right = 120.0
+margin_right = 140.0
 margin_bottom = 106.0
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 3 )
 
-[node name="C2" type="Control" parent="Numbers/HBox/VBox2/HBox/Right"]
+[node name="C2" type="Control" parent="Numbers/HBox/VBox2/HBox/Arrows"]
 margin_top = 110.0
-margin_right = 120.0
+margin_right = 140.0
 margin_bottom = 170.0
 size_flags_vertical = 3
 
-[node name="Message" type="Label" parent="Numbers/HBox/VBox2/HBox/Right"]
+[node name="Message" type="Label" parent="Numbers/HBox/VBox2/HBox/Arrows"]
 margin_top = 174.0
-margin_right = 120.0
+margin_right = 140.0
 margin_bottom = 206.0
 rect_min_size = Vector2( 0, 32 )
 custom_fonts/font = ExtResource( 6 )
 text = "Signed overflow"
-align = 1
 valign = 2
 
-[node name="C3" type="Control" parent="Numbers/HBox/VBox2/HBox/Right"]
+[node name="C3" type="Control" parent="Numbers/HBox/VBox2/HBox/Arrows"]
 margin_top = 210.0
-margin_right = 120.0
+margin_right = 140.0
 margin_bottom = 270.0
 size_flags_vertical = 3
 
-[node name="Down" type="TextureButton" parent="Numbers/HBox/VBox2/HBox/Right"]
+[node name="Down" type="TextureButton" parent="Numbers/HBox/VBox2/HBox/Arrows"]
 margin_top = 274.0
-margin_right = 120.0
+margin_right = 140.0
 margin_bottom = 316.0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 4 )
 
-[node name="C4" type="Control" parent="Numbers/HBox/VBox2/HBox/Right"]
+[node name="C4" type="Control" parent="Numbers/HBox/VBox2/HBox/Arrows"]
 margin_top = 320.0
-margin_right = 120.0
+margin_right = 140.0
 margin_bottom = 380.0
 size_flags_vertical = 3
+
+[node name="RT2" type="RichTextLabel" parent="Numbers/HBox/VBox2"]
+margin_top = 385.0
+margin_right = 663.0
+margin_bottom = 724.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/mono_font = ExtResource( 8 )
+custom_fonts/bold_italics_font = ExtResource( 9 )
+custom_fonts/italics_font = ExtResource( 11 )
+custom_fonts/bold_font = ExtResource( 10 )
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[b]Negation[/b]
+
+To negate a binary number we invert the bits and add 1.
+
+0001 => 1110 + 1 => 1111
+1111 => 0000 + 1 => 0001
+
+[b]Convert Binary to Decimal[/b]
+
+Starting at the left-most bit, add the bit and then times by 2. Repeat for the remaining bits.
+
+0101 => 0 x 2 => 0 + 1 => 1 * 2 => 2 + 0 => 2 * 2 => 4  + 1 => 5
+
+[b]Convert Binary to Hex[/b]
+
+Arrange the binary bits in groups of 4 and convert to decimals. Then, with practice, write down the corresponding hex digit.
+
+Remember A = 10, B = 11, F = 15 etc. Bits have values of 8, 4, 2, 1
+
+1010 => 8 + 2 => 10 => A
+0111 => 7
+1111 => F"
+text = "Negation
+
+To negate a binary number we invert the bits and add 1.
+
+0001 => 1110 + 1 => 1111
+1111 => 0000 + 1 => 0001
+
+Convert Binary to Decimal
+
+Starting at the left-most bit, add the bit and then times by 2. Repeat for the remaining bits.
+
+0101 => 0 x 2 => 0 + 1 => 1 * 2 => 2 + 0 => 2 * 2 => 4  + 1 => 5
+
+Convert Binary to Hex
+
+Arrange the binary bits in groups of 4 and convert to decimals. Then, with practice, write down the corresponding hex digit.
+
+Remember A = 10, B = 11, F = 15 etc. Bits have values of 8, 4, 2, 1
+
+1010 => 8 + 2 => 10 => A
+0111 => 7
+1111 => F"
 
 [node name="Home" type="Control" parent="."]
 visible = false
@@ -275,7 +363,7 @@ margin_top = 24.0
 [connection signal="tab_selected" from="." to="." method="_on_Learn_tab_selected"]
 [connection signal="timeout" from="Numbers/HBox/RollTimer" to="." method="_on_RollTimer_timeout"]
 [connection signal="pressed" from="Numbers/HBox/VBox2/HBox/Mid/H/BitsButton" to="." method="_on_BitsButton_pressed"]
-[connection signal="button_down" from="Numbers/HBox/VBox2/HBox/Right/Up" to="." method="_on_Up_button_down"]
-[connection signal="button_up" from="Numbers/HBox/VBox2/HBox/Right/Up" to="." method="_on_Up_button_up"]
-[connection signal="button_down" from="Numbers/HBox/VBox2/HBox/Right/Down" to="." method="_on_Down_button_down"]
-[connection signal="button_up" from="Numbers/HBox/VBox2/HBox/Right/Down" to="." method="_on_Down_button_up"]
+[connection signal="button_down" from="Numbers/HBox/VBox2/HBox/Arrows/Up" to="." method="_on_Up_button_down"]
+[connection signal="button_up" from="Numbers/HBox/VBox2/HBox/Arrows/Up" to="." method="_on_Up_button_up"]
+[connection signal="button_down" from="Numbers/HBox/VBox2/HBox/Arrows/Down" to="." method="_on_Down_button_down"]
+[connection signal="button_up" from="Numbers/HBox/VBox2/HBox/Arrows/Down" to="." method="_on_Down_button_up"]

@@ -12,6 +12,7 @@ var rt: Timer
 var rolling = false
 var hex: Label
 var dec: Label
+var neg: Label
 
 func _ready():
 	Parts.hide()
@@ -21,6 +22,7 @@ func _ready():
 	rt = find_node("RollTimer")
 	hex = find_node("hex")
 	dec = find_node("dec")
+	neg = find_node("neg")
 	var _e = num_roll.connect("notice", self, "update_message")
 	bits.text = String(num_roll.num_bits)
 	show_value()
@@ -88,6 +90,10 @@ func _on_Down_button_up():
 
 
 func show_value():
+	if num_roll.value >= num_roll.maxv / 2:
+		neg.text = String(num_roll.value - num_roll.maxv)
+	else:
+		neg.text = String(num_roll.value)
 	dec.text = String(num_roll.value)
 	hex.text = "0x%02X" % num_roll.value
 
