@@ -2,7 +2,7 @@ extends TabContainer
 
 const ROLL_DELAY = 0.5
 const REPEAT_DELAY = 0.2
-const MESSAGE_TIME = 0.5
+const MESSAGE_TIME = 0.8
 
 var message
 var num_roll: NumberRoll
