@@ -22,7 +22,6 @@ var part_placement_offsets = {}
 var user: User
 
 func _ready():
-	OS.window_maximized = true
 	Parts.hide()
 	load_user_data()
 	fm = $M/Topbar/V/H/File.get_popup()
@@ -599,3 +598,7 @@ func check_for_at_marks():
 
 func _on_Graph_scroll_offset_changed(_ofs):
 	set_changed()
+
+
+func _on_Learn_pressed():
+	var _e = get_tree().change_scene("res://Learn.tscn")

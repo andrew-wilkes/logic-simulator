@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Learn.gd" type="Script" id=1]
 [ext_resource path="res://tube/NumberTube.tscn" type="PackedScene" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://assets/fonts/osreg.tres" type="DynamicFont" id=6]
 [ext_resource path="res://assets/fonts/BoldHeading.tres" type="DynamicFont" id=7]
 [ext_resource path="res://assets/fonts/mono-font.tres" type="DynamicFont" id=8]
+[ext_resource path="res://assets/fonts/osboldit.tres" type="DynamicFont" id=9]
+[ext_resource path="res://assets/fonts/osbold.tres" type="DynamicFont" id=10]
+[ext_resource path="res://assets/fonts/osital.tres" type="DynamicFont" id=11]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.168627, 0.168627, 0.168627, 1 )
@@ -57,20 +60,49 @@ size_flags_vertical = 3
 
 [node name="RT" type="RichTextLabel" parent="Numbers/HBox/VBox"]
 margin_right = 331.0
-margin_bottom = 360.0
+margin_bottom = 724.0
 rect_min_size = Vector2( 0, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-scroll_active = false
+custom_fonts/mono_font = ExtResource( 8 )
+custom_fonts/bold_italics_font = ExtResource( 9 )
+custom_fonts/italics_font = ExtResource( 11 )
+custom_fonts/bold_font = ExtResource( 10 )
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[b]Numbers[/b]
 
-[node name="RT2" type="RichTextLabel" parent="Numbers/HBox/VBox"]
-margin_top = 364.0
-margin_right = 331.0
-margin_bottom = 724.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+Numbers in digital systems are represented by logic levels of zeros and ones which form [i]binary[/i] numbers.
+
+Using the [b]Number Spinner[/b] you can see how the numbers change when incrementing or decrementing.
+
+Also, conditions for when [i]signed overflow[/i], [i]carry[/i], and [i]borrow[/i] are indicated.
+
+[i]Change the number of bits between 4 and 8.[/i]
+
+
+[b]Hexadecimal Numbers[/b]
+
+Hex numbers are used in  code and each digit represents 4 bits or 0 - 15 in decimal.
+
+The 16 digits range from 0 - 9 and A - F in hexadecimal notation."
+text = "Numbers
+
+Numbers in digital systems are represented by logic levels of zeros and ones which form binary numbers.
+
+Using the Number Spinner you can see how the numbers change when incrementing or decrementing.
+
+Also, conditions for when signed overflow, carry, and borrow are indicated.
+
+Change the number of bits between 4 and 8.
+
+
+Hexadecimal Numbers
+
+Hex numbers are used in  code and each digit represents 4 bits or 0 - 15 in decimal.
+
+The 16 digits range from 0 - 9 and A - F in hexadecimal notation."
+scroll_active = false
 
 [node name="VBox2" type="VBoxContainer" parent="Numbers/HBox"]
 margin_left = 341.0
@@ -240,6 +272,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 24.0
 
+[connection signal="tab_selected" from="." to="." method="_on_Learn_tab_selected"]
 [connection signal="timeout" from="Numbers/HBox/RollTimer" to="." method="_on_RollTimer_timeout"]
 [connection signal="pressed" from="Numbers/HBox/VBox2/HBox/Mid/H/BitsButton" to="." method="_on_BitsButton_pressed"]
 [connection signal="button_down" from="Numbers/HBox/VBox2/HBox/Right/Up" to="." method="_on_Up_button_down"]

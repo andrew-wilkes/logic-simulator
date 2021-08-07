@@ -35,7 +35,7 @@ func add_labels():
 		for idx in range(num_elements, existing_count):
 			vb.get_child(idx).queue_free()
 	# Add new labels
-	for n in range(existing_count, num_elements):
+	for _n in range(existing_count, num_elements):
 		var new_num = num.duplicate()
 		vb.add_child(new_num)
 	yield(get_tree(), "idle_frame")

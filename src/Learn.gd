@@ -90,3 +90,8 @@ func _on_Down_button_up():
 func show_value():
 	dec.text = String(num_roll.value)
 	hex.text = "0x%02X" % num_roll.value
+
+
+func _on_Learn_tab_selected(tab):
+	if tab == 1:
+		var _e = get_tree().change_scene("res://Main.tscn")
