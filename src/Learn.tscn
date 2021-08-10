@@ -354,6 +354,300 @@ Remember A = 10, B = 11, F = 15 etc. Bits have values of 8, 4, 2, 1
 0111 => 7
 1111 => F"
 
+[node name="Logic" type="MarginContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 24.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="HBox" type="HBoxContainer" parent="Logic"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1014.0
+margin_bottom = 734.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+
+[node name="RT" type="RichTextLabel" parent="Logic/HBox"]
+margin_right = 1004.0
+margin_bottom = 724.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/mono_font = ExtResource( 8 )
+custom_fonts/bold_italics_font = ExtResource( 9 )
+custom_fonts/italics_font = ExtResource( 11 )
+custom_fonts/bold_font = ExtResource( 10 )
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[b]Logic[/b]
+
+[i]Boolean Algebra[/i] defines operations that are performed on binary numbers. The basic operations are [b]NOT[/b], [b]AND[/b], and [b]OR[/b].
+
+The operations are like in mathematics where we have functions with inputs and an output.
+
+NOT inverts a single input so 1 becomes 0 and 0 becomes 1.
+AND only outputs 1 if all of its 2 or more inputs are 1 otherwise it outputs 0.
+OR outputs a 1 if any of its 2 or more inputs are 1. It outputs a 0 if all of its inputs are 0.
+
+We may specify this with Truth Tables. The inputs are A and B.
+[table=3][cell][img]res://assets/pics/not-tt.png[/img][/cell][cell][img]res://assets/pics/and-tt.png[/img] [/cell][cell][img]res://assets/pics/or-tt.png[/img] [/cell][/table]
+All the combinations of inputs are listed along with the output value.
+
+Basic logic gates are available to wire up into circuits called combinational logic. Some more common logic functions are NAND, NOR, and Exclusive Or (XOR). Here are their truth tables:
+[table=3][cell][img]res://assets/pics/nand-tt.png[/img][/cell][cell][img]res://assets/pics/nor-tt.png[/img][/cell][cell][img]res://assets/pics/xor-tt.png[/img][/cell][/table]
+
+In the Home page you may check the \"Select truth table\" box and click on a logic gate to display its truth table and learn what symbols are used for each logic gate. The \"Test\" button adds inputs and outputs to the circuit, and you may wire up a gate or other logic block to these pins and test the circuit against the truth table.
+
+A logic function may be written like so: A + B * C \\ = Y This means A OR B AND NOT C. The operator precedence is the same as with mathematics.
+
+We may specify the logic rules for a digital circuit using a Truth Table.
+[img]res://assets/pics/example-tt.png[/img]
+In this Truth Table, the X's mean don't care (0 or 1 is ok). This saves us having to write all 16 input combinations.
+
+Then we may extract a logic function from the Truth Table by writing down the \"products\" that give a 1 output and \"ORing\" these products together to give a single output. This is called a Sum of Products (SOP).
+
+In this example: A.B + B.C\\ + C.D To get a 1 output we need A AND B OR B AND NOT C OR C AND D
+
+To realize this in a circuit we need 3 AND gates, a NOT gate, and a 3-input OR gate. And the circuit has 4 inputs (A, B, C, D).
+
+In many cases the SOP function will be long and may be shortened (simplified) to some other equation. This is important to minimize the number of logic gates that are needed. Various techniques and tools have been developed since the 1950s to accomplish this task. Now it is built into logic chip design software.
+
+To learn more about these techniques, you might search on \"Boolean Algebra\", and \"Karnaugh Maps\".
+
+[b]Rules and Laws[/b]
+[table=3][cell]Name[/cell][cell]AND[/cell][cell]OR[/cell]
+[cell]Commutative law[/cell][cell]A * B = B * A[/cell][cell]A + B = B + A[/cell]
+[cell]Associative law[/cell][cell]A * (B * C) = (A * B) * C[/cell][cell]A + (B + C) = (A + B) + C[/cell]
+[cell]Distributive law[/cell][cell]A * (B + C) = (A * B) + (A * C)    [/cell][cell]A + (B * C) = (A + B) * (A + C)[/cell]
+[/table]
+
+[b]Other useful rules[/b]
+[table=2][cell]A * 0 = 0[/cell][cell]A + 1 = 1[/cell]
+[cell]A * 0 = 0[/cell][cell]A + 1 = 1[/cell]
+[cell]A * 1 = A[/cell][cell]A + 0 = A[/cell]
+[cell]A * A = A[/cell][cell]A + A = A[/cell]
+[cell]A * A\\ = 0[/cell][cell]A + A\\ = A[/cell]
+[cell]A + A\\ * B = A + B    [/cell][cell]A * (A/ + B) = A * B[/cell]
+[/table]
+
+A very useful rule is [i]De Morgan's rule[/i].
+A\\ * B\\ = (A + B)\\
+A\\ + \\B = (A * B)\\
+
+This is used when simplifying digital circuits. For example, using a NOR gate for the first form and a NAND gate for the second form.
+
+
+"
+text = "Logic
+
+Boolean Algebra defines operations that are performed on binary numbers. The basic operations are NOT, AND, and OR.
+
+The operations are like in mathematics where we have functions with inputs and an output.
+
+NOT inverts a single input so 1 becomes 0 and 0 becomes 1.
+AND only outputs 1 if all of its 2 or more inputs are 1 otherwise it outputs 0.
+OR outputs a 1 if any of its 2 or more inputs are 1. It outputs a 0 if all of its inputs are 0.
+
+We may specify this with Truth Tables. The inputs are A and B.
+  
+All the combinations of inputs are listed along with the output value.
+
+Basic logic gates are available to wire up into circuits called combinational logic. Some more common logic functions are NAND, NOR, and Exclusive Or (XOR). Here are their truth tables:
+
+
+In the Home page you may check the \"Select truth table\" box and click on a logic gate to display its truth table and learn what symbols are used for each logic gate. The \"Test\" button adds inputs and outputs to the circuit, and you may wire up a gate or other logic block to these pins and test the circuit against the truth table.
+
+A logic function may be written like so: A + B * C \\ = Y This means A OR B AND NOT C. The operator precedence is the same as with mathematics.
+
+We may specify the logic rules for a digital circuit using a Truth Table.
+
+In this Truth Table, the X's mean don't care (0 or 1 is ok). This saves us having to write all 16 input combinations.
+
+Then we may extract a logic function from the Truth Table by writing down the \"products\" that give a 1 output and \"ORing\" these products together to give a single output. This is called a Sum of Products (SOP).
+
+In this example: A.B + B.C\\ + C.D To get a 1 output we need A AND B OR B AND NOT C OR C AND D
+
+To realize this in a circuit we need 3 AND gates, a NOT gate, and a 3-input OR gate. And the circuit has 4 inputs (A, B, C, D).
+
+In many cases the SOP function will be long and may be shortened (simplified) to some other equation. This is important to minimize the number of logic gates that are needed. Various techniques and tools have been developed since the 1950s to accomplish this task. Now it is built into logic chip design software.
+
+To learn more about these techniques, you might search on \"Boolean Algebra\", and \"Karnaugh Maps\".
+
+Rules and Laws
+NameANDORCommutative lawA * B = B * AA + B = B + AAssociative lawA * (B * C) = (A * B) * CA + (B + C) = (A + B) + CDistributive lawA * (B + C) = (A * B) + (A * C)    A + (B * C) = (A + B) * (A + C)
+
+Other useful rules
+A * 0 = 0A + 1 = 1A * 0 = 0A + 1 = 1A * 1 = AA + 0 = AA * A = AA + A = AA * A\\ = 0A + A\\ = AA + A\\ * B = A + B    A * (A/ + B) = A * B
+
+A very useful rule is De Morgan's rule.
+A\\ * B\\ = (A + B)\\
+A\\ + \\B = (A * B)\\
+
+This is used when simplifying digital circuits. For example, using a NOR gate for the first form and a NAND gate for the second form.
+
+
+"
+
+[node name="Combinational Logic" type="MarginContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 24.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="HBox" type="HBoxContainer" parent="Combinational Logic"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1014.0
+margin_bottom = 734.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+
+[node name="RT" type="RichTextLabel" parent="Combinational Logic/HBox"]
+margin_right = 1004.0
+margin_bottom = 724.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/mono_font = ExtResource( 8 )
+custom_fonts/bold_italics_font = ExtResource( 9 )
+custom_fonts/italics_font = ExtResource( 11 )
+custom_fonts/bold_font = ExtResource( 10 )
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[b]Combinational Logic[/b]
+
+Logic gates are available in packages such as Quad 2-input NAND gates. These may be wired up to build circuits of combinational logic.
+
+In practice the bare minimum of individual gates are used, instead we use the most common building blocks such as flip-flops, and decoders.
+
+Let's look at some common building blocks and how they are made from logic gates.
+
+[b]Decoder[/b]
+
+This has a binary input that is mapped to a desired output pattern. For example, to drive the segments of an LED display. We would have 4 input bits that are decoded to produce 7 signals to drive the segments corresponding to each digit.
+
+[img]res://assets/pics/decoder.png[/img]
+
+Another example is an address decoder. This is used to select the correct memory chip for a block of memory depending on the state of some high order address bits.
+
+To scan the keys of a keyboard, we could use a decoder to select individual scan lines.
+
+[b]Encoder[/b]
+
+An encoder does the opposite of a decoder. It could be fed with the lines of a keyboard matrix to output the binary value of a column when a key is pressed.
+
+[img]res://assets/pics/encoder.png[/img]
+
+[b]Multiplexer[/b]
+
+A multiplexer is used to select one of several inputs. The selected input value is then copied to the output.
+
+[img]res://assets/pics/mult.png[/img]
+
+[b]Adder[/b]
+
+This does binary addition of 2 inputs. It has a sum and carry output. However, to make it more useful, we include a carry in signal to create a full adder. Adders may then be chained together to handle mult-bit binary inputs.
+
+[img]res://assets/pics/adder.png[/img]
+
+[b]Subtractor[/b]
+
+We may convert the adder to a subtractor by inverting its B input and adding a 1 by injecting 1 into the carry in input.
+
+[img]res://assets/pics/sub.png[/img]
+
+A key component of a CPU is the Arithmetic and Logic Unit (ALU) which uses this kind of circuit."
+text = "Combinational Logic
+
+Logic gates are available in packages such as Quad 2-input NAND gates. These may be wired up to build circuits of combinational logic.
+
+In practice the bare minimum of individual gates are used, instead we use the most common building blocks such as flip-flops, and decoders.
+
+Let's look at some common building blocks and how they are made from logic gates.
+
+Decoder
+
+This has a binary input that is mapped to a desired output pattern. For example, to drive the segments of an LED display. We would have 4 input bits that are decoded to produce 7 signals to drive the segments corresponding to each digit.
+
+
+
+Another example is an address decoder. This is used to select the correct memory chip for a block of memory depending on the state of some high order address bits.
+
+To scan the keys of a keyboard, we could use a decoder to select individual scan lines.
+
+Encoder
+
+An encoder does the opposite of a decoder. It could be fed with the lines of a keyboard matrix to output the binary value of a column when a key is pressed.
+
+
+
+Multiplexer
+
+A multiplexer is used to select one of several inputs. The selected input value is then copied to the output.
+
+
+
+Adder
+
+This does binary addition of 2 inputs. It has a sum and carry output. However, to make it more useful, we include a carry in signal to create a full adder. Adders may then be chained together to handle mult-bit binary inputs.
+
+
+
+Subtractor
+
+We may convert the adder to a subtractor by inverting its B input and adding a 1 by injecting 1 into the carry in input.
+
+
+
+A key component of a CPU is the Arithmetic and Logic Unit (ALU) which uses this kind of circuit."
+
+[node name="Sequential Logic" type="MarginContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 24.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="HBox" type="HBoxContainer" parent="Sequential Logic"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1014.0
+margin_bottom = 734.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+
+[node name="RT" type="RichTextLabel" parent="Sequential Logic/HBox"]
+margin_right = 1004.0
+margin_bottom = 724.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/mono_font = ExtResource( 8 )
+custom_fonts/bold_italics_font = ExtResource( 9 )
+custom_fonts/italics_font = ExtResource( 11 )
+custom_fonts/bold_font = ExtResource( 10 )
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[b]Sequential Logic[/b]
+"
+text = "Sequential Logic
+"
+
 [node name="Home" type="Control" parent="."]
 visible = false
 anchor_right = 1.0
