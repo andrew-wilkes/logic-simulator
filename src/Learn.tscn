@@ -644,8 +644,90 @@ custom_fonts/bold_font = ExtResource( 10 )
 custom_fonts/normal_font = ExtResource( 6 )
 bbcode_enabled = true
 bbcode_text = "[b]Sequential Logic[/b]
+
+Sequential logic is a form of memory device containing an internal state. Its output depends not only on its inputs but also the current state.
+
+Also, a clock signal may be applied which causes changes on the rising or falling edges of the square wave of the clock.
+
+There are many types of sequential logic devices. We will start with the D Flip-Flop (DFF) and add extra features to it to create other sequential logic circuits.
+
+[b]D Flip Flop[/b]
+
+The simple form (D Latch) has a Data input which is remembered when the Enable input is high. The cross-connected NOR gates form an SR flip-flop. The feedback signals cause it to latch to the current state.
+
+[img]res://assets/pics/d-ff.png[/img]
+
+We can improve upon this by connecting the output to the input of another DFF. Then connect the Enable signal via a NOT gate to the second DFF. Then we have an Edge-triggered D flip-flop. In this case the Enable signal is called the Clock signal.
+
+[img]res://assets/pics/etdff.png[/img]
+
+The data is clocked in on the rising edge of the clock to the first flip flop and remebered after the falling edge of the clock where the data is latched onto the second flip flop.
+
+We may also add Set and Reset inputs to allow for setting the state without using the clock.
+
+[img]res://assets/pics/srdff.png[/img]
+
+[b]Register[/b]
+
+A [i]register[/i] stores bits of data over successive clock cycles such as 4 or 8 bits. We can make this using D flip-flops, but we need to add a multiplexer to steer either the input or the output to the D input so that on each clock cycle, the correct state is captured by the flip-flop.
+
+[img]res://assets/pics/reg.png[/img]
+
+We have a LD input to Load the Data when LD is high.
+
+[b]Counter[/b]
+
+We may modify the register by adding an incrementer in the feedback path from the output such that 1 is added to the value on each clock cycle.
+
+This circuit would need to be expanded to handle several bits of data.
+[img]res://assets/pics/counter.png[/img]
+
+[b]Shift Register[/b]
+
+The previous register has parallel input data, but a [i]shift register[/i] allows for a serial input and output. It may be loaded with data, and the bits shited out in either direction bit by bit with each clock cycle. Or we may shift bits in to form a data value.
 "
 text = "Sequential Logic
+
+Sequential logic is a form of memory device containing an internal state. Its output depends not only on its inputs but also the current state.
+
+Also, a clock signal may be applied which causes changes on the rising or falling edges of the square wave of the clock.
+
+There are many types of sequential logic devices. We will start with the D Flip-Flop (DFF) and add extra features to it to create other sequential logic circuits.
+
+D Flip Flop
+
+The simple form (D Latch) has a Data input which is remembered when the Enable input is high. The cross-connected NOR gates form an SR flip-flop. The feedback signals cause it to latch to the current state.
+
+
+
+We can improve upon this by connecting the output to the input of another DFF. Then connect the Enable signal via a NOT gate to the second DFF. Then we have an Edge-triggered D flip-flop. In this case the Enable signal is called the Clock signal.
+
+
+
+The data is clocked in on the rising edge of the clock to the first flip flop and remebered after the falling edge of the clock where the data is latched onto the second flip flop.
+
+We may also add Set and Reset inputs to allow for setting the state without using the clock.
+
+
+
+Register
+
+A register stores bits of data over successive clock cycles such as 4 or 8 bits. We can make this using D flip-flops, but we need to add a multiplexer to steer either the input or the output to the D input so that on each clock cycle, the correct state is captured by the flip-flop.
+
+
+
+We have a LD input to Load the Data when LD is high.
+
+Counter
+
+We may modify the register by adding an incrementer in the feedback path from the output such that 1 is added to the value on each clock cycle.
+
+This circuit would need to be expanded to handle several bits of data.
+
+
+Shift Register
+
+The previous register has parallel input data, but a shift register allows for a serial input and output. It may be loaded with data, and the bits shited out in either direction bit by bit with each clock cycle. Or we may shift bits in to form a data value.
 "
 
 [node name="Home" type="Control" parent="."]
