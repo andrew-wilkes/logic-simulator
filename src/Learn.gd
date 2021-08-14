@@ -99,5 +99,5 @@ func show_value():
 
 
 func _on_Learn_tab_selected(tab):
-	if tab == 4:
+	if tab == 5:
 		var _e = get_tree().change_scene("res://Main.tscn")

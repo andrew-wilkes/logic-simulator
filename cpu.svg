@@ -17,6 +17,48 @@
   <defs
      id="defs857">
     <marker
+       style="overflow:visible;"
+       id="Arrow2Send"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow2Send"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.3) rotate(180) translate(-2.3,0)"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         style="fill-rule:evenodd;fill:context-stroke;stroke-width:0.62500000;stroke-linejoin:round;"
+         id="path33790" />
+    </marker>
+    <marker
+       style="overflow:visible;"
+       id="Arrow1Send"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Send"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.2) rotate(180) translate(6,0)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt;"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path33772" />
+    </marker>
+    <marker
+       style="overflow:visible;"
+       id="Arrow2Mend"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mend"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.6) rotate(180) translate(0,0)"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         style="fill-rule:evenodd;fill:context-stroke;stroke-width:0.62500000;stroke-linejoin:round;"
+         id="path33784" />
+    </marker>
+    <marker
        style="overflow:visible"
        id="SquareL"
        refX="0.0"
@@ -352,6 +394,902 @@
          style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
          id="path40814-6-2-0" />
     </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-30"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-30" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-3-9"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-6-25" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-3-61-4"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-6-1-0" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-5-5"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-3-9" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-3-5-4"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-6-6-6" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-36-9"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-0-2" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-3-6-2"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-6-2-4" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-3-6-7-7"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-6-2-0-7" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-2-5"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-37-4" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-3-59-8"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-6-22-1" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-2"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-8" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-9"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-3" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-2-6"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-5-8" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-2-2-0"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-5-9-2" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-2-2-9-1"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-5-9-0-0" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-7-5"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-4-1" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-3-4-1"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-6-7-0" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-3-4-0-8"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-6-7-6-50" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-3-4-0-5-64"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-6-7-6-5-62" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-3-4-0-5-3-5"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-6-7-6-5-1-8" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-3-4-0-5-9-6"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-6-7-6-5-2-2" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-3-4-0-5-6-8"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-6-7-6-5-8-4" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-3-4-0-5-2-7"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-6-7-6-5-6-2" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-2-8"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-5-90" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-2-8-8"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-5-90-7" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-2-8-0"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-5-90-3" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-2-8-3"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-5-90-73" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-5-8"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-3-6" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-5-8-7"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-3-6-8" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-3-1"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-6-5" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-3-1-2"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-6-5-5" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-3-1-4"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-6-5-9" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-3-1-4-9"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-6-5-9-9" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-6"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-0" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-6-8"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-0-9" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-6-0"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-0-7" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-6-1"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-0-0" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-6-8-1"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-0-9-3" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-6-0-7"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-0-7-7" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-6-0-7-5"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-0-7-7-2" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-6-0-7-2"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-0-7-7-9" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-6-0-7-5-0"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-0-7-7-2-9" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-2-8-38"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-5-90-37" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-2-8-8-9"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-5-90-7-3" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-2-8-0-7"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-5-90-3-8" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-2-8-3-7"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-5-90-73-4" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-2-8-38-9"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-5-90-37-9" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-2-8-8-9-3"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-5-90-7-3-2" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-2-8-0-7-4"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-5-90-3-8-3" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-2-8-3-7-7"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-5-90-73-4-1" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-2-8-38-9-1"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-5-90-37-9-7" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-2-8-8-9-3-5"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-5-90-7-3-2-1" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-2-8-0-7-4-1"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-5-90-3-8-3-7" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-2-8-3-7-7-0"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-5-90-73-4-1-4" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Send-2"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Send"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.3,0,0,-0.3,0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path33790-1" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Send-8"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Send"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.3,0,0,-0.3,0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path33790-10" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-2-8-3-7-7-2"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-5-90-73-4-1-9" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-2-8-3-7-7-2-6"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-5-90-73-4-1-9-3" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-2-8-3-7-7-2-6-4"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-5-90-73-4-1-9-3-9" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-2-8-3-7-7-2-6-7"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-5-90-73-4-1-9-3-0" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-2-8-3-7-7-2-6-7-9"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-5-90-73-4-1-9-3-0-4" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-1-7-2-8-3-7-7-2-6-7-9-1"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-9-4-5-90-73-4-1-9-3-0-4-5" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-3-1-4-8"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-6-5-9-3" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart-5-8-2"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path40814-3-6-7" />
+    </marker>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -360,11 +1298,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.97740019"
-     inkscape:cx="-554.02076"
-     inkscape:cy="-816.45165"
+     inkscape:zoom="0.48870009"
+     inkscape:cx="-942.29571"
+     inkscape:cy="-705.95444"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer2"
      inkscape:document-rotation="0"
      showgrid="true"
      showborder="false"
@@ -374,7 +1312,7 @@
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     showguides="true"
+     showguides="false"
      inkscape:guide-bbox="true">
     <inkscape:grid
        type="xygrid"
@@ -393,6 +1331,41 @@
     </rdf:RDF>
   </metadata>
   <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="BG">
+    <rect
+       style="fill:#cbddde;fill-opacity:1;stroke-width:2.20888;stroke-linecap:round;stroke-linejoin:round"
+       id="rect2696"
+       width="540"
+       height="740"
+       x="-1200"
+       y="-1220"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
+    <rect
+       style="fill:#cbddde;fill-opacity:1;stroke-width:1.83575;stroke-linecap:round;stroke-linejoin:round"
+       id="rect2696-3"
+       width="460"
+       height="600"
+       x="-540"
+       y="-1240"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <rect
+       style="fill:#cbddde;fill-opacity:1;stroke-width:1.08717;stroke-linecap:round;stroke-linejoin:round"
+       id="rect2696-6"
+       width="440"
+       height="220"
+       x="-540"
+       y="-540"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+  </g>
+  <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
@@ -401,7 +1374,10 @@
        style="font-size:26.6667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-1052.9362"
        y="-1050.293"
-       id="text6077"><tspan
+       id="text6077"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan6075"
          x="-1052.9362"
@@ -411,7 +1387,10 @@
        style="font-size:26.6667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-1066.2695"
        y="-1140.293"
-       id="text6077-3"><tspan
+       id="text6077-3"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan6075-8"
          x="-1066.2695"
@@ -421,7 +1400,10 @@
        style="font-size:13.33333333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-1091.1362"
        y="-1037.244"
-       id="text13476"><tspan
+       id="text13476"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan13474"
          x="-1091.1362"
@@ -431,7 +1413,10 @@
        style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-964.92206"
        y="-1165.8817"
-       id="text13476-9"><tspan
+       id="text13476-9"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan13474-8"
          x="-964.92206"
@@ -439,9 +1424,25 @@
     <text
        xml:space="preserve"
        style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-1092.7872"
+       y="-1186.319"
+       id="text13476-9-6"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
+         sodipodi:role="line"
+         id="tspan13474-8-3"
+         x="-1092.7872"
+         y="-1186.319">Program Memory</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-1140.5138"
        y="-1160.3363"
-       id="text13476-9-4"><tspan
+       id="text13476-9-4"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan13474-8-8"
          x="-1140.5138"
@@ -452,28 +1453,75 @@
        width="130"
        height="60"
        x="-1100"
-       y="-1090" />
+       y="-1090"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart)"
        d="m -1107,-1040 h -23"
        id="path40782"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3)"
        d="m -1110,-1060 h -60"
        id="path40782-7"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-1)"
+       d="m -360,-1148 v 38"
+       id="path40782-7-49"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-1-2)"
+       d="m -380,-1068 v 38"
+       id="path40782-7-49-7"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-1-4)"
+       d="m -340,-1068 v 98"
+       id="path40782-7-49-9"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-1-4-9)"
+       d="m -200,-940 v -230"
+       id="path40782-7-49-9-7"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
     <path
        style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-61)"
        d="m -960,-1150 h 40"
        id="path40782-7-5"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <text
        xml:space="preserve"
        style="font-size:26.6667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-1065.8398"
        y="-960.27991"
-       id="text6077-2"><tspan
+       id="text6077-2"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan6075-9"
          x="-1065.8398"
@@ -483,7 +1531,10 @@
        style="font-size:13.33333333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-1091.1362"
        y="-947.24402"
-       id="text13476-1"><tspan
+       id="text13476-1"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan13474-2"
          x="-1091.1362"
@@ -494,23 +1545,43 @@
        width="130"
        height="60"
        x="-1100"
-       y="-1000" />
+       y="-1000"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-5)"
        d="m -1107,-950 h -23"
        id="path40782-0"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-5-8)"
+       d="m -427,-1170 h -23"
+       id="path40782-0-2"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
     <path
        style="fill:none;stroke:#777777;stroke-width:8;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-5)"
        d="m -1110,-970 h -40"
        id="path40782-7-9"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <text
        xml:space="preserve"
        style="font-size:26.6667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-1064.1863"
        y="-870.29297"
-       id="text6077-6"><tspan
+       id="text6077-6"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan6075-1"
          x="-1064.1863"
@@ -520,7 +1591,10 @@
        style="font-size:13.33333333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-1091.1362"
        y="-857.24402"
-       id="text13476-8"><tspan
+       id="text13476-8"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan13474-7"
          x="-1091.1362"
@@ -531,65 +1605,43 @@
        width="130"
        height="60"
        x="-1100"
-       y="-910" />
+       y="-910"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-36)"
        d="m -1107,-860 h -23"
        id="path40782-2"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-6)"
        d="m -1110,-880 h -60"
        id="path40782-7-0"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-6-7)"
        d="m -934,-880 h -36"
        id="path40782-7-0-9"
-       sodipodi:nodetypes="cc" />
-    <text
-       xml:space="preserve"
-       style="font-size:26.6667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
-       x="-1044.5117"
-       y="-780.27991"
-       id="text6077-8"><tspan
-         sodipodi:role="line"
-         id="tspan6075-97"
-         x="-1044.5117"
-         y="-780.27991">B</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:13.33333333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
-       x="-1091.1362"
-       y="-767.24402"
-       id="text13476-3"><tspan
-         sodipodi:role="line"
-         id="tspan13474-6"
-         x="-1091.1362"
-         y="-767.24402">write</tspan></text>
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect32011-1"
-       width="130"
-       height="60"
-       x="-1100"
-       y="-820" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-2)"
-       d="m -1107,-770 h -23"
-       id="path40782-29"
-       sodipodi:nodetypes="cc" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-59)"
-       d="m -1110,-790 h -60"
-       id="path40782-7-3"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <text
        xml:space="preserve"
        style="font-size:26.6667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-1044.1146"
        y="-690.27991"
-       id="text6077-84"><tspan
+       id="text6077-84"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan6075-5"
          x="-1044.1146"
@@ -599,7 +1651,10 @@
        style="font-size:26.6667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-851.28912"
        y="-695.46875"
-       id="text6077-84-4"><tspan
+       id="text6077-84-4"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan6075-5-9"
          x="-851.28912"
@@ -609,7 +1664,10 @@
        style="font-size:21.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-1014.5131"
        y="-613.08228"
-       id="text6077-84-7"><tspan
+       id="text6077-84-7"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan6075-5-6"
          x="-1014.5131"
@@ -619,7 +1677,10 @@
        style="font-size:21.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-801.81085"
        y="-613.13904"
-       id="text6077-84-7-5"><tspan
+       id="text6077-84-7-5"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan6075-5-6-6"
          x="-801.81085"
@@ -629,7 +1690,10 @@
        style="font-size:21.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-871.21918"
        y="-512.69452"
-       id="text6077-84-7-5-9"><tspan
+       id="text6077-84-7-5-9"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan6075-5-6-6-3"
          x="-871.21918"
@@ -639,7 +1703,10 @@
        style="font-size:13.33333333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-1091.1362"
        y="-677.24402"
-       id="text13476-0"><tspan
+       id="text13476-0"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan13474-3"
          x="-1091.1362"
@@ -649,7 +1716,10 @@
        style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-778.44373"
        y="-577.953"
-       id="text13476-0-0"><tspan
+       id="text13476-0-0"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan13474-3-7"
          x="-778.44373"
@@ -657,9 +1727,64 @@
     <text
        xml:space="preserve"
        style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-1020.6687"
+       y="-578.17316"
+       id="text13476-0-0-6"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-5"
+         x="-1020.6687"
+         y="-578.17316">Cout</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-1019.7963"
+       y="-567.15277"
+       id="text13476-0-0-2"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-65"
+         x="-1019.7963"
+         y="-567.15277">Zero</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-1021.9122"
+       y="-555.98193"
+       id="text13476-0-0-87"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-96"
+         x="-1021.9122"
+         y="-555.98193">Over</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-1017.7911"
+       y="-544.92035"
+       id="text13476-0-0-0"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-41"
+         x="-1017.7911"
+         y="-544.92035">Sign</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-708.0011"
        y="-964.99896"
-       id="text13476-0-0-4"><tspan
+       id="text13476-0-0-4"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan13474-3-7-9"
          x="-708.0011"
@@ -669,7 +1794,10 @@
        style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-708.0011"
        y="-945.10419"
-       id="text13476-0-0-4-0"><tspan
+       id="text13476-0-0-4-0"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan13474-3-7-9-9"
          x="-708.0011"
@@ -679,7 +1807,10 @@
        style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-708.0011"
        y="-925.20941"
-       id="text13476-0-0-4-1"><tspan
+       id="text13476-0-0-4-1"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan13474-3-7-9-7"
          x="-708.0011"
@@ -689,7 +1820,10 @@
        style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-708.0011"
        y="-905.3147"
-       id="text13476-0-0-4-7"><tspan
+       id="text13476-0-0-4-7"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan13474-3-7-9-1"
          x="-708.0011"
@@ -699,7 +1833,10 @@
        style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-708.0011"
        y="-885.41992"
-       id="text13476-0-0-4-15"><tspan
+       id="text13476-0-0-4-15"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan13474-3-7-9-97"
          x="-708.0011"
@@ -709,7 +1846,10 @@
        style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-708.0011"
        y="-865.52515"
-       id="text13476-0-0-4-76"><tspan
+       id="text13476-0-0-4-76"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan13474-3-7-9-73"
          x="-708.0011"
@@ -719,7 +1859,10 @@
        style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-708.0011"
        y="-845.63037"
-       id="text13476-0-0-4-6"><tspan
+       id="text13476-0-0-4-6"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan13474-3-7-9-5"
          x="-708.0011"
@@ -727,9 +1870,25 @@
     <text
        xml:space="preserve"
        style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-429.65054"
+       y="-1041.5168"
+       id="text13476-0-0-4-6-5"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-9-5-9"
+         x="-429.65054"
+         y="-1041.5168">6</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-708.0011"
        y="-825.7356"
-       id="text13476-0-0-4-63"><tspan
+       id="text13476-0-0-4-63"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan13474-3-7-9-94"
          x="-708.0011"
@@ -739,7 +1898,10 @@
        style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-708.57483"
        y="-737.93317"
-       id="text13476-0-0-4-63-85"><tspan
+       id="text13476-0-0-4-63-85"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan13474-3-7-9-94-0"
          x="-708.57483"
@@ -757,17 +1919,172 @@
        style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-780.00592"
        y="-981.1355"
-       id="text13476-0-0-4-63-8"><tspan
+       id="text13476-0-0-4-63-8"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan13474-3-7-9-94-1"
          x="-780.00592"
          y="-981.1355">External Inputs</tspan></text>
     <text
        xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-507.55249"
+       y="-1139.79"
+       id="text13476-0-0-4-63-8-4"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-9-94-1-7"
+         x="-507.55249"
+         y="-1139.79">Clock</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-529.16406"
+       y="-1012.4922"
+       id="text13476-0-0-4-63-8-4-3"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-9-94-1-7-5"
+         x="-529.16406"
+         y="-1012.4922">From MBR</tspan><tspan
+         sodipodi:role="line"
+         x="-529.16406"
+         y="-995.82562"
+         id="tspan35572">(Memory Byte Register)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-488.9855"
+       y="-711.05756"
+       id="text13476-0-0-4-63-8-4-3-7"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         x="-488.9855"
+         y="-711.05756"
+         id="tspan35572-0">MIR</tspan><tspan
+         sodipodi:role="line"
+         x="-488.9855"
+         y="-694.39093"
+         id="tspan125563">(Memory Instruction Register)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-374.72003"
+       y="-1205.5259"
+       id="text13476-0-0-4-63-8-4-92"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-9-94-1-7-8"
+         x="-374.72003"
+         y="-1205.5259">MPC</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-127.88139"
+       y="-703.39441"
+       id="text13476-0-0-4-63-8-4-92-5"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-9-94-1-7-8-10"
+         x="-127.88139"
+         y="-703.39441">B Bus</tspan><tspan
+         sodipodi:role="line"
+         x="-127.88139"
+         y="-686.72778"
+         id="tspan74204">select</tspan><tspan
+         sodipodi:role="line"
+         x="-127.88139"
+         y="-670.06116"
+         id="tspan74206">lines</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-195.27608"
+       y="-702.98425"
+       id="text13476-0-0-4-63-8-4-92-5-3"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         x="-195.27608"
+         y="-702.98425"
+         id="tspan74204-8">Register</tspan><tspan
+         sodipodi:role="line"
+         x="-195.27608"
+         y="-686.31763"
+         id="tspan78203">write</tspan><tspan
+         sodipodi:role="line"
+         x="-195.27608"
+         y="-669.651"
+         id="tspan74206-8">lines</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-261.9512"
+       y="-703.39441"
+       id="text13476-0-0-4-63-8-4-92-5-3-6"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         x="-261.9512"
+         y="-703.39441"
+         id="tspan78203-4">ALU</tspan><tspan
+         sodipodi:role="line"
+         x="-261.9512"
+         y="-686.72778"
+         id="tspan81990">control</tspan><tspan
+         sodipodi:role="line"
+         x="-261.9512"
+         y="-670.06116"
+         id="tspan74206-8-6">lines</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-300.43646"
+       y="-1101.2709"
+       id="text13476-0-0-4-63-8-4-92-4"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-9-94-1-7-8-8"
+         x="-300.43646"
+         y="-1101.2709">JMPC</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-440.03235"
+       y="-1190.5002"
+       id="text13476-0-0-4-63-8-4-9"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         x="-440.03235"
+         y="-1190.5002"
+         id="tspan23516">(MicroProgram Counter)</tspan></text>
+    <text
+       xml:space="preserve"
        style="font-size:13.33333333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-778.20428"
        y="-565.93933"
-       id="text13476-0-0-8"><tspan
+       id="text13476-0-0-8"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan13474-3-7-6"
          x="-778.20428"
@@ -777,7 +2094,10 @@
        style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
        x="-778.34143"
        y="-554.25201"
-       id="text13476-0-0-88"><tspan
+       id="text13476-0-0-88"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
          sodipodi:role="line"
          id="tspan13474-3-7-4"
          x="-778.34143"
@@ -788,75 +2108,216 @@
        width="130"
        height="60"
        x="-1100"
-       y="-730" />
+       y="-730"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1)"
        d="m -1107,-680 h -23"
        id="path40782-1"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-6)"
+       d="m -250,-727 v -23"
+       id="path40782-1-6"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-6-8)"
+       d="m -240,-727 v -23"
+       id="path40782-1-6-6"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-6-0)"
+       d="m -230,-727 v -23"
+       id="path40782-1-6-0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-6-1)"
+       d="m -185,-727 v -23"
+       id="path40782-1-6-2"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-6-8-1)"
+       d="m -175,-727 v -23"
+       id="path40782-1-6-6-6"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-6-0-7)"
+       d="m -165,-727 v -23"
+       id="path40782-1-6-0-4"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-6-0-7-5)"
+       d="m -155,-727 v -23"
+       id="path40782-1-6-0-4-0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-6-0-7-2)"
+       d="m -115,-727 v -23"
+       id="path40782-1-6-0-4-9"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-6-0-7-5-0)"
+       d="m -105,-727 v -23"
+       id="path40782-1-6-0-4-0-4"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
     <path
        style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7)"
        d="m -812,-570 h 32"
        id="path40782-1-5"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-2)"
        d="m -802,-580 h 22"
        id="path40782-1-5-4"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-2-8)"
+       d="m -980,-580 h 30"
+       id="path40782-1-5-4-6"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-2-8-8)"
+       d="m -980,-570 h 40"
+       id="path40782-1-5-4-6-9"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-2-8-0)"
+       d="m -980,-560 h 50"
+       id="path40782-1-5-4-6-3"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-2-2)"
        d="m -733,-730 h 22"
        id="path40782-1-5-4-3"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-2-2-9)"
        d="m -733,-720 h 22"
        id="path40782-1-5-4-3-8"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-7)"
        d="m -822,-560 h 42"
        id="path40782-1-5-43"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-4)"
        d="m -1110,-700 h -60"
        id="path40782-7-06"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-4-0)"
        d="m -940,-610 v -90"
        id="path40782-7-06-1"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-4-0-5)"
        d="m -820,-610 v -50"
        id="path40782-7-06-1-4"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-4-0-5-3)"
        d="m -880,-760 v -30"
        id="path40782-7-06-1-4-4"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-4-0-5-9)"
        d="M -840,-760 V -970"
        id="path40782-7-06-1-4-0"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-4-0-5-6)"
        d="m -800,-760 v -300"
        id="path40782-7-06-1-4-9"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-4-0-5-2)"
        d="M -760,-760 V -960"
        id="path40782-7-06-1-4-6"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <g
        id="g53780"
-       transform="translate(120,30)">
+       transform="translate(120,30)"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052">
       <text
          xml:space="preserve"
          style="font-size:26.6667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
@@ -884,136 +2345,316 @@
     <path
        style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
        d="m -970,-700 h 30"
-       id="path72178" />
+       id="path72178"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
        d="m -880,-540 v 30 h -290 v -550"
        id="path72362"
-       sodipodi:nodetypes="cccc" />
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:bevel;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
        d="m -900,-750 h 160 v 50 l -40,40 h -80 l -40,-40 z"
-       id="path78255" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
-       d="m -970,-790 h 90"
-       id="path79697" />
+       id="path78255"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m -970,-970 h 130"
        id="path79697-5"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -460,-1030 h 80"
+       id="path79697-5-4"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -298,-1170 h 98"
+       id="path79697-5-4-8"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
     <path
        style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m -970,-1060 h 170"
        id="path79697-0"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m -760,-880 10,-10 h 30"
-       id="path80933" />
+       id="path80933"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m -760,-860 10,-10 h 30"
-       id="path80933-4" />
+       id="path80933-4"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m -760,-840 10,-10 h 30"
-       id="path80933-8" />
+       id="path80933-8"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m -760,-820 10,-10 h 30"
-       id="path80933-7" />
+       id="path80933-7"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m -760,-960 10,-10 h 30"
-       id="path80933-1" />
+       id="path80933-1"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m -760,-940 10,-10 h 30"
-       id="path80933-4-7" />
+       id="path80933-4-7"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m -760,-920 10,-10 h 30"
-       id="path80933-8-2" />
+       id="path80933-8-2"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m -760,-900 10,-10 h 30"
-       id="path80933-7-7" />
+       id="path80933-7-7"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <rect
        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect81379"
        width="8"
        height="8"
        x="-720"
-       y="-974" />
+       y="-974"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <rect
        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect81379-2"
        width="8"
        height="8"
        x="-720"
-       y="-954" />
+       y="-954"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <rect
        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect81379-26"
        width="8"
        height="8"
        x="-720"
-       y="-934" />
+       y="-934"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <rect
        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect81379-1"
        width="8"
        height="8"
        x="-720"
-       y="-914" />
+       y="-914"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <rect
        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect81379-0"
        width="8"
        height="8"
        x="-720"
-       y="-894" />
+       y="-894"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <rect
        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect81379-6"
        width="8"
        height="8"
        x="-720"
-       y="-874" />
+       y="-874"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <rect
        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect81379-15"
        width="8"
        height="8"
        x="-720"
-       y="-854" />
+       y="-854"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <rect
        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect81379-9"
        width="8"
        height="8"
        x="-720"
-       y="-834" />
+       y="-834"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#777777;stroke-width:8;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
        d="m -1150,-970 v -180 h 50"
-       id="path118210" />
+       id="path118210"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <path
        style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
        d="m -920,-1150 v 90"
-       id="path122257" />
+       id="path122257"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
     <rect
        style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect32011-96"
        width="130"
        height="60"
        x="-1100"
-       y="-1180" />
+       y="-1180"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect32011-96-0"
+       width="120"
+       height="20"
+       x="-420"
+       y="-1180"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <g
+       id="g33604"
+       transform="translate(205,30)"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291">
+      <text
+         xml:space="preserve"
+         style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+         x="-580.64447"
+         y="-1120.2344"
+         id="text13476-0-0-4-63-8-4-92-0"><tspan
+           sodipodi:role="line"
+           id="tspan13474-3-7-9-94-1-7-8-1"
+           x="-580.64447"
+           y="-1120.2344">MUX</tspan></text>
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect32011-96-0-3"
+         width="60"
+         height="30"
+         x="-595"
+         y="-1140" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-367.51947"
+       y="-934.85999"
+       id="text13476-0-0-4-63-8-4-92-0-2"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-9-94-1-7-8-1-0"
+         x="-367.51947"
+         y="-934.85999">Memory</tspan><tspan
+         sodipodi:role="line"
+         x="-367.51947"
+         y="-918.19336"
+         id="tspan90288">mapper</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect32011-96-0-3-2"
+       width="80"
+       height="80"
+       x="-380"
+       y="-970"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <g
+       id="g39335"
+       transform="translate(-30,229)"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291">
+      <text
+         xml:space="preserve"
+         style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+         x="-211.20757"
+         y="-1136.6959"
+         id="text13476-0-0-4-63-8-4-92-0-0"><tspan
+           sodipodi:role="line"
+           id="tspan13474-3-7-9-94-1-7-8-1-8"
+           x="-211.20757"
+           y="-1136.6959">64 x 16-bit</tspan><tspan
+           sodipodi:role="line"
+           x="-211.20757"
+           y="-1120.0293"
+           id="tspan37293">Microprogram</tspan><tspan
+           sodipodi:role="line"
+           x="-211.20757"
+           y="-1103.3627"
+           id="tspan38113">Control Store</tspan></text>
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect32011-96-0-3-1"
+         width="120"
+         height="71"
+         x="-230"
+         y="-1160" />
+    </g>
     <g
        id="g1237"
-       transform="translate(-307.57841,-52.096514)">
+       transform="translate(-307.57841,-52.096514)"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052">
       <rect
          style="fill:#343434;fill-opacity:1;stroke:none;stroke-width:2.11387;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect1319-6"
@@ -1098,7 +2739,10 @@
     </g>
     <g
        id="g1237-3"
-       transform="translate(-275.57841,-52.096514)">
+       transform="translate(-275.57841,-52.096514)"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052">
       <rect
          style="fill:#343434;fill-opacity:1;stroke:none;stroke-width:2.11387;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect1319-6-6"
@@ -1181,5 +2825,1465 @@
            inkscape:export-ydpi="142.38788" />
       </g>
     </g>
+    <text
+       xml:space="preserve"
+       style="font-size:26.6667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-872.93616"
+       y="-100.29297"
+       id="text6077-4"><tspan
+         sodipodi:role="line"
+         id="tspan6075-0"
+         x="-872.93616"
+         y="-100.29297">PC</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:26.6667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-886.26953"
+       y="-190.29297"
+       id="text6077-3-6"><tspan
+         sodipodi:role="line"
+         id="tspan6075-8-2"
+         x="-886.26953"
+         y="-190.29297">ROM</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-911.13623"
+       y="-87.244019"
+       id="text13476-99"><tspan
+         sodipodi:role="line"
+         id="tspan13474-0"
+         x="-911.13623"
+         y="-87.244019">write</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-784.92206"
+       y="-215.88171"
+       id="text13476-9-8"><tspan
+         sodipodi:role="line"
+         id="tspan13474-8-1"
+         x="-784.92206"
+         y="-215.88171">Address</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-960.51379"
+       y="-210.3363"
+       id="text13476-9-4-3"><tspan
+         sodipodi:role="line"
+         id="tspan13474-8-8-1"
+         x="-960.51379"
+         y="-210.3363">Data</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect32011-10"
+       width="130"
+       height="60"
+       x="-920"
+       y="-140" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-30)"
+       d="m -927,-90 h -23"
+       id="path40782-3"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-9)"
+       d="m -930,-110 h -60"
+       id="path40782-7-4"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-61-4)"
+       d="m -780,-200 h 40"
+       id="path40782-7-5-0"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:26.6667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-885.83984"
+       y="-10.279907"
+       id="text6077-2-3"><tspan
+         sodipodi:role="line"
+         id="tspan6075-9-9"
+         x="-885.83984"
+         y="-10.279907">MBR</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-911.13623"
+       y="2.7559814"
+       id="text13476-1-1"><tspan
+         sodipodi:role="line"
+         id="tspan13474-2-9"
+         x="-911.13623"
+         y="2.7559814">write</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect32011-7-6"
+       width="130"
+       height="60"
+       x="-920"
+       y="-50" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-5-5)"
+       d="m -927,0 h -23"
+       id="path40782-0-9"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#777777;stroke-width:8;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-5-4)"
+       d="m -930,-20 h -40"
+       id="path40782-7-9-3"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:26.6667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-884.18628"
+       y="79.707031"
+       id="text6077-6-3"><tspan
+         sodipodi:role="line"
+         id="tspan6075-1-8"
+         x="-884.18628"
+         y="79.707031">OUT</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-911.13623"
+       y="92.755981"
+       id="text13476-8-0"><tspan
+         sodipodi:role="line"
+         id="tspan13474-7-5"
+         x="-911.13623"
+         y="92.755981">write</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect32011-9-6"
+       width="130"
+       height="60"
+       x="-920"
+       y="40" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-36-9)"
+       d="m -927,90 h -23"
+       id="path40782-2-6"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-6-2)"
+       d="m -930,70 h -60"
+       id="path40782-7-0-4"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-6-7-7)"
+       d="m -754,70 h -36"
+       id="path40782-7-0-9-0"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:26.6667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-864.51172"
+       y="169.72009"
+       id="text6077-8-0"><tspan
+         sodipodi:role="line"
+         id="tspan6075-97-4"
+         x="-864.51172"
+         y="169.72009">B</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-911.13623"
+       y="182.75598"
+       id="text13476-3-6"><tspan
+         sodipodi:role="line"
+         id="tspan13474-6-2"
+         x="-911.13623"
+         y="182.75598">write</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect32011-1-6"
+       width="130"
+       height="60"
+       x="-920"
+       y="130" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-2-5)"
+       d="m -927,180 h -23"
+       id="path40782-29-7"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-59-8)"
+       d="m -930,160 h -60"
+       id="path40782-7-3-5"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:26.6667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-864.11462"
+       y="259.72009"
+       id="text6077-84-6"><tspan
+         sodipodi:role="line"
+         id="tspan6075-5-98"
+         x="-864.11462"
+         y="259.72009">A</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:26.6667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-671.28912"
+       y="254.53125"
+       id="text6077-84-4-7"><tspan
+         sodipodi:role="line"
+         id="tspan6075-5-9-2"
+         x="-671.28912"
+         y="254.53125">MUX</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:21.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-834.51312"
+       y="336.91772"
+       id="text6077-84-7-8"><tspan
+         sodipodi:role="line"
+         id="tspan6075-5-6-2"
+         x="-834.51312"
+         y="336.91772">A Bus</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:21.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-621.81085"
+       y="336.86096"
+       id="text6077-84-7-5-99"><tspan
+         sodipodi:role="line"
+         id="tspan6075-5-6-6-6"
+         x="-621.81085"
+         y="336.86096">B Bus</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:21.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-691.21918"
+       y="437.30548"
+       id="text6077-84-7-5-9-0"><tspan
+         sodipodi:role="line"
+         id="tspan6075-5-6-6-3-2"
+         x="-691.21918"
+         y="437.30548">C Bus</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-911.13623"
+       y="272.75598"
+       id="text13476-0-7"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-6"
+         x="-911.13623"
+         y="272.75598">write</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-598.44373"
+       y="372.047"
+       id="text13476-0-0-1"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-3"
+         x="-598.44373"
+         y="372.047">F2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-528.0011"
+       y="-14.998962"
+       id="text13476-0-0-4-2"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-9-15"
+         x="-528.0011"
+         y="-14.998962">0</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-528.0011"
+       y="4.895813"
+       id="text13476-0-0-4-0-9"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-9-9-9"
+         x="-528.0011"
+         y="4.895813">1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-528.0011"
+       y="24.790588"
+       id="text13476-0-0-4-1-1"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-9-7-4"
+         x="-528.0011"
+         y="24.790588">2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-528.0011"
+       y="44.685303"
+       id="text13476-0-0-4-7-9"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-9-1-1"
+         x="-528.0011"
+         y="44.685303">3</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-528.0011"
+       y="64.580078"
+       id="text13476-0-0-4-15-0"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-9-97-7"
+         x="-528.0011"
+         y="64.580078">4</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-528.0011"
+       y="84.474854"
+       id="text13476-0-0-4-76-5"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-9-73-8"
+         x="-528.0011"
+         y="84.474854">5</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-528.0011"
+       y="104.36963"
+       id="text13476-0-0-4-6-7"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-9-5-0"
+         x="-528.0011"
+         y="104.36963">6</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-528.0011"
+       y="124.2644"
+       id="text13476-0-0-4-63-4"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-9-94-8"
+         x="-528.0011"
+         y="124.2644">7</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-528.57483"
+       y="212.06683"
+       id="text13476-0-0-4-63-85-0"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-9-94-0-4"
+         x="-528.57483"
+         y="212.06683">B Bus</tspan><tspan
+         sodipodi:role="line"
+         x="-528.57483"
+         y="228.73346"
+         id="tspan113377-2">select</tspan><tspan
+         sodipodi:role="line"
+         x="-528.57483"
+         y="245.40009"
+         id="tspan113379-9">lines</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-600.00592"
+       y="-31.135498"
+       id="text13476-0-0-4-63-8-6"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-9-94-1-1"
+         x="-600.00592"
+         y="-31.135498">External Inputs</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-598.20428"
+       y="384.06067"
+       id="text13476-0-0-8-0"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-6-4"
+         x="-598.20428"
+         y="384.06067">F1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-598.34143"
+       y="395.74799"
+       id="text13476-0-0-88-2"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-4-2"
+         x="-598.34143"
+         y="395.74799">F0</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect32011-6-2"
+       width="130"
+       height="60"
+       x="-920"
+       y="220" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-2)"
+       d="m -927,270 h -23"
+       id="path40782-1-0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-9)"
+       d="m -632,380 h 32"
+       id="path40782-1-5-5"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-2-6)"
+       d="m -622,370 h 22"
+       id="path40782-1-5-4-5"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-2-2-0)"
+       d="m -553,220 h 22"
+       id="path40782-1-5-4-3-2"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-2-2-9-1)"
+       d="m -553,230 h 22"
+       id="path40782-1-5-4-3-8-9"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-7-5)"
+       d="m -642,390 h 42"
+       id="path40782-1-5-43-0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-4-1)"
+       d="m -930,250 h -60"
+       id="path40782-7-06-2"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-4-0-8)"
+       d="M -760,340 V 250"
+       id="path40782-7-06-1-8"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-4-0-5-64)"
+       d="M -640,340 V 290"
+       id="path40782-7-06-1-4-3"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-4-0-5-3-5)"
+       d="M -700,190 V 160"
+       id="path40782-7-06-1-4-4-8"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-4-0-5-9-6)"
+       d="M -660,190 V -20"
+       id="path40782-7-06-1-4-0-0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-4-0-5-6-8)"
+       d="M -620,190 V -110"
+       id="path40782-7-06-1-4-9-4"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-4-0-5-2-7)"
+       d="M -580,190 V -10"
+       id="path40782-7-06-1-4-6-0"
+       sodipodi:nodetypes="cc" />
+    <g
+       id="g53780-9"
+       transform="translate(300,980)">
+      <text
+         xml:space="preserve"
+         style="font-size:26.6667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+         x="-1024.5898"
+         y="-586.46875"
+         id="text6077-84-3-1"><tspan
+           sodipodi:role="line"
+           id="tspan6075-5-2-9"
+           x="-1024.5898"
+           y="-586.46875">ALU</tspan></text>
+      <path
+         style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m -1090,-630 h 60 l 10,10 h 40 l 10,-10 h 60 l -60,60 h -60 z"
+         id="path50271-6"
+         sodipodi:nodetypes="ccccccccc" />
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -790,250 h 30"
+       id="path72178-2" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -700,410 v 30 h -290 v -550"
+       id="path72362-5"
+       sodipodi:nodetypes="cccc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -720,200 h 160 v 50 l -40,40 h -80 l -40,-40 z"
+       id="path78255-4" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -790,160 h 90"
+       id="path79697-4" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -790,-20 h 130"
+       id="path79697-5-9"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -790,-110 h 170"
+       id="path79697-0-9"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -580,70 10,-10 h 30"
+       id="path80933-3" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -580,90 10,-10 h 30"
+       id="path80933-4-6" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -580,110 10,-10 h 30"
+       id="path80933-8-0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -580,130 10,-10 h 30"
+       id="path80933-7-5" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -580,-10 10,-10 h 30"
+       id="path80933-1-0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -580,10 10,-10 h 30"
+       id="path80933-4-7-2" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -580,30 10,-10 h 30"
+       id="path80933-8-2-9" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -580,50 10,-10 h 30"
+       id="path80933-7-7-4" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect81379-3"
+       width="8"
+       height="8"
+       x="-540"
+       y="-24" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect81379-2-5"
+       width="8"
+       height="8"
+       x="-540"
+       y="-4" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect81379-26-1"
+       width="8"
+       height="8"
+       x="-540"
+       y="16" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect81379-1-7"
+       width="8"
+       height="8"
+       x="-540"
+       y="36" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect81379-0-4"
+       width="8"
+       height="8"
+       x="-540"
+       y="56" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect81379-6-3"
+       width="8"
+       height="8"
+       x="-540"
+       y="76" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect81379-15-1"
+       width="8"
+       height="8"
+       x="-540"
+       y="96" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect81379-9-4"
+       width="8"
+       height="8"
+       x="-540"
+       y="116" />
+    <path
+       style="fill:none;stroke:#777777;stroke-width:8;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -970,-20 v -180 h 50"
+       id="path118210-6" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -740,-200 v 90"
+       id="path122257-9" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect32011-96-4"
+       width="130"
+       height="60"
+       x="-920"
+       y="-230" />
+    <g
+       id="g1237-2"
+       transform="translate(-127.57841,897.90349)">
+      <rect
+         style="fill:#343434;fill-opacity:1;stroke:none;stroke-width:2.11387;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect1319-6-2"
+         width="31.999992"
+         height="44.000027"
+         x="584"
+         y="-850"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/7-seg.png"
+         inkscape:export-xdpi="140.44055"
+         inkscape:export-ydpi="140.44055"
+         transform="scale(-1,1)" />
+      <g
+         id="g1225-6"
+         transform="translate(-4.5279688,-4.9740258)">
+        <path
+           sodipodi:nodetypes="ccccccc"
+           id="path1219-61-4"
+           d="m -606.57447,-824.25542 -1.57446,-1.57446 v -14.1702 l 1.57446,-1.57447 1.57447,1.57447 v 14.1702 z"
+           style="fill:#01c100;fill-opacity:1;stroke:none;stroke-width:0.704123px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/7-seg.png"
+           inkscape:export-xdpi="140.44055"
+           inkscape:export-ydpi="140.44055" />
+        <path
+           sodipodi:nodetypes="ccccccc"
+           style="display:inline;fill:#01c100;fill-opacity:1;stroke:none;stroke-width:0.704123px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m -606.57447,-806.54266 -1.57446,-1.57447 v -13.77659 l 1.57446,-1.57446 1.57447,1.57446 v 13.77659 z"
+           id="path1219-9-8-1"
+           inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/7-seg.png"
+           inkscape:export-xdpi="140.44055"
+           inkscape:export-ydpi="140.44055" />
+        <path
+           style="display:inline;fill:#01c100;fill-opacity:1;stroke:none;stroke-width:0.704123px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m -588.86172,-823.86153 -1.57446,1.57447 h -14.1702 l -1.57447,-1.57447 1.57447,-1.57447 h 14.1702 z"
+           id="path1219-2-79-2"
+           sodipodi:nodetypes="ccccccc"
+           inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/7-seg.png"
+           inkscape:export-xdpi="140.44055"
+           inkscape:export-ydpi="140.44055" />
+        <path
+           sodipodi:nodetypes="ccccccc"
+           id="path1219-2-7-2-8"
+           d="m -588.86172,-841.96554 -1.57446,1.57447 h -14.1702 l -1.57447,-1.57447 1.57447,-1.57446 h 14.1702 z"
+           style="display:inline;fill:#01c100;fill-opacity:1;stroke:none;stroke-width:0.704123px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/ledseg.png"
+           inkscape:export-xdpi="487.7854"
+           inkscape:export-ydpi="487.7854" />
+        <path
+           sodipodi:nodetypes="ccccccc"
+           id="path1219-2-0-0-8"
+           d="m -588.86172,-806.14905 -1.57446,1.57447 h -14.1702 l -1.57447,-1.57447 1.57447,-1.57446 h 14.1702 z"
+           style="display:inline;fill:#01c100;fill-opacity:1;stroke:none;stroke-width:0.704123px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/7-seg.png"
+           inkscape:export-xdpi="140.44055"
+           inkscape:export-ydpi="140.44055" />
+        <path
+           style="display:inline;fill:#01c100;fill-opacity:1;stroke:none;stroke-width:0.704123px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m -588.46809,-824.25542 -1.57447,-1.57446 v -14.1702 l 1.57447,-1.57447 1.57447,1.57447 v 14.1702 z"
+           id="path1219-93-2-92"
+           sodipodi:nodetypes="ccccccc"
+           inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/7-seg.png"
+           inkscape:export-xdpi="140.44055"
+           inkscape:export-ydpi="140.44055" />
+        <path
+           style="display:inline;fill:#01c100;fill-opacity:1;stroke:none;stroke-width:0.696076px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m -588.46809,-806.54266 -1.57447,-1.53865 v -13.84815 l 1.57447,-1.53872 1.57447,1.53872 v 13.84815 z"
+           id="path1219-6-3-8"
+           sodipodi:nodetypes="ccccccc"
+           inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/7-seg.png"
+           inkscape:export-xdpi="140.44055"
+           inkscape:export-ydpi="140.44055" />
+        <circle
+           style="fill:#01c100;fill-opacity:1;stroke:none;stroke-width:0.16181;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:0.16181, 0.16181"
+           id="path938-6-8-8"
+           cx="584.81775"
+           cy="-804.53455"
+           r="2.0226243"
+           transform="scale(-1,1)"
+           inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/led-dot.png"
+           inkscape:export-xdpi="142.38788"
+           inkscape:export-ydpi="142.38788" />
+      </g>
+    </g>
+    <g
+       id="g1237-3-8"
+       transform="translate(-95.57841,897.90349)">
+      <rect
+         style="fill:#343434;fill-opacity:1;stroke:none;stroke-width:2.11387;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect1319-6-6-6"
+         width="31.999992"
+         height="44.000027"
+         x="584"
+         y="-850"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/7-seg.png"
+         inkscape:export-xdpi="140.44055"
+         inkscape:export-ydpi="140.44055"
+         transform="scale(-1,1)" />
+      <g
+         id="g1225-7-8"
+         transform="translate(-4.5279688,-4.9740258)">
+        <path
+           sodipodi:nodetypes="ccccccc"
+           id="path1219-61-5-3"
+           d="m -606.57447,-824.25542 -1.57446,-1.57446 v -14.1702 l 1.57446,-1.57447 1.57447,1.57447 v 14.1702 z"
+           style="fill:#01c100;fill-opacity:1;stroke:none;stroke-width:0.704123px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/7-seg.png"
+           inkscape:export-xdpi="140.44055"
+           inkscape:export-ydpi="140.44055" />
+        <path
+           sodipodi:nodetypes="ccccccc"
+           style="display:inline;fill:#01c100;fill-opacity:1;stroke:none;stroke-width:0.704123px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m -606.57447,-806.54266 -1.57446,-1.57447 v -13.77659 l 1.57446,-1.57446 1.57447,1.57446 v 13.77659 z"
+           id="path1219-9-8-3-8"
+           inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/7-seg.png"
+           inkscape:export-xdpi="140.44055"
+           inkscape:export-ydpi="140.44055" />
+        <path
+           style="display:inline;fill:#01c100;fill-opacity:1;stroke:none;stroke-width:0.704123px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m -588.86172,-823.86153 -1.57446,1.57447 h -14.1702 l -1.57447,-1.57447 1.57447,-1.57447 h 14.1702 z"
+           id="path1219-2-79-5-3"
+           sodipodi:nodetypes="ccccccc"
+           inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/7-seg.png"
+           inkscape:export-xdpi="140.44055"
+           inkscape:export-ydpi="140.44055" />
+        <path
+           sodipodi:nodetypes="ccccccc"
+           id="path1219-2-7-2-6-3"
+           d="m -588.86172,-841.96554 -1.57446,1.57447 h -14.1702 l -1.57447,-1.57447 1.57447,-1.57446 h 14.1702 z"
+           style="display:inline;fill:#01c100;fill-opacity:1;stroke:none;stroke-width:0.704123px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/ledseg.png"
+           inkscape:export-xdpi="487.7854"
+           inkscape:export-ydpi="487.7854" />
+        <path
+           sodipodi:nodetypes="ccccccc"
+           id="path1219-2-0-0-2-3"
+           d="m -588.86172,-806.14905 -1.57446,1.57447 h -14.1702 l -1.57447,-1.57447 1.57447,-1.57446 h 14.1702 z"
+           style="display:inline;fill:#01c100;fill-opacity:1;stroke:none;stroke-width:0.704123px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/7-seg.png"
+           inkscape:export-xdpi="140.44055"
+           inkscape:export-ydpi="140.44055" />
+        <path
+           style="display:inline;fill:#01c100;fill-opacity:1;stroke:none;stroke-width:0.704123px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m -588.46809,-824.25542 -1.57447,-1.57446 v -14.1702 l 1.57447,-1.57447 1.57447,1.57447 v 14.1702 z"
+           id="path1219-93-2-9-8"
+           sodipodi:nodetypes="ccccccc"
+           inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/7-seg.png"
+           inkscape:export-xdpi="140.44055"
+           inkscape:export-ydpi="140.44055" />
+        <path
+           style="display:inline;fill:#01c100;fill-opacity:1;stroke:none;stroke-width:0.696076px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m -588.46809,-806.54266 -1.57447,-1.53865 v -13.84815 l 1.57447,-1.53872 1.57447,1.53872 v 13.84815 z"
+           id="path1219-6-3-1-0"
+           sodipodi:nodetypes="ccccccc"
+           inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/7-seg.png"
+           inkscape:export-xdpi="140.44055"
+           inkscape:export-ydpi="140.44055" />
+        <circle
+           style="fill:#01c100;fill-opacity:1;stroke:none;stroke-width:0.16181;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:0.16181, 0.16181"
+           id="path938-6-8-2-4"
+           cx="584.81775"
+           cy="-804.53455"
+           r="2.0226243"
+           transform="scale(-1,1)"
+           inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/led-dot.png"
+           inkscape:export-xdpi="142.38788"
+           inkscape:export-ydpi="142.38788" />
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-900.39911"
+       y="-799.24438"
+       id="text13476-9-4-7"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052"><tspan
+         sodipodi:role="line"
+         id="tspan13474-8-8-6"
+         x="-900.39911"
+         y="-799.24438">Spare</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-2-8-3)"
+       d="m -980,-550 h 60"
+       id="path40782-1-5-4-6-2"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/system.png"
+       inkscape:export-xdpi="114.08052"
+       inkscape:export-ydpi="114.08052" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -400,-1180 v 20"
+       id="path21047"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -380,-1180 v 20"
+       id="path21047-4"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -360,-1180 v 20"
+       id="path21047-8"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -340,-1180 v 20"
+       id="path21047-7"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -320,-1180 v 20"
+       id="path21047-0"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -520,-1160 h 10 v -20 h 20 v 20 h 20 v -20 h 10"
+       id="path21259"
+       sodipodi:nodetypes="cccccccc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-5-8-2)"
+       d="m -417,-770 h -23"
+       id="path40782-0-2-0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-497.55249"
+       y="-739.79004"
+       id="text13476-0-0-4-63-8-4-34"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-9-94-1-7-6"
+         x="-497.55249"
+         y="-739.79004">Clock</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -510,-760 h 10 v -20 h 20 v 20 h 20 v -20 h 10"
+       id="path21259-3"
+       sodipodi:nodetypes="cccccccc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -450,-1010 40,-40"
+       id="path34813"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-324.5856"
+       y="-1011.6864"
+       id="text13476-0-0-4-6-5-5"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-9-5-9-8"
+         x="-324.5856"
+         y="-1011.6864">6</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-3-1-4-8)"
+       d="m -340,-878 v 88"
+       id="path40782-7-49-9-8"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-324.22687"
+       y="-831.328"
+       id="text13476-0-0-4-6-5-5-5"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-9-5-9-8-2"
+         x="-324.22687"
+         y="-831.328">6</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -360,-990 40,-40"
+       id="path34813-2"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -360,-810 40,-40"
+       id="path34813-2-2"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-249.65054"
+       y="-1181.5168"
+       id="text13476-0-0-4-6-5-2"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-9-5-9-5"
+         x="-249.65054"
+         y="-1181.5168">6</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -270,-1150 40,-40"
+       id="path34813-3"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <g
+       id="g67654"
+       transform="translate(-140,210)"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291">
+      <text
+         xml:space="preserve"
+         style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+         x="-242.97382"
+         y="-975.14648"
+         id="text13476-0-0-21"><tspan
+           sodipodi:role="line"
+           id="tspan13474-3-7-2"
+           x="-242.97382"
+           y="-975.14648">ADDRESS</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+         x="-112.43008"
+         y="-975.23438"
+         id="text13476-0-0-21-0"><tspan
+           sodipodi:role="line"
+           id="tspan13474-3-7-2-7"
+           x="-112.43008"
+           y="-975.23438">ALU</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+         x="-140.49382"
+         y="-976.47461"
+         id="text13476-0-0-21-0-7"><tspan
+           sodipodi:role="line"
+           id="tspan13474-3-7-2-7-4"
+           x="-140.49382"
+           y="-976.47461">J</tspan></text>
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect32011-96-0-4"
+         width="320"
+         height="40"
+         x="-270"
+         y="-1000"
+         ry="0" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 10,-1000 v 40"
+         id="path21047-9"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m -70,-1000 v 40"
+         id="path21047-02"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m -130,-1000 v 40"
+         id="path21047-01"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m -150,-1000 v 40"
+         id="path21047-96"
+         sodipodi:nodetypes="cc" />
+      <text
+         xml:space="preserve"
+         style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+         x="-62.430077"
+         y="-975.14648"
+         id="text13476-0-0-21-0-0"><tspan
+           sodipodi:role="line"
+           id="tspan13474-3-7-2-7-6"
+           x="-62.430077"
+           y="-975.14648">REG CTRL</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+         x="17.027014"
+         y="-975.14648"
+         id="text13476-0-0-21-0-4"><tspan
+           sodipodi:role="line"
+           id="tspan13474-3-7-2-7-7"
+           x="17.027014"
+           y="-975.14648">BUS</tspan></text>
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Mend)"
+       d="m -280,-790 v -305 h -46"
+       id="path68249"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -200,-792 -30,-30 h 20 v -39 h 20 v 39 h 20 l -30,30"
+       id="path72464"
+       sodipodi:nodetypes="cccccccc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-524.85815"
+       y="-401.27747"
+       id="text13476-0-0-6-9"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-5-7"
+         x="-524.85815"
+         y="-401.27747">Cout</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-524.00061"
+       y="-471.65393"
+       id="text13476-0-0-2-5"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-65-9"
+         x="-524.00061"
+         y="-471.65393">Zero</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-526.21674"
+       y="-382.19922"
+       id="text13476-0-0-87-7"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-96-8"
+         x="-526.21674"
+         y="-382.19922">Over</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-522.08966"
+       y="-451.45197"
+       id="text13476-0-0-0-5"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-41-3"
+         x="-522.08966"
+         y="-451.45197">Sign</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-297.49777"
+       y="-379.86438"
+       id="text13476-0-0-0-5-56"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-41-3-4"
+         x="-297.49777"
+         y="-379.86438">A2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-428.91736"
+       y="-336.95868"
+       id="text13476-0-0-0-5-56-0"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-41-3-4-8"
+         x="-428.91736"
+         y="-336.95868">A3</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-428.86346"
+       y="-512.32526"
+       id="text13476-0-0-0-5-56-0-5"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-41-3-4-8-3"
+         x="-428.86346"
+         y="-512.32526">A3</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-157.49777"
+       y="-389.86438"
+       id="text13476-0-0-0-5-56-9"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-41-3-4-7"
+         x="-157.49777"
+         y="-389.86438">A2 Out</tspan></text>
+    <g
+       id="g33604-8"
+       transform="translate(145,660)"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291">
+      <text
+         xml:space="preserve"
+         style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+         x="-580.64447"
+         y="-1120.2344"
+         id="text13476-0-0-4-63-8-4-92-0-8"><tspan
+           sodipodi:role="line"
+           id="tspan13474-3-7-9-94-1-7-8-1-5"
+           x="-580.64447"
+           y="-1120.2344">MUX</tspan></text>
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect32011-96-0-3-8"
+         width="60"
+         height="30"
+         x="-595"
+         y="-1140" />
+    </g>
+    <g
+       id="g33604-8-8"
+       transform="translate(245,695)"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291">
+      <text
+         xml:space="preserve"
+         style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+         x="-580.64447"
+         y="-1120.2344"
+         id="text13476-0-0-4-63-8-4-92-0-8-0"><tspan
+           sodipodi:role="line"
+           id="tspan13474-3-7-9-94-1-7-8-1-5-9"
+           x="-580.64447"
+           y="-1120.2344">MUX</tspan></text>
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect32011-96-0-3-8-7"
+         width="60"
+         height="30"
+         x="-595"
+         y="-1140" />
+    </g>
+    <g
+       id="g33604-8-8-6"
+       transform="translate(345,730)"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291">
+      <text
+         xml:space="preserve"
+         style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+         x="-580.64447"
+         y="-1120.2344"
+         id="text13476-0-0-4-63-8-4-92-0-8-0-4"><tspan
+           sodipodi:role="line"
+           id="tspan13474-3-7-9-94-1-7-8-1-5-9-8"
+           x="-580.64447"
+           y="-1120.2344">MUX</tspan></text>
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect32011-96-0-3-8-7-0"
+         width="60"
+         height="30"
+         x="-595"
+         y="-1140" />
+    </g>
+    <g
+       id="g33604-4"
+       transform="translate(145,730)"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291">
+      <text
+         xml:space="preserve"
+         style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+         x="-580.64447"
+         y="-1120.2344"
+         id="text13476-0-0-4-63-8-4-92-0-3"><tspan
+           sodipodi:role="line"
+           id="tspan13474-3-7-9-94-1-7-8-1-7"
+           x="-580.64447"
+           y="-1120.2344">MUX</tspan></text>
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect32011-96-0-3-13"
+         width="60"
+         height="30"
+         x="-595"
+         y="-1140" />
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-2-8-38-9)"
+       d="m -457,-475 h -34.59125"
+       id="path40782-1-5-4-6-1"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-2-8-8-9-3)"
+       d="m -457,-455 h -34.59125"
+       id="path40782-1-5-4-6-9-9"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-454.62207"
+       y="-955.61536"
+       id="text13476-0-0-6-9-7"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-5-7-4"
+         x="-454.62207"
+         y="-955.61536">Cout</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-453.87225"
+       y="-935.43506"
+       id="text13476-0-0-2-5-1"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-65-9-7"
+         x="-453.87225"
+         y="-935.43506">Zero</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-2-8-38-9-1)"
+       d="m -387,-960 h -34.59125"
+       id="path40782-1-5-4-6-1-1"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-2-8-8-9-3-5)"
+       d="m -387,-940 h -34.59125"
+       id="path40782-1-5-4-6-9-9-1"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-2-8-0-7-4)"
+       d="m -457,-405 h -34.59125"
+       id="path40782-1-5-4-6-3-0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-2-8-3-7-7)"
+       d="m -457,-385 h -34.59125"
+       id="path40782-1-5-4-6-2-9"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-2-8-3-7-7-2)"
+       d="m -257,-385 h -23"
+       id="path40782-1-5-4-6-2-9-7"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-2-8-3-7-7-2-6)"
+       d="m -165,-395 h -23"
+       id="path40782-1-5-4-6-2-9-7-7"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-2-8-3-7-7-2-6-4)"
+       d="m -420,-487 v -23"
+       id="path40782-1-5-4-6-2-9-7-7-1"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-455.49707"
+       y="-915.47186"
+       id="text13476-0-0-87-7-0"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-96-8-8"
+         x="-455.49707"
+         y="-915.47186">Over</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-452.73596"
+       y="-896.61896"
+       id="text13476-0-0-0-5-5"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-41-3-1"
+         x="-452.73596"
+         y="-896.61896">Sign</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-2-8-0-7-4-1)"
+       d="m -387,-920 h -34.59125"
+       id="path40782-1-5-4-6-3-0-6"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-2-8-3-7-7-0)"
+       d="m -387,-900 h -34.59125"
+       id="path40782-1-5-4-6-2-9-6"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mpc.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Send)"
+       d="m -390,-465 h 15 v 25 h 18"
+       id="path92851"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Send-8)"
+       d="m -290,-430 h 15 v 25 h 18"
+       id="path92851-2"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Send-2)"
+       d="m -390,-395 h 15 v -25 h 18"
+       id="path92851-9"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-2-8-3-7-7-2-6-7)"
+       d="m -420,-373 v 23"
+       id="path40782-1-5-4-6-2-9-7-7-6"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-328.91736"
+       y="-371.95868"
+       id="text13476-0-0-0-5-56-0-1"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-41-3-4-8-5"
+         x="-328.91736"
+         y="-371.95868">A4</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-2-8-3-7-7-2-6-7-9)"
+       d="m -320,-408 v 23"
+       id="path40782-1-5-4-6-2-9-7-7-6-4"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
+       x="-228.91736"
+       y="-336.95868"
+       id="text13476-0-0-0-5-56-0-1-5"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291"><tspan
+         sodipodi:role="line"
+         id="tspan13474-3-7-41-3-4-8-5-4"
+         x="-228.91736"
+         y="-336.95868">A5</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Sstart-1-7-2-8-3-7-7-2-6-7-9-1)"
+       d="m -220,-373 v 23"
+       id="path40782-1-5-4-6-2-9-7-7-6-4-9"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/logic-simulator/src/assets/pics/mapper.png"
+       inkscape:export-xdpi="130.82291"
+       inkscape:export-ydpi="130.82291" />
   </g>
 </svg>
