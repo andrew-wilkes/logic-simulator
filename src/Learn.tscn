@@ -795,7 +795,7 @@ The entry point for each assembly language instruction is the value in the progr
 
 The ultimate challenge is to create your own computer circuit, write the Microprogram code that is loaded into the Microprogram memory, test out the circuit and code, then run your assembly language programs on your computer.
 
-Of course, it is extemely difficult to do all of this without following a tutorial, but possible. One tip is to program your own tools for compiling your code and driving the inputs with simulation data such as for a digital calculator."
+Of course, it is extremely difficult to do all of this without following a tutorial, but possible. One tip is to program your own tools for compiling your code and driving the inputs with simulation data such as for a digital calculator."
 text = "Digtal Systems
 
 Digital systems combine building blocks connected with data busses, signals, and tend to be driven with a clock.
@@ -830,7 +830,7 @@ The entry point for each assembly language instruction is the value in the progr
 
 The ultimate challenge is to create your own computer circuit, write the Microprogram code that is loaded into the Microprogram memory, test out the circuit and code, then run your assembly language programs on your computer.
 
-Of course, it is extemely difficult to do all of this without following a tutorial, but possible. One tip is to program your own tools for compiling your code and driving the inputs with simulation data such as for a digital calculator."
+Of course, it is extremely difficult to do all of this without following a tutorial, but possible. One tip is to program your own tools for compiling your code and driving the inputs with simulation data such as for a digital calculator."
 
 [node name="Home" type="Control" parent="."]
 visible = false

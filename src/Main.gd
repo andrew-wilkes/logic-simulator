@@ -271,7 +271,7 @@ func add_part(part_name: String, _button):
 
 
 func connect_part(part):
-	var _e = part.connect("gui_input", part, "check_if_clicked")
+	var _e = part.connect("gui_input", part, "mouse_action")
 	_e = part.connect("part_variant_selected", self, "add_part_to_graph")
 	_e = part.connect("output_changed", self, "update_levels")
 	_e = part.connect("unstable", self, "delete_wire")

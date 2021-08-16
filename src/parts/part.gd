@@ -16,6 +16,7 @@ var locked = false
 export var num_bytes = 2
 var is_reversible_input = false
 var is_input = false
+var mouse_sensor_scene = preload("res://parts/MouseSensor.tscn")
 
 var input_pins = []
 var output_pins = []
@@ -34,14 +35,13 @@ var type := ""
 var read = true
 var format = "0x%02X"
 var untouched = true
-
 var frame_style = preload("res://assets/GraphNodeFrameStyle.tres")
 
 func _ready():
 	set("custom_styles/frame", frame_style)
 
 
-func check_if_clicked(event):
+func mouse_action(event: InputEvent):
 	if event is InputEventMouseButton and has_tt:
 		emit_signal("part_clicked", self)
 
@@ -67,21 +67,44 @@ func set_pins():
 	var slot = 0
 	var left_port = 0
 	var right_port = 0
+	var mouse_sensor = get_node("PHOV")
 	for node in get_children():
 		if node is Control:
+			var pin_y = node.rect_position.y + node.rect_size.y / 2 - 5 - mouse_sensor.rect_position.y
 			if is_slot_enabled_left(slot):
 				var input_pin = Pin.new()
 				input_pin.slot = slot
 				input_pin.type = get_connection_input_type(left_port)
 				input_pins.append(input_pin)
+				var ms = mouse_sensor_scene.instance()
+				ms.rect_position = Vector2(-18, pin_y)
+				ms.idx = left_port
+				ms.connect("pin_entered", self, "pin_entered")
+				ms.connect("pin_exited", self, "pin_exited")
+				mouse_sensor.add_child(ms)
 				left_port += 1
 			if is_slot_enabled_right(slot):
 				var output_pin = Pin.new()
 				output_pin.slot = slot
 				output_pin.type = get_connection_output_type(right_port)
 				output_pins.append(output_pin)
+				var ms = mouse_sensor_scene.instance()
+				ms.rect_position = Vector2(rect_size.x - 24, pin_y)
+				ms.idx = right_port
+				ms.is_input_pin = false
+				ms.connect("pin_entered", self, "pin_entered")
+				ms.connect("pin_exited", self, "pin_exited")
+				mouse_sensor.add_child(ms)
 				right_port += 1
 			slot += 1
+
+
+func pin_entered(_idx, _is_input_pin):
+	pass
+
+
+func pin_exited(_idx, _is_input_pin):
+	pass
 
 
 func reset():

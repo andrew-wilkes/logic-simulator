@@ -261,9 +261,9 @@ func _on_FileDialog_file_selected(path):
 		set_view()
 		emit_signal("data_changed")
 	else:
-		var t: PoolStringArray
+		var _t: PoolStringArray
 		for v in data.words:
-			t.append(String(v))
+			_t.append(String(v))
 		file.open(path, File.WRITE)
-		file.store_string(t.join("\n"))
+		file.store_string(_t.join("\n"))
 		file.close()

@@ -123,6 +123,12 @@ slot/6/left_color = Color( 1, 1, 1, 1 )
 slot/6/right_enabled = false
 slot/6/right_type = 0
 slot/6/right_color = Color( 1, 1, 1, 1 )
+slot/7/left_enabled = false
+slot/7/left_type = 0
+slot/7/left_color = Color( 1, 1, 1, 1 )
+slot/7/right_enabled = false
+slot/7/right_type = 0
+slot/7/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 47 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -136,7 +142,7 @@ texture = ExtResource( 10 )
 margin_left = 16.0
 margin_top = 23.0
 margin_right = 127.0
-margin_bottom = 117.0
+margin_bottom = 118.0
 custom_styles/frame = ExtResource( 23 )
 title = "INPUT SW"
 slot/0/left_enabled = true
@@ -151,6 +157,12 @@ slot/1/left_color = Color( 1, 1, 1, 1 )
 slot/1/right_enabled = false
 slot/1/right_type = 0
 slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -169,11 +181,18 @@ margin_top = 64.0
 margin_right = 95.0
 margin_bottom = 88.0
 
+[node name="PHOV" type="Control" parent="Gates/INPUT/INPUTSW"]
+margin_left = 16.0
+margin_top = 89.0
+margin_right = 95.0
+margin_bottom = 89.0
+mouse_filter = 1
+
 [node name="INPUTPUSH" type="GraphNode" parent="Gates/INPUT"]
 margin_left = 16.0
-margin_top = 118.0
+margin_top = 119.0
 margin_right = 127.0
-margin_bottom = 196.0
+margin_bottom = 202.0
 custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 5
 title = "INPUT PUSH"
@@ -189,6 +208,12 @@ slot/1/left_color = Color( 1, 1, 1, 1 )
 slot/1/right_enabled = false
 slot/1/right_type = 0
 slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -208,11 +233,18 @@ margin_top = 48.0
 margin_right = 95.0
 margin_bottom = 72.0
 
+[node name="PHOV" type="Control" parent="Gates/INPUT/INPUTPUSH"]
+margin_left = 16.0
+margin_top = 77.0
+margin_right = 95.0
+margin_bottom = 77.0
+mouse_filter = 1
+
 [node name="INPUT4" type="GraphNode" parent="Gates/INPUT"]
 margin_left = 16.0
-margin_top = 197.0
+margin_top = 203.0
 margin_right = 127.0
-margin_bottom = 360.0
+margin_bottom = 372.0
 custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 6
 title = "INPUT 4"
@@ -252,6 +284,12 @@ slot/5/left_color = Color( 1, 1, 1, 1 )
 slot/5/right_enabled = false
 slot/5/right_type = 0
 slot/5/right_color = Color( 1, 1, 1, 1 )
+slot/6/left_enabled = false
+slot/6/left_type = 0
+slot/6/left_color = Color( 1, 1, 1, 1 )
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -322,11 +360,18 @@ margin_bottom = 157.0
 wait_time = 0.5
 one_shot = true
 
+[node name="PHOV" type="Control" parent="Gates/INPUT/INPUT4"]
+margin_left = 16.0
+margin_top = 163.0
+margin_right = 95.0
+margin_bottom = 163.0
+mouse_filter = 1
+
 [node name="INPUT8" type="GraphNode" parent="Gates/INPUT"]
 margin_left = 16.0
-margin_top = 361.0
+margin_top = 373.0
 margin_right = 127.0
-margin_bottom = 604.0
+margin_bottom = 622.0
 custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 6
 title = "INPUT 8"
@@ -390,6 +435,12 @@ slot/9/left_color = Color( 1, 1, 1, 1 )
 slot/9/right_enabled = false
 slot/9/right_type = 0
 slot/9/right_color = Color( 1, 1, 1, 1 )
+slot/10/left_enabled = false
+slot/10/left_type = 0
+slot/10/left_color = Color( 1, 1, 1, 1 )
+slot/10/right_enabled = false
+slot/10/right_type = 0
+slot/10/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -496,11 +547,18 @@ margin_bottom = 237.0
 wait_time = 0.5
 one_shot = true
 
+[node name="PHOV" type="Control" parent="Gates/INPUT/INPUT8"]
+margin_left = 16.0
+margin_top = 243.0
+margin_right = 95.0
+margin_bottom = 243.0
+mouse_filter = 1
+
 [node name="INPUTCLK" type="GraphNode" parent="Gates/INPUT"]
 margin_left = 16.0
-margin_top = 605.0
+margin_top = 623.0
 margin_right = 127.0
-margin_bottom = 762.0
+margin_bottom = 788.0
 custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 8
 title = "INPUT CLK"
@@ -540,6 +598,12 @@ slot/5/left_color = Color( 1, 1, 1, 1 )
 slot/5/right_enabled = true
 slot/5/right_type = 0
 slot/5/right_color = Color( 1, 1, 1, 1 )
+slot/6/left_enabled = false
+slot/6/left_type = 0
+slot/6/left_color = Color( 1, 1, 1, 1 )
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 31 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -596,11 +660,18 @@ valign = 1
 [node name="Timer" type="Timer" parent="Gates/INPUT/INPUTCLK"]
 wait_time = 0.5
 
+[node name="PHOV" type="Control" parent="Gates/INPUT/INPUTCLK"]
+margin_left = 16.0
+margin_top = 159.0
+margin_right = 95.0
+margin_bottom = 159.0
+mouse_filter = 1
+
 [node name="INPUTPIN" type="GraphNode" parent="Gates/INPUT"]
 margin_left = 16.0
-margin_top = 763.0
+margin_top = 789.0
 margin_right = 127.0
-margin_bottom = 819.0
+margin_bottom = 846.0
 custom_styles/frame = ExtResource( 23 )
 title = "INPUT PIN"
 slot/0/left_enabled = false
@@ -615,6 +686,12 @@ slot/1/left_color = Color( 1, 1, 1, 1 )
 slot/1/right_enabled = true
 slot/1/right_type = 0
 slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -634,11 +711,18 @@ margin_right = 95.0
 margin_bottom = 50.0
 text = "A"
 
+[node name="PHOV" type="Control" parent="Gates/INPUT/INPUTPIN"]
+margin_left = 16.0
+margin_top = 51.0
+margin_right = 95.0
+margin_bottom = 51.0
+mouse_filter = 1
+
 [node name="INPUTBUS" type="GraphNode" parent="Gates/INPUT"]
 margin_left = 16.0
-margin_top = 820.0
+margin_top = 847.0
 margin_right = 127.0
-margin_bottom = 876.0
+margin_bottom = 904.0
 custom_styles/frame = ExtResource( 23 )
 title = "INPUT BUS"
 slot/0/left_enabled = false
@@ -653,6 +737,12 @@ slot/1/left_color = Color( 1, 1, 1, 1 )
 slot/1/right_enabled = true
 slot/1/right_type = 1
 slot/1/right_color = Color( 0.992157, 1, 0, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -672,6 +762,23 @@ margin_right = 95.0
 margin_bottom = 50.0
 text = "A"
 
+[node name="PHOV" type="Control" parent="Gates/INPUT/INPUTBUS"]
+margin_left = 16.0
+margin_top = 51.0
+margin_right = 95.0
+margin_bottom = 51.0
+mouse_filter = 1
+
+[node name="PHOV" type="Control" parent="Gates/INPUT"]
+margin_left = 16.0
+margin_top = 905.0
+margin_right = 127.0
+margin_bottom = 905.0
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="NOT" type="GraphNode" parent="Gates"]
 margin_left = 32.0
 margin_top = 784.0
@@ -685,6 +792,12 @@ slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 0
 slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 52 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -696,6 +809,13 @@ margin_top = 23.0
 margin_right = 63.0
 margin_bottom = 53.0
 texture = ExtResource( 7 )
+
+[node name="PHOV" type="Control" parent="Gates/NOT"]
+margin_left = 16.0
+margin_top = 54.0
+margin_right = 63.0
+margin_bottom = 54.0
+mouse_filter = 1
 
 [node name="AND" type="GraphNode" parent="Gates"]
 margin_left = 32.0
@@ -723,6 +843,12 @@ slot/2/left_color = Color( 1, 1, 1, 1 )
 slot/2/right_enabled = false
 slot/2/right_type = 0
 slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 44 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -749,6 +875,13 @@ margin_right = 68.0
 margin_bottom = 89.0
 rect_min_size = Vector2( 0, 16 )
 
+[node name="PHOV" type="Control" parent="Gates/AND"]
+margin_left = 16.0
+margin_top = 90.0
+margin_right = 68.0
+margin_bottom = 90.0
+mouse_filter = 1
+
 [node name="NAND" type="GraphNode" parent="Gates"]
 margin_left = 32.0
 margin_top = 948.0
@@ -774,6 +907,12 @@ slot/2/left_color = Color( 1, 1, 1, 1 )
 slot/2/right_enabled = false
 slot/2/right_type = 0
 slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 50 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -785,6 +924,7 @@ margin_top = 23.0
 margin_right = 69.0
 margin_bottom = 39.0
 rect_min_size = Vector2( 0, 16 )
+mouse_filter = 1
 
 [node name="Icon" type="TextureRect" parent="Gates/NAND"]
 margin_left = 16.0
@@ -799,6 +939,13 @@ margin_top = 73.0
 margin_right = 69.0
 margin_bottom = 89.0
 rect_min_size = Vector2( 0, 16 )
+
+[node name="PHOV" type="Control" parent="Gates/NAND"]
+margin_left = 16.0
+margin_top = 90.0
+margin_right = 69.0
+margin_bottom = 90.0
+mouse_filter = 1
 
 [node name="OR" type="GraphNode" parent="Gates"]
 margin_left = 32.0
@@ -825,6 +972,12 @@ slot/2/left_color = Color( 1, 1, 1, 1 )
 slot/2/right_enabled = false
 slot/2/right_type = 0
 slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 53 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -851,6 +1004,13 @@ margin_right = 68.0
 margin_bottom = 89.0
 rect_min_size = Vector2( 0, 16 )
 
+[node name="PHOV" type="Control" parent="Gates/OR"]
+margin_left = 16.0
+margin_top = 90.0
+margin_right = 68.0
+margin_bottom = 90.0
+mouse_filter = 1
+
 [node name="NOR" type="GraphNode" parent="Gates"]
 margin_left = 32.0
 margin_top = 1148.0
@@ -876,6 +1036,12 @@ slot/2/left_color = Color( 1, 1, 1, 1 )
 slot/2/right_enabled = false
 slot/2/right_type = 0
 slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 51 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -902,6 +1068,13 @@ margin_right = 68.0
 margin_bottom = 89.0
 rect_min_size = Vector2( 0, 16 )
 
+[node name="PHOV" type="Control" parent="Gates/NOR"]
+margin_left = 16.0
+margin_top = 90.0
+margin_right = 68.0
+margin_bottom = 90.0
+mouse_filter = 1
+
 [node name="XOR" type="GraphNode" parent="Gates"]
 margin_left = 32.0
 margin_top = 1248.0
@@ -927,6 +1100,12 @@ slot/2/left_color = Color( 1, 1, 1, 1 )
 slot/2/right_enabled = false
 slot/2/right_type = 0
 slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 57 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -952,6 +1131,13 @@ margin_top = 73.0
 margin_right = 68.0
 margin_bottom = 89.0
 rect_min_size = Vector2( 0, 16 )
+
+[node name="PHOV" type="Control" parent="Gates/XOR"]
+margin_left = 16.0
+margin_top = 90.0
+margin_right = 68.0
+margin_bottom = 90.0
+mouse_filter = 1
 
 [node name="OUTPUT" type="GraphNode" parent="Gates"]
 margin_top = 1354.0
@@ -989,6 +1175,12 @@ slot/4/left_color = Color( 1, 1, 1, 1 )
 slot/4/right_enabled = false
 slot/4/right_type = 0
 slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 47 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1003,7 +1195,7 @@ texture = ExtResource( 11 )
 margin_left = 16.0
 margin_top = 23.0
 margin_right = 131.0
-margin_bottom = 101.0
+margin_bottom = 102.0
 custom_styles/frame = ExtResource( 23 )
 title = "OUTPUT 1"
 slot/0/left_enabled = true
@@ -1018,6 +1210,12 @@ slot/1/left_color = Color( 1, 1, 1, 1 )
 slot/1/right_enabled = false
 slot/1/right_type = 0
 slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 65 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1041,11 +1239,18 @@ margin_top = 48.0
 margin_right = 99.0
 margin_bottom = 72.0
 
+[node name="PHOV" type="Control" parent="Gates/OUTPUT/OUTPUT1"]
+margin_left = 16.0
+margin_top = 73.0
+margin_right = 99.0
+margin_bottom = 73.0
+mouse_filter = 1
+
 [node name="OUTPUT4" type="GraphNode" parent="Gates/OUTPUT"]
 margin_left = 16.0
-margin_top = 102.0
+margin_top = 103.0
 margin_right = 131.0
-margin_bottom = 265.0
+margin_bottom = 272.0
 custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 6
 title = "OUTPUT 4"
@@ -1085,6 +1290,12 @@ slot/5/left_color = Color( 1, 1, 1, 1 )
 slot/5/right_enabled = false
 slot/5/right_type = 0
 slot/5/right_color = Color( 1, 1, 1, 1 )
+slot/6/left_enabled = false
+slot/6/left_type = 0
+slot/6/left_color = Color( 1, 1, 1, 1 )
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 67 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1137,11 +1348,18 @@ margin_top = 133.0
 margin_right = 99.0
 margin_bottom = 157.0
 
+[node name="PHOV" type="Control" parent="Gates/OUTPUT/OUTPUT4"]
+margin_left = 16.0
+margin_top = 163.0
+margin_right = 99.0
+margin_bottom = 163.0
+mouse_filter = 1
+
 [node name="OUTPUT8" type="GraphNode" parent="Gates/OUTPUT"]
 margin_left = 16.0
-margin_top = 266.0
+margin_top = 273.0
 margin_right = 131.0
-margin_bottom = 509.0
+margin_bottom = 522.0
 custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 6
 title = "OUTPUT 8"
@@ -1205,6 +1423,12 @@ slot/9/left_color = Color( 1, 1, 1, 1 )
 slot/9/right_enabled = false
 slot/9/right_type = 0
 slot/9/right_color = Color( 1, 1, 1, 1 )
+slot/10/left_enabled = false
+slot/10/left_type = 0
+slot/10/left_color = Color( 1, 1, 1, 1 )
+slot/10/right_enabled = false
+slot/10/right_type = 0
+slot/10/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 67 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1289,11 +1513,18 @@ margin_top = 213.0
 margin_right = 99.0
 margin_bottom = 237.0
 
+[node name="PHOV" type="Control" parent="Gates/OUTPUT/OUTPUT8"]
+margin_left = 16.0
+margin_top = 243.0
+margin_right = 99.0
+margin_bottom = 243.0
+mouse_filter = 1
+
 [node name="OUTPUTPIN" type="GraphNode" parent="Gates/OUTPUT"]
 margin_left = 16.0
-margin_top = 510.0
+margin_top = 523.0
 margin_right = 131.0
-margin_bottom = 566.0
+margin_bottom = 580.0
 mouse_filter = 1
 custom_styles/frame = ExtResource( 23 )
 title = "OUTPUT PIN"
@@ -1309,6 +1540,12 @@ slot/1/left_color = Color( 1, 1, 1, 1 )
 slot/1/right_enabled = false
 slot/1/right_type = 0
 slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1330,11 +1567,18 @@ margin_bottom = 50.0
 mouse_filter = 1
 text = "Q"
 
+[node name="PHOV" type="Control" parent="Gates/OUTPUT/OUTPUTPIN"]
+margin_left = 16.0
+margin_top = 51.0
+margin_right = 99.0
+margin_bottom = 51.0
+mouse_filter = 1
+
 [node name="OUTPUTBUS" type="GraphNode" parent="Gates/OUTPUT"]
 margin_left = 16.0
-margin_top = 567.0
+margin_top = 581.0
 margin_right = 131.0
-margin_bottom = 623.0
+margin_bottom = 638.0
 mouse_filter = 1
 custom_styles/frame = ExtResource( 23 )
 title = "OUTPUT BUS"
@@ -1350,6 +1594,12 @@ slot/1/left_color = Color( 1, 1, 0, 1 )
 slot/1/right_enabled = false
 slot/1/right_type = 0
 slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1371,6 +1621,20 @@ margin_bottom = 50.0
 mouse_filter = 1
 text = "Q"
 
+[node name="PHOV" type="Control" parent="Gates/OUTPUT/OUTPUTBUS"]
+margin_left = 16.0
+margin_top = 51.0
+margin_right = 99.0
+margin_bottom = 51.0
+mouse_filter = 1
+
+[node name="PHOV" type="Control" parent="Gates/OUTPUT"]
+margin_left = 16.0
+margin_top = 639.0
+margin_right = 131.0
+margin_bottom = 639.0
+mouse_filter = 1
+
 [node name="MISC" type="VBoxContainer" parent="."]
 margin_left = 143.643
 margin_top = 9.89949
@@ -1382,7 +1646,7 @@ __meta__ = {
 
 [node name="INBUS8" type="GraphNode" parent="MISC"]
 margin_right = 125.0
-margin_bottom = 70.0
+margin_bottom = 71.0
 title = "INBUS 8"
 slot/0/left_enabled = true
 slot/0/left_type = 1
@@ -1390,6 +1654,12 @@ slot/0/left_color = Color( 1, 1, 0, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 1
 slot/0/right_color = Color( 1, 1, 0, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 59 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1411,10 +1681,17 @@ __meta__ = {
 visible = false
 texture = ExtResource( 64 )
 
+[node name="PHOV" type="Control" parent="MISC/INBUS8"]
+margin_left = 16.0
+margin_top = 65.0
+margin_right = 109.0
+margin_bottom = 65.0
+mouse_filter = 1
+
 [node name="INBUS16" type="GraphNode" parent="MISC"]
-margin_top = 74.0
+margin_top = 75.0
 margin_right = 125.0
-margin_bottom = 144.0
+margin_bottom = 146.0
 title = "INBUS 16"
 slot/0/left_enabled = true
 slot/0/left_type = 1
@@ -1422,6 +1699,12 @@ slot/0/left_color = Color( 1, 1, 0, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 1
 slot/0/right_color = Color( 1, 1, 0, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 59 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1444,10 +1727,17 @@ __meta__ = {
 visible = false
 texture = ExtResource( 13 )
 
+[node name="PHOV" type="Control" parent="MISC/INBUS16"]
+margin_left = 16.0
+margin_top = 65.0
+margin_right = 109.0
+margin_bottom = 65.0
+mouse_filter = 1
+
 [node name="BUSMUX" type="GraphNode" parent="MISC"]
-margin_top = 148.0
+margin_top = 150.0
 margin_right = 125.0
-margin_bottom = 352.0
+margin_bottom = 355.0
 title = "BUS MUX"
 slot/0/left_enabled = true
 slot/0/left_type = 1
@@ -1491,6 +1781,12 @@ slot/6/left_color = Color( 1, 1, 1, 1 )
 slot/6/right_enabled = false
 slot/6/right_type = 0
 slot/6/right_color = Color( 1, 1, 1, 1 )
+slot/7/left_enabled = false
+slot/7/left_type = 0
+slot/7/left_color = Color( 1, 1, 1, 1 )
+slot/7/right_enabled = false
+slot/7/right_type = 0
+slot/7/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 60 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1603,10 +1899,17 @@ __meta__ = {
 visible = false
 texture = ExtResource( 37 )
 
+[node name="PHOV" type="Control" parent="MISC/BUSMUX"]
+margin_left = 16.0
+margin_top = 199.0
+margin_right = 109.0
+margin_bottom = 199.0
+mouse_filter = 1
+
 [node name="BUS1" type="GraphNode" parent="MISC"]
-margin_top = 356.0
+margin_top = 359.0
 margin_right = 125.0
-margin_bottom = 447.0
+margin_bottom = 451.0
 title = "BUS"
 slot/0/left_enabled = true
 slot/0/left_type = 1
@@ -1620,6 +1923,12 @@ slot/1/left_color = Color( 1, 1, 1, 1 )
 slot/1/right_enabled = false
 slot/1/right_type = 0
 slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1648,10 +1957,17 @@ margin_right = 91.0
 margin_bottom = 85.0
 text = "Format"
 
+[node name="PHOV" type="Control" parent="MISC/BUS1"]
+margin_left = 16.0
+margin_top = 86.0
+margin_right = 109.0
+margin_bottom = 86.0
+mouse_filter = 1
+
 [node name="LOOPBUS" type="GraphNode" parent="MISC"]
-margin_top = 451.0
+margin_top = 455.0
 margin_right = 125.0
-margin_bottom = 546.0
+margin_bottom = 551.0
 title = "LOOP BACK"
 slot/0/left_enabled = true
 slot/0/left_type = 1
@@ -1665,6 +1981,12 @@ slot/1/left_color = Color( 1, 1, 0, 1 )
 slot/1/right_enabled = true
 slot/1/right_type = 1
 slot/1/right_color = Color( 1, 1, 0, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 63 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1693,10 +2015,17 @@ margin_right = 109.0
 margin_bottom = 89.0
 rect_min_size = Vector2( 0, 24 )
 
+[node name="PHOV" type="Control" parent="MISC/LOOPBUS"]
+margin_left = 16.0
+margin_top = 90.0
+margin_right = 109.0
+margin_bottom = 90.0
+mouse_filter = 1
+
 [node name="OUTBUS8" type="GraphNode" parent="MISC"]
-margin_top = 550.0
+margin_top = 555.0
 margin_right = 125.0
-margin_bottom = 620.0
+margin_bottom = 626.0
 title = "OUTBUS 8"
 slot/0/left_enabled = true
 slot/0/left_type = 1
@@ -1704,6 +2033,12 @@ slot/0/left_color = Color( 1, 1, 0, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 1
 slot/0/right_color = Color( 1, 1, 0, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 62 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1725,10 +2060,17 @@ __meta__ = {
 visible = false
 texture = ExtResource( 66 )
 
+[node name="PHOV" type="Control" parent="MISC/OUTBUS8"]
+margin_left = 16.0
+margin_top = 65.0
+margin_right = 109.0
+margin_bottom = 65.0
+mouse_filter = 1
+
 [node name="OUTBUS16" type="GraphNode" parent="MISC"]
-margin_top = 624.0
+margin_top = 630.0
 margin_right = 125.0
-margin_bottom = 694.0
+margin_bottom = 701.0
 title = "OUTBUS 16"
 slot/0/left_enabled = true
 slot/0/left_type = 1
@@ -1736,6 +2078,12 @@ slot/0/left_color = Color( 1, 1, 0, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 1
 slot/0/right_color = Color( 1, 1, 0, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 62 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1757,6 +2105,13 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="MISC/OUTBUS16"]
 visible = false
 texture = ExtResource( 14 )
+
+[node name="PHOV" type="Control" parent="MISC/OUTBUS16"]
+margin_left = 16.0
+margin_top = 65.0
+margin_right = 109.0
+margin_bottom = 65.0
+mouse_filter = 1
 
 [node name="Combinational" type="Control" parent="."]
 margin_left = 284.236
@@ -1790,6 +2145,12 @@ slot/2/left_color = Color( 1, 1, 1, 1 )
 slot/2/right_enabled = false
 slot/2/right_type = 0
 slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 49 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1840,6 +2201,13 @@ rect_min_size = Vector2( 0, 24 )
 text = "Select"
 valign = 1
 
+[node name="PHOV" type="Control" parent="Combinational/MULT"]
+margin_left = 16.0
+margin_top = 98.0
+margin_right = 102.0
+margin_bottom = 98.0
+mouse_filter = 1
+
 [node name="SRFLIPFLOP" type="GraphNode" parent="Combinational"]
 margin_left = 141.0
 margin_top = 7.0
@@ -1859,6 +2227,12 @@ slot/1/left_color = Color( 1, 1, 1, 1 )
 slot/1/right_enabled = true
 slot/1/right_type = 0
 slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 56 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1914,6 +2288,13 @@ text = "/Q"
 align = 2
 valign = 1
 
+[node name="PHOV" type="Control" parent="Combinational/SRFLIPFLOP"]
+margin_left = 16.0
+margin_top = 73.0
+margin_right = 100.0
+margin_bottom = 73.0
+mouse_filter = 1
+
 [node name="DLATCH" type="GraphNode" parent="Combinational"]
 margin_left = 3.0
 margin_top = 117.0
@@ -1933,6 +2314,12 @@ slot/1/left_color = Color( 1, 1, 1, 1 )
 slot/1/right_enabled = true
 slot/1/right_type = 0
 slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 42 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1988,6 +2375,13 @@ text = "/Q"
 align = 2
 valign = 1
 
+[node name="PHOV" type="Control" parent="Combinational/DLATCH"]
+margin_left = 16.0
+margin_top = 73.0
+margin_right = 100.0
+margin_bottom = 73.0
+mouse_filter = 1
+
 [node name="DFLIPFLOP" type="GraphNode" parent="Combinational"]
 margin_left = 11.4142
 margin_top = 218.617
@@ -2019,6 +2413,12 @@ slot/3/left_color = Color( 1, 1, 1, 1 )
 slot/3/right_enabled = false
 slot/3/right_type = 0
 slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 38 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2078,6 +2478,13 @@ rect_min_size = Vector2( 0, 24 )
 text = "R"
 valign = 1
 
+[node name="PHOV" type="Control" parent="Combinational/DFLIPFLOP"]
+margin_left = 16.0
+margin_top = 123.0
+margin_right = 95.0
+margin_bottom = 123.0
+mouse_filter = 1
+
 [node name="JKFLIPFLOP" type="GraphNode" parent="Combinational"]
 margin_left = 307.0
 margin_top = 99.0
@@ -2103,6 +2510,12 @@ slot/2/left_color = Color( 1, 1, 1, 1 )
 slot/2/right_enabled = true
 slot/2/right_type = 0
 slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 48 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2167,6 +2580,13 @@ text = "/Q"
 align = 2
 valign = 1
 
+[node name="PHOV" type="Control" parent="Combinational/JKFLIPFLOP"]
+margin_left = 16.0
+margin_top = 98.0
+margin_right = 96.0
+margin_bottom = 98.0
+mouse_filter = 1
+
 [node name="ADDER" type="GraphNode" parent="Combinational"]
 margin_left = 142.828
 margin_top = 114.534
@@ -2192,6 +2612,12 @@ slot/2/left_color = Color( 1, 1, 1, 1 )
 slot/2/right_enabled = true
 slot/2/right_type = 0
 slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 46 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2256,6 +2682,13 @@ text = "Cout"
 align = 2
 valign = 1
 
+[node name="PHOV" type="Control" parent="Combinational/ADDER"]
+margin_left = 16.0
+margin_top = 98.0
+margin_right = 95.0
+margin_bottom = 98.0
+mouse_filter = 1
+
 [node name="DECODER" type="GraphNode" parent="Combinational"]
 margin_left = -19.799
 margin_top = 569.159
@@ -2292,6 +2725,12 @@ slot/4/left_color = Color( 1, 1, 1, 1 )
 slot/4/right_enabled = true
 slot/4/right_type = 0
 slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2419,6 +2858,13 @@ valign = 1
 wait_time = 2.0
 one_shot = true
 
+[node name="PHOV" type="Control" parent="Combinational/DECODER"]
+margin_left = 16.0
+margin_top = 149.0
+margin_right = 116.0
+margin_bottom = 149.0
+mouse_filter = 1
+
 [node name="SEG7" type="GraphNode" parent="Combinational"]
 margin_left = 5.65686
 margin_top = 408.558
@@ -2461,6 +2907,12 @@ slot/5/left_color = Color( 1, 1, 1, 1 )
 slot/5/right_enabled = false
 slot/5/right_type = 0
 slot/5/right_color = Color( 1, 1, 1, 1 )
+slot/6/left_enabled = false
+slot/6/left_type = 0
+slot/6/left_color = Color( 1, 1, 1, 1 )
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2560,6 +3012,13 @@ rect_min_size = Vector2( 0, 24 )
 text = "A3"
 valign = 1
 
+[node name="PHOV" type="Control" parent="Combinational/SEG7"]
+margin_left = 16.0
+margin_top = 146.0
+margin_right = 88.0
+margin_bottom = 146.0
+mouse_filter = 1
+
 [node name="Blocks" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -2607,6 +3066,12 @@ slot/5/left_color = Color( 1, 1, 1, 1 )
 slot/5/right_enabled = false
 slot/5/right_type = 0
 slot/5/right_color = Color( 1, 1, 1, 1 )
+slot/6/left_enabled = false
+slot/6/left_type = 0
+slot/6/left_color = Color( 1, 1, 1, 1 )
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 54 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2682,6 +3147,13 @@ margin_top = 148.0
 margin_right = 75.0
 margin_bottom = 172.0
 
+[node name="PHOV" type="Control" parent="Blocks/REG"]
+margin_left = 16.0
+margin_top = 173.0
+margin_right = 75.0
+margin_bottom = 173.0
+mouse_filter = 1
+
 [node name="COUNTER" type="GraphNode" parent="Blocks"]
 margin_left = 466.871
 margin_top = 456.006
@@ -2725,6 +3197,12 @@ slot/5/left_color = Color( 1, 1, 1, 1 )
 slot/5/right_enabled = false
 slot/5/right_type = 0
 slot/5/right_color = Color( 1, 1, 1, 1 )
+slot/6/left_enabled = false
+slot/6/left_type = 0
+slot/6/left_color = Color( 1, 1, 1, 1 )
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 43 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2803,11 +3281,18 @@ rect_min_size = Vector2( 0, 24 )
 text = "R"
 valign = 1
 
+[node name="PHOV" type="Control" parent="Blocks/COUNTER"]
+margin_left = 16.0
+margin_top = 173.0
+margin_right = 77.0
+margin_bottom = 173.0
+mouse_filter = 1
+
 [node name="SHIFTREG" type="GraphNode" parent="Blocks"]
-margin_left = 466.871
-margin_top = 456.006
-margin_right = 559.871
-margin_bottom = 634.006
+margin_left = 589.908
+margin_top = 446.107
+margin_right = 686.908
+margin_bottom = 650.107
 custom_styles/frame = ExtResource( 23 )
 title = "SHIFT REG"
 slot/0/left_enabled = true
@@ -2852,6 +3337,12 @@ slot/6/left_color = Color( 1, 1, 1, 1 )
 slot/6/right_enabled = false
 slot/6/right_type = 0
 slot/6/right_color = Color( 1, 1, 1, 1 )
+slot/7/left_enabled = false
+slot/7/left_type = 0
+slot/7/left_color = Color( 1, 1, 1, 1 )
+slot/7/right_enabled = false
+slot/7/right_type = 0
+slot/7/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 55 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2950,11 +3441,18 @@ rect_min_size = Vector2( 0, 24 )
 text = "R"
 valign = 1
 
+[node name="PHOV" type="Control" parent="Blocks/SHIFTREG"]
+margin_left = 16.0
+margin_top = 198.0
+margin_right = 81.0
+margin_bottom = 198.0
+mouse_filter = 1
+
 [node name="ALU" type="GraphNode" parent="Blocks"]
-margin_left = 465.536
-margin_top = 456.006
-margin_right = 567.536
-margin_bottom = 659.006
+margin_left = 771.006
+margin_top = 439.035
+margin_right = 873.006
+margin_bottom = 643.035
 custom_styles/frame = ExtResource( 23 )
 title = "ALU"
 slot/0/left_enabled = true
@@ -2999,6 +3497,12 @@ slot/6/left_color = Color( 1, 1, 1, 1 )
 slot/6/right_enabled = true
 slot/6/right_type = 0
 slot/6/right_color = Color( 1, 1, 1, 1 )
+slot/7/left_enabled = false
+slot/7/left_type = 0
+slot/7/left_color = Color( 1, 1, 1, 1 )
+slot/7/right_enabled = false
+slot/7/right_type = 0
+slot/7/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 45 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3140,6 +3644,13 @@ text = "Sign"
 align = 2
 valign = 1
 
+[node name="PHOV" type="Control" parent="Blocks/ALU"]
+margin_left = 16.0
+margin_top = 198.0
+margin_right = 86.0
+margin_bottom = 198.0
+mouse_filter = 1
+
 [node name="ROM" type="GraphNode" parent="Blocks"]
 margin_left = 467.0
 margin_top = 673.335
@@ -3177,6 +3688,12 @@ slot/4/left_color = Color( 1, 1, 1, 1 )
 slot/4/right_enabled = false
 slot/4/right_type = 0
 slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 58 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3242,6 +3759,13 @@ margin_top = 119.0
 margin_right = 626.0
 margin_bottom = 429.0
 
+[node name="PHOV" type="Control" parent="Blocks/ROM"]
+margin_left = 16.0
+margin_top = 430.0
+margin_right = 626.0
+margin_bottom = 430.0
+mouse_filter = 1
+
 [node name="RAM" type="GraphNode" parent="Blocks"]
 margin_left = 467.0
 margin_top = 673.335
@@ -3285,6 +3809,12 @@ slot/5/left_color = Color( 1, 1, 1, 1 )
 slot/5/right_enabled = false
 slot/5/right_type = 0
 slot/5/right_color = Color( 1, 1, 1, 1 )
+slot/6/left_enabled = false
+slot/6/left_type = 0
+slot/6/left_color = Color( 1, 1, 1, 1 )
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 61 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3370,6 +3900,13 @@ margin_left = 16.0
 margin_top = 148.0
 margin_right = 626.0
 margin_bottom = 458.0
+
+[node name="PHOV" type="Control" parent="Blocks/RAM"]
+margin_left = 16.0
+margin_top = 459.0
+margin_right = 626.0
+margin_bottom = 459.0
+mouse_filter = 1
 
 [node name="Gizmos" type="VBoxContainer" parent="."]
 margin_left = 417.692
