@@ -1,4 +1,4 @@
-tool
+#tool
 extends Control
 
 #export var run_tool = true setget add_mouse_sensor

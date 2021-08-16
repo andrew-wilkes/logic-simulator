@@ -274,6 +274,8 @@ func connect_part(part):
 	var _e = part.connect("gui_input", part, "mouse_action")
 	_e = part.connect("mouse_entered", part, "part_entered")
 	_e = part.connect("mouse_exited", part, "part_exited")
+	_e = part.connect("part_entered", self, "highlight_connected_pins")
+	_e = part.connect("part_exited", self, "unhighlight_connected_pins")
 	_e = part.connect("part_variant_selected", self, "add_part_to_graph")
 	_e = part.connect("output_changed", self, "update_levels")
 	_e = part.connect("unstable", self, "delete_wire")
@@ -313,6 +315,32 @@ func remove_connections_to_node(node):
 	for con in $Graph.get_connection_list():
 		if con.to == node.name or con.from == node.name:
 			$Graph.disconnect_node(con.from, con.from_port, con.to, con.to_port)
+
+
+func highlight_connected_pins(node):
+	for con in $Graph.get_connection_list():
+		if con.to == node.name:
+			var _pin = $Graph.get_node(con.from).set_pin_color(con.from_port, false, Color.orange)
+			_pin = node.set_pin_color(con.to_port, true, Color.orange)
+		var source_output_pin_not_set = true
+		if con.from == node.name:
+			var _pin = $Graph.get_node(con.to).set_pin_color(con.to_port, true, Color.orange)
+			if source_output_pin_not_set:
+				_pin = node.set_pin_color(con.from_port, false, Color.orange)
+			source_output_pin_not_set = false
+
+
+func unhighlight_connected_pins(node):
+	for con in $Graph.get_connection_list():
+		if con.to == node.name:
+			var _pin = $Graph.get_node(con.from).reset_pin_color(con.from_port, false)
+			_pin = node.reset_pin_color(con.to_port, true)
+		var source_output_pin_not_reset = true
+		if con.from == node.name:
+			var _pin = $Graph.get_node(con.to).reset_pin_color(con.to_port, true)
+			if source_output_pin_not_reset:
+				_pin = node.reset_pin_color(con.from_port, false)
+			source_output_pin_not_reset = false
 
 
 func _on_Graph_connection_request(from, from_slot, to, to_slot):

@@ -8,6 +8,8 @@ signal unstable(node, port, reverse)
 signal part_variant_selected(part, pos)
 signal part_clicked(part)
 signal data_changed
+signal part_entered(part)
+signal part_exited(part)
 
 const RACE_TRIGGER_COUNT = 4
 
@@ -85,17 +87,19 @@ func set_pins():
 
 
 func part_entered():
-	for idx in input_pins.size():
-		var _pin = set_pin_color(idx, true, Color.orange)
-	for idx in output_pins.size():
-		var _pin = set_pin_color(idx, false, Color.orange)
+	#for idx in input_pins.size():
+	#	var _pin = set_pin_color(idx, true, Color.orange)
+	#for idx in output_pins.size():
+	#	var _pin = set_pin_color(idx, false, Color.orange)
+	emit_signal("part_entered", self)
 
 
 func part_exited():
-	for idx in input_pins.size():
-		reset_pin_color(idx, true)
-	for idx in output_pins.size():
-		reset_pin_color(idx, false)
+	#for idx in input_pins.size():
+	#	reset_pin_color(idx, true)
+	#for idx in output_pins.size():
+	#	reset_pin_color(idx, false)
+	emit_signal("part_exited", self)
 
 
 func reset_pin_color(port, is_input_pin):
