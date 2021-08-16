@@ -67,43 +67,38 @@ func set_pins():
 	var slot = 0
 	var left_port = 0
 	var right_port = 0
-	var mouse_sensor = get_node("PHOV")
 	for node in get_children():
 		if node is Control:
-			var pin_y = node.rect_position.y + node.rect_size.y / 2 - 5 - mouse_sensor.rect_position.y
 			if is_slot_enabled_left(slot):
 				var input_pin = Pin.new()
 				input_pin.slot = slot
 				input_pin.type = get_connection_input_type(left_port)
 				input_pins.append(input_pin)
-				var ms = mouse_sensor_scene.instance()
-				ms.rect_position = Vector2(-18, pin_y)
-				ms.idx = left_port
-				ms.connect("pin_entered", self, "pin_entered")
-				ms.connect("pin_exited", self, "pin_exited")
-				mouse_sensor.add_child(ms)
 				left_port += 1
 			if is_slot_enabled_right(slot):
 				var output_pin = Pin.new()
 				output_pin.slot = slot
 				output_pin.type = get_connection_output_type(right_port)
 				output_pins.append(output_pin)
-				var ms = mouse_sensor_scene.instance()
-				ms.rect_position = Vector2(rect_size.x - 24, pin_y)
-				ms.idx = right_port
-				ms.is_input_pin = false
-				ms.connect("pin_entered", self, "pin_entered")
-				ms.connect("pin_exited", self, "pin_exited")
-				mouse_sensor.add_child(ms)
 				right_port += 1
 			slot += 1
 
 
-func pin_entered(port, is_input_pin):
-	var _pin = set_pin_color(port, is_input_pin, Color.orange)
+func part_entered():
+	for idx in input_pins.size():
+		var _pin = set_pin_color(idx, true, Color.orange)
+	for idx in output_pins.size():
+		var _pin = set_pin_color(idx, false, Color.orange)
 
 
-func pin_exited(port, is_input_pin):
+func part_exited():
+	for idx in input_pins.size():
+		reset_pin_color(idx, true)
+	for idx in output_pins.size():
+		reset_pin_color(idx, false)
+
+
+func reset_pin_color(port, is_input_pin):
 	var level
 	if is_input_pin:
 		level = input_pins[port].level
