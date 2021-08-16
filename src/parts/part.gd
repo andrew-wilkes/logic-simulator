@@ -99,12 +99,18 @@ func set_pins():
 			slot += 1
 
 
-func pin_entered(_idx, _is_input_pin):
-	pass
+func pin_entered(port, is_input_pin):
+	var _pin = set_pin_color(port, is_input_pin, Color.orange)
 
 
-func pin_exited(_idx, _is_input_pin):
-	pass
+func pin_exited(port, is_input_pin):
+	var level
+	if is_input_pin:
+		level = input_pins[port].level
+	else:
+		level = output_pins[port].level
+	var col = Color.red if level else Color.blue
+	var _pin = set_pin_color(port, is_input_pin, col)
 
 
 func reset():
@@ -159,23 +165,26 @@ func preset_input(level: bool, port: int):
 
 func set_input(level: bool, port: int, reverse = false):
 	var col = Color.red if level else Color.blue
-	if reverse:
-		set("slot/%d/right_color" % output_pins[port].slot, col)
-	else:
-		set("slot/%d/left_color" % input_pins[port].slot, col)
+	var _pin = set_pin_color(port, not reverse, col)
 
 
 func set_output(level: bool, port: int, reverse := false):
 	var col = Color.red if level else Color.blue
-	var pin = output_pins[port]
-	if reverse:
-		pin = input_pins[port]
-		set("slot/%d/left_color" % pin.slot, col)
-	else:
-		set("slot/%d/right_color" % pin.slot, col)
+	var pin = set_pin_color(port, reverse, col)
 	pin.level = level
 	pin.count += 1
 	emit_signal("output_changed", self, port, level, reverse)
+
+
+func set_pin_color(port: int, left_pin: bool, col: Color):
+	var pin
+	if left_pin:
+		pin = input_pins[port]
+		set("slot/%d/left_color" % pin.slot, col)
+	else:
+		pin = output_pins[port]
+		set("slot/%d/right_color" % pin.slot, col)
+	return pin
 
 
 func set_data(d):
