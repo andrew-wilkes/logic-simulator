@@ -87,18 +87,10 @@ func set_pins():
 
 
 func part_entered():
-	#for idx in input_pins.size():
-	#	var _pin = set_pin_color(idx, true, Color.orange)
-	#for idx in output_pins.size():
-	#	var _pin = set_pin_color(idx, false, Color.orange)
 	emit_signal("part_entered", self)
 
 
 func part_exited():
-	#for idx in input_pins.size():
-	#	reset_pin_color(idx, true)
-	#for idx in output_pins.size():
-	#	reset_pin_color(idx, false)
 	emit_signal("part_exited", self)
 
 
