@@ -560,10 +560,10 @@ func load_data():
 
 
 func init_graph(circuit: Circuit):
-	#var block = block_scene.instance()
-	#block.add_pins(circuit, file_name)
-	#$Graph.add_child(block, true)
-	#return
+	var block = block_scene.instance()
+	$Graph.add_child(block, true)
+	block.add_pins(circuit, file_name)
+	return
 	clear_graph()
 	$Graph.zoom = circuit.zoom
 	$Graph.snap_distance = circuit.snap_distance

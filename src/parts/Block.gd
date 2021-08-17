@@ -13,28 +13,24 @@ func add_pins(circuit: Circuit, file_name):
 	for node in circuit.nodes:
 		match node.type:
 			"INPUTPIN":
+				inputs_to_add.append([0, node])
 				add_slot()
-				inputs_to_add.append([0, node.name])
 			"INPUTBUS":
+				inputs_to_add.append([1, node])
 				add_slot()
-				inputs_to_add.append([1, node.name])
 			"OUTPUTPIN":
+				outputs_to_add.append([0, node])
 				add_slot()
-				outputs_to_add.append([0, node.name])
 			"OUTPUTBUS":
+				outputs_to_add.append([1, node])
 				add_slot()
-				outputs_to_add.append([1, node.name])
 	configure_slots()
 
 
 func add_slot():
 	if num_slots < inputs_to_add.size() or num_slots < outputs_to_add.size():
-		var slot
 		if num_slots > 0:
-			slot = $HBox.duplicate()
-		else:
-			slot = $HBox
-		add_child(slot) # Create a new slot
+			add_child($HBox.duplicate()) # Create a new slot
 		num_slots += 1
 
 
@@ -50,15 +46,22 @@ func configure_slots():
 		if idx < inputs_to_add.size():
 			enable_left = true
 			type_left = inputs_to_add[idx][0]
-			col_left = Color.red
-			$HBox/Left.text = inputs_to_add[idx][1]
+			if type_left == 0:
+				col_left = Color.white
+			else:
+				col_left = Color.yellow
+			get_child(idx).get_child(0).text = inputs_to_add[idx][1].data.tag
 		else:
 			enable_left = false
 		if idx < outputs_to_add.size():
 			enable_right = true
 			type_right = outputs_to_add[idx][0]
-			col_right = Color.red
-			$HBox/Right.text = inputs_to_add[idx][1]
+			if type_right == 0:
+				col_right = Color.white
+			else:
+				col_right = Color.yellow
+			get_child(idx).get_child(2).text = outputs_to_add[idx][1].data.tag
 		else:
 			enable_right = false
 		set_slot(idx, enable_left, type_left, col_left, enable_right, type_right, col_right)
+		idx += 1

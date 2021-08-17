@@ -19,16 +19,24 @@ __meta__ = {
 [node name="HBox" type="HBoxContainer" parent="."]
 margin_left = 16.0
 margin_top = 24.0
-margin_right = 20.0
-margin_bottom = 38.0
+margin_right = 44.0
+margin_bottom = 48.0
 
 [node name="Left" type="Label" parent="HBox"]
-margin_bottom = 14.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
 valign = 1
 
-[node name="Right" type="Label" parent="HBox"]
+[node name="Spacer" type="Control" parent="HBox"]
 margin_left = 4.0
-margin_right = 4.0
-margin_bottom = 14.0
+margin_right = 24.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="Right" type="Label" parent="HBox"]
+margin_left = 28.0
+margin_right = 28.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
 align = 2
 valign = 1
