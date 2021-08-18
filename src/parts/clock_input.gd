@@ -17,7 +17,7 @@ func _on_Start_pressed():
 		$Start.text = "Stop"
 		$Timer.start(1.0 / rate)
 		output_pins[0].level = false
-		set_output(output_pins[0].level, 0)		
+		set_output(output_pins[0].level, 0)
 	running = !running
 
 
