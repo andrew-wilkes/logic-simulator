@@ -1,10 +1,103 @@
 extends Part
 
+"""
+nodes stores PartNode instances
+node is PartData instance
+"""
+
 var num_slots = 0
 var inputs_to_add = []
 var outputs_to_add = []
 var circuit: Circuit
 var nodes = {}
+
+func set_value(v: int, reverse = false, port = 0):
+	var node
+	if reverse:
+		node = outputs_to_add[port][1]
+	else:
+		node = inputs_to_add[port][1]
+	update_internal_bus(node, v, reverse, port)
+
+
+func update_internal_bus(node, value, reverse, port):
+	for con in circuit.connections:
+		if reverse:
+			if con.to == node.name:
+				if nodes[con.from].node.type == "INPUTBUS":
+					emit_signal("bus_changed", self, value, reverse)
+				else:
+					set_internal_value(nodes[con.from].node, value, reverse, con.to_port)
+		else:
+			if con.from == node.name:
+				if nodes[con.to].node.type == "OUTPUTBUS":
+					emit_signal("bus_changed", self, value, reverse)
+				else:
+					set_internal_value(nodes[con.to].node, value, reverse, con.to_port)
+
+
+func set_internal_value(node, v, reverse, port):
+	if node.type == "LOOPBUS":
+		if node.value != v:
+			node.value = v
+			reverse = not reverse
+		else:
+			return
+	else:
+		var ob = nodes[node.name]
+		var obn = ob.node
+		match node.type:
+			"BUSMUX":
+				if port < 4:
+					obn.values[port] = v
+				if port != obn.selected_port:
+					return
+				obn.value = v
+			"ALU":
+				if port == 0:
+					obn.a = v
+				if port == 1:
+					obn.b = v
+				v = obn.a
+				b = obn.b
+				# Decide function
+				var f = int(obn.inputs[4])
+				f = 2 * f + int(obn.inputs[3])
+				f = 2 * f + int(obn.inputs[2])
+				a %= maxvs[obn.data.bits]
+				b %= maxvs[obn.data.bits]
+				var msb1 = v >= msbs[obn.data.bits]
+				match f:
+					1:
+						v = b
+					2:
+						v += 1
+					3:
+						v = b + 1
+					4:
+						v += b
+					5:
+						if b > 0:
+							v -= b # maxvs[data.bits] - b # Invert b and add 1
+					6:
+						v &= b
+					7:
+						v |= b
+				# Cout
+				update_internal_output(ob, v >= maxvs[obn.data.bits], 1, reverse)
+				v %= maxvs[obn.data.bits]
+				var msb2 = v >= msbs[obn.data.bits]
+				update_internal_output(ob, v == 0, 2, reverse) # Zero
+				var of = false
+				match f:
+					2,3,4:
+						of = msb2 > msb1
+					5:
+						of = msb2 < msb1
+				update_internal_output(ob, of, 3, reverse) # OF
+				update_internal_output(ob, msb2, 4, reverse) # Sign
+	update_internal_bus(node, v, reverse, port)
+
 
 func reset():
 	.reset()
@@ -33,12 +126,8 @@ func update_internal_output(node, level: bool, port: int, reverse: bool):
 func apply_internal_input(node, level, port, reverse):
 	var pin
 	if reverse:
-		if not node.outputs.has(port):
-			node.outputs[port] = Pin.new()
 		pin = node.outputs[port]
 	else:
-		if not node.inputs.has(port):
-			node.inputs[port] = Pin.new()
 		pin = node.inputs[port]
 	if pin.untouched: # Reset this after update_output
 		pin.level = not level # Ensure that change is recognized
@@ -61,9 +150,9 @@ func apply_internal_input(node, level, port, reverse):
 		"NOT":
 			level = not level
 		"NAND":
-			level = not(node.inputs[0] and node.inputs[1])
+			level = not(node.inputs[0].level and node.inputs[1].level)
 		"AND":
-			level = node.inputs[0] and node.inputs[1]
+			level = node.inputs[0].level and node.inputs[1].level
 		"XOR":
 			level = (not node.inputs[0].level and node.inputs[1].level) or (node.inputs[0].level and not node.inputs[1].level)
 		"OR":
@@ -107,14 +196,21 @@ func add_pins(circ: Circuit, file_name):
 	add_nodes()
 
 
+class PartNode:
+	var node
+	var inputs = []
+	var outputs = []
+	func _init(_node):
+		node = _node
+		for _n in 5:
+			inputs.append(Part.Pin.new())
+			outputs.append(Part.Pin.new())
+
+
 func add_nodes():
 	for node in circuit.nodes:
-		nodes[node.name] = {
-			"node": node,
-			"inputs": {},
-			"outputs": {},
-			value = 0
-		}
+		nodes[node.name] = PartNode.new(node)
+
 
 func add_slot():
 	if num_slots < inputs_to_add.size() or num_slots < outputs_to_add.size():

@@ -64,7 +64,6 @@ class Pin:
 	var count = 0
 	var untouched = true
 
-
 func set_pins():
 	var slot = 0
 	var left_port = 0
