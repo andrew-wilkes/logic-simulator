@@ -35,6 +35,7 @@ var num_to_add = 4
 
 func _on_Bits_was_pressed(b):
 	add_slots(num_to_add)
+	data = { "size": output_pins.size() }
 	num_to_add += 4
 	if num_to_add < 9:
 		b.start_timer()
@@ -71,3 +72,12 @@ func add_slots(_n):
 func setup():
 	set_pins()
 	get_child(1).get_child(1).call_deferred("start_timer")
+	data = { "size": 4 }
+
+
+func apply_data():
+	$HBox/Bits.hide()
+	if data.size > 4:
+		add_slots(4)
+	if data.size > 8:
+		add_slots(8)

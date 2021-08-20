@@ -53,6 +53,8 @@ func set_internal_value(node, v, reverse, port):
 				if port != obn.selected_port:
 					return
 				obn.value = v
+			"DECODER":
+				pass
 			"ALU":
 				if port == 0:
 					obn.a = v

@@ -560,7 +560,7 @@ func load_data():
 
 
 func init_graph(circuit: Circuit):
-	if true:
+	if false:
 		var block = block_scene.instance()
 		$Graph.add_child(block, true)
 		block.offset = $Graph.scroll_offset + Vector2(100, 100)
