@@ -100,7 +100,11 @@ func reset_pin_color(port, is_input_pin):
 	else:
 		pin = output_pins[port]
 	if pin:
-		var col = Color.red if pin.level else Color.blue
+		var col
+		if pin.type == 0:
+			col = Color.red if pin.level else Color.blue
+		else:
+			col = Color.yellow
 		var _pin = set_pin_color(port, is_input_pin, col)
 
 
