@@ -94,13 +94,14 @@ func part_exited():
 
 
 func reset_pin_color(port, is_input_pin):
-	var level
+	var pin
 	if is_input_pin:
-		level = input_pins[port].level
+		pin = input_pins[port]
 	else:
-		level = output_pins[port].level
-	var col = Color.red if level else Color.blue
-	var _pin = set_pin_color(port, is_input_pin, col)
+		pin = output_pins[port]
+	if pin:
+		var col = Color.red if pin.level else Color.blue
+		var _pin = set_pin_color(port, is_input_pin, col)
 
 
 func reset():
@@ -128,9 +129,13 @@ func get_value_from_inputs(reverse):
 
 # Gets passed the port that has an input level passed to it
 func apply_input(level: bool, port: int, reverse: bool):
-	var pin = input_pins[port]
+	var pin
 	if reverse:
 		pin = output_pins[port]
+	else:
+		pin = input_pins[port]
+	if pin == null:
+		return
 	if pin.untouched: # Reset this after update_output
 		pin.level = not level # Ensure that change is recognized
 	# return if no change to established input
@@ -147,6 +152,10 @@ func apply_input(level: bool, port: int, reverse: bool):
 	update_output(level, port, reverse)
 	pin.untouched = false
 
+
+# Override this in Blocks class
+func get_input_node(ios: Array, port):
+	return ios[port]
 
 func preset_input(level: bool, port: int):
 	input_pins[port].level = level
@@ -169,11 +178,13 @@ func set_output(level: bool, port: int, reverse := false):
 func set_pin_color(port: int, left_pin: bool, col: Color):
 	var pin
 	if left_pin:
-		pin = input_pins[port]
-		set("slot/%d/left_color" % pin.slot, col)
+		pin = get_input_node(input_pins, port)
+		if pin:
+			set("slot/%d/left_color" % pin.slot, col)
 	else:
-		pin = output_pins[port]
-		set("slot/%d/right_color" % pin.slot, col)
+		pin = get_input_node(output_pins, port)
+		if pin:
+			set("slot/%d/right_color" % pin.slot, col)
 	return pin
 
 

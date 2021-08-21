@@ -569,6 +569,7 @@ func load_data(fn):
 		alert()
 	action = NOACTION
 
+var blocks = {}
 
 func init_graph(circuit: Circuit):
 	set_changed(false)
@@ -581,6 +582,7 @@ func init_graph(circuit: Circuit):
 		block.data.source_file = file_name
 		connect_part(block)
 		open_as_block = false
+		set_filename() # Avoid over-writing the cct. data
 		return
 	clear_graph()
 	$Graph.zoom = circuit.zoom
@@ -598,6 +600,7 @@ func init_graph(circuit: Circuit):
 					part.add_pins(sub_circuit, node.data.source_file)
 					part.setup()
 					part.data.source_file = node.data.source_file
+					blocks[part.name] = part
 		else:
 			part = Parts.get_part(node.type)
 		part.offset = node.offset
@@ -611,6 +614,15 @@ func init_graph(circuit: Circuit):
 		part.apply_data()
 	yield(get_tree(), "idle_frame") # Get lots of out of range errors without this
 	for con in circuit.connections:
+		# Check for block that has missing connections
+		if blocks.has(con.to):
+			if blocks[con.to].inputs_to_add.size() <= con.to_port:
+				blocks[con.to].set_overlay(2)
+				continue
+		if blocks.has(con.from):
+			if blocks[con.from].outputs_to_add.size() <= con.from_port:
+				blocks[con.from].set_overlay(2)
+				continue
 		var _e = $Graph.connect_node(con.from, con.from_port, con.to, con.to_port)
 	apply_all_inputs()
 
