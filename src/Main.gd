@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-enum { NOACTION, NEW, OPEN, SAVE, SAVEAS, SETTINGS, QUIT, ABOUT, LICENCES, MANUAL }
+enum { NOACTION, NEW, OPEN, OPENB, SAVE, SAVEAS, SETTINGS, QUIT, ABOUT, LICENCES, MANUAL }
 
 signal test_completed(passed)
 
@@ -28,6 +28,7 @@ func _ready():
 	fm = $M/Topbar/V/H/File.get_popup()
 	fm.add_item("New", NEW, KEY_MASK_CTRL | KEY_N)
 	fm.add_item("Open", OPEN, KEY_MASK_CTRL | KEY_O)
+	fm.add_item("Open as block", OPENB, KEY_MASK_CTRL | KEY_B)
 	fm.add_separator()
 	fm.add_item("Save", SAVE, KEY_MASK_CTRL | KEY_S)
 	fm.add_item("Save As...", SAVEAS, KEY_MASK_CTRL | KEY_MASK_SHIFT | KEY_S)
@@ -391,7 +392,8 @@ func _on_Graph_delete_nodes_request():
 	for node in selected_nodes.keys():
 		if selected_nodes[node]:
 			remove_connections_to_node(node)
-			node.queue_free()
+			if is_instance_valid(node):
+				node.queue_free()
 			set_changed()
 	selected_nodes = {}
 
@@ -424,7 +426,7 @@ func _on_FileMenu_id_pressed(id):
 			confirm_loss()
 		OPEN:
 			confirm_loss()
-		SAVE:
+		SAVE, OPENB:
 			do_action()
 		SAVEAS:
 			set_filename()
@@ -455,6 +457,7 @@ func confirm_loss():
 func _on_Confirm_confirmed():
 	do_action()
 
+var open_as_block = false
 
 func do_action():
 	match action:
@@ -464,9 +467,10 @@ func do_action():
 			clear_graph()
 		OPEN:
 			clear_graph()
-			$c/FileDialog.current_file = file_name
-			$c/FileDialog.mode = FileDialog.MODE_OPEN_FILE
-			$c/FileDialog.popup_centered()
+			open_file_dialog()
+		OPENB:
+			open_as_block = true
+			open_file_dialog()
 		SAVE:
 			if file_name == "":
 				$c/FileDialog.current_file = file_name
@@ -474,6 +478,12 @@ func do_action():
 				$c/FileDialog.popup_centered()
 			else:
 				save_data()
+
+
+func open_file_dialog():
+	$c/FileDialog.current_file = file_name
+	$c/FileDialog.mode = FileDialog.MODE_OPEN_FILE
+	$c/FileDialog.popup_centered()
 
 
 func clear_graph():
@@ -492,7 +502,9 @@ func _on_FileDialog_file_selected(path: String):
 	if action == SAVE:
 		save_data()
 	else:
-		load_data()
+		var circuit = load_data(file_name)
+		if circuit is Circuit:
+			init_graph(circuit)
 
 
 func set_filename(fn = ""):
@@ -545,13 +557,12 @@ func load_user_data():
 		user = User.new()
 
 
-func load_data():
+func load_data(fn):
 	$c/Alert.dialog_text = "Error loading circuit"
-	if ResourceLoader.exists(file_name):
-		var circuit = ResourceLoader.load(file_name)
+	if ResourceLoader.exists(fn):
+		var circuit = ResourceLoader.load(fn)
 		if circuit is Circuit:
-			init_graph(circuit)
-			set_changed(false)
+			return circuit
 		else:
 			alert()
 	else:
@@ -560,13 +571,16 @@ func load_data():
 
 
 func init_graph(circuit: Circuit):
-	if false:
+	set_changed(false)
+	if open_as_block:
 		var block = block_scene.instance()
 		$Graph.add_child(block, true)
 		block.offset = $Graph.scroll_offset + Vector2(100, 100)
 		block.add_pins(circuit, file_name)
 		block.setup()
+		block.data.source_file = file_name
 		connect_part(block)
+		open_as_block = false
 		return
 	clear_graph()
 	$Graph.zoom = circuit.zoom
@@ -575,7 +589,17 @@ func init_graph(circuit: Circuit):
 	$Graph.minimap_enabled = circuit.minimap_enabled
 	call_deferred("set_scroll_offset", circuit.scroll_offset)
 	for node in circuit.nodes:
-		var part: Part = Parts.get_part(node.type)
+		var part: Part
+		if node.type == "Block":
+			if node.data.has("source_file"):
+				var sub_circuit = load_data(node.data.source_file)
+				if sub_circuit is Circuit:
+					part = block_scene.instance()
+					part.add_pins(sub_circuit, node.data.source_file)
+					part.setup()
+					part.data.source_file = node.data.source_file
+		else:
+			part = Parts.get_part(node.type)
 		part.offset = node.offset
 		# A non-connected part seems to have a name containing @ marks
 		# But when it is added to the scene, the @ marks are removed

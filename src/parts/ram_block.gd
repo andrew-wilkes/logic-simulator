@@ -11,6 +11,7 @@ func setup():
 func set_value(v: int, reverse: bool, port := 0):
 	.set_value(v, reverse, port)
 	if port == 1: # Data
+		a = v # Store data bus input value in a
 		if input_pins[3].level: # /W
 			return
 		if data.memory.width == 8:

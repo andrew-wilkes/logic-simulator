@@ -11,6 +11,12 @@ var outputs_to_add = []
 var circuit: Circuit
 var nodes = {}
 
+func setup():
+	set_pins()
+	data = { "source_file": "" }
+	type = "Block"
+
+
 func set_value(v: int, reverse = false, port = 0):
 	var node
 	if reverse:
@@ -27,86 +33,116 @@ func update_internal_bus(node, value, reverse, port):
 				if nodes[con.from].node.type == "INPUTBUS":
 					emit_signal("bus_changed", self, value, reverse)
 				else:
-					set_internal_value(nodes[con.from].node, value, reverse, con.to_port)
+					set_internal_value(con.from, value, reverse, con.to_port)
 		else:
 			if con.from == node.name:
 				if nodes[con.to].node.type == "OUTPUTBUS":
 					emit_signal("bus_changed", self, value, reverse)
 				else:
-					set_internal_value(nodes[con.to].node, value, reverse, con.to_port)
+					set_internal_value(con.to, value, reverse, con.to_port)
 
 
-func set_internal_value(node, v, reverse, port):
-	if node.type == "LOOPBUS":
-		if node.value != v:
-			node.value = v
-			reverse = not reverse
-		else:
-			return
-	else:
-		var ob = nodes[node.name]
-		var obn = ob.node
-		match node.type:
-			"BUSMUX":
-				if port < 4:
-					obn.values[port] = v
+func set_internal_value(node_name, v, reverse, port):
+	var ob = nodes[node_name]
+	var obn = ob.node
+	match obn.type:
+		"LOOPBUS":
+			if obn.value != v:
+				obn.value = v
+				reverse = not reverse
+			else:
+				return
+		"BUSMUX":
+			if port < 4 and obn.values[port] != v:
+				obn.values[port] = v
 				if port != obn.selected_port:
 					return
 				obn.value = v
-			"DECODER":
-				pass
-			"ALU":
-				if port == 0:
-					obn.a = v
-				if port == 1:
-					obn.b = v
-				v = obn.a
-				b = obn.b
-				# Decide function
-				var f = int(obn.inputs[4])
-				f = 2 * f + int(obn.inputs[3])
-				f = 2 * f + int(obn.inputs[2])
-				a %= maxvs[obn.data.bits]
-				b %= maxvs[obn.data.bits]
-				var msb1 = v >= msbs[obn.data.bits]
-				match f:
-					1:
-						v = b
-					2:
-						v += 1
-					3:
-						v = b + 1
-					4:
-						v += b
-					5:
-						if b > 0:
-							v -= b # maxvs[data.bits] - b # Invert b and add 1
-					6:
-						v &= b
-					7:
-						v |= b
-				# Cout
-				update_internal_output(ob, v >= maxvs[obn.data.bits], 1, reverse)
-				v %= maxvs[obn.data.bits]
-				var msb2 = v >= msbs[obn.data.bits]
-				update_internal_output(ob, v == 0, 2, reverse) # Zero
-				var of = false
-				match f:
-					2,3,4:
-						of = msb2 > msb1
-					5:
-						of = msb2 < msb1
-				update_internal_output(ob, of, 3, reverse) # OF
-				update_internal_output(ob, msb2, 4, reverse) # Sign
-	update_internal_bus(node, v, reverse, port)
+			else:
+				return
+		"REG", "COUNTER", "SHIFTREG":
+			if port == 0:
+				obn.vin = v
+			return
+		"ROM":
+			# Set address
+			v %= obn.data.memory.mem_size
+			obn.value = v
+			if ob.inputs[1].level: # /OE
+				return
+			v = obn.data.memory.words[obn.value]
+		"RAM":
+			if port == 1: # Data
+				if ob.inputs[3].level: # /W
+					return
+				if obn.data.memory.width == 8:
+					v %= 0x100
+				obn.data.memory.words[obn.value] = v
+			elif port == 0: # Address
+				v %= obn.data.memory.mem_size
+				obn.value = v
+			if ob.inputs[2].level: # /OE
+				return
+			v = obn.data.memory.words[obn.value]
+		"DECODER":
+			if port != 0:
+				return
+			v %= obn.data.size
+			for n in obn.data.size:
+				update_internal_output(ob, v == n, n, reverse)
+			return
+		"ALU":
+			if port == 0:
+				obn.a = v
+			if port == 1:
+				obn.b = v
+			v = obn.a
+			b = obn.b
+			# Decide function
+			var f = int(ob.inputs[4].level)
+			f = 2 * f + int(ob.inputs[3].level)
+			f = 2 * f + int(ob.inputs[2].level)
+			a %= maxvs[obn.data.bits]
+			b %= maxvs[obn.data.bits]
+			var msb1 = v >= msbs[obn.data.bits]
+			match f:
+				1:
+					v = b
+				2:
+					v += 1
+				3:
+					v = b + 1
+				4:
+					v += b
+				5:
+					if b > 0:
+						v -= b # maxvs[data.bits] - b # Invert b and add 1
+				6:
+					v &= b
+				7:
+					v |= b
+			# Cout
+			update_internal_output(ob, v >= maxvs[obn.data.bits], 1, reverse)
+			v %= maxvs[obn.data.bits]
+			var msb2 = v >= msbs[obn.data.bits]
+			update_internal_output(ob, v == 0, 2, reverse) # Zero
+			var of = false
+			match f:
+				2,3,4:
+					of = msb2 > msb1
+				5:
+					of = msb2 < msb1
+			update_internal_output(ob, of, 3, reverse) # OF
+			update_internal_output(ob, msb2, 4, reverse) # Sign
+	update_internal_bus(ob, v, reverse, port)
 
 
 func reset():
 	.reset()
 	for node in nodes:
-		var inputs: Dictionary = nodes[node].inputs
-		for idx in inputs:
-			inputs[idx].count = 0
+		var n = nodes[node]
+		for idx in n.inputs.size():
+			n.inputs[idx].count = 0
 	# Don't bother with reversible inputs
 
 
@@ -159,6 +195,82 @@ func apply_internal_input(node, level, port, reverse):
 			level = (not node.inputs[0].level and node.inputs[1].level) or (node.inputs[0].level and not node.inputs[1].level)
 		"OR":
 			level = node.inputs[0].level or node.inputs[1].level
+		"BUSMUX":
+			node.node.selected_port = int(node.inputs[4].level) + 2 * int(node.inputs[5].level)
+			update_internal_bus(node.node, node.node.values[node.node.selected_port], false, 0)
+			return
+		"REG":
+			if node.inputs[3].level: # Reset
+				node.node.value = 0
+				update_internal_bus(node.node, 0, false, 0)
+			# Detect not rising edge of CK
+			if not node.inputs[2].level or node.inputs[2].last_level:
+				return
+			node.inputs[2].last_level = node.inputs[2].level
+			if node.inputs[1].level: # LD
+				node.node.value = node.node.vin
+				update_internal_bus(node.node, node.node.vin, false, 0)
+			return
+		"COUNTER":
+			if node.inputs[4].level: # Reset
+				node.node.value = 0
+				update_internal_bus(node.node, 0, false, 0)
+			# Detect not rising edge of CK
+			if not node.inputs[3].level or node.inputs[3].last_level:
+				return
+			node.inputs[3].last_level = node.inputs[3].level
+			if node.inputs[2].level: # LD
+				node.node.value = node.node.vin
+				update_internal_bus(node.node, node.node.vin, false, 0)
+			else:
+				update_internal_bus(node.node, wrapi(node.node.value + int(node.inputs[1].level), 0, 0xffff), false, 0)
+			return
+		"SHIFTREG":
+			if input_pins[5].level: # Reset
+				node.node.value = 0
+				update_internal_bus(node.node, 0, false, 0)
+			# Detect not rising edge of CK
+			if not node.inputs[4].level or node.inputs[4].last_level:
+				return
+			node.inputs[4].last_level = node.inputs[4].level
+			if node.inputs[3].level: # LD
+				node.node.value = node.node.vin
+				update_internal_bus(node.node, node.node.vin, false, 0)
+			else:
+				var v = node.node.value
+				if node.inputs[2].level: # EN
+					v /= 2 # Shift right
+					if node.inputs[1].level: # SI
+						v += msbs[node.inputs.data.bits]
+				update_internal_bus(node.node, v, false, 0)
+			return
+		"ROM":
+			if port == 1 and level == false: # /OE
+				update_internal_bus(node.node, node.node.data.memory.words[node.node.value], false, 0)
+			return
+		"RAM":
+			if port == 3: # /W
+				if node.inputs[3].level:
+					return
+				else:
+					node.node.data.memory.words[node.node.value] = node.node.a
+			if node.inputs[2].level: # /OE
+				return
+			update_internal_bus(node.node, node.node.data.memory.words[node.node.value], false, 0)
+			return
+		"DECODER":
+			var v = 0
+			# Port 0 is the bus
+			port = node.node.data.size
+			while port > 0:
+				v *= 2
+				v += int(node.inputs[port].level)
+				port -= 1
+			update_internal_bus(node.node, v, false, 0)
+			return
+		"ALU":
+			set_internal_value(node.node.name, node.node.a, reverse, 0)
+			return
 	update_internal_output(node.node, level, port, reverse)
 
 
@@ -206,6 +318,7 @@ class PartNode:
 		node = _node
 		for _n in 5:
 			inputs.append(Part.Pin.new())
+		for _n in 16:
 			outputs.append(Part.Pin.new())
 
 
