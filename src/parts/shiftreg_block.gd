@@ -6,7 +6,7 @@ func setup():
 	.setup()
 	data = {
 		"mode": BITS,
-		"bits": 0,
+		"bits": 1,
 	}
 	preset_input(false, 1)
 	preset_input(false, 2)
