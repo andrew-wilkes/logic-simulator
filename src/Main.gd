@@ -392,6 +392,7 @@ func _input(event):
 func _on_Graph_delete_nodes_request():
 	for node in selected_nodes.keys():
 		if selected_nodes[node]:
+			unhighlight_connected_pins(node)
 			remove_connections_to_node(node)
 			if is_instance_valid(node):
 				node.queue_free()
