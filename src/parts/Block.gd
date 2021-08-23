@@ -294,20 +294,31 @@ func set_the_title(txt: String):
 func add_pins(circ: Circuit, file_name):
 	circuit = circ
 	set_the_title(file_name)
+	var i = {}
+	var o = {}
 	for node in circ.nodes:
 		match node.type:
 			"INPUTPIN":
-				inputs_to_add.append([0, node])
-				add_slot()
+				i[node.offset.y] = [0, node]
+				
 			"INPUTBUS":
-				inputs_to_add.append([1, node])
+				i[node.offset.y] = [1, node]
 				add_slot()
 			"OUTPUTPIN":
-				outputs_to_add.append([0, node])
+				o[node.offset.y] = [0, node]
 				add_slot()
 			"OUTPUTBUS":
-				outputs_to_add.append([1, node])
-				add_slot()
+				o[node.offset.y] = [1, node]
+	var ikeys = i.keys()
+	var okeys = o.keys()
+	ikeys.sort()
+	okeys.sort()
+	for key in ikeys:
+		inputs_to_add.append(i[key])
+		add_slot()
+	for key in okeys:
+		outputs_to_add.append(o[key])
+		add_slot()
 	configure_slots()
 	add_nodes()
 
