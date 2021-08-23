@@ -122,18 +122,18 @@ func set_internal_value(node_name, v, reverse, port):
 				7:
 					v |= b
 			# Cout
-			update_internal_output(ob, v >= maxvs[obn.data.bits], 1, reverse)
+			update_internal_output(obn, v >= maxvs[obn.data.bits], 1, reverse)
 			v %= maxvs[obn.data.bits]
 			var msb2 = v >= msbs[obn.data.bits]
-			update_internal_output(ob, v == 0, 2, reverse) # Zero
+			update_internal_output(obn, v == 0, 2, reverse) # Zero
 			var of = false
 			match f:
 				2,3,4:
 					of = msb2 > msb1
 				5:
 					of = msb2 < msb1
-			update_internal_output(ob, of, 3, reverse) # OF
-			update_internal_output(ob, msb2, 4, reverse) # Sign
+			update_internal_output(obn, of, 3, reverse) # OF
+			update_internal_output(obn, msb2, 4, reverse) # Sign
 	update_internal_bus(obn, v, reverse, port)
 
 
@@ -151,13 +151,13 @@ func update_output(level: bool, port: int, reverse: bool):
 	update_internal_output(node, level, port, reverse)
 
 
-func update_internal_output(node, level: bool, _port: int, reverse: bool):
+func update_internal_output(node, level: bool, port: int, reverse: bool):
 	for con in circuit.connections:
 		if reverse:
-			if con.to == node.name:
+			if con.to == node.name and con.to_port == port:
 				apply_internal_input(nodes[con.from], level, con.from_port, reverse)
 		else:
-			if con.from == node.name:
+			if con.from == node.name and con.from_port == port:
 				apply_internal_input(nodes[con.to], level, con.to_port, reverse)
 
 
