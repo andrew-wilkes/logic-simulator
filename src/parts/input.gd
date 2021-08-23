@@ -10,6 +10,8 @@ func text_changed(_t):
 
 
 func set_value(v: int, reverse = false, _port := 0):
+	if v == value:
+		return
 	value = v
 	set_text(v)
 	emit_signal("bus_changed", self, v, reverse)

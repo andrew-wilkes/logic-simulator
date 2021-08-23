@@ -1916,7 +1916,7 @@ texture = ExtResource( 30 )
 [node name="HBox" type="HBoxContainer" parent="Combinational/DLATCH"]
 margin_left = 16.0
 margin_top = 23.0
-margin_right = 99.0
+margin_right = 100.0
 margin_bottom = 47.0
 
 [node name="Label" type="Label" parent="Combinational/DLATCH/HBox"]
@@ -1928,7 +1928,7 @@ valign = 1
 
 [node name="Label2" type="Label" parent="Combinational/DLATCH/HBox"]
 margin_left = 11.0
-margin_right = 83.0
+margin_right = 84.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
@@ -1939,7 +1939,7 @@ valign = 1
 [node name="HBox2" type="HBoxContainer" parent="Combinational/DLATCH"]
 margin_left = 16.0
 margin_top = 48.0
-margin_right = 99.0
+margin_right = 100.0
 margin_bottom = 72.0
 
 [node name="Label" type="Label" parent="Combinational/DLATCH/HBox2"]
@@ -1951,7 +1951,7 @@ valign = 1
 
 [node name="Label2" type="Label" parent="Combinational/DLATCH/HBox2"]
 margin_left = 14.0
-margin_right = 83.0
+margin_right = 84.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3

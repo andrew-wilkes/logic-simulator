@@ -11,6 +11,7 @@ var block_scene = preload("res://parts/Block.tscn")
 
 var selected_nodes = {}
 var file_name = ""
+var last_file_name = ""
 var changed = false
 var action = NOACTION
 var fm
@@ -198,7 +199,7 @@ func update_bus(node, value, reverse = false):
 	for con in $Graph.get_connection_list():
 		if reverse:
 			if con.to == node.name:
-				$Graph.get_node(con.from).set_value(value, reverse)
+				$Graph.get_node(con.from).set_value(value, reverse, con.from_port)
 		else:
 			if con.from == node.name:
 				$Graph.get_node(con.to).set_value(value, reverse, con.to_port)
@@ -236,15 +237,15 @@ func apply_all_inputs():
 
 
 func apply_outputs(node):
-			for idx in node.output_pins.size():
-				var p = node.output_pins[idx]
-				if p.type == 0:
-					update_levels(node, idx, p.level, false)
-				else:
-					update_bus(node, 0, false)
-			if node.is_reversible_input:
-				# Only port 0 is used
-				update_levels(node, 0, false, true)
+	for idx in node.output_pins.size():
+		var p = node.output_pins[idx]
+		if p.type == 0:
+			update_levels(node, idx, p.level, false)
+		else:
+			update_bus(node, 0, false)
+	if node.is_reversible_input:
+		# Only port 0 is used
+		update_levels(node, 0, false, true)
 
 
 func delete_wire(node, port, reverse):
@@ -508,6 +509,7 @@ func _on_FileDialog_file_selected(path: String):
 
 
 func set_filename(fn = ""):
+	last_file_name = file_name
 	file_name = fn
 	$M/Topbar/V/CurrentFile.text = fn.get_file()
 
@@ -582,7 +584,7 @@ func init_graph(circuit: Circuit):
 		block.data.source_file = file_name
 		connect_part(block)
 		open_as_block = false
-		set_filename() # Avoid over-writing the cct. data
+		set_filename(last_file_name)
 		return
 	clear_graph()
 	$Graph.zoom = circuit.zoom

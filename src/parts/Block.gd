@@ -47,22 +47,22 @@ func set_internal_value(node_name, v, reverse, port):
 	var obn = ob.node
 	match obn.type:
 		"LOOPBUS":
-			if obn.value != v:
-				obn.value = v
+			if ob.value != v:
+				ob.value = v
 				reverse = not reverse
 			else:
 				return
 		"BUSMUX":
-			if port < 4 and obn.values[port] != v:
-				obn.values[port] = v
-				if port != obn.selected_port:
+			if port < 4 and ob.values[port] != v:
+				ob.values[port] = v
+				if port != ob.selected_port:
 					return
-				obn.value = v
+				ob.value = v
 			else:
 				return
 		"REG", "COUNTER", "SHIFTREG":
 			if port == 0:
-				obn.vin = v
+				ob.vin = v
 			return
 		"ROM":
 			# Set address
@@ -80,10 +80,10 @@ func set_internal_value(node_name, v, reverse, port):
 				obn.data.memory.words[obn.value] = v
 			elif port == 0: # Address
 				v %= obn.data.memory.mem_size
-				obn.value = v
+				ob.value = v
 			if ob.inputs[2].level: # /OE
 				return
-			v = obn.data.memory.words[obn.value]
+			v = obn.data.memory.words[ob.value]
 		"DECODER":
 			if port != 0:
 				return
@@ -93,11 +93,11 @@ func set_internal_value(node_name, v, reverse, port):
 			return
 		"ALU":
 			if port == 0:
-				obn.a = v
+				ob.a = v
 			if port == 1:
-				obn.b = v
-			v = obn.a
-			b = obn.b
+				ob.b = v
+			v = ob.a
+			b = ob.b
 			# Decide function
 			var f = int(ob.inputs[4].level)
 			f = 2 * f + int(ob.inputs[3].level)
@@ -134,7 +134,7 @@ func set_internal_value(node_name, v, reverse, port):
 					of = msb2 < msb1
 			update_internal_output(ob, of, 3, reverse) # OF
 			update_internal_output(ob, msb2, 4, reverse) # Sign
-	update_internal_bus(ob, v, reverse, port)
+	update_internal_bus(obn, v, reverse, port)
 
 
 func reset():
@@ -154,10 +154,10 @@ func update_output(level: bool, port: int, reverse: bool):
 func update_internal_output(node, level: bool, port: int, reverse: bool):
 	for con in circuit.connections:
 		if reverse:
-			if con.to == node.name and con.to_port == port:
+			if con.to == node.name:
 				apply_internal_input(nodes[con.from], level, con.from_port, reverse)
 		else:
-			if con.from == node.name and con.from_port == port:
+			if con.from == node.name:
 				apply_internal_input(nodes[con.to], level, con.to_port, reverse)
 
 
@@ -196,67 +196,69 @@ func apply_internal_input(node, level, port, reverse):
 		"OR":
 			level = node.inputs[0].level or node.inputs[1].level
 		"BUSMUX":
-			node.node.selected_port = int(node.inputs[4].level) + 2 * int(node.inputs[5].level)
-			update_internal_bus(node.node, node.node.values[node.node.selected_port], false, 0)
+			node.selected_port = int(node.inputs[4].level) + 2 * int(node.inputs[5].level)
+			update_internal_bus(node.node, node.values[node.selected_port], false, 0)
 			return
 		"REG":
 			if node.inputs[3].level: # Reset
-				node.node.value = 0
+				node.value = 0
 				update_internal_bus(node.node, 0, false, 0)
 			# Detect not rising edge of CK
 			if not node.inputs[2].level or node.inputs[2].last_level:
 				return
 			node.inputs[2].last_level = node.inputs[2].level
 			if node.inputs[1].level: # LD
-				node.node.value = node.node.vin
-				update_internal_bus(node.node, node.node.vin, false, 0)
+				node.value = node.vin
+				update_internal_bus(node.node, node.vin, false, 0)
 			return
 		"COUNTER":
 			if node.inputs[4].level: # Reset
-				node.node.value = 0
+				node.value = 0
 				update_internal_bus(node.node, 0, false, 0)
 			# Detect not rising edge of CK
 			if not node.inputs[3].level or node.inputs[3].last_level:
 				return
 			node.inputs[3].last_level = node.inputs[3].level
 			if node.inputs[2].level: # LD
-				node.node.value = node.node.vin
-				update_internal_bus(node.node, node.node.vin, false, 0)
+				node.value = node.vin
+				update_internal_bus(node.node, node.vin, false, 0)
 			else:
-				update_internal_bus(node.node, wrapi(node.node.value + int(node.inputs[1].level), 0, 0xffff), false, 0)
+				node.value = wrapi(node.value + int(node.inputs[1].level), 0, 0xffff) 
+				update_internal_bus(node.node, node.value, false, 0)
 			return
 		"SHIFTREG":
-			if input_pins[5].level: # Reset
-				node.node.value = 0
+			if node.inputs[5].level: # Reset
+				node.value = 0
 				update_internal_bus(node.node, 0, false, 0)
 			# Detect not rising edge of CK
 			if not node.inputs[4].level or node.inputs[4].last_level:
 				return
 			node.inputs[4].last_level = node.inputs[4].level
 			if node.inputs[3].level: # LD
-				node.node.value = node.node.vin
-				update_internal_bus(node.node, node.node.vin, false, 0)
+				node.value = node.vin
+				update_internal_bus(node.node, node.vin, false, 0)
 			else:
-				var v = node.node.value
+				var v = node.value
 				if node.inputs[2].level: # EN
 					v /= 2 # Shift right
 					if node.inputs[1].level: # SI
-						v += msbs[node.inputs.data.bits]
+						v += msbs[node.node.data.bits]
+					node.value = v
 				update_internal_bus(node.node, v, false, 0)
 			return
 		"ROM":
 			if port == 1 and level == false: # /OE
-				update_internal_bus(node.node, node.node.data.memory.words[node.node.value], false, 0)
+				update_internal_bus(node.node, node.node.data.memory.words[node.value], false, 0)
 			return
 		"RAM":
 			if port == 3: # /W
 				if node.inputs[3].level:
 					return
 				else:
-					node.node.data.memory.words[node.node.value] = node.node.a
+					node.node.data.memory.words[node.value] = node.node.a
 			if node.inputs[2].level: # /OE
 				return
-			update_internal_bus(node.node, node.node.data.memory.words[node.node.value], false, 0)
+			update_internal_bus(node.node, node.node.data.memory.words[node.value], false, 0)
 			return
 		"DECODER":
 			var v = 0
@@ -269,7 +271,7 @@ func apply_internal_input(node, level, port, reverse):
 			update_internal_bus(node.node, v, false, 0)
 			return
 		"ALU":
-			set_internal_value(node.node.name, node.node.a, reverse, 0)
+			set_internal_value(node.node.name, node.a, reverse, 0)
 			return
 	update_internal_output(node.node, level, port, reverse)
 
@@ -314,9 +316,15 @@ class PartNode:
 	var node
 	var inputs = []
 	var outputs = []
+	var vin = 0
+	var value = 0
+	var values = [0, 0, 0, 0]
+	var a = 0
+	var b = 0
+	var selected_port = 0
 	func _init(_node):
 		node = _node
-		for _n in 5:
+		for _n in 6:
 			inputs.append(Part.Pin.new())
 		for _n in 16:
 			outputs.append(Part.Pin.new())
