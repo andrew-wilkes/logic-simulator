@@ -680,3 +680,21 @@ func _on_Graph_scroll_offset_changed(_ofs):
 
 func _on_Learn_pressed():
 	var _e = get_tree().change_scene("res://Learn.tscn")
+
+
+func _notification(what):
+	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
+		if changed:
+			$c/YesNoDialog.popup_centered()
+		else:
+			get_tree().quit()
+
+
+func _on_YesNoDialog_no():
+	get_tree().quit()
+
+
+func _on_YesNoDialog_yes():
+	$c/YesNoDialog.hide()
+	action = SAVE
+	do_action()

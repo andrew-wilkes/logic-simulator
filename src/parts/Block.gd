@@ -26,7 +26,7 @@ func set_value(v: int, reverse = false, port = 0):
 	update_internal_bus(node, v, reverse, port)
 
 
-func update_internal_bus(node, value, reverse, port):
+func update_internal_bus(node, value, reverse, _port):
 	for con in circuit.connections:
 		if reverse:
 			if con.to == node.name:
@@ -151,7 +151,7 @@ func update_output(level: bool, port: int, reverse: bool):
 	update_internal_output(node, level, port, reverse)
 
 
-func update_internal_output(node, level: bool, port: int, reverse: bool):
+func update_internal_output(node, level: bool, _port: int, reverse: bool):
 	for con in circuit.connections:
 		if reverse:
 			if con.to == node.name:

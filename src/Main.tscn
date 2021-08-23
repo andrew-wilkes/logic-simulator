@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://TruthTable.tscn" type="PackedScene" id=2]
+[ext_resource path="res://YesNoDialog.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/down.png" type="Texture" id=10]
 [ext_resource path="res://assets/up.png" type="Texture" id=11]
 
@@ -237,6 +238,9 @@ margin_top = 1016.0
 margin_right = 119.0
 margin_bottom = 1080.0
 
+[node name="YesNoDialog" parent="c" instance=ExtResource( 3 )]
+visible = false
+
 [connection signal="tree_exiting" from="." to="." method="_on_Main_tree_exiting"]
 [connection signal="pressed" from="M/Topbar/V/H/Learn" to="." method="_on_Learn_pressed"]
 [connection signal="button_down" from="M/Topbar/H/Up" to="." method="_on_Up_button_down"]
@@ -250,3 +254,5 @@ margin_bottom = 1080.0
 [connection signal="file_selected" from="c/FileDialog" to="." method="_on_FileDialog_file_selected"]
 [connection signal="confirmed" from="c/Confirm" to="." method="_on_Confirm_confirmed"]
 [connection signal="test_pressed" from="c/TruthTable" to="." method="start_tests"]
+[connection signal="no" from="c/YesNoDialog" to="." method="_on_YesNoDialog_no"]
+[connection signal="yes" from="c/YesNoDialog" to="." method="_on_YesNoDialog_yes"]
