@@ -231,7 +231,7 @@ func handle_button_press(_b):
 		data.mode %= 3
 		set_format()
 		update_display_value()
-		emit_signal("data_changed")
+	emit_signal("data_changed")
 
 
 func change_bit_depth(_b, inc = 1):

@@ -71,6 +71,7 @@ func output_value(v: int):
 
 func _on_Bits_was_pressed(button):
 	change_bit_depth(button)
+	emit_signal("data_changed")
 
 
 func _on_Bits_button_timer_timeout(button):
