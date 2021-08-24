@@ -67,17 +67,18 @@ func set_internal_value(node_name, v, reverse, port):
 		"ROM":
 			# Set address
 			v %= obn.data.memory.mem_size
-			obn.value = v
+			ob.value = v
 			if ob.inputs[1].level: # /OE
 				return
-			v = obn.data.memory.words[obn.value]
+			v = obn.data.memory.words[ob.value]
 		"RAM":
 			if port == 1: # Data
-				if ob.inputs[3].level: # /W
-					return
 				if obn.data.memory.width == 8:
 					v %= 0x100
-				obn.data.memory.words[obn.value] = v
+					ob.vin = v # Remember the value on the data bus 
+				if ob.inputs[3].level: # /W
+					return
+				obn.data.memory.words[ob.value] = v
 			elif port == 0: # Address
 				v %= obn.data.memory.mem_size
 				ob.value = v
@@ -249,18 +250,14 @@ func apply_internal_input(node, level, port, reverse):
 				update_internal_bus(node.node, v, false, 0)
 			return
 		"ROM":
-			if port == 1 and level == false: # /OE
+			if node.inputs[1].level == false: # /OE
 				update_internal_bus(node.node, node.node.data.memory.words[node.value], false, 0)
 			return
 		"RAM":
-			if port == 3: # /W
-				if node.inputs[3].level:
-					return
-				else:
-					node.node.data.memory.words[node.value] = node.node.a
-			if node.inputs[2].level: # /OE
-				return
-			update_internal_bus(node.node, node.node.data.memory.words[node.value], false, 0)
+			if node.inputs[3].level == false: # /W
+				node.node.data.memory.words[node.value] = node.vin
+			if node.inputs[2].level == false: # /OE
+				update_internal_bus(node.node, node.node.data.memory.words[node.value], false, 0)
 			return
 		"DECODER":
 			var v = 0
@@ -276,18 +273,6 @@ func apply_internal_input(node, level, port, reverse):
 			set_internal_value(node.node.name, node.a, reverse, 0)
 			return
 	update_internal_output(node.node, level, port, reverse)
-
-
-"""
-func get_output_pin_port(node):
-	var port = 0
-	while outputs_to_add[port][1] != node and port < 99:
-		port += 1
-	return port
-"""
-
-#func update_bus(node, value, reverse = false):
-#	emit_signal("bus_changed", node, value, reverse)
 
 
 func set_the_title(txt: String):
