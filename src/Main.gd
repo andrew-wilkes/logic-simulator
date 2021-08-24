@@ -195,13 +195,13 @@ func show_test_result(passed: bool, txt: String):
 
 
 # A bus output node value has changed
-func update_bus(node, value, reverse = false):
+func update_bus(node, value, reverse = false, port = 0):
 	for con in $Graph.get_connection_list():
 		if reverse:
-			if con.to == node.name:
+			if con.to == node.name and con.to_port == port:
 				$Graph.get_node(con.from).set_value(value, reverse, con.from_port)
 		else:
-			if con.from == node.name:
+			if con.from == node.name and con.from_port == port:
 				$Graph.get_node(con.to).set_value(value, reverse, con.to_port)
 
 

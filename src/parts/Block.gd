@@ -23,21 +23,21 @@ func set_value(v: int, reverse = false, port = 0):
 		node = outputs_to_add[port][1]
 	else:
 		node = inputs_to_add[port][1]
-	update_internal_bus(node, v, reverse, port)
+	update_internal_bus(node, v, reverse, 0)
 
 
-func update_internal_bus(node, value, reverse, _port):
+func update_internal_bus(node, value, reverse, port):
 	for con in circuit.connections:
 		if reverse:
-			if con.to == node.name:
+			if con.to == node.name and con.to_port == port:
 				if nodes[con.from].node.type == "INPUTBUS":
-					emit_signal("bus_changed", self, value, reverse)
+					emit_signal("bus_changed", self, value, reverse, nodes[con.from].node.data.port)
 				else:
-					set_internal_value(con.from, value, reverse, con.to_port)
+					set_internal_value(con.from, value, reverse, con.from_port)
 		else:
-			if con.from == node.name:
+			if con.from == node.name and con.from_port == port:
 				if nodes[con.to].node.type == "OUTPUTBUS":
-					emit_signal("bus_changed", self, value, reverse)
+					emit_signal("bus_changed", self, value, reverse, nodes[con.to].node.data.port)
 				else:
 					set_internal_value(con.to, value, reverse, con.to_port)
 
@@ -148,7 +148,9 @@ func reset():
 
 func update_output(level: bool, port: int, reverse: bool):
 	var node = inputs_to_add[port][1]
-	update_internal_output(node, level, port, reverse)
+	# External port is pin of block
+	# Internal pin output is port 0
+	update_internal_output(node, level, 0, reverse)
 
 
 func update_internal_output(node, level: bool, port: int, reverse: bool):
@@ -183,7 +185,7 @@ func apply_internal_input(node, level, port, reverse):
 	port = 0
 	match node.node.type:
 		"OUTPUTPIN":
-			set_output(level, get_output_pin_port(node.node), reverse)
+			set_output(level, node.node.data.port, reverse)
 			return
 		"NOT":
 			level = not level
@@ -276,15 +278,16 @@ func apply_internal_input(node, level, port, reverse):
 	update_internal_output(node.node, level, port, reverse)
 
 
+"""
 func get_output_pin_port(node):
 	var port = 0
 	while outputs_to_add[port][1] != node and port < 99:
 		port += 1
 	return port
+"""
 
-
-func update_bus(node, value, reverse = false):
-	emit_signal("bus_changed", node, value, reverse)
+#func update_bus(node, value, reverse = false):
+#	emit_signal("bus_changed", node, value, reverse)
 
 
 func set_the_title(txt: String):
@@ -313,18 +316,25 @@ func add_pins(circ: Circuit, file_name):
 	var okeys = o.keys()
 	ikeys.sort()
 	okeys.sort()
+	var port = 0
 	for key in ikeys:
+		i[key][1].data["port"] = port
 		inputs_to_add.append(i[key])
 		add_slot()
+		port += 1
+	port = 0
 	for key in okeys:
+		o[key][1].data["port"] = port
 		outputs_to_add.append(o[key])
 		add_slot()
+		port += 1
 	configure_slots()
 	add_nodes()
 
 
 class PartNode:
 	var node
+	var port = 0
 	var inputs = []
 	var outputs = []
 	var vin = 0
