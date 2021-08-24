@@ -227,10 +227,6 @@ show_hidden_files = true
 current_dir = "user://"
 current_path = "user://"
 
-[node name="Confirm" type="ConfirmationDialog" parent="c"]
-margin_right = 200.0
-margin_bottom = 70.0
-
 [node name="TruthTable" parent="c" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -252,7 +248,6 @@ visible = false
 [connection signal="scroll_offset_changed" from="Graph" to="." method="_on_Graph_scroll_offset_changed"]
 [connection signal="timeout" from="TestTimer" to="." method="_on_TestTimer_timeout"]
 [connection signal="file_selected" from="c/FileDialog" to="." method="_on_FileDialog_file_selected"]
-[connection signal="confirmed" from="c/Confirm" to="." method="_on_Confirm_confirmed"]
 [connection signal="test_pressed" from="c/TruthTable" to="." method="start_tests"]
 [connection signal="no" from="c/YesNoDialog" to="." method="_on_YesNoDialog_no"]
 [connection signal="yes" from="c/YesNoDialog" to="." method="_on_YesNoDialog_yes"]

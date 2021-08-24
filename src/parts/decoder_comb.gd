@@ -41,6 +41,7 @@ func _on_Bits_was_pressed(b):
 		b.start_timer()
 	else:
 		b.hide()
+	emit_signal("data_changed")
 
 
 func _on_Bits_button_timer_timeout(b):

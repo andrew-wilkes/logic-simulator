@@ -424,9 +424,7 @@ func _on_File_button_down():
 func _on_FileMenu_id_pressed(id):
 	action = id
 	match id:
-		NEW: 
-			confirm_loss()
-		OPEN:
+		NEW, OPEN:
 			confirm_loss()
 		SAVE, OPENB:
 			do_action()
@@ -450,14 +448,10 @@ func _on_HelpMenu_id_pressed(id):
 
 func confirm_loss():
 	if changed:
-		$c/Confirm.dialog_text = "Changes will be lost!"
-		$c/Confirm.popup_centered()
+		$c/YesNoDialog.popup_centered()
 	else:
 		do_action()
 
-
-func _on_Confirm_confirmed():
-	do_action()
 
 var open_as_block = false
 
@@ -480,6 +474,8 @@ func do_action():
 				$c/FileDialog.popup_centered()
 			else:
 				save_data()
+		QUIT:
+			get_tree().quit()
 
 
 func open_file_dialog():
@@ -685,13 +681,15 @@ func _on_Learn_pressed():
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
 		if changed:
+			action = QUIT
 			$c/YesNoDialog.popup_centered()
 		else:
 			get_tree().quit()
 
 
 func _on_YesNoDialog_no():
-	get_tree().quit()
+	$c/YesNoDialog.hide()
+	do_action()
 
 
 func _on_YesNoDialog_yes():
