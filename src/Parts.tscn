@@ -408,7 +408,7 @@ margin_right = 111.0
 margin_bottom = 94.0
 custom_styles/frame = ExtResource( 23 )
 title = "INPUT SW"
-slot/0/left_enabled = true
+slot/0/left_enabled = false
 slot/0/left_type = 0
 slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = true
@@ -445,7 +445,7 @@ margin_bottom = 176.0
 custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 5
 title = "INPUT PUSH"
-slot/0/left_enabled = true
+slot/0/left_enabled = false
 slot/0/left_type = 0
 slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = true
@@ -2476,9 +2476,9 @@ one_shot = true
 
 [node name="SEG7" type="GraphNode" parent="Combinational"]
 margin_left = 365.379
-margin_top = 262.612
+margin_top = 275.34
 margin_right = 469.379
-margin_bottom = 416.612
+margin_bottom = 429.34
 title = "DISPLAY"
 slot/0/left_enabled = true
 slot/0/left_type = 1
@@ -2623,10 +2623,10 @@ __meta__ = {
 }
 
 [node name="REG" type="GraphNode" parent="Blocks"]
-margin_left = 466.871
-margin_top = 288.437
-margin_right = 557.871
-margin_bottom = 416.437
+margin_left = 464.626
+margin_top = 253.641
+margin_right = 555.626
+margin_bottom = 431.641
 custom_styles/frame = ExtResource( 23 )
 title = "REGISTER"
 slot/0/left_enabled = true

@@ -10,7 +10,9 @@ func set_pin_name(txt):
 	data.tag = txt
 
 
-func set_value(v: int, _reverse: bool, _port := 0):
+func set_value(v: int, reverse: bool, _port := 0):
+	if v == value or reverse:
+		return
 	last_value = value
 	value = v
 	emit_signal("bus_changed", self, v, false)

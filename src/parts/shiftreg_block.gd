@@ -33,7 +33,9 @@ func update_output(_level: bool, _port: int, _r: bool):
 		output_value(v)
 
 
-func set_value(v: int, _reverse: bool, port := 0):
+func set_value(v: int, reverse: bool, port := 0):
+	if v == vin or reverse:
+		return
 	if port == 0:
 		vin = v
 

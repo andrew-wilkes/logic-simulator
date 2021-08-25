@@ -20,10 +20,8 @@ func setup():
 		button.connect("button_up", self, "set_io", [false, 0, 0])
 
 
-# Input pin and output pin used as outputs
-func set_io(level: bool, in_port: int, out_port: int):
+func set_io(level: bool, _in_port: int, out_port: int):
 	set_output(level, out_port)
-	set_output(level, in_port, true)
 
 
 func set_data(d: Dictionary):

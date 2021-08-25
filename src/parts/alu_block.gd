@@ -51,17 +51,18 @@ func update_output(_level: bool, _port: int, _r: bool):
 	output_value(v)
 
 
-func set_value(v: int, _r: bool, port := 0):
-		if port == 0:
-			if v != a:
-				a = v
-				update_output(true, -1, false)
-			return
-		if port == 1:
-			if v != b:
-				b = v
-				update_output(true, -1, false)
-			return
+func set_value(v: int, reverse: bool, port := 0):
+	if reverse:
+		return
+	if port == 0:
+		if v != a:
+			a = v
+			update_output(true, -1, false)
+		return
+	if port == 1:
+		if v != b:
+			b = v
+			update_output(true, -1, false)
 
 
 func output_value(v: int):

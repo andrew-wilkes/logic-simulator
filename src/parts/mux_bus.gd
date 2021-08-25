@@ -11,7 +11,9 @@ func update_output(_level: bool, _port: int, _r: bool):
 
 
 # This is called whenever a part with a bus that is connected (via a wire) to this part changes its bus value
-func set_value(v: int, _reverse: bool, port := 0):
+func set_value(v: int, reverse: bool, port := 0):
+	if reverse:
+		return
 	if port < 4:
 		values[port] = v
 	if port != selected_port:

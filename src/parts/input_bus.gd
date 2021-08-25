@@ -6,19 +6,8 @@ export var num_pins = 8
 
 func update_output(_level: bool, _port: int, rev: bool):
 	value = get_value_from_inputs(rev)
-	update_value(value, false)
-
-
-func set_value(v: int, reverse: bool, port := 0):
-	if port == 0:
-		value = v
-		update_value(v, reverse)
-
-
-func update_value(v: int, rev: bool):
 	update_display_value()
-	if not rev:
-		emit_signal("bus_changed", self, v, false)
+	emit_signal("bus_changed", self, value, false)
 
 
 func setup():
