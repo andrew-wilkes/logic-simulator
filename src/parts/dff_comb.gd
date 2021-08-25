@@ -23,5 +23,4 @@ func update_output(_level: bool, _port: int, _r: bool):
 			if input_pins[2].level and not input_pins[2].last_level:
 				input_pins[2].last_level = true
 				set_output(input_pins[1].level, 0)
-				print("set")
 			input_pins[2].last_level = input_pins[2].level

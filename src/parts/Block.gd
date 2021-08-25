@@ -17,39 +17,27 @@ func setup():
 	type = "Block"
 
 
-func set_value(v: int, reverse = false, port = 0):
-	var node
-	if reverse:
-		node = outputs_to_add[port][1]
-	else:
-		node = inputs_to_add[port][1]
-	update_internal_bus(node, v, reverse, 0)
+func set_value(v: int, _reverse, port = 0):
+	var node = inputs_to_add[port][1]
+	update_internal_bus(node, v, 0)
 
 
-func update_internal_bus(node, value, reverse, port):
+func update_internal_bus(node, value, port):
 	for con in circuit.connections:
-		if reverse:
-			if con.to == node.name and con.to_port == port:
-				if nodes[con.from].node.type == "INPUTBUS":
-					emit_signal("bus_changed", self, value, reverse, nodes[con.from].node.data.port)
-				else:
-					set_internal_value(con.from, value, reverse, con.from_port)
-		else:
-			if con.from == node.name and con.from_port == port:
-				if nodes[con.to].node.type == "OUTPUTBUS":
-					emit_signal("bus_changed", self, value, reverse, nodes[con.to].node.data.port)
-				else:
-					set_internal_value(con.to, value, reverse, con.to_port)
+		if con.from == node.name and con.from_port == port:
+			if nodes[con.to].node.type == "OUTPUTBUS":
+				emit_signal("bus_changed", self, value, false, nodes[con.to].node.data.port)
+			else:
+				set_internal_value(con.to, value, con.to_port)
 
 
-func set_internal_value(node_name, v, reverse, port):
+func set_internal_value(node_name, v, port):
 	var ob = nodes[node_name]
 	var obn = ob.node
 	match obn.type:
-		"LOOPBUS":
+		"LOOPBUS": # Should not be used!
 			if ob.value != v:
 				ob.value = v
-				reverse = not reverse
 			else:
 				return
 		"BUSMUX":
@@ -90,7 +78,7 @@ func set_internal_value(node_name, v, reverse, port):
 				return
 			v %= obn.data.size
 			for n in obn.data.size:
-				update_internal_output(ob, v == n, n, reverse)
+				update_internal_output(ob, v == n, n)
 			return
 		"ALU":
 			if port == 0:
@@ -123,19 +111,19 @@ func set_internal_value(node_name, v, reverse, port):
 				7:
 					v |= b
 			# Cout
-			update_internal_output(obn, v >= maxvs[obn.data.bits], 1, reverse)
+			update_internal_output(obn, v >= maxvs[obn.data.bits], 1)
 			v %= maxvs[obn.data.bits]
 			var msb2 = v >= msbs[obn.data.bits]
-			update_internal_output(obn, v == 0, 2, reverse) # Zero
+			update_internal_output(obn, v == 0, 2) # Zero
 			var of = false
 			match f:
 				2,3,4:
 					of = msb2 > msb1
 				5:
 					of = msb2 < msb1
-			update_internal_output(obn, of, 3, reverse) # OF
-			update_internal_output(obn, msb2, 4, reverse) # Sign
-	update_internal_bus(obn, v, reverse, port)
+			update_internal_output(obn, of, 3) # OF
+			update_internal_output(obn, msb2, 4) # Sign
+	update_internal_bus(obn, v, port)
 
 
 func reset():
@@ -147,29 +135,21 @@ func reset():
 	# Don't bother with reversible inputs
 
 
-func update_output(level: bool, port: int, reverse: bool):
+func update_output(level: bool, port: int, _reverse: bool):
 	var node = inputs_to_add[port][1]
 	# External port is pin of block
 	# Internal pin output is port 0
-	update_internal_output(node, level, 0, reverse)
+	update_internal_output(node, level, 0)
 
 
-func update_internal_output(node, level: bool, port: int, reverse: bool):
+func update_internal_output(node, level: bool, port: int):
 	for con in circuit.connections:
-		if reverse:
-			if con.to == node.name and con.to_port == port:
-				apply_internal_input(nodes[con.from], level, con.from_port, reverse)
-		else:
-			if con.from == node.name and con.from_port == port:
-				apply_internal_input(nodes[con.to], level, con.to_port, reverse)
+		if con.from == node.name and con.from_port == port:
+			apply_internal_input(nodes[con.to], level, con.to_port)
 
 
-func apply_internal_input(node, level, port, reverse):
-	var pin
-	if reverse:
-		pin = node.outputs[port]
-	else:
-		pin = node.inputs[port]
+func apply_internal_input(node, level, port):
+	var pin = node.inputs[port]
 	if pin.untouched: # Reset this after update_output
 		pin.level = not level # Ensure that change is recognized
 	# return if no change to established input
@@ -178,15 +158,15 @@ func apply_internal_input(node, level, port, reverse):
 	# Detect race condition
 	pin.count += 1
 	if pin.count > RACE_TRIGGER_COUNT:
-		emit_signal("unstable", self, port, reverse)
+		emit_signal("unstable", self, port)
 		return false
 	pin.last_level = pin.level
 	pin.level = level
-	pin.untouched = false # Not sure if this is needed
+	pin.untouched = false
 	port = 0
 	match node.node.type:
 		"OUTPUTPIN":
-			set_output(level, node.node.data.port, reverse)
+			set_output(level, node.node.data.port)
 			return
 		"NOT":
 			level = not level
@@ -198,48 +178,108 @@ func apply_internal_input(node, level, port, reverse):
 			level = (not node.inputs[0].level and node.inputs[1].level) or (node.inputs[0].level and not node.inputs[1].level)
 		"OR":
 			level = node.inputs[0].level or node.inputs[1].level
+		"MULT":
+			if node.inputs[2].level: # Select
+				level = node.inputs[1].level # B
+			else:
+				level = node.inputs[0].level # A
+		"SRFLIPFLOP":
+			# Init outputs
+			if untouched:
+				untouched = false
+				update_internal_bus(node.node, false, 0)
+				update_internal_bus(node.node, true, 1)
+			if node.inputs[0].level: # Set
+				update_internal_bus(node.node, true, 0)
+				update_internal_bus(node.node, false, 1)
+			else:
+				if node.inputs[1].level: # Reset
+					update_internal_bus(node.node, false, 0)
+					update_internal_bus(node.node, true, 1)
+		"DLATCH":
+			if untouched:
+				untouched = false
+				update_internal_bus(node.node, false, 0)
+				update_internal_bus(node.node, true, 1)
+			if node.inputs[0].level: # Enable
+				update_internal_bus(node.node, node.inputs[1].level, 0)
+				update_internal_bus(node.node, not node.inputs[1].level, 1)
+		"DFLIPFLOP":
+			if untouched:
+				untouched = false
+				update_internal_bus(node.node, false, 0)
+			if node.inputs[0].level: # Set
+				update_internal_bus(node.node, true, 0)
+			else:
+				if node.inputs[3].level: # Reset
+					update_internal_bus(node.node, false, 0)
+				else:
+					# Detect rising edge of CK
+					if node.inputs[2].level and not node.inputs[2].last_level:
+						node.inputs[2].last_level = true
+						update_internal_bus(node.node, node.inputs[1].level, 0)
+					node.inputs[2].last_level = node.inputs[2].level
+		"JKFLIPFLOP":
+			# Init outputs
+			if untouched:
+				untouched = false
+				update_internal_bus(node.node, false, 0)
+				update_internal_bus(node.node, true, 1)
+			# Detect rising edge of CK
+			if node.inputs[1].level and not node.inputs[1].last_level:
+				node.inputs[1].last_level = true
+				if node.inputs[0].level and node.inputs[2].level: # Toggle
+					update_internal_bus(node.node, not node.outputs[0].level, 0)
+					update_internal_bus(node.node, not node.outputs[1].level, 1)
+				else:
+					if node.inputs[0].level: # Set
+						update_internal_bus(node.node, true, 0)
+						update_internal_bus(node.node, false, 1)
+					if node.inputs[2].level: # Reset
+						update_internal_bus(node.node, true, 1)
+						update_internal_bus(node.node, false, 0)
 		"BUSMUX":
 			node.selected_port = int(node.inputs[4].level) + 2 * int(node.inputs[5].level)
-			update_internal_bus(node.node, node.values[node.selected_port], false, 0)
+			update_internal_bus(node.node, node.values[node.selected_port], 0)
 			return
 		"REG":
 			if node.inputs[3].level: # Reset
 				node.value = 0
-				update_internal_bus(node.node, 0, false, 0)
+				update_internal_bus(node.node, 0, 0)
 			# Detect not rising edge of CK
 			if not node.inputs[2].level or node.inputs[2].last_level:
 				return
 			node.inputs[2].last_level = node.inputs[2].level
 			if node.inputs[1].level: # LD
 				node.value = node.vin
-				update_internal_bus(node.node, node.vin, false, 0)
+				update_internal_bus(node.node, node.vin, 0)
 			return
 		"COUNTER":
 			if node.inputs[4].level: # Reset
 				node.value = 0
-				update_internal_bus(node.node, 0, false, 0)
+				update_internal_bus(node.node, 0, 0)
 			# Detect not rising edge of CK
 			if not node.inputs[3].level or node.inputs[3].last_level:
 				return
 			node.inputs[3].last_level = node.inputs[3].level
 			if node.inputs[2].level: # LD
 				node.value = node.vin
-				update_internal_bus(node.node, node.vin, false, 0)
+				update_internal_bus(node.node, node.vin, 0)
 			else:
 				node.value = wrapi(node.value + int(node.inputs[1].level), 0, 0xffff) 
-				update_internal_bus(node.node, node.value, false, 0)
+				update_internal_bus(node.node, node.value, 0)
 			return
 		"SHIFTREG":
 			if node.inputs[5].level: # Reset
 				node.value = 0
-				update_internal_bus(node.node, 0, false, 0)
+				update_internal_bus(node.node, 0, 0)
 			# Detect not rising edge of CK
 			if not node.inputs[4].level or node.inputs[4].last_level:
 				return
 			node.inputs[4].last_level = node.inputs[4].level
 			if node.inputs[3].level: # LD
 				node.value = node.vin
-				update_internal_bus(node.node, node.vin, false, 0)
+				update_internal_bus(node.node, node.vin, 0)
 			else:
 				var v = node.value
 				if node.inputs[2].level: # EN
@@ -247,17 +287,17 @@ func apply_internal_input(node, level, port, reverse):
 					if node.inputs[1].level: # SI
 						v += msbs[node.node.data.bits]
 					node.value = v
-				update_internal_bus(node.node, v, false, 0)
+				update_internal_bus(node.node, v, 0)
 			return
 		"ROM":
 			if node.inputs[1].level == false: # /OE
-				update_internal_bus(node.node, node.node.data.memory.words[node.value], false, 0)
+				update_internal_bus(node.node, node.node.data.memory.words[node.value], 0)
 			return
 		"RAM":
 			if node.inputs[3].level == false: # /W
 				node.node.data.memory.words[node.value] = node.vin
 			if node.inputs[2].level == false: # /OE
-				update_internal_bus(node.node, node.node.data.memory.words[node.value], false, 0)
+				update_internal_bus(node.node, node.node.data.memory.words[node.value], 0)
 			return
 		"DECODER":
 			var v = 0
@@ -267,12 +307,12 @@ func apply_internal_input(node, level, port, reverse):
 				v *= 2
 				v += int(node.inputs[port].level)
 				port -= 1
-			update_internal_bus(node.node, v, false, 0)
+			update_internal_bus(node.node, v, 0)
 			return
 		"ALU":
-			set_internal_value(node.node.name, node.a, reverse, 0)
+			set_internal_value(node.node.name, node.a, 0)
 			return
-	update_internal_output(node.node, level, port, reverse)
+	update_internal_output(node.node, level, port)
 
 
 func set_the_title(txt: String):
