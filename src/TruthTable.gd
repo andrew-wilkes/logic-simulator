@@ -74,9 +74,12 @@ func _on_TruthTable_mouse_exited():
 
 
 func run_test():
-	if _part.type == "RAM":
-		_part.apply_data() # Erase the memory
-	emit_signal("test_pressed", data)
+	if is_instance_valid(_part):
+		if _part.type == "RAM":
+			_part.apply_data() # Erase the memory
+		emit_signal("test_pressed", data)
+	else:
+		hide()
 
 
 func highlight_inputs(input_pins, inputs):

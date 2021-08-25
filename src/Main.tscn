@@ -235,7 +235,6 @@ margin_right = 119.0
 margin_bottom = 1080.0
 
 [node name="YesNoDialog" parent="c" instance=ExtResource( 3 )]
-visible = false
 
 [connection signal="tree_exiting" from="." to="." method="_on_Main_tree_exiting"]
 [connection signal="pressed" from="M/Topbar/V/H/Learn" to="." method="_on_Learn_pressed"]
@@ -248,6 +247,7 @@ visible = false
 [connection signal="scroll_offset_changed" from="Graph" to="." method="_on_Graph_scroll_offset_changed"]
 [connection signal="timeout" from="TestTimer" to="." method="_on_TestTimer_timeout"]
 [connection signal="file_selected" from="c/FileDialog" to="." method="_on_FileDialog_file_selected"]
+[connection signal="popup_hide" from="c/FileDialog" to="." method="_on_FileDialog_popup_hide"]
 [connection signal="test_pressed" from="c/TruthTable" to="." method="start_tests"]
 [connection signal="no" from="c/YesNoDialog" to="." method="_on_YesNoDialog_no"]
 [connection signal="yes" from="c/YesNoDialog" to="." method="_on_YesNoDialog_yes"]

@@ -178,6 +178,10 @@ func apply_internal_input(node, level, port):
 			level = (not node.inputs[0].level and node.inputs[1].level) or (node.inputs[0].level and not node.inputs[1].level)
 		"OR":
 			level = node.inputs[0].level or node.inputs[1].level
+		"NOR":
+			level = not (node.inputs[0].level or node.inputs[1].level)
+		"XOR":
+			level = (not node.inputs[0].level and node.inputs[1].level) or (node.inputs[0].level and not node.inputs[1].level)
 		"MULT":
 			if node.inputs[2].level: # Select
 				level = node.inputs[1].level # B

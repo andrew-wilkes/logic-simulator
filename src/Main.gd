@@ -696,3 +696,8 @@ func _on_YesNoDialog_yes():
 	$c/YesNoDialog.hide()
 	action = SAVE
 	do_action()
+
+
+func _on_FileDialog_popup_hide():
+	if action == SAVE and file_name == "": # Cancelled Save or SaveAs
+		set_filename(last_file_name)
