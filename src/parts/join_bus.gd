@@ -8,6 +8,7 @@ func setup():
 		"mode": HEX,
 		"bits": 2,
 	}
+	label = $Label
 	apply_data()
 
 

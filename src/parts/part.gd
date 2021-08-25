@@ -38,6 +38,7 @@ var read = true
 var format = "0x%02X"
 var untouched = true
 var frame_style = preload("res://assets/GraphNodeFrameStyle.tres")
+var label
 
 func _ready():
 	set("custom_styles/frame", frame_style)
@@ -121,13 +122,10 @@ func get_value_from_inputs(reverse):
 	var pins = input_pins
 	if reverse:
 		pins = output_pins
-	var num_bits = pins.size() - 1
-	# Port 0 is the bus
-	var port = num_bits
-	for n in num_bits:
+	for port in range(pins.size() - 1, -1, -1):
+		print(port)
 		v *= 2
 		v += int(pins[port].level)
-		port -= 1
 	return v
 
 
@@ -249,11 +247,11 @@ func set_format():
 func update_display_value():
 	match data.mode:
 		DEC:
-			$Label.text = String(value)
+			label.text = String(value)
 		BIN:
-			$Label.text = int2bin(value, bit_lengths[data.bits])
+			label.text = int2bin(value, bit_lengths[data.bits])
 		_:
-			$Label.text = format % value
+			label.text = format % value
 
 
 # Create groups of 4 bits

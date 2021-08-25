@@ -12,6 +12,7 @@ func setup():
 	preset_input(false, 2)
 	preset_input(false, 3)
 	preset_input(false, 5)
+	label = $Label
 
 
 func update_output(_level: bool, _port: int, _r: bool):

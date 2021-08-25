@@ -8,6 +8,7 @@ func setup():
 		"mode": HEX,
 		"bits": 1,
 	}
+	label = $Label
 
 
 func update_output(_level: bool, _port: int, _r: bool):

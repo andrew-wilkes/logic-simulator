@@ -8,18 +8,13 @@ func text_changed(_t):
 	emit_signal("data_changed")
 
 
-func set_value(v: int, _r: bool, _p := 0):
-	value = v
-	show_value()
-
-
 func update_output(_level: bool, _port: int, _r: bool):
 	value = get_value_from_inputs(false)
 	show_value()
 
 
 func show_value():
-	get_child(0).text = "0x%02X" % value
+	$H/V.text = "0x%02X" % value
 
 
 func set_data(d: Dictionary):

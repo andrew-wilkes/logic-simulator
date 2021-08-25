@@ -3,7 +3,6 @@
 [ext_resource path="res://YesNoDialog.gd" type="Script" id=1]
 
 [node name="YesNoDialog" type="WindowDialog"]
-visible = true
 margin_right = 237.0
 margin_bottom = 83.0
 window_title = "Usaved changes warning"

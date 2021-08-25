@@ -6,30 +6,32 @@ export var num_pins = 8
 
 func update_output(_level: bool, _port: int, rev: bool):
 	value = get_value_from_inputs(rev)
-	update_value(value)
+	update_value(value, false)
 
 
-func set_value(v: int, _reverse: bool, port := 0):
+func set_value(v: int, reverse: bool, port := 0):
 	if port == 0:
 		value = v
-		update_value(v)
+		update_value(v, reverse)
 
 
-func update_value(v: int):
+func update_value(v: int, rev: bool):
 	update_display_value()
-	emit_signal("bus_changed", self, v, false)
+	if not rev:
+		emit_signal("bus_changed", self, v, false)
 
 
 func setup():
 	data = { "mode": HEX, "bits": num_bytes / 2 }
-	#set_format()
+	label = $H/Label
 	update_display_value()
 	var c = Label.new()
 	c.valign = Label.VALIGN_CENTER
 	c.rect_min_size.y = 24
 	for idx in num_pins:
-		c.text = "D%d" % idx
-		add_child(c.duplicate())
+		if idx > 0:
+			c.text = "D%d" % idx
+			add_child(c.duplicate())
 	call_deferred("set_slots")
 
 

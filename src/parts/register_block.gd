@@ -11,6 +11,7 @@ func setup():
 	}
 	preset_input(true, 1)
 	preset_input(false, 3)
+	label = $Label
 
 
 func set_data(d: Dictionary):

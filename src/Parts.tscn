@@ -939,7 +939,7 @@ rect_min_size = Vector2( 0, 16 )
 margin_left = 31.0
 margin_top = 472.0
 margin_right = 310.0
-margin_bottom = 806.0
+margin_bottom = 784.0
 custom_styles/frame = ExtResource( 23 )
 title = "Choose Type"
 slot/0/left_enabled = false
@@ -962,13 +962,13 @@ texture = ExtResource( 11 )
 margin_left = 16.0
 margin_top = 23.0
 margin_right = 263.0
-margin_bottom = 328.0
+margin_bottom = 306.0
 custom_constants/hseparation = 20
 columns = 2
 
 [node name="V1" type="VBoxContainer" parent="Gates/OUTPUT/Grid"]
 margin_right = 112.0
-margin_bottom = 305.0
+margin_bottom = 283.0
 
 [node name="OUTPUT1" type="GraphNode" parent="Gates/OUTPUT/Grid/V1"]
 margin_right = 112.0
@@ -1013,13 +1013,13 @@ margin_bottom = 72.0
 [node name="OUTPUT4" type="GraphNode" parent="Gates/OUTPUT/Grid/V1"]
 margin_top = 82.0
 margin_right = 112.0
-margin_bottom = 245.0
+margin_bottom = 215.0
 custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 6
 title = "OUTPUT 4"
-slot/0/left_enabled = true
-slot/0/left_type = 1
-slot/0/left_color = Color( 1, 1, 0, 1 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = false
 slot/0/right_type = 1
 slot/0/right_color = Color( 1, 1, 0, 1 )
@@ -1058,57 +1058,68 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="V" type="Label" parent="Gates/OUTPUT/Grid/V1/OUTPUT4"]
+[node name="Control" type="Control" parent="Gates/OUTPUT/Grid/V1/OUTPUT4"]
 margin_left = 16.0
 margin_top = 23.0
 margin_right = 96.0
-margin_bottom = 47.0
-rect_min_size = Vector2( 0, 24 )
-text = "0X00"
+margin_bottom = 28.0
+rect_min_size = Vector2( 0, 5 )
+
+[node name="H" type="HBoxContainer" parent="Gates/OUTPUT/Grid/V1/OUTPUT4"]
+margin_left = 16.0
+margin_top = 34.0
+margin_right = 96.0
+margin_bottom = 48.0
+
+[node name="D0" type="Label" parent="Gates/OUTPUT/Grid/V1/OUTPUT4/H"]
+margin_right = 18.0
+margin_bottom = 14.0
+text = "D0"
 valign = 1
 
-[node name="D0" type="Label" parent="Gates/OUTPUT/Grid/V1/OUTPUT4"]
-margin_left = 16.0
-margin_top = 53.0
-margin_right = 96.0
-margin_bottom = 67.0
-text = "D0"
+[node name="V" type="Label" parent="Gates/OUTPUT/Grid/V1/OUTPUT4/H"]
+margin_left = 22.0
+margin_right = 80.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "0X00"
+align = 2
 valign = 1
 
 [node name="D1" type="Label" parent="Gates/OUTPUT/Grid/V1/OUTPUT4"]
 margin_left = 16.0
-margin_top = 73.0
+margin_top = 54.0
 margin_right = 96.0
-margin_bottom = 87.0
+margin_bottom = 68.0
 text = "D1"
 valign = 1
 
 [node name="D2" type="Label" parent="Gates/OUTPUT/Grid/V1/OUTPUT4"]
 margin_left = 16.0
-margin_top = 93.0
+margin_top = 74.0
 margin_right = 96.0
-margin_bottom = 107.0
+margin_bottom = 88.0
 text = "D2"
 valign = 1
 
 [node name="D3" type="Label" parent="Gates/OUTPUT/Grid/V1/OUTPUT4"]
 margin_left = 16.0
-margin_top = 113.0
+margin_top = 94.0
 margin_right = 96.0
-margin_bottom = 127.0
+margin_bottom = 108.0
 text = "D3"
 valign = 1
 
 [node name="Tag" type="LineEdit" parent="Gates/OUTPUT/Grid/V1/OUTPUT4"]
 margin_left = 16.0
-margin_top = 133.0
+margin_top = 114.0
 margin_right = 96.0
-margin_bottom = 157.0
+margin_bottom = 138.0
 
 [node name="OUTPUTPIN" type="GraphNode" parent="Gates/OUTPUT/Grid/V1"]
-margin_top = 249.0
+margin_top = 219.0
 margin_right = 112.0
-margin_bottom = 305.0
+margin_bottom = 275.0
 mouse_filter = 1
 custom_styles/frame = ExtResource( 23 )
 title = "OUTPUT PIN"
@@ -1148,17 +1159,17 @@ text = "Q"
 [node name="V2" type="VBoxContainer" parent="Gates/OUTPUT/Grid"]
 margin_left = 132.0
 margin_right = 247.0
-margin_bottom = 305.0
+margin_bottom = 283.0
 
 [node name="OUTPUT8" type="GraphNode" parent="Gates/OUTPUT/Grid/V2"]
 margin_right = 115.0
-margin_bottom = 243.0
+margin_bottom = 223.0
 custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 6
 title = "OUTPUT 8"
-slot/0/left_enabled = true
-slot/0/left_type = 1
-slot/0/left_color = Color( 1, 1, 0, 1 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = false
 slot/0/right_type = 1
 slot/0/right_color = Color( 1, 1, 0, 1 )
@@ -1221,89 +1232,100 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="V" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
+[node name="Control" type="Control" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
 margin_left = 16.0
 margin_top = 23.0
 margin_right = 99.0
-margin_bottom = 47.0
-rect_min_size = Vector2( 0, 24 )
-text = "0X00"
+margin_bottom = 28.0
+rect_min_size = Vector2( 0, 5 )
+
+[node name="H" type="HBoxContainer" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
+margin_left = 16.0
+margin_top = 34.0
+margin_right = 99.0
+margin_bottom = 48.0
+
+[node name="D0" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8/H"]
+margin_right = 18.0
+margin_bottom = 14.0
+text = "D0"
 valign = 1
 
-[node name="D0" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
-margin_left = 16.0
-margin_top = 53.0
-margin_right = 99.0
-margin_bottom = 67.0
-text = "D0"
+[node name="V" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8/H"]
+margin_left = 22.0
+margin_right = 83.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "0X00"
+align = 2
 valign = 1
 
 [node name="D1" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
 margin_left = 16.0
-margin_top = 73.0
+margin_top = 54.0
 margin_right = 99.0
-margin_bottom = 87.0
+margin_bottom = 68.0
 text = "D1"
 valign = 1
 
 [node name="D2" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
 margin_left = 16.0
-margin_top = 93.0
+margin_top = 74.0
 margin_right = 99.0
-margin_bottom = 107.0
+margin_bottom = 88.0
 text = "D2"
 valign = 1
 
 [node name="D3" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
 margin_left = 16.0
-margin_top = 113.0
+margin_top = 94.0
 margin_right = 99.0
-margin_bottom = 127.0
+margin_bottom = 108.0
 text = "D3"
 valign = 1
 
 [node name="D4" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
 margin_left = 16.0
-margin_top = 133.0
+margin_top = 114.0
 margin_right = 99.0
-margin_bottom = 147.0
+margin_bottom = 128.0
 text = "D4"
 valign = 1
 
 [node name="D5" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
 margin_left = 16.0
-margin_top = 153.0
+margin_top = 134.0
 margin_right = 99.0
-margin_bottom = 167.0
+margin_bottom = 148.0
 text = "D5"
 valign = 1
 
 [node name="D6" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
 margin_left = 16.0
-margin_top = 173.0
+margin_top = 154.0
 margin_right = 99.0
-margin_bottom = 187.0
+margin_bottom = 168.0
 text = "D6"
 valign = 1
 
 [node name="D7" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
 margin_left = 16.0
-margin_top = 193.0
+margin_top = 174.0
 margin_right = 99.0
-margin_bottom = 207.0
+margin_bottom = 188.0
 text = "D7"
 valign = 1
 
 [node name="Tag" type="LineEdit" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
 margin_left = 16.0
-margin_top = 213.0
+margin_top = 194.0
 margin_right = 99.0
-margin_bottom = 237.0
+margin_bottom = 218.0
 
 [node name="OUTPUTBUS" type="GraphNode" parent="Gates/OUTPUT/Grid/V2"]
-margin_top = 247.0
+margin_top = 227.0
 margin_right = 115.0
-margin_bottom = 303.0
+margin_bottom = 283.0
 mouse_filter = 1
 custom_styles/frame = ExtResource( 23 )
 title = "OUTPUT BUS"
@@ -1354,8 +1376,8 @@ margin_right = 125.0
 margin_bottom = 70.0
 title = "INBUS 8"
 slot/0/left_enabled = true
-slot/0/left_type = 1
-slot/0/left_color = Color( 1, 1, 0, 1 )
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 1
 slot/0/right_color = Color( 1, 1, 0, 1 )
@@ -1364,13 +1386,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="MISC/INBUS8"]
+[node name="H" type="HBoxContainer" parent="MISC/INBUS8"]
 margin_left = 16.0
 margin_top = 24.0
 margin_right = 109.0
 margin_bottom = 64.0
-rect_min_size = Vector2( 0, 40 )
+
+[node name="D0" type="Label" parent="MISC/INBUS8/H"]
+margin_top = 8.0
+margin_right = 58.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+text = "D0"
+valign = 1
+
+[node name="Label" type="Label" parent="MISC/INBUS8/H"]
+margin_left = 62.0
+margin_right = 93.0
+margin_bottom = 40.0
 text = "0x00"
+align = 2
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1386,8 +1422,8 @@ margin_right = 125.0
 margin_bottom = 144.0
 title = "INBUS 16"
 slot/0/left_enabled = true
-slot/0/left_type = 1
-slot/0/left_color = Color( 1, 1, 0, 1 )
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 1
 slot/0/right_color = Color( 1, 1, 0, 1 )
@@ -1397,13 +1433,27 @@ __meta__ = {
 }
 num_pins = 16
 
-[node name="Label" type="Label" parent="MISC/INBUS16"]
+[node name="H" type="HBoxContainer" parent="MISC/INBUS16"]
 margin_left = 16.0
 margin_top = 24.0
 margin_right = 109.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 0, 40 )
+margin_bottom = 48.0
+
+[node name="D0" type="Label" parent="MISC/INBUS16/H"]
+margin_right = 58.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+text = "D0"
+valign = 1
+
+[node name="Label" type="Label" parent="MISC/INBUS16/H"]
+margin_left = 62.0
+margin_top = 5.0
+margin_right = 93.0
+margin_bottom = 19.0
 text = "0x00"
+align = 2
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1671,20 +1721,37 @@ slot/0/left_enabled = true
 slot/0/left_type = 1
 slot/0/left_color = Color( 1, 1, 0, 1 )
 slot/0/right_enabled = true
-slot/0/right_type = 1
-slot/0/right_color = Color( 1, 1, 0, 1 )
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 62 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="MISC/OUTBUS8"]
+[node name="H" type="HBoxContainer" parent="MISC/OUTBUS8"]
 margin_left = 16.0
 margin_top = 24.0
 margin_right = 109.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 0, 40 )
+margin_bottom = 48.0
+
+[node name="Label" type="Label" parent="MISC/OUTBUS8/H"]
+margin_top = 5.0
+margin_right = 31.0
+margin_bottom = 19.0
 text = "0x00"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="D0" type="Label" parent="MISC/OUTBUS8/H"]
+margin_left = 35.0
+margin_right = 93.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+text = "D0"
+align = 2
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1703,21 +1770,38 @@ slot/0/left_enabled = true
 slot/0/left_type = 1
 slot/0/left_color = Color( 1, 1, 0, 1 )
 slot/0/right_enabled = true
-slot/0/right_type = 1
-slot/0/right_color = Color( 1, 1, 0, 1 )
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 62 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 num_pins = 16
 
-[node name="Label" type="Label" parent="MISC/OUTBUS16"]
+[node name="H" type="HBoxContainer" parent="MISC/OUTBUS16"]
 margin_left = 16.0
 margin_top = 24.0
 margin_right = 109.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 0, 40 )
+margin_bottom = 48.0
+
+[node name="Label" type="Label" parent="MISC/OUTBUS16/H"]
+margin_top = 5.0
+margin_right = 31.0
+margin_bottom = 19.0
 text = "0x00"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="D0" type="Label" parent="MISC/OUTBUS16/H"]
+margin_left = 35.0
+margin_right = 93.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+text = "D0"
+align = 2
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false

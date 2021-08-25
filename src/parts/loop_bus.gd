@@ -16,3 +16,4 @@ func setup():
 		"bits": 2,
 	}
 	format = "0x%02X"
+	label = $Label

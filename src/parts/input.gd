@@ -10,16 +10,15 @@ func text_changed(_t):
 
 
 func set_value(v: int, reverse = false, _port := 0):
-	if v == value:
+	if v == value or reverse:
 		return
 	value = v
 	set_text(v)
 	emit_signal("bus_changed", self, v, reverse)
-	if not reverse or reverse and is_reversible_input:
-		for n in output_pins.size() - 1:
-			var level = bool(v % 2)
-			v /= 2
-			set_output(level, n + 1, reverse)
+	for n in output_pins.size() - 1:
+		var level = bool(v % 2)
+		v /= 2
+		set_output(level, n + 1, reverse)
 
 
 func set_text(v):
