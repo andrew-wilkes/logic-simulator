@@ -54,7 +54,7 @@ var map = [
 
 
 func update_output(_level: bool, _port: int, _r: bool):
-	set_value(get_value_from_inputs(false), false)
+	set_value(get_value_from_inputs(false, 0), false)
 
 
 func set_value(v: int, reverse: bool, port := 0):

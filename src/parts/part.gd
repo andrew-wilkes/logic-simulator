@@ -114,12 +114,12 @@ func reset():
 		input_pin.count = 0
 
 
-func get_value_from_inputs(reverse):
+func get_value_from_inputs(reverse, limit = -1):
 	var v = 0
 	var pins = input_pins
 	if reverse:
 		pins = output_pins
-	for port in range(pins.size() - 1, -1, -1):
+	for port in range(pins.size() - 1, limit, -1):
 		print(port)
 		v *= 2
 		v += int(pins[port].level)

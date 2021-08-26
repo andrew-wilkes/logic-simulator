@@ -3,7 +3,7 @@ extends Part
 class_name DecoderComb
 
 func update_output(_level: bool, _port: int, _r: bool):
-	set_value(get_value_from_inputs(false), false)
+	set_value(get_value_from_inputs(false, 0), false)
 
 
 func set_value(v: int, _reverse: bool, port := 0):
@@ -56,18 +56,18 @@ func add_slots(_n):
 	else:
 		input_pin.slot = 4
 	input_pins.append(input_pin)
-	get_child(input_pin.slot + 1).get_child(0).text = "A" + String(input_pin.slot)
+	get_child(input_pin.slot + 2).get_child(0).text = "A" + String(input_pin.slot)
 	set_slot(input_pin.slot, true, 0, Color.white, true, 0, Color.white)
 	var c = get_child(5).duplicate()
 	c.get_child(0).text = ""
 	for n in _n:
 		c.get_child(1).text = "Y" + String(yn)
 		add_child(c.duplicate())
-		yn += 1
 		set_slot(yn, false, 0, Color.white, true, 0, Color.white)
 		var output_pin = Pin.new()
 		output_pin.slot = yn
 		output_pins.append(output_pin)
+		yn += 1
 
 
 func setup():

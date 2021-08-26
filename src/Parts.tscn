@@ -2312,16 +2312,16 @@ align = 2
 valign = 1
 
 [node name="DECODER" type="GraphNode" parent="Combinational"]
-margin_left = 512.117
-margin_top = 269.895
-margin_right = 644.117
-margin_bottom = 423.895
+margin_left = 555.0
+margin_top = 265.0
+margin_right = 680.0
+margin_bottom = 394.0
 title = "DECODER"
 slot/0/left_enabled = true
 slot/0/left_type = 1
 slot/0/left_color = Color( 1, 1, 0, 1 )
-slot/0/right_enabled = false
-slot/0/right_type = 0
+slot/0/right_enabled = true
+slot/0/right_type = 1
 slot/0/right_color = Color( 1, 1, 1, 1 )
 slot/1/left_enabled = true
 slot/1/left_type = 0
@@ -2341,12 +2341,6 @@ slot/3/left_color = Color( 1, 1, 1, 1 )
 slot/3/right_enabled = true
 slot/3/right_type = 0
 slot/3/right_color = Color( 1, 1, 1, 1 )
-slot/4/left_enabled = false
-slot/4/left_type = 0
-slot/4/left_color = Color( 1, 1, 1, 1 )
-slot/4/right_enabled = true
-slot/4/right_type = 0
-slot/4/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2360,7 +2354,7 @@ texture = ExtResource( 16 )
 [node name="HBox" type="HBoxContainer" parent="Combinational/DECODER"]
 margin_left = 16.0
 margin_top = 24.0
-margin_right = 116.0
+margin_right = 109.0
 margin_bottom = 48.0
 rect_min_size = Vector2( 0, 24 )
 
@@ -2373,15 +2367,30 @@ valign = 1
 
 [node name="Bits" parent="Combinational/DECODER/HBox" instance=ExtResource( 35 )]
 margin_left = 14.0
-margin_right = 100.0
+margin_right = 74.0
 margin_bottom = 24.0
-size_flags_horizontal = 3
+rect_min_size = Vector2( 60, 0 )
+size_flags_horizontal = 1
 text = "Bits"
+
+[node name="Label3" type="Label" parent="Combinational/DECODER/HBox"]
+margin_left = 78.0
+margin_top = 5.0
+margin_right = 93.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "Y0"
+align = 2
+valign = 1
+
+[node name="Timer" type="Timer" parent="Combinational/DECODER"]
+wait_time = 2.0
+one_shot = true
 
 [node name="HBox2" type="HBoxContainer" parent="Combinational/DECODER"]
 margin_left = 16.0
 margin_top = 49.0
-margin_right = 116.0
+margin_right = 109.0
 margin_bottom = 73.0
 rect_min_size = Vector2( 0, 24 )
 
@@ -2395,17 +2404,17 @@ valign = 1
 [node name="Label2" type="Label" parent="Combinational/DECODER/HBox2"]
 margin_left = 21.0
 margin_top = 5.0
-margin_right = 100.0
+margin_right = 93.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
-text = "Y0"
+text = "Y1"
 align = 2
 valign = 1
 
 [node name="HBox3" type="HBoxContainer" parent="Combinational/DECODER"]
 margin_left = 16.0
 margin_top = 74.0
-margin_right = 116.0
+margin_right = 109.0
 margin_bottom = 98.0
 rect_min_size = Vector2( 0, 24 )
 
@@ -2419,17 +2428,17 @@ valign = 1
 [node name="Label2" type="Label" parent="Combinational/DECODER/HBox3"]
 margin_left = 21.0
 margin_top = 5.0
-margin_right = 100.0
+margin_right = 93.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
-text = "Y1"
+text = "Y2"
 align = 2
 valign = 1
 
 [node name="HBox4" type="HBoxContainer" parent="Combinational/DECODER"]
 margin_left = 16.0
 margin_top = 99.0
-margin_right = 116.0
+margin_right = 109.0
 margin_bottom = 123.0
 rect_min_size = Vector2( 0, 24 )
 
@@ -2441,38 +2450,12 @@ valign = 1
 [node name="Label2" type="Label" parent="Combinational/DECODER/HBox4"]
 margin_left = 4.0
 margin_top = 5.0
-margin_right = 100.0
-margin_bottom = 19.0
-size_flags_horizontal = 3
-text = "Y2"
-align = 2
-valign = 1
-
-[node name="HBox5" type="HBoxContainer" parent="Combinational/DECODER"]
-margin_left = 16.0
-margin_top = 124.0
-margin_right = 116.0
-margin_bottom = 148.0
-rect_min_size = Vector2( 0, 24 )
-
-[node name="Label" type="Label" parent="Combinational/DECODER/HBox5"]
-margin_top = 5.0
-margin_bottom = 19.0
-valign = 1
-
-[node name="Label2" type="Label" parent="Combinational/DECODER/HBox5"]
-margin_left = 4.0
-margin_top = 5.0
-margin_right = 100.0
+margin_right = 93.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
 text = "Y3"
 align = 2
 valign = 1
-
-[node name="Timer" type="Timer" parent="Combinational/DECODER"]
-wait_time = 2.0
-one_shot = true
 
 [node name="SEG7" type="GraphNode" parent="Combinational"]
 margin_left = 365.379
