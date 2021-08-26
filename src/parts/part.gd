@@ -112,9 +112,6 @@ func reset_pin_color(port, is_input_pin):
 func reset():
 	for input_pin in input_pins:
 		input_pin.count = 0
-	if is_reversible_input:
-		for output_pin in output_pins:
-			output_pin.count = 0
 
 
 func get_value_from_inputs(reverse):

@@ -132,7 +132,6 @@ func reset():
 		var n = nodes[node]
 		for idx in n.inputs.size():
 			n.inputs[idx].count = 0
-	# Don't bother with reversible inputs
 
 
 func update_output(level: bool, port: int, _reverse: bool):
@@ -143,6 +142,7 @@ func update_output(level: bool, port: int, _reverse: bool):
 
 
 func update_internal_output(node, level: bool, port: int):
+	node.outputs[port].level = level
 	for con in circuit.connections:
 		if con.from == node.name and con.from_port == port:
 			apply_internal_input(nodes[con.to], level, con.to_port)
@@ -191,57 +191,63 @@ func apply_internal_input(node, level, port):
 			# Init outputs
 			if untouched:
 				untouched = false
-				update_internal_bus(node.node, false, 0)
-				update_internal_bus(node.node, true, 1)
+				update_internal_output(node.node, false, 0)
+				update_internal_output(node.node, true, 1)
+#			print(node.inputs[0].level)
+#			print(node.inputs[1].level)
 			if node.inputs[0].level: # Set
-				update_internal_bus(node.node, true, 0)
-				update_internal_bus(node.node, false, 1)
-			else:
-				if node.inputs[1].level: # Reset
-					update_internal_bus(node.node, false, 0)
-					update_internal_bus(node.node, true, 1)
+				update_internal_output(node.node, not node.inputs[1].level, 0)
+				update_internal_output(node.node, false, 1)
+			elif node.inputs[1].level: # Reset
+				update_internal_output(node.node, false, 0)
+				update_internal_output(node.node, not node.inputs[0].level, 1)
+			return
 		"DLATCH":
 			if untouched:
 				untouched = false
-				update_internal_bus(node.node, false, 0)
-				update_internal_bus(node.node, true, 1)
+				update_internal_output(node.node, false, 0)
+				update_internal_output(node.node, true, 1)
 			if node.inputs[0].level: # Enable
-				update_internal_bus(node.node, node.inputs[1].level, 0)
-				update_internal_bus(node.node, not node.inputs[1].level, 1)
+				update_internal_output(node.node, node.inputs[1].level, 0)
+				update_internal_output(node.node, not node.inputs[1].level, 1)
+			return
 		"DFLIPFLOP":
 			if untouched:
 				untouched = false
-				update_internal_bus(node.node, false, 0)
+				update_internal_output(node.node, false, 0)
+				node.inputs[2].last_level = false
 			if node.inputs[0].level: # Set
-				update_internal_bus(node.node, true, 0)
+				update_internal_output(node.node, true, 0)
 			else:
 				if node.inputs[3].level: # Reset
-					update_internal_bus(node.node, false, 0)
+					update_internal_output(node.node, false, 0)
 				else:
 					# Detect rising edge of CK
 					if node.inputs[2].level and not node.inputs[2].last_level:
 						node.inputs[2].last_level = true
-						update_internal_bus(node.node, node.inputs[1].level, 0)
+						update_internal_output(node.node, node.inputs[1].level, 0)
 					node.inputs[2].last_level = node.inputs[2].level
+			return
 		"JKFLIPFLOP":
 			# Init outputs
 			if untouched:
 				untouched = false
-				update_internal_bus(node.node, false, 0)
-				update_internal_bus(node.node, true, 1)
+				update_internal_output(node.node, false, 0)
+				update_internal_output(node.node, true, 1)
 			# Detect rising edge of CK
 			if node.inputs[1].level and not node.inputs[1].last_level:
 				node.inputs[1].last_level = true
 				if node.inputs[0].level and node.inputs[2].level: # Toggle
-					update_internal_bus(node.node, not node.outputs[0].level, 0)
-					update_internal_bus(node.node, not node.outputs[1].level, 1)
+					update_internal_output(node.node, not node.outputs[0].level, 0)
+					update_internal_output(node.node, not node.outputs[1].level, 1)
 				else:
 					if node.inputs[0].level: # Set
-						update_internal_bus(node.node, true, 0)
-						update_internal_bus(node.node, false, 1)
+						update_internal_output(node.node, true, 0)
+						update_internal_output(node.node, false, 1)
 					if node.inputs[2].level: # Reset
-						update_internal_bus(node.node, true, 1)
-						update_internal_bus(node.node, false, 0)
+						update_internal_output(node.node, true, 1)
+						update_internal_output(node.node, false, 0)
+			return
 		"BUSMUX":
 			node.selected_port = int(node.inputs[4].level) + 2 * int(node.inputs[5].level)
 			update_internal_bus(node.node, node.values[node.selected_port], 0)

@@ -167,6 +167,8 @@ func _on_TestTimer_timeout():
 			else:
 				last_value = pin.last_value
 				got = pin.value
+			if pin.untouched:
+				last_value = got
 			if wanted is String:
 				if wanted.is_valid_hex_number(true):
 					wanted = wanted.hex_to_int()
