@@ -120,7 +120,6 @@ func get_value_from_inputs(reverse, limit = -1):
 	if reverse:
 		pins = output_pins
 	for port in range(pins.size() - 1, limit, -1):
-		print(port)
 		v *= 2
 		v += int(pins[port].level)
 	return v

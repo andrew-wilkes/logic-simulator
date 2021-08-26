@@ -48,6 +48,10 @@ func set_internal_value(node_name, v, port):
 				ob.value = v
 			else:
 				return
+		"OUTBUS8", "OUTBUS16":
+			for n in ob.outputs.size():
+				update_internal_output(ob, v == n, n)
+			return
 		"REG", "COUNTER", "SHIFTREG":
 			if port == 0:
 				ob.vin = v
@@ -197,8 +201,6 @@ func apply_internal_input(node, level, port):
 				untouched = false
 				update_internal_output(node, false, 0)
 				update_internal_output(node, true, 1)
-#			print(node.inputs[0].level)
-#			print(node.inputs[1].level)
 			if node.inputs[0].level: # Set
 				update_internal_output(node, not node.inputs[1].level, 0)
 				update_internal_output(node, false, 1)
@@ -335,6 +337,13 @@ func apply_internal_input(node, level, port):
 			for n in node.node.data.size:
 				update_internal_output(node, v == n, n)
 			return
+		"INBUS8", "INBUS16":
+			var v = 0
+			for port in range(node.inputs.size() - 1, -1, -1):
+				v *= 2
+				v += int(node.inputs[port].level)
+			set_internal_value(node.node.name, v, 0)
+			return
 		"ALU":
 			set_internal_value(node.node.name, node.a, 0)
 			return
@@ -396,7 +405,7 @@ class PartNode:
 	var selected_port = 0
 	func _init(_node):
 		node = _node
-		for _n in 6:
+		for _n in 16:
 			inputs.append(Part.Pin.new())
 		for _n in 16:
 			outputs.append(Part.Pin.new())
@@ -420,8 +429,8 @@ func configure_slots():
 	var type_right = 0
 	var enable_left = false
 	var enable_right = false
-	var col_left
-	var col_right
+	var col_left = Color.white
+	var col_right = Color.white
 	while idx < num_slots:
 		if idx < inputs_to_add.size():
 			enable_left = true
