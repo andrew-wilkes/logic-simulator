@@ -38,5 +38,6 @@ margin_left = 28.0
 margin_right = 28.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
 align = 2
 valign = 1

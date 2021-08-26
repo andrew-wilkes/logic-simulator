@@ -326,12 +326,14 @@ func apply_internal_input(node, level, port):
 		"DECODER":
 			var v = 0
 			# Port 0 is the bus
-			port = node.node.data.size
+			port = 4 # Unused inputs should be false
 			while port > 0:
 				v *= 2
 				v += int(node.inputs[port].level)
 				port -= 1
-			update_internal_bus(node.node, v, 0)
+			v %= node.node.data.size
+			for n in node.node.data.size:
+				update_internal_output(node, v == n, n)
 			return
 		"ALU":
 			set_internal_value(node.node.name, node.a, 0)
