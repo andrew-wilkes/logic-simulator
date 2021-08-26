@@ -962,13 +962,13 @@ texture = ExtResource( 11 )
 margin_left = 16.0
 margin_top = 23.0
 margin_right = 263.0
-margin_bottom = 306.0
+margin_bottom = 309.0
 custom_constants/hseparation = 20
 columns = 2
 
 [node name="V1" type="VBoxContainer" parent="Gates/OUTPUT/Grid"]
 margin_right = 112.0
-margin_bottom = 283.0
+margin_bottom = 286.0
 
 [node name="OUTPUT1" type="GraphNode" parent="Gates/OUTPUT/Grid/V1"]
 margin_right = 112.0
@@ -1013,7 +1013,7 @@ margin_bottom = 72.0
 [node name="OUTPUT4" type="GraphNode" parent="Gates/OUTPUT/Grid/V1"]
 margin_top = 82.0
 margin_right = 112.0
-margin_bottom = 215.0
+margin_bottom = 226.0
 custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 6
 title = "OUTPUT 4"
@@ -1117,9 +1117,9 @@ margin_right = 96.0
 margin_bottom = 138.0
 
 [node name="OUTPUTPIN" type="GraphNode" parent="Gates/OUTPUT/Grid/V1"]
-margin_top = 219.0
+margin_top = 230.0
 margin_right = 112.0
-margin_bottom = 275.0
+margin_bottom = 286.0
 mouse_filter = 1
 custom_styles/frame = ExtResource( 23 )
 title = "OUTPUT PIN"
@@ -1159,11 +1159,11 @@ text = "Q"
 [node name="V2" type="VBoxContainer" parent="Gates/OUTPUT/Grid"]
 margin_left = 132.0
 margin_right = 247.0
-margin_bottom = 283.0
+margin_bottom = 286.0
 
 [node name="OUTPUT8" type="GraphNode" parent="Gates/OUTPUT/Grid/V2"]
 margin_right = 115.0
-margin_bottom = 223.0
+margin_bottom = 224.0
 custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 6
 title = "OUTPUT 8"
@@ -1323,9 +1323,9 @@ margin_right = 99.0
 margin_bottom = 218.0
 
 [node name="OUTPUTBUS" type="GraphNode" parent="Gates/OUTPUT/Grid/V2"]
-margin_top = 227.0
+margin_top = 228.0
 margin_right = 115.0
-margin_bottom = 283.0
+margin_bottom = 284.0
 mouse_filter = 1
 custom_styles/frame = ExtResource( 23 )
 title = "OUTPUT BUS"
@@ -1373,7 +1373,7 @@ __meta__ = {
 
 [node name="INBUS8" type="GraphNode" parent="MISC"]
 margin_right = 125.0
-margin_bottom = 70.0
+margin_bottom = 54.0
 title = "INBUS 8"
 slot/0/left_enabled = true
 slot/0/left_type = 0
@@ -1390,12 +1390,11 @@ __meta__ = {
 margin_left = 16.0
 margin_top = 24.0
 margin_right = 109.0
-margin_bottom = 64.0
+margin_bottom = 48.0
 
 [node name="D0" type="Label" parent="MISC/INBUS8/H"]
-margin_top = 8.0
 margin_right = 58.0
-margin_bottom = 32.0
+margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
 text = "D0"
@@ -1403,8 +1402,9 @@ valign = 1
 
 [node name="Label" type="Label" parent="MISC/INBUS8/H"]
 margin_left = 62.0
+margin_top = 5.0
 margin_right = 93.0
-margin_bottom = 40.0
+margin_bottom = 19.0
 text = "0x00"
 align = 2
 valign = 1
@@ -1417,9 +1417,9 @@ visible = false
 texture = ExtResource( 64 )
 
 [node name="INBUS16" type="GraphNode" parent="MISC"]
-margin_top = 74.0
+margin_top = 58.0
 margin_right = 125.0
-margin_bottom = 144.0
+margin_bottom = 112.0
 title = "INBUS 16"
 slot/0/left_enabled = true
 slot/0/left_type = 0
@@ -1464,9 +1464,9 @@ visible = false
 texture = ExtResource( 13 )
 
 [node name="BUSMUX" type="GraphNode" parent="MISC"]
-margin_top = 148.0
+margin_top = 116.0
 margin_right = 125.0
-margin_bottom = 352.0
+margin_bottom = 320.0
 title = "BUS MUX"
 slot/0/left_enabled = true
 slot/0/left_type = 1
@@ -1623,9 +1623,9 @@ visible = false
 texture = ExtResource( 37 )
 
 [node name="BUS1" type="GraphNode" parent="MISC"]
-margin_top = 356.0
+margin_top = 324.0
 margin_right = 125.0
-margin_bottom = 447.0
+margin_bottom = 415.0
 title = "BUS"
 slot/0/left_enabled = true
 slot/0/left_type = 1
@@ -1668,9 +1668,9 @@ margin_bottom = 85.0
 text = "Format"
 
 [node name="LOOPBUS" type="GraphNode" parent="MISC"]
-margin_top = 451.0
+margin_top = 419.0
 margin_right = 125.0
-margin_bottom = 546.0
+margin_bottom = 514.0
 title = "LOOP BACK"
 slot/0/left_enabled = true
 slot/0/left_type = 1
@@ -1713,9 +1713,9 @@ margin_bottom = 89.0
 rect_min_size = Vector2( 0, 24 )
 
 [node name="OUTBUS8" type="GraphNode" parent="MISC"]
-margin_top = 550.0
+margin_top = 518.0
 margin_right = 125.0
-margin_bottom = 620.0
+margin_bottom = 572.0
 title = "OUTBUS 8"
 slot/0/left_enabled = true
 slot/0/left_type = 1
@@ -1762,9 +1762,9 @@ visible = false
 texture = ExtResource( 66 )
 
 [node name="OUTBUS16" type="GraphNode" parent="MISC"]
-margin_top = 624.0
+margin_top = 576.0
 margin_right = 125.0
-margin_bottom = 694.0
+margin_bottom = 630.0
 title = "OUTBUS 16"
 slot/0/left_enabled = true
 slot/0/left_type = 1

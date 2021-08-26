@@ -7,7 +7,7 @@ func update_output(_level: bool, _port: int, _r: bool):
 	if untouched:
 		untouched = false
 		set_output(false, 0)
-		set_output(true, 1)
+		set_output(false, 1)
 	var sum: int = int(input_pins[0].level) + int(input_pins[1].level) + int(input_pins[2].level)
 	set_output(bool(sum % 2), 0) # Sum
 # warning-ignore:integer_division

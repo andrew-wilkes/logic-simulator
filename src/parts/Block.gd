@@ -111,18 +111,18 @@ func set_internal_value(node_name, v, port):
 				7:
 					v |= b
 			# Cout
-			update_internal_output(obn, v >= maxvs[obn.data.bits], 1)
+			update_internal_output(ob, v >= maxvs[obn.data.bits], 1)
 			v %= maxvs[obn.data.bits]
 			var msb2 = v >= msbs[obn.data.bits]
-			update_internal_output(obn, v == 0, 2) # Zero
+			update_internal_output(ob, v == 0, 2) # Zero
 			var of = false
 			match f:
 				2,3,4:
 					of = msb2 > msb1
 				5:
 					of = msb2 < msb1
-			update_internal_output(obn, of, 3) # OF
-			update_internal_output(obn, msb2, 4) # Sign
+			update_internal_output(ob, of, 3) # OF
+			update_internal_output(ob, msb2, 4) # Sign
 	update_internal_bus(obn, v, port)
 
 
@@ -138,11 +138,15 @@ func update_output(level: bool, port: int, _reverse: bool):
 	var node = inputs_to_add[port][1]
 	# External port is pin of block
 	# Internal pin output is port 0
-	update_internal_output(node, level, 0)
+	apply_internal_inputs(node, level, 0)
 
 
 func update_internal_output(node, level: bool, port: int):
 	node.outputs[port].level = level
+	apply_internal_inputs(node.node, level, port)
+
+
+func apply_internal_inputs(node, level: bool, port: int):
 	for con in circuit.connections:
 		if con.from == node.name and con.from_port == port:
 			apply_internal_input(nodes[con.to], level, con.to_port)
@@ -191,62 +195,72 @@ func apply_internal_input(node, level, port):
 			# Init outputs
 			if untouched:
 				untouched = false
-				update_internal_output(node.node, false, 0)
-				update_internal_output(node.node, true, 1)
+				update_internal_output(node, false, 0)
+				update_internal_output(node, true, 1)
 #			print(node.inputs[0].level)
 #			print(node.inputs[1].level)
 			if node.inputs[0].level: # Set
-				update_internal_output(node.node, not node.inputs[1].level, 0)
-				update_internal_output(node.node, false, 1)
+				update_internal_output(node, not node.inputs[1].level, 0)
+				update_internal_output(node, false, 1)
 			elif node.inputs[1].level: # Reset
-				update_internal_output(node.node, false, 0)
-				update_internal_output(node.node, not node.inputs[0].level, 1)
+				update_internal_output(node, false, 0)
+				update_internal_output(node, not node.inputs[0].level, 1)
 			return
 		"DLATCH":
 			if untouched:
 				untouched = false
-				update_internal_output(node.node, false, 0)
-				update_internal_output(node.node, true, 1)
+				update_internal_output(node, false, 0)
+				update_internal_output(node, true, 1)
 			if node.inputs[0].level: # Enable
-				update_internal_output(node.node, node.inputs[1].level, 0)
-				update_internal_output(node.node, not node.inputs[1].level, 1)
+				update_internal_output(node, node.inputs[1].level, 0)
+				update_internal_output(node, not node.inputs[1].level, 1)
 			return
 		"DFLIPFLOP":
 			if untouched:
 				untouched = false
-				update_internal_output(node.node, false, 0)
+				update_internal_output(node, false, 0)
 				node.inputs[2].last_level = false
 			if node.inputs[0].level: # Set
-				update_internal_output(node.node, true, 0)
+				update_internal_output(node, true, 0)
 			else:
 				if node.inputs[3].level: # Reset
-					update_internal_output(node.node, false, 0)
+					update_internal_output(node, false, 0)
 				else:
 					# Detect rising edge of CK
 					if node.inputs[2].level and not node.inputs[2].last_level:
 						node.inputs[2].last_level = true
-						update_internal_output(node.node, node.inputs[1].level, 0)
+						update_internal_output(node, node.inputs[1].level, 0)
 					node.inputs[2].last_level = node.inputs[2].level
 			return
 		"JKFLIPFLOP":
 			# Init outputs
 			if untouched:
 				untouched = false
-				update_internal_output(node.node, false, 0)
-				update_internal_output(node.node, true, 1)
+				update_internal_output(node, false, 0)
+				update_internal_output(node, true, 1)
 			# Detect rising edge of CK
 			if node.inputs[1].level and not node.inputs[1].last_level:
 				node.inputs[1].last_level = true
 				if node.inputs[0].level and node.inputs[2].level: # Toggle
-					update_internal_output(node.node, not node.outputs[0].level, 0)
-					update_internal_output(node.node, not node.outputs[1].level, 1)
+					update_internal_output(node, not node.outputs[0].level, 0)
+					update_internal_output(node, not node.outputs[1].level, 1)
 				else:
 					if node.inputs[0].level: # Set
-						update_internal_output(node.node, true, 0)
-						update_internal_output(node.node, false, 1)
+						update_internal_output(node, true, 0)
+						update_internal_output(node, false, 1)
 					if node.inputs[2].level: # Reset
-						update_internal_output(node.node, true, 1)
-						update_internal_output(node.node, false, 0)
+						update_internal_output(node, true, 1)
+						update_internal_output(node, false, 0)
+			return
+		"ADDER":
+			if untouched:
+				untouched = false
+				update_internal_output(node, false, 0)
+				update_internal_output(node, false, 1)
+			var sum: int = int(node.inputs[0].level) + int(node.inputs[1].level) + int(node.inputs[2].level)
+			update_internal_output(node, bool(sum % 2), 0) # Sum
+# warning-ignore:integer_division
+			update_internal_output(node, bool(sum / 2), 1) # Cout
 			return
 		"BUSMUX":
 			node.selected_port = int(node.inputs[4].level) + 2 * int(node.inputs[5].level)
@@ -322,7 +336,7 @@ func apply_internal_input(node, level, port):
 		"ALU":
 			set_internal_value(node.node.name, node.a, 0)
 			return
-	update_internal_output(node.node, level, port)
+	update_internal_output(node, level, port)
 
 
 func set_the_title(txt: String):
