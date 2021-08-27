@@ -251,6 +251,7 @@ config/auto_accept_quit=false
 
 Parts="*res://Parts.tscn"
 Data="*res://data.gd"
+Logger="*res://Logger.tscn"
 
 [display]
 
