@@ -56,7 +56,9 @@ func set_internal_value(node_name, v, port):
 				return
 		"OUTBUS8", "OUTBUS16":
 			for n in ob.outputs.size():
-				update_internal_output(ob, v == n, n)
+				var level = bool(v % 2)
+				v /= 2
+				update_internal_output(ob, level, n)
 			return
 		"REG", "COUNTER", "SHIFTREG":
 			if port == 0:
