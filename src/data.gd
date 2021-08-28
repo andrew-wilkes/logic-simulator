@@ -1,5 +1,14 @@
 extends Node
 
+var main_scene: Control
+
+func load_data(fn):
+	if ResourceLoader.exists(fn):
+		var circuit = ResourceLoader.load(fn)
+		if circuit is Circuit:
+			return circuit
+
+
 var parts = {
 	"NOT":
 	{

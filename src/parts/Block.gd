@@ -7,8 +7,8 @@ node is PartData instance
 
 var trace = true
 var num_slots = 0
-var inputs_to_add = []
-var outputs_to_add = []
+var external_inputs = []
+var external_outputs = []
 var circuit: Circuit
 var nodes = {}
 
@@ -21,7 +21,7 @@ func setup():
 
 func set_value(v: int, _reverse, port = 0):
 	if trace: Logger.add(["set_value", name, v, port])
-	var node = inputs_to_add[port][1]
+	var node = external_inputs[port][1]
 	update_internal_bus(node, v, 0)
 
 
@@ -148,7 +148,7 @@ func reset():
 
 func update_output(level: bool, port: int, _reverse: bool):
 	if trace: Logger.add(["update_output", name, level, port])
-	var node = inputs_to_add[port][1]
+	var node = external_inputs[port][1]
 	# External port is pin of block
 	# Internal pin output is port 0
 	apply_internal_inputs(node, level, 0)
@@ -365,24 +365,24 @@ func set_the_title(txt: String):
 	title = txt.get_file().get_basename().to_upper()
 
 
-func add_pins(circ: Circuit, file_name):
+func add_pins(circ: Circuit, file_name, add_slots):
+	var ok = true
 	circuit = circ
-	set_the_title(file_name)
 	var i = {}
 	var o = {}
 	for node in circ.nodes:
 		match node.type:
 			"INPUTPIN":
 				i[node.offset.y] = [0, node]
-				
 			"INPUTBUS":
 				i[node.offset.y] = [1, node]
-				add_slot()
 			"OUTPUTPIN":
 				o[node.offset.y] = [0, node]
-				add_slot()
 			"OUTPUTBUS":
 				o[node.offset.y] = [1, node]
+			"BLOCK":
+				#load_block_circuit(node)
+				pass
 	var ikeys = i.keys()
 	var okeys = o.keys()
 	ikeys.sort()
@@ -390,17 +390,21 @@ func add_pins(circ: Circuit, file_name):
 	var port = 0
 	for key in ikeys:
 		i[key][1].data["port"] = port
-		inputs_to_add.append(i[key])
-		add_slot()
+		external_inputs.append(i[key])
+		if add_slots:
+			add_slot()
 		port += 1
 	port = 0
 	for key in okeys:
 		o[key][1].data["port"] = port
-		outputs_to_add.append(o[key])
-		add_slot()
+		external_outputs.append(o[key])
+		if add_slots:
+			add_slot()
 		port += 1
-	configure_slots()
+	if add_slots:
+		configure_slots()
 	add_nodes()
+	return ok
 
 
 class PartNode:
@@ -428,7 +432,7 @@ func add_nodes():
 
 
 func add_slot():
-	if num_slots < inputs_to_add.size() or num_slots < outputs_to_add.size():
+	if num_slots < external_inputs.size() or num_slots < external_outputs.size():
 		if num_slots > 0:
 			add_child($HBox.duplicate()) # Create a new slot
 		num_slots += 1
@@ -443,24 +447,24 @@ func configure_slots():
 	var col_left = Color.white
 	var col_right = Color.white
 	while idx < num_slots:
-		if idx < inputs_to_add.size():
+		if idx < external_inputs.size():
 			enable_left = true
-			type_left = inputs_to_add[idx][0]
+			type_left = external_inputs[idx][0]
 			if type_left == 0:
 				col_left = Color.white
 			else:
 				col_left = Color.yellow
-			get_child(idx).get_child(0).text = inputs_to_add[idx][1].data.tag
+			get_child(idx).get_child(0).text = external_inputs[idx][1].data.tag
 		else:
 			enable_left = false
-		if idx < outputs_to_add.size():
+		if idx < external_outputs.size():
 			enable_right = true
-			type_right = outputs_to_add[idx][0]
+			type_right = external_outputs[idx][0]
 			if type_right == 0:
 				col_right = Color.white
 			else:
 				col_right = Color.yellow
-			get_child(idx).get_child(2).text = outputs_to_add[idx][1].data.tag
+			get_child(idx).get_child(2).text = external_outputs[idx][1].data.tag
 		else:
 			enable_right = false
 		set_slot(idx, enable_left, type_left, col_left, enable_right, type_right, col_right)

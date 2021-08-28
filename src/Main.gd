@@ -24,6 +24,7 @@ var part_placement_offsets = {}
 var user: User
 
 func _ready():
+	Data.main_scene = self
 	Parts.hide()
 	load_user_data()
 	fm = $M/Topbar/V/H/File.get_popup()
@@ -502,6 +503,7 @@ func _on_FileDialog_file_selected(path: String):
 		save_data()
 	else:
 		var circuit = load_data(file_name)
+		action = NOACTION
 		if circuit is Circuit:
 			init_graph(circuit)
 
@@ -558,16 +560,11 @@ func load_user_data():
 
 
 func load_data(fn):
-	$c/Alert.dialog_text = "Error loading circuit"
-	if ResourceLoader.exists(fn):
-		var circuit = ResourceLoader.load(fn)
-		if circuit is Circuit:
-			return circuit
-		else:
-			alert()
+	var circuit = Data.load_data(fn)
+	if circuit is Circuit:
+		return circuit
 	else:
-		alert()
-	action = NOACTION
+		alert("Error loading circuit " + fn)
 
 var blocks = {}
 
@@ -578,9 +575,10 @@ func init_graph(circuit: Circuit):
 		$Graph.add_child(block, true)
 		block.offset = $Graph.scroll_offset + Vector2(100, 100)
 		block.add_pins(circuit, file_name)
-		block.setup()
+		block.set_the_title(file_name)
 		block.data.source_file = file_name
-		connect_part(block)
+		if block.setup(): # Fails if internal blocks fail
+			connect_part(block)
 		open_as_block = false
 		set_filename(last_file_name)
 		return
@@ -593,14 +591,18 @@ func init_graph(circuit: Circuit):
 	for node in circuit.nodes:
 		var part: Part
 		if node.type == "Block":
+			var ok = false
 			if node.data.has("source_file"):
 				var sub_circuit = load_data(node.data.source_file)
 				if sub_circuit is Circuit:
 					part = block_scene.instance()
-					part.add_pins(sub_circuit, node.data.source_file)
+					part.set_the_title(node.data.source_file)
+					ok = part.add_pins(sub_circuit, node.data.source_file, true)
 					part.setup()
 					part.data.source_file = node.data.source_file
 					blocks[part.name] = part
+			if not ok:
+				continue
 		else:
 			part = Parts.get_part(node.type)
 		part.offset = node.offset
@@ -616,11 +618,11 @@ func init_graph(circuit: Circuit):
 	for con in circuit.connections:
 		# Check for block that has missing connections
 		if blocks.has(con.to):
-			if blocks[con.to].inputs_to_add.size() <= con.to_port:
+			if blocks[con.to].external_inputs.size() <= con.to_port:
 				blocks[con.to].set_overlay(2)
 				continue
 		if blocks.has(con.from):
-			if blocks[con.from].outputs_to_add.size() <= con.from_port:
+			if blocks[con.from].external_outputs.size() <= con.from_port:
 				blocks[con.from].set_overlay(2)
 				continue
 		var _e = $Graph.connect_node(con.from, con.from_port, con.to, con.to_port)
