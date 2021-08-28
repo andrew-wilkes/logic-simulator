@@ -464,7 +464,6 @@ func do_action():
 			set_filename()
 			clear_graph()
 		OPEN:
-			clear_graph()
 			open_file_dialog()
 		OPENB:
 			open_as_block = true
@@ -504,6 +503,7 @@ func _on_FileDialog_file_selected(path: String):
 	else:
 		var circuit = load_data(file_name)
 		if circuit is Circuit:
+			clear_graph()
 			init_graph(circuit)
 
 
