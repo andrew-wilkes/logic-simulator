@@ -572,15 +572,18 @@ func init_graph(circuit: Circuit):
 	set_changed(false)
 	if open_as_block:
 		var block = block_scene.instance()
-		$Graph.add_child(block, true)
 		block.offset = $Graph.scroll_offset + Vector2(100, 100)
-		block.add_pins(circuit, file_name)
+		if not block.add_pins(circuit, true):
+			alert("Error loading block data")
+			return
 		block.set_the_title(file_name)
+		$Graph.add_child(block, true)
+		connect_part(block)
+		block.setup()
 		block.data.source_file = file_name
-		if block.setup(): # Fails if internal blocks fail
-			connect_part(block)
 		open_as_block = false
 		set_filename(last_file_name)
+		set_changed(true)
 		return
 	clear_graph()
 	$Graph.zoom = circuit.zoom
@@ -589,6 +592,7 @@ func init_graph(circuit: Circuit):
 	$Graph.minimap_enabled = circuit.minimap_enabled
 	call_deferred("set_scroll_offset", circuit.scroll_offset)
 	for node in circuit.nodes:
+		if Data.trace: print(node.name)
 		var part: Part
 		if node.type == "Block":
 			var ok = false
@@ -597,12 +601,13 @@ func init_graph(circuit: Circuit):
 				if sub_circuit is Circuit:
 					part = block_scene.instance()
 					part.set_the_title(node.data.source_file)
-					ok = part.add_pins(sub_circuit, node.data.source_file, true)
+					ok = part.add_pins(sub_circuit, true)
 					part.setup()
 					part.data.source_file = node.data.source_file
 					blocks[part.name] = part
 			if not ok:
-				continue
+				alert("Error loading block data from: " + node.data.source_file)
+				return
 		else:
 			part = Parts.get_part(node.type)
 		part.offset = node.offset

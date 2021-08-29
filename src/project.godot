@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://parts/bidirectional_output.gd"
 }, {
+"base": "Part",
+"class": "Block",
+"language": "GDScript",
+"path": "res://parts/Block.gd"
+}, {
 "base": "ResourceFormatLoader",
 "class": "CircFormatLoader",
 "language": "GDScript",
@@ -204,6 +209,7 @@ _global_script_class_icons={
 "AluBlock": "",
 "AndGate": "",
 "BiOutput": "",
+"Block": "",
 "CircFormatLoader": "",
 "Circuit": "",
 "ClockInput": "",

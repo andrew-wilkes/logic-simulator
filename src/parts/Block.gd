@@ -1,11 +1,12 @@
 extends Part
 
+class_name Block
+
 """
 nodes stores PartNode instances
 node is PartData instance
 """
 
-var trace = true
 var num_slots = 0
 var external_inputs = []
 var external_outputs = []
@@ -16,28 +17,28 @@ func setup():
 	set_pins()
 	data = { "source_file": "" }
 	type = "Block"
-	if trace: Logger.clear()
+	if Data.trace: Logger.clear()
 
 
 func set_value(v: int, _reverse, port = 0):
-	if trace: Logger.add(["set_value", name, v, port])
+	if Data.trace: Logger.add(["set_value", name, v, port])
 	var node = external_inputs[port][1]
 	update_internal_bus(node, v, 0)
 
 
 func update_internal_bus(node, value, port):
-	if trace: Logger.add(["update_internal_bus", node.name, value, port])
+	if Data.trace: Logger.add(["update_internal_bus", node.name, value, port])
 	for con in circuit.connections:
 		if con.from == node.name and con.from_port == port:
 			if nodes[con.to].node.type == "OUTPUTBUS":
-				if trace: Logger.add(["bus_changed", nodes[con.to].node.name, value, nodes[con.to].node.data.port])
+				if Data.trace: Logger.add(["bus_changed", nodes[con.to].node.name, value, nodes[con.to].node.data.port])
 				emit_signal("bus_changed", self, value, false, nodes[con.to].node.data.port)
 			else:
 				set_internal_value(con.to, value, con.to_port)
 
 
 func set_internal_value(node_name, v, port):
-	if trace: Logger.add(["set_internal_value", node_name, v, port])
+	if Data.trace: Logger.add(["set_internal_value", node_name, v, port])
 	var ob = nodes[node_name]
 	var obn = ob.node
 	match obn.type:
@@ -147,7 +148,7 @@ func reset():
 
 
 func update_output(level: bool, port: int, _reverse: bool):
-	if trace: Logger.add(["update_output", name, level, port])
+	if Data.trace: Logger.add(["update_output", name, level, port])
 	var node = external_inputs[port][1]
 	# External port is pin of block
 	# Internal pin output is port 0
@@ -155,7 +156,7 @@ func update_output(level: bool, port: int, _reverse: bool):
 
 
 func update_internal_output(node, level: bool, port: int):
-	if trace: Logger.add(["update_internal_output", node.node.name, level, port])
+	if Data.trace: Logger.add(["update_internal_output", node.node.name, level, port])
 	node.outputs[port].level = level
 	apply_internal_inputs(node.node, level, port)
 
@@ -167,7 +168,7 @@ func apply_internal_inputs(node, level: bool, port: int):
 
 
 func apply_internal_input(node, level, port):
-	if trace: Logger.add(["apply_internal_input", node.node.name, level, port])
+	if Data.trace: Logger.add(["apply_internal_input", node.node.name, level, port])
 	var pin = node.inputs[port]
 	if pin.untouched: # Reset this after update_output
 		pin.level = not level # Ensure that change is recognized
@@ -365,7 +366,7 @@ func set_the_title(txt: String):
 	title = txt.get_file().get_basename().to_upper()
 
 
-func add_pins(circ: Circuit, file_name, add_slots):
+func add_pins(circ: Circuit, add_slots):
 	var ok = true
 	circuit = circ
 	var i = {}
@@ -381,8 +382,7 @@ func add_pins(circ: Circuit, file_name, add_slots):
 			"OUTPUTBUS":
 				o[node.offset.y] = [1, node]
 			"BLOCK":
-				#load_block_circuit(node)
-				pass
+				ok = load_block_circuit(node)
 	var ikeys = i.keys()
 	var okeys = o.keys()
 	ikeys.sort()
@@ -469,3 +469,13 @@ func configure_slots():
 			enable_right = false
 		set_slot(idx, enable_left, type_left, col_left, enable_right, type_right, col_right)
 		idx += 1
+
+
+func load_block_circuit(node: Block):
+	var ok = false
+	if node.data.has("source_file"):
+		var sub_circuit = Data.main.load_data(node.data.source_file)
+		if sub_circuit is Circuit:
+			ok = node.add_pins(sub_circuit, false)
+			assert(Data.main.connect_part(node))
+	return ok

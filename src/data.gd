@@ -1,6 +1,7 @@
 extends Node
 
 var main_scene: Control
+var trace = true
 
 func load_data(fn):
 	if ResourceLoader.exists(fn):
