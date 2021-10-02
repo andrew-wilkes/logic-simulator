@@ -101,3 +101,9 @@ func show_value():
 func _on_Learn_tab_selected(tab):
 	if tab == 5:
 		var _e = get_tree().change_scene("res://Main.tscn")
+
+
+# Notification not passed to main viewport!
+func _notification(what):
+	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
+		get_tree().quit()

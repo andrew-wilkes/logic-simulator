@@ -3,7 +3,8 @@ extends Node
 var thelog: PoolStringArray
 
 func _ready():
-	$Popup.show()
+	if Data.trace:
+		$Popup.show()
 
 
 func add(items: Array):
