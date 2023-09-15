@@ -4,7 +4,7 @@ enum { NOACTION, NEW, OPEN, OPENB, SAVE, SAVEAS, SETTINGS, QUIT, ABOUT, LICENCES
 
 signal test_completed(passed)
 
-const USER_DATA = "user://user-data.dat"
+const USER_DATA = "user://user-data.res"
 
 var part_menu_scene = preload("res://PartMenu.tscn")
 var block_scene = preload("res://parts/Block.tscn")
@@ -520,10 +520,7 @@ func set_changed(status = true):
 
 
 func save_user_data():
-	var file = File.new()
-	file.open(USER_DATA, File.WRITE)
-	file.store_var(user, true)
-	file.close()
+	var _e = ResourceSaver.save(USER_DATA, user)
 
 
 func save_data():
@@ -552,9 +549,7 @@ func save_data():
 func load_user_data():
 	var file = File.new()
 	if file.file_exists(USER_DATA):
-		file.open(USER_DATA, File.READ)
-		user = file.get_var(true)
-		file.close()
+		user = ResourceLoader.load(USER_DATA) #file.get_var(true)
 	else:
 		user = User.new()
 
