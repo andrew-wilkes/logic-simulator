@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://TruthTable.tscn" type="PackedScene" id=2]
+[ext_resource path="res://YesNoDialog.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/down.png" type="Texture" id=10]
 [ext_resource path="res://assets/up.png" type="Texture" id=11]
 
@@ -14,7 +15,7 @@ __meta__ = {
 }
 
 [node name="M" type="MarginContainer" parent="."]
-margin_right = 1920.0
+margin_right = 1024.0
 margin_bottom = 69.0
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
@@ -24,16 +25,16 @@ custom_constants/margin_bottom = 10
 [node name="Topbar" type="HBoxContainer" parent="M"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 1910.0
+margin_right = 1014.0
 margin_bottom = 59.0
 
 [node name="V" type="VBoxContainer" parent="M/Topbar"]
-margin_right = 97.0
+margin_right = 164.0
 margin_bottom = 49.0
 custom_constants/separation = 15
 
 [node name="H" type="HBoxContainer" parent="M/Topbar/V"]
-margin_right = 97.0
+margin_right = 164.0
 margin_bottom = 20.0
 custom_constants/separation = 20
 
@@ -48,65 +49,89 @@ margin_right = 97.0
 margin_bottom = 20.0
 text = "Help"
 
+[node name="Learn" type="Button" parent="M/Topbar/V/H"]
+margin_left = 117.0
+margin_right = 164.0
+margin_bottom = 20.0
+focus_mode = 0
+text = "Learn"
+flat = true
+
 [node name="CurrentFile" type="Label" parent="M/Topbar/V"]
 margin_top = 35.0
-margin_right = 97.0
+margin_right = 164.0
 margin_bottom = 49.0
 custom_colors/font_color = Color( 0.698039, 0.698039, 0.698039, 1 )
 align = 1
 
 [node name="Left" type="Control" parent="M/Topbar"]
-margin_left = 101.0
-margin_right = 895.0
+margin_left = 168.0
+margin_right = 278.0
 margin_bottom = 49.0
 size_flags_horizontal = 3
 
 [node name="H" type="HBoxContainer" parent="M/Topbar"]
-margin_left = 899.0
-margin_right = 959.0
+margin_left = 282.0
+margin_right = 802.0
 margin_bottom = 49.0
+rect_min_size = Vector2( 520, 0 )
+size_flags_horizontal = 3
 custom_constants/separation = 0
 
+[node name="Left" type="Control" parent="M/Topbar/H"]
+margin_right = 230.0
+margin_bottom = 49.0
+size_flags_horizontal = 3
+
+[node name="Right" type="Control" parent="M/Topbar/H"]
+margin_left = 230.0
+margin_right = 460.0
+margin_bottom = 49.0
+size_flags_horizontal = 3
+
 [node name="Up" type="ToolButton" parent="M/Topbar/H"]
-margin_right = 30.0
+margin_left = 460.0
+margin_right = 490.0
 margin_bottom = 49.0
 focus_mode = 0
 icon = ExtResource( 11 )
 
 [node name="Down" type="ToolButton" parent="M/Topbar/H"]
-margin_left = 30.0
-margin_right = 60.0
+margin_left = 490.0
+margin_right = 520.0
 margin_bottom = 49.0
 focus_mode = 0
 icon = ExtResource( 10 )
 
 [node name="Right" type="Control" parent="M/Topbar"]
-margin_left = 963.0
-margin_right = 1758.0
+margin_left = 806.0
+margin_right = 861.0
 margin_bottom = 49.0
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
 
 [node name="TTSelect" type="CheckBox" parent="M/Topbar"]
-margin_left = 1762.0
-margin_right = 1900.0
+margin_left = 865.0
+margin_right = 1003.0
 margin_bottom = 49.0
 focus_mode = 0
 text = "Select truth table"
 
 [node name="Graph" type="GraphEdit" parent="."]
 margin_top = 73.0
-margin_right = 1920.0
-margin_bottom = 1080.0
-focus_mode = 0
+margin_right = 1024.0
+margin_bottom = 768.0
+focus_mode = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 right_disconnects = true
+scroll_offset = Vector2( -896, -312 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TestTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.2
 one_shot = true
 
 [node name="c" type="CanvasLayer" parent="."]
@@ -118,6 +143,8 @@ margin_right = 940.0
 margin_bottom = 457.0
 window_title = "About"
 dialog_text = "Created by Andrew Wilkes 2021
+
+v1.14 - Able to load sub-circuits
 "
 dialog_autowrap = true
 __meta__ = {
@@ -194,13 +221,9 @@ rect_min_size = Vector2( 600, 300 )
 window_title = "Open a File"
 resizable = true
 mode = 0
-access = 2
+access = 1
 filters = PoolStringArray( "*.res ; Circuit files" )
 show_hidden_files = true
-
-[node name="Confirm" type="ConfirmationDialog" parent="c"]
-margin_right = 200.0
-margin_bottom = 70.0
 
 [node name="TruthTable" parent="c" instance=ExtResource( 2 )]
 anchor_right = 0.0
@@ -209,14 +232,20 @@ margin_top = 1016.0
 margin_right = 119.0
 margin_bottom = 1080.0
 
+[node name="YesNoDialog" parent="c" instance=ExtResource( 3 )]
+
 [connection signal="tree_exiting" from="." to="." method="_on_Main_tree_exiting"]
+[connection signal="pressed" from="M/Topbar/V/H/Learn" to="." method="_on_Learn_pressed"]
 [connection signal="button_down" from="M/Topbar/H/Up" to="." method="_on_Up_button_down"]
 [connection signal="button_down" from="M/Topbar/H/Down" to="." method="_on_Down_button_down"]
 [connection signal="connection_request" from="Graph" to="." method="_on_Graph_connection_request"]
 [connection signal="disconnection_request" from="Graph" to="." method="_on_Graph_disconnection_request"]
 [connection signal="node_selected" from="Graph" to="." method="_on_Graph_node_selected"]
 [connection signal="node_unselected" from="Graph" to="." method="_on_Graph_node_unselected"]
+[connection signal="scroll_offset_changed" from="Graph" to="." method="_on_Graph_scroll_offset_changed"]
 [connection signal="timeout" from="TestTimer" to="." method="_on_TestTimer_timeout"]
 [connection signal="file_selected" from="c/FileDialog" to="." method="_on_FileDialog_file_selected"]
-[connection signal="confirmed" from="c/Confirm" to="." method="_on_Confirm_confirmed"]
+[connection signal="popup_hide" from="c/FileDialog" to="." method="_on_FileDialog_popup_hide"]
 [connection signal="test_pressed" from="c/TruthTable" to="." method="start_tests"]
+[connection signal="no" from="c/YesNoDialog" to="." method="_on_YesNoDialog_no"]
+[connection signal="yes" from="c/YesNoDialog" to="." method="_on_YesNoDialog_yes"]

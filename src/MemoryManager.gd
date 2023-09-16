@@ -9,9 +9,12 @@ var base_addr = 0
 var mem_size = 1024
 var current_addr = 0
 var data: MemoryData
+var addr_increment = 0x100
+var file_name = ""
 
 func _ready():
 	hide_mask()
+	rect_size = Vector2.ZERO
 	var sizes = $M/VBox/Top/Size.get_popup()
 	sizes.clear()
 	data = MemoryData.new()
@@ -20,7 +23,7 @@ func _ready():
 	sizes.connect("id_pressed", self, "_on_size_id_pressed")
 	if get_parent().name == "root":
 		set_mem_size(5)
-		set_width(8)
+		update_width(8)
 		call_deferred("popup_centered")
 
 
@@ -29,6 +32,9 @@ func open(_data):
 	$M/VBox/Top/WidthLabel.text = String(data.width)
 	$M/VBox/Top/SizeLabel.text = data.get_mem_size_str()
 	set_view()
+	if data.ram:
+		$M/VBox/Top/Load.hide()
+		$M/VBox/Top/Save.hide()
 	call_deferred("popup_centered")
 
 
@@ -43,45 +49,39 @@ func set_view():
 	var bytes = PoolStringArray()
 	var chars = PoolStringArray()
 # warning-ignore:integer_division
-	var num_rows = data.bytes.size() / 16
+	var div = 16 if mode == HEX else 4
+	if data.width == 16: div /= 2
+	var num_rows = data.words.size() / div
 	if num_rows > 16:
 		num_rows = 16
 	for n in num_rows:
+		if addr == data.mem_size:
+			break
 		var row = PoolStringArray()
 		var display_addr = addr
-		if data.width == 16:
-			display_addr /= 2
 		addresses.append("%04X: " % display_addr)
-		match mode:
-			BIN:
+		if mode == BIN:
 # warning-ignore:integer_division
-				for m in 32 / data.width: # 2 words or 4 bytes
-					if data.width == 8:
-						row.append(int2bin(data.bytes[addr]))
-						addr += 1
-					else:
-						row.append(int2bin(data.bytes[addr] + 16 * data.bytes[addr + 1]))
-						addr += 2
-					row.append(" ")
-			_:
-				var asc = PoolStringArray()
-				var count = 8 if data.width == 16 else 16
-				for m in count: # 16 bytes or 8 words
-					var d1 = data.bytes[addr]
-					asc.append(get_ascii(d1))
-					if data.width == 8:
-						row.append(hex_format % d1)
-					else:
-						addr += 1
-						var d2 = data.bytes[addr]
-						row.append(hex_format % (d1 + 0x100 * d2))
-						asc.append(get_ascii(d2))
-					addr += 1
-				chars.append(asc.join(""))
+			for m in 32 / data.width: # 2 words or 4 bytes
+				row.append(int2bin(data.words[addr]))
+				addr += 1
+				row.append(" ")
+		else:
+			var asc = PoolStringArray()
+			var count = 8 if data.width == 16 else 16
+			for m in count: # 16 bytes or 8 words
+				var _d = data.words[addr]
+				asc.append(get_ascii(_d % 0x100))
+				if data.width == 16:
+					asc.append(get_ascii(_d / 0x100))
+				row.append(hex_format % _d)
+				addr += 1
+			chars.append(asc.join(""))
 		bytes.append(row.join("").strip_edges())
 	$M/VBox/View/Addr.text = addresses.join("\n")
 	$M/VBox/View/Bytes.text = bytes.join("\n")
 	$M/VBox/View/Chrs.text = chars.join("\n")
+	resize()
 
 
 func get_ascii(d):
@@ -92,26 +92,30 @@ func get_ascii(d):
 
 
 func _on_Up_pressed():
-	if data.mem_size > 0x100:
-		base_addr = wrapi(base_addr + 0x100, 0, data.mem_size)
-		set_view()
+	base_addr = wrapi(base_addr - addr_increment, 0, data.mem_size)
+	set_view()
 
 
 func _on_Down_pressed():
-	if data.mem_size > 0x100:
-		base_addr = wrapi(base_addr - 0x100, 0, data.mem_size)
-		set_view()
+	base_addr = wrapi(base_addr + addr_increment, 0, data.mem_size)
+	set_view()
+
+
+func get_max_base_addr():
+	var m = data.mem_size - addr_increment
+	return m if m > 0 else 0
 
 
 func _on_BH_pressed():
 	mode = wrapi(mode + 1, 0, 2)
+	set_addr_increment()
 	set_view()
-	resize()
 
 
 func _on_Erase_pressed():
-	data.erase()
-	set_view()
+	if data.erase():
+		set_view()
+		emit_signal("data_changed")
 
 
 func _on_OK_pressed():
@@ -120,16 +124,26 @@ func _on_OK_pressed():
 
 func _on_Width_pressed():
 	if data.width == 8:
-		set_width(16)
+		data.width = 16
 	else:
-		set_width(8)
+		data.width = 8
+	set_addr_increment()
+	update_width(data.width)
 
 
-func set_width(w: int):
-	data.width = w
+func set_addr_increment():
+	if data.width == 8:
+		addr_increment = 0x100 if mode == HEX else 0x40
+	else:
+		data.trim()
+		addr_increment = 0x80 if mode == HEX else 0x20
+		# Make base addr start from increments of addr_increment
+		base_addr = base_addr / addr_increment * addr_increment
+
+
+func update_width(w: int):
 	$M/VBox/Top/WidthLabel.text = String(w)
 	set_view()
-	resize()
 	emit_signal("data_changed")
 
 
@@ -144,7 +158,7 @@ func set_mem_size(id: int):
 func _on_View_gui_input(event):
 	if event is InputEventMouseButton:
 		set_addr(event.position)
-		$NumberInputPanel.rect_position = rect_position + Vector2(0, rect_size.y + 20)
+		$NumberInputPanel.rect_position = rect_position + Vector2(0, rect_size.y)
 		$NumberInputPanel.open(mode == HEX, data.width)
 
 
@@ -158,11 +172,10 @@ func set_addr(p):
 # warning-ignore:integer_division
 	var x = int(p.x) / div
 # warning-ignore:integer_division
-	var y = int(p.y) / 22
-	var ystep = 16 if mode == HEX else 4
+	var y = int(p.y) / 22 # line position
 	show_mask(Vector2(x, y), Vector2(div, 22))
-	if data.width == 16:
-		x *= 2
+	var ystep = 16 if mode == HEX else 4
+	if data.width == 16: ystep /= 2
 	current_addr = x + base_addr + y * ystep
 
 
@@ -190,9 +203,7 @@ func _on_NumberInputPanel_popup_hide():
 					x += 1
 	else:
 		x = v.hex_to_int() # Godot function
-	data.bytes[current_addr] = x % 0x100
-	if data.width == 16:
-		data.bytes[current_addr + 1] = x / 0x100
+	data.words[current_addr] = x
 	set_view()
 	emit_signal("data_changed")
 
@@ -208,3 +219,51 @@ func int2bin(x: int) -> String:
 func resize():
 	yield(get_tree(), "idle_frame")
 	rect_size = Vector2.ZERO
+
+
+func _on_Load_pressed():
+	$FileDialog.window_title = "Load Data"
+	$FileDialog.current_file = file_name
+	$FileDialog.mode = FileDialog.MODE_OPEN_FILE
+	$FileDialog.popup_centered()
+
+
+func _on_Save_pressed():
+	$FileDialog.window_title = "Save Data"
+	$FileDialog.current_file = file_name
+	$FileDialog.mode = FileDialog.MODE_SAVE_FILE
+	$FileDialog.popup_centered()
+
+
+func _on_FileDialog_file_selected(path):
+	file_name = path
+	if path.rstrip("/") == path.get_base_dir():
+		return # No file selected
+	var file = File.new()
+	if $FileDialog.mode == FileDialog.MODE_OPEN_FILE:
+		file.open(path, File.READ)
+		var values = file.get_as_text().split("\n")
+		file.close()
+		var idx = 0
+		for v in values:
+			v = v.rstrip("\r")
+			if v.is_valid_integer():
+				if data.width == 8:
+					data.words[idx] = int(v) % 0x100
+				else:
+					data.words[idx] = int(v) % 0x10000
+				idx += 1
+				if data.mem_size == idx:
+					break
+		while idx < data.mem_size:
+			data.words[idx] = 0
+			idx += 1
+		set_view()
+		emit_signal("data_changed")
+	else:
+		var _t: PoolStringArray
+		for v in data.words:
+			_t.append(String(v))
+		file.open(path, File.WRITE)
+		file.store_string(_t.join("\n"))
+		file.close()

@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Logger.gd" type="Script" id=1]
+
+[node name="Logger" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="Popup" type="PopupPanel" parent="."]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 400.0
+margin_right = -923.0
+margin_bottom = -236.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Popup"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 97.0
+margin_bottom = 128.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 83.0
+margin_bottom = 114.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="Popup/MarginContainer/VBoxContainer"]
+margin_right = 73.0
+margin_bottom = 14.0
+text = "Logger"
+align = 1
+
+[node name="Clear" type="Button" parent="Popup/MarginContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 73.0
+margin_bottom = 44.0
+text = "Clear"
+
+[node name="Print" type="Button" parent="Popup/MarginContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 73.0
+margin_bottom = 74.0
+text = "Print"
+
+[node name="Save" type="Button" parent="Popup/MarginContainer/VBoxContainer"]
+margin_top = 84.0
+margin_right = 73.0
+margin_bottom = 104.0
+text = "Save"
+
+[connection signal="pressed" from="Popup/MarginContainer/VBoxContainer/Clear" to="." method="_on_Clear_pressed"]
+[connection signal="pressed" from="Popup/MarginContainer/VBoxContainer/Print" to="." method="_on_Print_pressed"]
+[connection signal="pressed" from="Popup/MarginContainer/VBoxContainer/Save" to="." method="_on_Save_pressed"]

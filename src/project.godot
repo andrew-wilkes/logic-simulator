@@ -10,9 +10,29 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Part",
-"class": "BUS",
+"class": "AdderComb",
 "language": "GDScript",
-"path": "res://Bus.gd"
+"path": "res://parts/adder_comb.gd"
+}, {
+"base": "Part",
+"class": "AluBlock",
+"language": "GDScript",
+"path": "res://parts/alu_block.gd"
+}, {
+"base": "Part",
+"class": "AndGate",
+"language": "GDScript",
+"path": "res://parts/and_gate.gd"
+}, {
+"base": "Part",
+"class": "BiOutput",
+"language": "GDScript",
+"path": "res://parts/bidirectional_output.gd"
+}, {
+"base": "Part",
+"class": "Block",
+"language": "GDScript",
+"path": "res://parts/Block.gd"
 }, {
 "base": "ResourceFormatLoader",
 "class": "CircFormatLoader",
@@ -24,34 +44,206 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://circuit.gd"
 }, {
+"base": "Part",
+"class": "ClockInput",
+"language": "GDScript",
+"path": "res://parts/clock_input.gd"
+}, {
+"base": "Part",
+"class": "CounterBlock",
+"language": "GDScript",
+"path": "res://parts/counter_block.gd"
+}, {
+"base": "Part",
+"class": "DecoderComb",
+"language": "GDScript",
+"path": "res://parts/decoder_comb.gd"
+}, {
+"base": "Part",
+"class": "DffComb",
+"language": "GDScript",
+"path": "res://parts/dff_comb.gd"
+}, {
+"base": "Part",
+"class": "DlatchComb",
+"language": "GDScript",
+"path": "res://parts/dlatch_comb.gd"
+}, {
+"base": "Part",
+"class": "InputBus",
+"language": "GDScript",
+"path": "res://parts/input_bus.gd"
+}, {
+"base": "Part",
+"class": "InputSwitch",
+"language": "GDScript",
+"path": "res://parts/input_sw.gd"
+}, {
+"base": "Part",
+"class": "IoBlock",
+"language": "GDScript",
+"path": "res://parts/io_block.gd"
+}, {
+"base": "Part",
+"class": "JkffComb",
+"language": "GDScript",
+"path": "res://parts/jkff_comb.gd"
+}, {
+"base": "Part",
+"class": "JoinBus",
+"language": "GDScript",
+"path": "res://parts/join_bus.gd"
+}, {
+"base": "Part",
+"class": "LoopBus",
+"language": "GDScript",
+"path": "res://parts/loop_bus.gd"
+}, {
+"base": "Part",
+"class": "MemoryBlock",
+"language": "GDScript",
+"path": "res://parts/memory_block.gd"
+}, {
 "base": "Resource",
 "class": "MemoryData",
 "language": "GDScript",
 "path": "res://memory_data.gd"
 }, {
+"base": "Part",
+"class": "MultiplexerComb",
+"language": "GDScript",
+"path": "res://parts/mult_comb.gd"
+}, {
+"base": "Part",
+"class": "MuxBus",
+"language": "GDScript",
+"path": "res://parts/mux_bus.gd"
+}, {
+"base": "Part",
+"class": "NandGate",
+"language": "GDScript",
+"path": "res://parts/nand_gate.gd"
+}, {
+"base": "Part",
+"class": "NorGate",
+"language": "GDScript",
+"path": "res://parts/nor_gate.gd"
+}, {
+"base": "Part",
+"class": "NotGate",
+"language": "GDScript",
+"path": "res://parts/not_gate.gd"
+}, {
+"base": "Viewport",
+"class": "NumberRoll",
+"language": "GDScript",
+"path": "res://tube/NumberRoll.gd"
+}, {
+"base": "Part",
+"class": "OrGate",
+"language": "GDScript",
+"path": "res://parts/or_gate.gd"
+}, {
+"base": "Part",
+"class": "OutputBus",
+"language": "GDScript",
+"path": "res://parts/output_bus.gd"
+}, {
 "base": "GraphNode",
 "class": "Part",
 "language": "GDScript",
-"path": "res://Part.gd"
+"path": "res://parts/part.gd"
 }, {
 "base": "Resource",
 "class": "PartData",
 "language": "GDScript",
 "path": "res://part_data.gd"
 }, {
-"base": "Node",
+"base": "MemoryBlock",
+"class": "RamBlock",
+"language": "GDScript",
+"path": "res://parts/ram_block.gd"
+}, {
+"base": "Part",
+"class": "RegisterBlock",
+"language": "GDScript",
+"path": "res://parts/register_block.gd"
+}, {
+"base": "MemoryBlock",
+"class": "RomBlock",
+"language": "GDScript",
+"path": "res://parts/rom_block.gd"
+}, {
+"base": "Part",
+"class": "Seg7Comb",
+"language": "GDScript",
+"path": "res://parts/seg7_comb.gd"
+}, {
+"base": "Part",
+"class": "ShiftRegBlock",
+"language": "GDScript",
+"path": "res://parts/shiftreg_block.gd"
+}, {
+"base": "Part",
+"class": "SingleOutput",
+"language": "GDScript",
+"path": "res://parts/single_output.gd"
+}, {
+"base": "Part",
+"class": "SrffComb",
+"language": "GDScript",
+"path": "res://parts/srff_comb.gd"
+}, {
+"base": "Resource",
 "class": "User",
 "language": "GDScript",
 "path": "res://user.gd"
+}, {
+"base": "Part",
+"class": "XorGate",
+"language": "GDScript",
+"path": "res://parts/xor_gate.gd"
 } ]
 _global_script_class_icons={
-"BUS": "",
+"AdderComb": "",
+"AluBlock": "",
+"AndGate": "",
+"BiOutput": "",
+"Block": "",
 "CircFormatLoader": "",
 "Circuit": "",
+"ClockInput": "",
+"CounterBlock": "",
+"DecoderComb": "",
+"DffComb": "",
+"DlatchComb": "",
+"InputBus": "",
+"InputSwitch": "",
+"IoBlock": "",
+"JkffComb": "",
+"JoinBus": "",
+"LoopBus": "",
+"MemoryBlock": "",
 "MemoryData": "",
+"MultiplexerComb": "",
+"MuxBus": "",
+"NandGate": "",
+"NorGate": "",
+"NotGate": "",
+"NumberRoll": "",
+"OrGate": "",
+"OutputBus": "",
 "Part": "",
 "PartData": "",
-"User": ""
+"RamBlock": "",
+"RegisterBlock": "",
+"RomBlock": "",
+"Seg7Comb": "",
+"ShiftRegBlock": "",
+"SingleOutput": "",
+"SrffComb": "",
+"User": "",
+"XorGate": ""
 }
 
 [application]
@@ -59,16 +251,18 @@ _global_script_class_icons={
 config/name="Logic Simulator"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
+config/auto_accept_quit=false
 
 [autoload]
 
 Parts="*res://Parts.tscn"
 Data="*res://data.gd"
+Logger="*res://Logger.tscn"
 
 [display]
 
-window/size/width=1920
-window/size/height=1080
+window/size/height=768
 
 [physics]
 

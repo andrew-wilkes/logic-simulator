@@ -4,8 +4,8 @@ class_name MemoryData
 
 export var mem_size: int setget set_mem_size
 export var width: int = 8
-export var bytes: PoolIntArray
-export var rom: bool = true
+export var words: PoolIntArray
+export var ram: bool = false
 
 const mem_sizes = {
 	32: "32",
@@ -21,13 +21,31 @@ const mem_sizes = {
 
 func set_mem_size(v):
 	mem_size = v
-	bytes.resize(mem_size)
-	erase()
+	var old_size = words.size()
+	words.resize(mem_size)
+	if mem_size > old_size:
+		for idx in range(old_size, mem_size):
+			words[idx] = 0
 
 
-func erase():
+func fill():
 	for idx in mem_size:
-		bytes[idx] = 0
+		words[idx] = (idx + 1) % mem_size
+
+
+func trim():
+	var lim = 0x100 if width == 8 else 0x10000
+	for idx in mem_size:
+		words[idx] %= lim
+
+
+func erase() -> bool:
+	var changed = false
+	for idx in mem_size:
+		if words[idx] > 0:
+			changed = true
+		words[idx] = 0
+	return changed
 
 
 func set_indexed_mem_size(idx):

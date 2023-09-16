@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://tube/NumberBar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tube/NumberRoll.gd" type="Script" id=2]
+
+[node name="NumberRoll" type="Viewport"]
+size = Vector2( 72, 600 )
+transparent_bg = true
+hdr = false
+disable_3d = true
+usage = 0
+script = ExtResource( 2 )
+
+[node name="PB" type="ParallaxBackground" parent="."]
+
+[node name="PL" type="ParallaxLayer" parent="PB"]
+
+[node name="ColorRect" type="ColorRect" parent="PB/PL"]
+margin_right = 40.0
+margin_bottom = 40.0
+color = Color( 0, 0.113725, 0.223529, 0.901961 )
+
+[node name="VBox" type="VBoxContainer" parent="PB/PL"]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_constants/separation = 0
+
+[node name="Num" parent="PB/PL/VBox" instance=ExtResource( 1 )]

@@ -1,0 +1,23 @@
+
+set_output(level: bool, port: int, reverse := false)
+emit_signal("output_changed", self, port, level, reverse)
+func update_levels(node, port, level, reverse = false):
+	if node.is_input:
+		reset_race_detection()
+	for con in $Graph.get_connection_list():
+		if reverse:
+			if con.to == node.name and con.to_port == port:
+				$Graph.get_node(con.from).apply_input(level, con.from_port, reverse)
+		else:
+			if con.from == node.name and con.from_port == port:
+				$Graph.get_node(con.to).apply_input(level, con.to_port, reverse)
+
+update_output(level: bool, _port: int, _r: bool)
+set_output(level, pin_num, reverse)
+
+BUS
+set_value(v: int, reverse = false, _port := 0)
+update_value(v)
+emit_signal("bus_changed", self, v, reverse)
+update_bus(node, value, reverse = false)
+set_value(v: int, reverse = false, _port := 0)

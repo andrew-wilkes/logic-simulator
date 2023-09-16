@@ -25,6 +25,7 @@ func open(_hex_mode: bool, width: int):
 	# Correct expansion issue
 	yield(get_tree(), "idle_frame")
 	rect_size = Vector2.ZERO
+	rect_position.y += 20
 
 
 func _input(event):
