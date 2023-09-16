@@ -93,9 +93,6 @@ slot/0/right_enabled = false
 slot/0/right_type = 0
 slot/0/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 47 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Sprite" type="Sprite" parent="Gates/INPUT"]
 visible = false
@@ -104,20 +101,20 @@ texture = ExtResource( 10 )
 [node name="Grid" type="GridContainer" parent="Gates/INPUT"]
 margin_left = 16.0
 margin_top = 23.0
-margin_right = 359.0
+margin_right = 375.0
 margin_bottom = 433.0
 custom_constants/hseparation = 20
 columns = 3
 
 [node name="V1" type="VBoxContainer" parent="Gates/INPUT/Grid"]
-margin_right = 90.0
+margin_right = 106.0
 margin_bottom = 410.0
 
 [node name="INPUT4" type="GraphNode" parent="Gates/INPUT/Grid/V1"]
-margin_right = 90.0
+margin_right = 106.0
 margin_bottom = 163.0
-custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 6
+custom_styles/frame = ExtResource( 23 )
 title = "INPUT 4"
 slot/0/left_enabled = false
 slot/0/left_type = 0
@@ -160,14 +157,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="V" type="Label" parent="Gates/INPUT/Grid/V1/INPUT4"]
+[node name="V" type="SpinBox" parent="Gates/INPUT/Grid/V1/INPUT4"]
 margin_left = 16.0
 margin_top = 23.0
-margin_right = 74.0
+margin_right = 90.0
 margin_bottom = 47.0
 rect_min_size = Vector2( 0, 24 )
-text = "0X00"
-valign = 1
 
 [node name="VSlider" type="VSlider" parent="Gates/INPUT/Grid/V1/INPUT4/V"]
 margin_left = 18.0
@@ -175,14 +170,11 @@ margin_top = 28.0
 margin_right = 34.0
 margin_bottom = 101.0
 max_value = 15.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="D0" type="Label" parent="Gates/INPUT/Grid/V1/INPUT4"]
 margin_left = 16.0
 margin_top = 53.0
-margin_right = 74.0
+margin_right = 90.0
 margin_bottom = 67.0
 text = "D0"
 align = 2
@@ -191,7 +183,7 @@ valign = 1
 [node name="D1" type="Label" parent="Gates/INPUT/Grid/V1/INPUT4"]
 margin_left = 16.0
 margin_top = 73.0
-margin_right = 74.0
+margin_right = 90.0
 margin_bottom = 87.0
 text = "D1"
 align = 2
@@ -200,7 +192,7 @@ valign = 1
 [node name="D2" type="Label" parent="Gates/INPUT/Grid/V1/INPUT4"]
 margin_left = 16.0
 margin_top = 93.0
-margin_right = 74.0
+margin_right = 90.0
 margin_bottom = 107.0
 text = "D2"
 align = 2
@@ -209,7 +201,7 @@ valign = 1
 [node name="D3" type="Label" parent="Gates/INPUT/Grid/V1/INPUT4"]
 margin_left = 16.0
 margin_top = 113.0
-margin_right = 74.0
+margin_right = 90.0
 margin_bottom = 127.0
 text = "D3"
 align = 2
@@ -218,7 +210,7 @@ valign = 1
 [node name="Tag" type="LineEdit" parent="Gates/INPUT/Grid/V1/INPUT4"]
 margin_left = 16.0
 margin_top = 133.0
-margin_right = 74.0
+margin_right = 90.0
 margin_bottom = 157.0
 
 [node name="Timer" type="Timer" parent="Gates/INPUT/Grid/V1/INPUT4"]
@@ -227,10 +219,10 @@ one_shot = true
 
 [node name="INPUT8" type="GraphNode" parent="Gates/INPUT/Grid/V1"]
 margin_top = 167.0
-margin_right = 90.0
+margin_right = 106.0
 margin_bottom = 410.0
-custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 6
+custom_styles/frame = ExtResource( 23 )
 title = "INPUT 8"
 slot/0/left_enabled = false
 slot/0/left_type = 0
@@ -300,7 +292,7 @@ __meta__ = {
 [node name="V" type="Label" parent="Gates/INPUT/Grid/V1/INPUT8"]
 margin_left = 16.0
 margin_top = 23.0
-margin_right = 74.0
+margin_right = 90.0
 margin_bottom = 47.0
 rect_min_size = Vector2( 0, 24 )
 text = "0X00"
@@ -319,7 +311,7 @@ __meta__ = {
 [node name="D0" type="Label" parent="Gates/INPUT/Grid/V1/INPUT8"]
 margin_left = 16.0
 margin_top = 53.0
-margin_right = 74.0
+margin_right = 90.0
 margin_bottom = 67.0
 text = "D0"
 align = 2
@@ -328,7 +320,7 @@ valign = 1
 [node name="D1" type="Label" parent="Gates/INPUT/Grid/V1/INPUT8"]
 margin_left = 16.0
 margin_top = 73.0
-margin_right = 74.0
+margin_right = 90.0
 margin_bottom = 87.0
 text = "D1"
 align = 2
@@ -337,7 +329,7 @@ valign = 1
 [node name="D2" type="Label" parent="Gates/INPUT/Grid/V1/INPUT8"]
 margin_left = 16.0
 margin_top = 93.0
-margin_right = 74.0
+margin_right = 90.0
 margin_bottom = 107.0
 text = "D2"
 align = 2
@@ -346,7 +338,7 @@ valign = 1
 [node name="D3" type="Label" parent="Gates/INPUT/Grid/V1/INPUT8"]
 margin_left = 16.0
 margin_top = 113.0
-margin_right = 74.0
+margin_right = 90.0
 margin_bottom = 127.0
 text = "D3"
 align = 2
@@ -355,7 +347,7 @@ valign = 1
 [node name="D4" type="Label" parent="Gates/INPUT/Grid/V1/INPUT8"]
 margin_left = 16.0
 margin_top = 133.0
-margin_right = 74.0
+margin_right = 90.0
 margin_bottom = 147.0
 text = "D4"
 align = 2
@@ -364,7 +356,7 @@ valign = 1
 [node name="D5" type="Label" parent="Gates/INPUT/Grid/V1/INPUT8"]
 margin_left = 16.0
 margin_top = 153.0
-margin_right = 74.0
+margin_right = 90.0
 margin_bottom = 167.0
 text = "D5"
 align = 2
@@ -373,7 +365,7 @@ valign = 1
 [node name="D6" type="Label" parent="Gates/INPUT/Grid/V1/INPUT8"]
 margin_left = 16.0
 margin_top = 173.0
-margin_right = 74.0
+margin_right = 90.0
 margin_bottom = 187.0
 text = "D6"
 align = 2
@@ -382,7 +374,7 @@ valign = 1
 [node name="D7" type="Label" parent="Gates/INPUT/Grid/V1/INPUT8"]
 margin_left = 16.0
 margin_top = 193.0
-margin_right = 74.0
+margin_right = 90.0
 margin_bottom = 207.0
 text = "D7"
 align = 2
@@ -391,7 +383,7 @@ valign = 1
 [node name="Tag" type="LineEdit" parent="Gates/INPUT/Grid/V1/INPUT8"]
 margin_left = 16.0
 margin_top = 213.0
-margin_right = 74.0
+margin_right = 90.0
 margin_bottom = 237.0
 
 [node name="Timer" type="Timer" parent="Gates/INPUT/Grid/V1/INPUT8"]
@@ -399,8 +391,8 @@ wait_time = 0.5
 one_shot = true
 
 [node name="V2" type="VBoxContainer" parent="Gates/INPUT/Grid"]
-margin_left = 110.0
-margin_right = 221.0
+margin_left = 126.0
+margin_right = 237.0
 margin_bottom = 410.0
 
 [node name="INPUTSW" type="GraphNode" parent="Gates/INPUT/Grid/V2"]
@@ -442,8 +434,8 @@ margin_bottom = 88.0
 margin_top = 98.0
 margin_right = 111.0
 margin_bottom = 176.0
-custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 5
+custom_styles/frame = ExtResource( 23 )
 title = "INPUT PUSH"
 slot/0/left_enabled = false
 slot/0/left_type = 0
@@ -480,8 +472,8 @@ margin_bottom = 72.0
 margin_top = 180.0
 margin_right = 111.0
 margin_bottom = 337.0
-custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 8
+custom_styles/frame = ExtResource( 23 )
 title = "INPUT CLK"
 slot/0/left_enabled = false
 slot/0/left_type = 0
@@ -576,8 +568,8 @@ valign = 1
 wait_time = 0.5
 
 [node name="V3" type="VBoxContainer" parent="Gates/INPUT/Grid"]
-margin_left = 241.0
-margin_right = 343.0
+margin_left = 257.0
+margin_right = 359.0
 margin_bottom = 410.0
 
 [node name="INPUTPIN" type="GraphNode" parent="Gates/INPUT/Grid/V3"]
@@ -1014,8 +1006,8 @@ margin_bottom = 72.0
 margin_top = 82.0
 margin_right = 112.0
 margin_bottom = 226.0
-custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 6
+custom_styles/frame = ExtResource( 23 )
 title = "OUTPUT 4"
 slot/0/left_enabled = false
 slot/0/left_type = 0
@@ -1164,8 +1156,8 @@ margin_bottom = 286.0
 [node name="OUTPUT8" type="GraphNode" parent="Gates/OUTPUT/Grid/V2"]
 margin_right = 115.0
 margin_bottom = 224.0
-custom_styles/frame = ExtResource( 23 )
 custom_constants/separation = 6
+custom_styles/frame = ExtResource( 23 )
 title = "OUTPUT 8"
 slot/0/left_enabled = false
 slot/0/left_type = 0

@@ -558,7 +558,7 @@ A multiplexer is used to select one of several inputs. The selected input value 
 
 [b]Adder[/b]
 
-This does binary addition of 2 inputs. It has a sum and carry output. However, to make it more useful, we include a carry in signal to create a full adder. Adders may then be chained together to handle mult-bit binary inputs.
+This does binary addition of 2 inputs. It has a sum and carry output. However, to make it more useful, we include a carry in signal to create a full adder. Adders may then be chained together to handle multi-bit binary inputs.
 
 [img]res://assets/pics/adder.png[/img]
 
@@ -601,7 +601,7 @@ A multiplexer is used to select one of several inputs. The selected input value 
 
 Adder
 
-This does binary addition of 2 inputs. It has a sum and carry output. However, to make it more useful, we include a carry in signal to create a full adder. Adders may then be chained together to handle mult-bit binary inputs.
+This does binary addition of 2 inputs. It has a sum and carry output. However, to make it more useful, we include a carry in signal to create a full adder. Adders may then be chained together to handle multi-bit binary inputs.
 
 
 
