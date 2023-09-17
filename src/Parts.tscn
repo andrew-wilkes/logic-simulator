@@ -71,9 +71,6 @@
 
 [node name="Parts" type="Control"]
 script = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Gates" type="Control" parent="."]
 __meta__ = {
@@ -207,10 +204,6 @@ margin_left = 16.0
 margin_top = 133.0
 margin_right = 74.0
 margin_bottom = 157.0
-
-[node name="Timer" type="Timer" parent="Gates/INPUT/Grid/V1/INPUT4"]
-wait_time = 0.5
-one_shot = true
 
 [node name="INPUT8" type="GraphNode" parent="Gates/INPUT/Grid/V1"]
 margin_top = 167.0
@@ -371,10 +364,6 @@ margin_left = 16.0
 margin_top = 213.0
 margin_right = 74.0
 margin_bottom = 237.0
-
-[node name="Timer" type="Timer" parent="Gates/INPUT/Grid/V1/INPUT8"]
-wait_time = 0.5
-one_shot = true
 
 [node name="V2" type="VBoxContainer" parent="Gates/INPUT/Grid"]
 margin_left = 110.0
@@ -3397,9 +3386,7 @@ __meta__ = {
 }
 
 [connection signal="value_changed" from="Gates/INPUT/Grid/V1/INPUT4/HexSpinBox" to="Gates/INPUT/Grid/V1/INPUT4" method="set_value"]
-[connection signal="timeout" from="Gates/INPUT/Grid/V1/INPUT4/Timer" to="Gates/INPUT/Grid/V1/INPUT4" method="_on_Timer_timeout"]
 [connection signal="value_changed" from="Gates/INPUT/Grid/V1/INPUT8/HexSpinBox" to="Gates/INPUT/Grid/V1/INPUT8" method="set_value"]
-[connection signal="timeout" from="Gates/INPUT/Grid/V1/INPUT8/Timer" to="Gates/INPUT/Grid/V1/INPUT8" method="_on_Timer_timeout"]
 [connection signal="pressed" from="Gates/INPUT/Grid/V2/INPUTCLK/Start" to="Gates/INPUT/Grid/V2/INPUTCLK" method="_on_Start_pressed"]
 [connection signal="button_down" from="Gates/INPUT/Grid/V2/INPUTCLK/Reset" to="Gates/INPUT/Grid/V2/INPUTCLK" method="_on_Reset_button_down"]
 [connection signal="button_up" from="Gates/INPUT/Grid/V2/INPUTCLK/Reset" to="Gates/INPUT/Grid/V2/INPUTCLK" method="_on_Reset_button_up"]

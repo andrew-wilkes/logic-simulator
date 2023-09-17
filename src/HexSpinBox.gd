@@ -61,4 +61,9 @@ func set_value(v, notify = true):
 	value = v
 	text = format % [value]
 	if notify:
-		emit_signal("value_changed", value)
+		# Don't propogate every change as the slider is moved
+		$ValueChangeDelay.start()
+
+
+func _on_ValueChangeDelay_timeout():
+	emit_signal("value_changed", value)

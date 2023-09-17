@@ -53,8 +53,13 @@ icon = ExtResource( 3 )
 flat = true
 icon_align = 1
 
+[node name="ValueChangeDelay" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="text_entered" from="." to="." method="_on_text_entered"]
 [connection signal="timeout" from="RepeatTimer" to="." method="_on_Timer_timeout"]
 [connection signal="value_changed" from="HB/VSlider" to="." method="_on_VSlider_value_changed"]
 [connection signal="pressed" from="HB/VB/Up" to="." method="_on_Up_pressed"]
 [connection signal="pressed" from="HB/VB/Down" to="." method="_on_Down_pressed"]
+[connection signal="timeout" from="ValueChangeDelay" to="." method="_on_ValueChangeDelay_timeout"]

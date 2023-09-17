@@ -371,6 +371,8 @@ func add_pins(circ: Circuit, add_slots):
 	circuit = circ
 	var i = {}
 	var o = {}
+	var input_pin_offset = 1000000
+	var output_pin_offset = input_pin_offset
 	for node in circ.nodes:
 		match node.type:
 			"INPUTPIN":
@@ -383,6 +385,33 @@ func add_pins(circ: Circuit, add_slots):
 				o[node.offset.y] = [1, node]
 			"BLOCK":
 				ok = load_block_circuit(node)
+			"INPUT4":
+				i[input_pin_offset] = [1, node] # Add bus
+				input_pin_offset += 1
+				for n in 4:
+					i[input_pin_offset] = [0, node] # how is this used?
+					input_pin_offset += 1
+			"OUTPUT4":
+				o[output_pin_offset] = [1, node] # Add bus
+				output_pin_offset += 1
+				for n in 4:
+					o[output_pin_offset] = [0, node]
+					output_pin_offset += 1
+			"INPUT8":
+				i[input_pin_offset] = [1, node] # Add bus
+				input_pin_offset += 1
+				for n in 8:
+					i[input_pin_offset] = [0, node] # how is this used?
+					input_pin_offset += 1
+			"OUTPUT8":
+				o[output_pin_offset] = [1, node] # Add bus
+				output_pin_offset += 1
+				for n in 8:
+					o[output_pin_offset] = [0, node]
+					output_pin_offset += 1
+			"OUTPUT1":
+				o[output_pin_offset] = [0, node]
+				output_pin_offset += 1
 	var ikeys = i.keys()
 	var okeys = o.keys()
 	ikeys.sort()

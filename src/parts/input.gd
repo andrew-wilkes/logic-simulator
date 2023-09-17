@@ -25,18 +25,6 @@ func set_text(v):
 	get_child(0).text = "0x%02X" % v
 
 
-var vs
-
-func _on_VSlider_value_changed(v):
-	vs = int(v)
-	set_text(vs)
-	$Timer.start()
-
-
-func _on_Timer_timeout():
-	set_value(vs)
-
-
 func set_data(d: Dictionary):
 	if has_node("Tag") and d.has("tag"):
 		data = d
