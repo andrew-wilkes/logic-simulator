@@ -1,7 +1,7 @@
 extends Part
 
 func _ready():
-	is_input = name == "INPUTPIN"
+	is_input = name.begins_with("INPUT")
 	data = { "tag": "" }
 
 

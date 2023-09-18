@@ -105,18 +105,18 @@ custom_constants/hseparation = 20
 columns = 3
 
 [node name="V1" type="VBoxContainer" parent="Gates/INPUT/Grid"]
-margin_right = 90.0
+margin_right = 104.0
 margin_bottom = 410.0
 
 [node name="INPUT4" type="GraphNode" parent="Gates/INPUT/Grid/V1"]
-margin_right = 90.0
+margin_right = 104.0
 margin_bottom = 163.0
 custom_constants/separation = 6
 custom_styles/frame = ExtResource( 23 )
 title = "INPUT 4"
 slot/0/left_enabled = false
-slot/0/left_type = 0
-slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/left_type = 1
+slot/0/left_color = Color( 1, 1, 0, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 1
 slot/0/right_color = Color( 1, 1, 0, 1 )
@@ -155,18 +155,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HexSpinBox" parent="Gates/INPUT/Grid/V1/INPUT4" instance=ExtResource( 68 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="H" type="HBoxContainer" parent="Gates/INPUT/Grid/V1/INPUT4"]
 margin_left = 16.0
 margin_top = 23.0
-margin_right = 74.0
+margin_right = 88.0
 margin_bottom = 47.0
+
+[node name="Value" parent="Gates/INPUT/Grid/V1/INPUT4/H" instance=ExtResource( 68 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 58.0
+margin_bottom = 24.0
+
+[node name="D" type="Label" parent="Gates/INPUT/Grid/V1/INPUT4/H"]
+margin_left = 62.0
+margin_top = 5.0
+margin_right = 72.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "D"
+align = 2
 
 [node name="D0" type="Label" parent="Gates/INPUT/Grid/V1/INPUT4"]
 margin_left = 16.0
 margin_top = 53.0
-margin_right = 74.0
+margin_right = 88.0
 margin_bottom = 67.0
 text = "D0"
 align = 2
@@ -175,7 +188,7 @@ valign = 1
 [node name="D1" type="Label" parent="Gates/INPUT/Grid/V1/INPUT4"]
 margin_left = 16.0
 margin_top = 73.0
-margin_right = 74.0
+margin_right = 88.0
 margin_bottom = 87.0
 text = "D1"
 align = 2
@@ -184,7 +197,7 @@ valign = 1
 [node name="D2" type="Label" parent="Gates/INPUT/Grid/V1/INPUT4"]
 margin_left = 16.0
 margin_top = 93.0
-margin_right = 74.0
+margin_right = 88.0
 margin_bottom = 107.0
 text = "D2"
 align = 2
@@ -193,7 +206,7 @@ valign = 1
 [node name="D3" type="Label" parent="Gates/INPUT/Grid/V1/INPUT4"]
 margin_left = 16.0
 margin_top = 113.0
-margin_right = 74.0
+margin_right = 88.0
 margin_bottom = 127.0
 text = "D3"
 align = 2
@@ -202,19 +215,19 @@ valign = 1
 [node name="Tag" type="LineEdit" parent="Gates/INPUT/Grid/V1/INPUT4"]
 margin_left = 16.0
 margin_top = 133.0
-margin_right = 74.0
+margin_right = 88.0
 margin_bottom = 157.0
 
 [node name="INPUT8" type="GraphNode" parent="Gates/INPUT/Grid/V1"]
 margin_top = 167.0
-margin_right = 90.0
+margin_right = 104.0
 margin_bottom = 410.0
 custom_constants/separation = 6
 custom_styles/frame = ExtResource( 23 )
 title = "INPUT 8"
 slot/0/left_enabled = false
-slot/0/left_type = 0
-slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/left_type = 2
+slot/0/left_color = Color( 1, 1, 0, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 1
 slot/0/right_color = Color( 1, 1, 0, 1 )
@@ -277,21 +290,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HexSpinBox" parent="Gates/INPUT/Grid/V1/INPUT8" instance=ExtResource( 68 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="H" type="HBoxContainer" parent="Gates/INPUT/Grid/V1/INPUT8"]
 margin_left = 16.0
 margin_top = 23.0
-margin_right = 74.0
+margin_right = 88.0
 margin_bottom = 47.0
+
+[node name="Value" parent="Gates/INPUT/Grid/V1/INPUT8/H" instance=ExtResource( 68 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 58.0
+margin_bottom = 24.0
 num_bits = 8
 length = 155
+
+[node name="D1" type="Label" parent="Gates/INPUT/Grid/V1/INPUT8/H"]
+margin_left = 62.0
+margin_top = 5.0
+margin_right = 72.0
+margin_bottom = 19.0
+text = "D"
+align = 2
+valign = 1
 
 [node name="D0" type="Label" parent="Gates/INPUT/Grid/V1/INPUT8"]
 margin_left = 16.0
 margin_top = 53.0
-margin_right = 74.0
+margin_right = 88.0
 margin_bottom = 67.0
+size_flags_horizontal = 3
 text = "D0"
 align = 2
 valign = 1
@@ -299,8 +326,9 @@ valign = 1
 [node name="D1" type="Label" parent="Gates/INPUT/Grid/V1/INPUT8"]
 margin_left = 16.0
 margin_top = 73.0
-margin_right = 74.0
+margin_right = 88.0
 margin_bottom = 87.0
+size_flags_horizontal = 3
 text = "D1"
 align = 2
 valign = 1
@@ -308,8 +336,9 @@ valign = 1
 [node name="D2" type="Label" parent="Gates/INPUT/Grid/V1/INPUT8"]
 margin_left = 16.0
 margin_top = 93.0
-margin_right = 74.0
+margin_right = 88.0
 margin_bottom = 107.0
+size_flags_horizontal = 3
 text = "D2"
 align = 2
 valign = 1
@@ -317,8 +346,9 @@ valign = 1
 [node name="D3" type="Label" parent="Gates/INPUT/Grid/V1/INPUT8"]
 margin_left = 16.0
 margin_top = 113.0
-margin_right = 74.0
+margin_right = 88.0
 margin_bottom = 127.0
+size_flags_horizontal = 3
 text = "D3"
 align = 2
 valign = 1
@@ -326,8 +356,9 @@ valign = 1
 [node name="D4" type="Label" parent="Gates/INPUT/Grid/V1/INPUT8"]
 margin_left = 16.0
 margin_top = 133.0
-margin_right = 74.0
+margin_right = 88.0
 margin_bottom = 147.0
+size_flags_horizontal = 3
 text = "D4"
 align = 2
 valign = 1
@@ -335,8 +366,9 @@ valign = 1
 [node name="D5" type="Label" parent="Gates/INPUT/Grid/V1/INPUT8"]
 margin_left = 16.0
 margin_top = 153.0
-margin_right = 74.0
+margin_right = 88.0
 margin_bottom = 167.0
+size_flags_horizontal = 3
 text = "D5"
 align = 2
 valign = 1
@@ -344,8 +376,9 @@ valign = 1
 [node name="D6" type="Label" parent="Gates/INPUT/Grid/V1/INPUT8"]
 margin_left = 16.0
 margin_top = 173.0
-margin_right = 74.0
+margin_right = 88.0
 margin_bottom = 187.0
+size_flags_horizontal = 3
 text = "D6"
 align = 2
 valign = 1
@@ -353,8 +386,9 @@ valign = 1
 [node name="D7" type="Label" parent="Gates/INPUT/Grid/V1/INPUT8"]
 margin_left = 16.0
 margin_top = 193.0
-margin_right = 74.0
+margin_right = 88.0
 margin_bottom = 207.0
+size_flags_horizontal = 3
 text = "D7"
 align = 2
 valign = 1
@@ -362,12 +396,12 @@ valign = 1
 [node name="Tag" type="LineEdit" parent="Gates/INPUT/Grid/V1/INPUT8"]
 margin_left = 16.0
 margin_top = 213.0
-margin_right = 74.0
+margin_right = 88.0
 margin_bottom = 237.0
 
 [node name="V2" type="VBoxContainer" parent="Gates/INPUT/Grid"]
-margin_left = 110.0
-margin_right = 221.0
+margin_left = 124.0
+margin_right = 235.0
 margin_bottom = 410.0
 
 [node name="INPUTSW" type="GraphNode" parent="Gates/INPUT/Grid/V2"]
@@ -543,8 +577,8 @@ valign = 1
 wait_time = 0.5
 
 [node name="V3" type="VBoxContainer" parent="Gates/INPUT/Grid"]
-margin_left = 241.0
-margin_right = 343.0
+margin_left = 255.0
+margin_right = 357.0
 margin_bottom = 410.0
 
 [node name="INPUTPIN" type="GraphNode" parent="Gates/INPUT/Grid/V3"]
@@ -929,13 +963,13 @@ texture = ExtResource( 11 )
 margin_left = 16.0
 margin_top = 23.0
 margin_right = 263.0
-margin_bottom = 309.0
+margin_bottom = 329.0
 custom_constants/hseparation = 20
 columns = 2
 
 [node name="V1" type="VBoxContainer" parent="Gates/OUTPUT/Grid"]
 margin_right = 112.0
-margin_bottom = 286.0
+margin_bottom = 306.0
 
 [node name="OUTPUT1" type="GraphNode" parent="Gates/OUTPUT/Grid/V1"]
 margin_right = 112.0
@@ -980,7 +1014,7 @@ margin_bottom = 72.0
 [node name="OUTPUT4" type="GraphNode" parent="Gates/OUTPUT/Grid/V1"]
 margin_top = 82.0
 margin_right = 112.0
-margin_bottom = 226.0
+margin_bottom = 246.0
 custom_constants/separation = 6
 custom_styles/frame = ExtResource( 23 )
 title = "OUTPUT 4"
@@ -991,11 +1025,11 @@ slot/0/right_enabled = false
 slot/0/right_type = 1
 slot/0/right_color = Color( 1, 1, 0, 1 )
 slot/1/left_enabled = true
-slot/1/left_type = 0
-slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/left_type = 1
+slot/1/left_color = Color( 1, 1, 0, 1 )
 slot/1/right_enabled = false
-slot/1/right_type = 0
-slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/1/right_type = 1
+slot/1/right_color = Color( 1, 1, 0, 1 )
 slot/2/left_enabled = true
 slot/2/left_type = 0
 slot/2/left_color = Color( 1, 1, 1, 1 )
@@ -1014,12 +1048,18 @@ slot/4/left_color = Color( 1, 1, 1, 1 )
 slot/4/right_enabled = false
 slot/4/right_type = 0
 slot/4/right_color = Color( 1, 1, 1, 1 )
-slot/5/left_enabled = false
+slot/5/left_enabled = true
 slot/5/left_type = 0
 slot/5/left_color = Color( 1, 1, 1, 1 )
 slot/5/right_enabled = false
 slot/5/right_type = 0
 slot/5/right_color = Color( 1, 1, 1, 1 )
+slot/6/left_enabled = false
+slot/6/left_type = 0
+slot/6/left_color = Color( 1, 1, 1, 1 )
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 67 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1038,55 +1078,63 @@ margin_top = 34.0
 margin_right = 96.0
 margin_bottom = 48.0
 
-[node name="D0" type="Label" parent="Gates/OUTPUT/Grid/V1/OUTPUT4/H"]
-margin_right = 18.0
+[node name="D" type="Label" parent="Gates/OUTPUT/Grid/V1/OUTPUT4/H"]
+margin_right = 10.0
 margin_bottom = 14.0
-text = "D0"
+text = "D"
 valign = 1
 
-[node name="V" type="Label" parent="Gates/OUTPUT/Grid/V1/OUTPUT4/H"]
-margin_left = 22.0
+[node name="Value" type="Label" parent="Gates/OUTPUT/Grid/V1/OUTPUT4/H"]
+margin_left = 14.0
 margin_right = 80.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
 text = "0X00"
-align = 2
+align = 1
 valign = 1
 
-[node name="D1" type="Label" parent="Gates/OUTPUT/Grid/V1/OUTPUT4"]
+[node name="D4" type="Label" parent="Gates/OUTPUT/Grid/V1/OUTPUT4"]
 margin_left = 16.0
 margin_top = 54.0
 margin_right = 96.0
 margin_bottom = 68.0
-text = "D1"
+text = "D0"
 valign = 1
 
-[node name="D2" type="Label" parent="Gates/OUTPUT/Grid/V1/OUTPUT4"]
+[node name="D5" type="Label" parent="Gates/OUTPUT/Grid/V1/OUTPUT4"]
 margin_left = 16.0
 margin_top = 74.0
 margin_right = 96.0
 margin_bottom = 88.0
-text = "D2"
+text = "D1"
 valign = 1
 
-[node name="D3" type="Label" parent="Gates/OUTPUT/Grid/V1/OUTPUT4"]
+[node name="D6" type="Label" parent="Gates/OUTPUT/Grid/V1/OUTPUT4"]
 margin_left = 16.0
 margin_top = 94.0
 margin_right = 96.0
 margin_bottom = 108.0
+text = "D2"
+valign = 1
+
+[node name="D7" type="Label" parent="Gates/OUTPUT/Grid/V1/OUTPUT4"]
+margin_left = 16.0
+margin_top = 114.0
+margin_right = 96.0
+margin_bottom = 128.0
 text = "D3"
 valign = 1
 
 [node name="Tag" type="LineEdit" parent="Gates/OUTPUT/Grid/V1/OUTPUT4"]
 margin_left = 16.0
-margin_top = 114.0
+margin_top = 134.0
 margin_right = 96.0
-margin_bottom = 138.0
+margin_bottom = 158.0
 
 [node name="OUTPUTPIN" type="GraphNode" parent="Gates/OUTPUT/Grid/V1"]
-margin_top = 230.0
+margin_top = 250.0
 margin_right = 112.0
-margin_bottom = 286.0
+margin_bottom = 306.0
 mouse_filter = 1
 custom_styles/frame = ExtResource( 23 )
 title = "OUTPUT PIN"
@@ -1126,26 +1174,26 @@ text = "Q"
 [node name="V2" type="VBoxContainer" parent="Gates/OUTPUT/Grid"]
 margin_left = 132.0
 margin_right = 247.0
-margin_bottom = 286.0
+margin_bottom = 306.0
 
 [node name="OUTPUT8" type="GraphNode" parent="Gates/OUTPUT/Grid/V2"]
 margin_right = 115.0
-margin_bottom = 224.0
+margin_bottom = 244.0
 custom_constants/separation = 6
 custom_styles/frame = ExtResource( 23 )
 title = "OUTPUT 8"
 slot/0/left_enabled = false
-slot/0/left_type = 0
-slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/left_type = 1
+slot/0/left_color = Color( 1, 1, 0, 1 )
 slot/0/right_enabled = false
 slot/0/right_type = 1
 slot/0/right_color = Color( 1, 1, 0, 1 )
 slot/1/left_enabled = true
-slot/1/left_type = 0
-slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/left_type = 1
+slot/1/left_color = Color( 1, 1, 0, 1 )
 slot/1/right_enabled = false
-slot/1/right_type = 0
-slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/1/right_type = 1
+slot/1/right_color = Color( 1, 1, 0, 1 )
 slot/2/left_enabled = true
 slot/2/left_type = 0
 slot/2/left_color = Color( 1, 1, 1, 1 )
@@ -1188,12 +1236,18 @@ slot/8/left_color = Color( 1, 1, 1, 1 )
 slot/8/right_enabled = false
 slot/8/right_type = 0
 slot/8/right_color = Color( 1, 1, 1, 1 )
-slot/9/left_enabled = false
+slot/9/left_enabled = true
 slot/9/left_type = 0
 slot/9/left_color = Color( 1, 1, 1, 1 )
 slot/9/right_enabled = false
 slot/9/right_type = 0
 slot/9/right_color = Color( 1, 1, 1, 1 )
+slot/10/left_enabled = false
+slot/10/left_type = 0
+slot/10/left_color = Color( 1, 1, 1, 1 )
+slot/10/right_enabled = false
+slot/10/right_type = 0
+slot/10/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 67 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1212,87 +1266,103 @@ margin_top = 34.0
 margin_right = 99.0
 margin_bottom = 48.0
 
-[node name="D0" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8/H"]
-margin_right = 18.0
+[node name="D" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8/H"]
+margin_right = 10.0
 margin_bottom = 14.0
-text = "D0"
+text = "D"
 valign = 1
 
-[node name="V" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8/H"]
-margin_left = 22.0
+[node name="Value" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8/H"]
+margin_left = 14.0
 margin_right = 83.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
 text = "0X00"
-align = 2
+align = 1
 valign = 1
 
-[node name="D1" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
+[node name="DL2" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
 margin_left = 16.0
 margin_top = 54.0
 margin_right = 99.0
 margin_bottom = 68.0
-text = "D1"
+size_flags_horizontal = 3
+text = "D0"
 valign = 1
 
-[node name="D2" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
+[node name="DL3" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
 margin_left = 16.0
 margin_top = 74.0
 margin_right = 99.0
 margin_bottom = 88.0
-text = "D2"
+size_flags_horizontal = 3
+text = "D1"
 valign = 1
 
-[node name="D3" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
+[node name="DL4" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
 margin_left = 16.0
 margin_top = 94.0
 margin_right = 99.0
 margin_bottom = 108.0
-text = "D3"
+size_flags_horizontal = 3
+text = "D2"
 valign = 1
 
-[node name="D4" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
+[node name="DL5" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
 margin_left = 16.0
 margin_top = 114.0
 margin_right = 99.0
 margin_bottom = 128.0
-text = "D4"
+size_flags_horizontal = 3
+text = "D3"
 valign = 1
 
-[node name="D5" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
+[node name="DL6" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
 margin_left = 16.0
 margin_top = 134.0
 margin_right = 99.0
 margin_bottom = 148.0
-text = "D5"
+size_flags_horizontal = 3
+text = "D4"
 valign = 1
 
-[node name="D6" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
+[node name="DL7" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
 margin_left = 16.0
 margin_top = 154.0
 margin_right = 99.0
 margin_bottom = 168.0
-text = "D6"
+size_flags_horizontal = 3
+text = "D5"
 valign = 1
 
-[node name="D7" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
+[node name="DL8" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
 margin_left = 16.0
 margin_top = 174.0
 margin_right = 99.0
 margin_bottom = 188.0
+size_flags_horizontal = 3
+text = "D6"
+valign = 1
+
+[node name="DL9" type="Label" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
+margin_left = 16.0
+margin_top = 194.0
+margin_right = 99.0
+margin_bottom = 208.0
+size_flags_horizontal = 3
 text = "D7"
 valign = 1
 
 [node name="Tag" type="LineEdit" parent="Gates/OUTPUT/Grid/V2/OUTPUT8"]
 margin_left = 16.0
-margin_top = 194.0
+margin_top = 214.0
 margin_right = 99.0
-margin_bottom = 218.0
+margin_bottom = 238.0
 
 [node name="OUTPUTBUS" type="GraphNode" parent="Gates/OUTPUT/Grid/V2"]
-margin_top = 228.0
+margin_top = 248.0
 margin_right = 115.0
-margin_bottom = 284.0
+margin_bottom = 304.0
 mouse_filter = 1
 custom_styles/frame = ExtResource( 23 )
 title = "OUTPUT BUS"
@@ -2306,9 +2376,6 @@ slot/3/right_enabled = true
 slot/3/right_type = 0
 slot/3/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 15 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Sprite" type="Sprite" parent="Combinational/DECODER"]
 visible = false
@@ -3385,8 +3452,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="value_changed" from="Gates/INPUT/Grid/V1/INPUT4/HexSpinBox" to="Gates/INPUT/Grid/V1/INPUT4" method="set_value"]
-[connection signal="value_changed" from="Gates/INPUT/Grid/V1/INPUT8/HexSpinBox" to="Gates/INPUT/Grid/V1/INPUT8" method="set_value"]
+[connection signal="value_changed" from="Gates/INPUT/Grid/V1/INPUT4/H/Value" to="Gates/INPUT/Grid/V1/INPUT4" method="set_value"]
+[connection signal="value_changed" from="Gates/INPUT/Grid/V1/INPUT8/H/Value" to="Gates/INPUT/Grid/V1/INPUT8" method="set_value"]
 [connection signal="pressed" from="Gates/INPUT/Grid/V2/INPUTCLK/Start" to="Gates/INPUT/Grid/V2/INPUTCLK" method="_on_Start_pressed"]
 [connection signal="button_down" from="Gates/INPUT/Grid/V2/INPUTCLK/Reset" to="Gates/INPUT/Grid/V2/INPUTCLK" method="_on_Reset_button_down"]
 [connection signal="button_up" from="Gates/INPUT/Grid/V2/INPUTCLK/Reset" to="Gates/INPUT/Grid/V2/INPUTCLK" method="_on_Reset_button_up"]

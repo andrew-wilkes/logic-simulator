@@ -20,19 +20,20 @@ func setup():
 	if Data.trace: Logger.clear()
 
 
+# A block may have multiple busses so we need to handle port numbers
 func set_value(v: int, _reverse, port = 0):
 	if Data.trace: Logger.add(["set_value", name, v, port])
 	var node = external_inputs[port][1]
-	update_internal_bus(node, v, 0)
+	update_internal_bus(node, v, node.data.ports.find(port))
 
 
 func update_internal_bus(node, value, port):
 	if Data.trace: Logger.add(["update_internal_bus", node.name, value, port])
 	for con in circuit.connections:
 		if con.from == node.name and con.from_port == port:
-			if nodes[con.to].node.type == "OUTPUTBUS":
+			if nodes[con.to].node.type in ["OUTPUTBUS", "OUTPUT4", "OUTPUT8"]:
 				if Data.trace: Logger.add(["bus_changed", nodes[con.to].node.name, value, nodes[con.to].node.data.port])
-				emit_signal("bus_changed", self, value, false, nodes[con.to].node.data.port)
+				emit_signal("bus_changed", self, value, false, nodes[con.to].node.data.ports[port])
 			else:
 				set_internal_value(con.to, value, con.to_port)
 
@@ -147,12 +148,14 @@ func reset():
 			n.inputs[idx].count = 0
 
 
+# An input to the block wants the input part to update it's output
+# (which is internal to the block)
 func update_output(level: bool, port: int, _reverse: bool):
 	if Data.trace: Logger.add(["update_output", name, level, port])
 	var node = external_inputs[port][1]
 	# External port is pin of block
-	# Internal pin output is port 0
-	apply_internal_inputs(node, level, 0)
+	# Internal pin output is mapped in node.data.ports
+	apply_internal_inputs(node, level, node.data.ports.find(port))
 
 
 func update_internal_output(node, level: bool, port: int):
@@ -183,10 +186,9 @@ func apply_internal_input(node, level, port):
 	pin.last_level = pin.level
 	pin.level = level
 	pin.untouched = false
-	port = 0
 	match node.node.type:
-		"OUTPUTPIN":
-			set_output(level, node.node.data.port)
+		"OUTPUTPIN", "OUTPUT4", "OUTPUT8":
+			set_output(level, node.node.data.ports[port])
 			return
 		"NOT":
 			level = not level
@@ -374,6 +376,7 @@ func add_pins(circ: Circuit, add_slots):
 	var input_pin_offset = 1000000
 	var output_pin_offset = input_pin_offset
 	for node in circ.nodes:
+		node["data"]["ports"] = []
 		match node.type:
 			"INPUTPIN":
 				i[node.offset.y] = [0, node]
@@ -389,7 +392,7 @@ func add_pins(circ: Circuit, add_slots):
 				i[input_pin_offset] = [1, node] # Add bus
 				input_pin_offset += 1
 				for n in 4:
-					i[input_pin_offset] = [0, node] # how is this used?
+					i[input_pin_offset] = [0, node]
 					input_pin_offset += 1
 			"OUTPUT4":
 				o[output_pin_offset] = [1, node] # Add bus
@@ -401,7 +404,7 @@ func add_pins(circ: Circuit, add_slots):
 				i[input_pin_offset] = [1, node] # Add bus
 				input_pin_offset += 1
 				for n in 8:
-					i[input_pin_offset] = [0, node] # how is this used?
+					i[input_pin_offset] = [0, node]
 					input_pin_offset += 1
 			"OUTPUT8":
 				o[output_pin_offset] = [1, node] # Add bus
@@ -412,20 +415,22 @@ func add_pins(circ: Circuit, add_slots):
 			"OUTPUT1":
 				o[output_pin_offset] = [0, node]
 				output_pin_offset += 1
+			_:
+				node["data"].erase("ports")
 	var ikeys = i.keys()
 	var okeys = o.keys()
 	ikeys.sort()
 	okeys.sort()
 	var port = 0
 	for key in ikeys:
-		i[key][1].data["port"] = port
+		i[key][1].data.ports.append(port)
 		external_inputs.append(i[key])
 		if add_slots:
 			add_slot()
 		port += 1
 	port = 0
 	for key in okeys:
-		o[key][1].data["port"] = port
+		o[key][1].data.ports.append(port)
 		external_outputs.append(o[key])
 		if add_slots:
 			add_slot()

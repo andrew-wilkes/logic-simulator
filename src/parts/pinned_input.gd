@@ -1,7 +1,5 @@
 extends Part
 
-var last_value = 0
-
 func set_value(v: int, reverse = false, port := 0):
 	if port > 0:
 		v = get_value_from_inputs(reverse)
