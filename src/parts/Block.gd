@@ -379,41 +379,41 @@ func add_pins(circ: Circuit, add_slots):
 		node["data"]["ports"] = []
 		match node.type:
 			"INPUTPIN":
-				i[node.offset.y] = [0, node]
+				i[node.offset.y] = [0, node, node.data.tag]
 			"INPUTBUS":
-				i[node.offset.y] = [1, node]
+				i[node.offset.y] = [1, node, node.data.tag]
 			"OUTPUTPIN":
-				o[node.offset.y] = [0, node]
+				o[node.offset.y] = [0, node, node.data.tag]
 			"OUTPUTBUS":
-				o[node.offset.y] = [1, node]
+				o[node.offset.y] = [1, node, node.data.tag]
 			"BLOCK":
 				ok = load_block_circuit(node)
 			"INPUT4":
-				i[input_pin_offset] = [1, node] # Add bus
+				i[input_pin_offset] = [1, node, node.data.tag + "D"] # Add bus
 				input_pin_offset += 1
 				for n in 4:
-					i[input_pin_offset] = [0, node]
+					i[input_pin_offset] = [0, node, node.data.tag + "D" + str(n)]
 					input_pin_offset += 1
 			"OUTPUT4":
-				o[output_pin_offset] = [1, node] # Add bus
+				o[output_pin_offset] = [1, node, node.data.tag + "D"] # Add bus
 				output_pin_offset += 1
 				for n in 4:
-					o[output_pin_offset] = [0, node]
+					o[output_pin_offset] = [0, node, node.data.tag + "D" + str(n)]
 					output_pin_offset += 1
 			"INPUT8":
-				i[input_pin_offset] = [1, node] # Add bus
+				i[input_pin_offset] = [1, node, node.data.tag + "D"] # Add bus
 				input_pin_offset += 1
 				for n in 8:
-					i[input_pin_offset] = [0, node]
+					i[input_pin_offset] = [0, node, node.data.tag + "D" + str(n)]
 					input_pin_offset += 1
 			"OUTPUT8":
-				o[output_pin_offset] = [1, node] # Add bus
+				o[output_pin_offset] = [1, node, node.data.tag + "D"] # Add bus
 				output_pin_offset += 1
 				for n in 8:
-					o[output_pin_offset] = [0, node]
+					o[output_pin_offset] = [0, node, node.data.tag + "D" + str(n)]
 					output_pin_offset += 1
 			"OUTPUT1":
-				o[output_pin_offset] = [0, node]
+				o[output_pin_offset] = [0, node, node.data.tag]
 				output_pin_offset += 1
 			_:
 				node["data"].erase("ports")
@@ -488,7 +488,7 @@ func configure_slots():
 				col_left = Color.white
 			else:
 				col_left = Color.yellow
-			get_child(idx).get_child(0).text = external_inputs[idx][1].data.tag
+			get_child(idx).get_child(0).text = external_inputs[idx][2]
 		else:
 			enable_left = false
 		if idx < external_outputs.size():
@@ -498,7 +498,7 @@ func configure_slots():
 				col_right = Color.white
 			else:
 				col_right = Color.yellow
-			get_child(idx).get_child(2).text = external_outputs[idx][1].data.tag
+			get_child(idx).get_child(2).text = external_outputs[idx][2]
 		else:
 			enable_right = false
 		set_slot(idx, enable_left, type_left, col_left, enable_right, type_right, col_right)
